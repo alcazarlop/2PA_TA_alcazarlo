@@ -40,7 +40,7 @@ void GameController::input(SDL_Event* e){
 			case SDL_KEYDOWN: 
 				switch(e->key.keysym.sym){
 					case SDLK_ESCAPE: isRunning_ = 0; break;
-					case SDLK_F2: openImgui_ = !openImgui_; break;
+					case SDLK_F12: openImgui_ = !openImgui_; break;
 				}
 			break;
 		}

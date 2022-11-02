@@ -2,11 +2,11 @@
 @cls
 del *.obj *.pdb *.ilk *.exe
 
-cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\nfd\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sqlite\include\ /c ..\src\window_controller.cc
-cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\nfd\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sqlite\include\ /c ..\src\imgui_controller.cc
 cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\nfd\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sqlite\include\ /c ..\src\sql_controller.cc
+cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\nfd\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sqlite\include\ /c ..\src\imgui_controller.cc
+cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\nfd\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sqlite\include\ /c ..\src\window_controller.cc
 cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\nfd\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sqlite\include\ /c ..\src\game_controller.cc
-cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\nfd\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sqlite\include\ /c ..\src\info_controller.cc
+cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\nfd\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sqlite\include\ /c ..\src\table_controller.cc
 cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\nfd\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sqlite\include\ /c ..\src\main.cc
 
 cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\nfd\include -I ..\deps\sdl2\include -I ..\deps\imgui\ /c ..\deps\imgui\imgui.cpp

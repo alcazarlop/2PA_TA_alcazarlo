@@ -4,9 +4,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <vector>
+#include <string.h>
 #include "sqlite3.h"
-#include "info_controller.h"
+#include "table_controller.h"
 
 const unsigned int kStringSize = 256;
 
@@ -20,27 +20,14 @@ class SQLController {
  	void open(const char* path);
  	void close();
 
- 	struct Info {
-		std::vector<char*> colname_;
-		std::vector<char*> value_;
- 	};
-
- 	struct Table {
- 		char* value_;
- 		char* colname_;
- 		unsigned int size_;
- 	};
-
-	Info tables_;
-	Info* table_info_;
-	Table test_;
-
  	void execute_read(const char* query, void* data_t, int (*sqlite3_callback)(void*,int,char**, char**));
  	void execute_write(const char* query);
+
  	void set_query(const char* query);
  	const char* path() const;
 
- 	void execute(const char* query, TInfo** list_t);
+ 	Table tables_;
+ 	Table* table_info_;
 
 private:
 	sqlite3* database_;

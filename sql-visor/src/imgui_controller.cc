@@ -35,19 +35,20 @@ void ImGuiSQLVisor(SQLController* sc){
     ImGui::EndMainMenuBar();
   }
   if(open){
-    ImGui::Begin("SQL Database", nullptr);
-    for(unsigned int tab = 0; tab < sc->test_.size_; ++tab){
-      if(ImGui::CollapsingHeader(sc->test_.value_)){
-       // SQLTableLayout(&sc->table_info_[tab], sc->tables_.value_[tab]);
+	 ImGui::Begin("SQL Database", nullptr);
+    for(int i = 0; i < sc->tables_.cols_; ++i){
+      if(ImGui::CollapsingHeader(sc->tables_.value_[i])){
+        SQLTableLayout(&sc->table_info_[i], sc->tables_.value_[i]);
       }
     }
-    ImGui::End();
+	 ImGui::End();
   }
+
   if(query) QueryPrompt(sc, query);
 }
 
-void SQLTableLayout(SQLController::Info* table, const char* id){
-
+void SQLTableLayout(Table* table, const char* id){
+  int padding = 0;
   static ImGuiTableFlags flags = ImGuiTableFlags_ScrollY 
                                  | ImGuiTableFlags_RowBg 
                                  | ImGuiTableFlags_BordersOuter 
@@ -55,25 +56,24 @@ void SQLTableLayout(SQLController::Info* table, const char* id){
                                  | ImGuiTableFlags_Resizable 
                                  | ImGuiTableFlags_Reorderable 
                                  | ImGuiTableFlags_Hideable;
-  static int padding = 0;
-  if(table->colname_.size() > 0){
-    if(ImGui::BeginTable(id, table->colname_.size(), flags)){
-      for(unsigned int rows = 0; rows < table->colname_.size(); ++rows){
-        ImGui::TableSetupColumn(table->colname_[rows]);
+  if(table->cols_ > 0){
+    if(ImGui::BeginTable(id, table->cols_, flags)){
+      for(int col = 0; col < table->cols_; ++col){
+        ImGui::TableSetupColumn(table->colname_[col]);
       }
       ImGui::TableHeadersRow();
-      for(unsigned int cols = 0; cols < table->value_.size(); ++cols){
+      for(int rows = 0; rows < table->index_; ++rows){
         ImGui::TableNextColumn();
-        ImGui::Text(table->value_[cols]);
+        ImGui::Text(table->value_[rows]);
         padding++;
-        if(padding % table->colname_.size() == 0 && cols != 0){
-          padding = 0;
+        if((padding % table->cols_) == 0 && padding != 0){
           ImGui::TableNextRow();
         }
       }
       ImGui::EndTable();
     }
   }
+
 }
 
 void QueryPrompt(SQLController* sc, bool& q){
