@@ -4,6 +4,10 @@
 void ImGuiSQLVisor(SQLController* sc){
   static bool open = false;
   static bool query = false;
+  static bool close = true;
+
+  char buffer[kStringSize] = {'\0'};
+  static char name[kStringSize] = {'\0'};
 
   if(ImGui::BeginMainMenuBar()){
     if(ImGui::BeginMenu("File")){
@@ -15,7 +19,7 @@ void ImGuiSQLVisor(SQLController* sc){
             sc->close();
           }
           sc->init(outPath);
-          sc->set_query(outPath);
+          sc->set_path(outPath);
           free(outPath);
           open = true;
         }
@@ -23,25 +27,38 @@ void ImGuiSQLVisor(SQLController* sc){
           printf("Error: %s\n", NFD_GetError());
         }
       }
-      if(ImGui::MenuItem("Close database", nullptr, false, open)){
+      if(ImGui::MenuItem("Close database", NULL, false, open)){
         sc->close();
         open = false;
       }
       ImGui::EndMenu();
     }
-    if(ImGui::MenuItem("Query", nullptr, false, open)){
+    if(ImGui::MenuItem("Query", NULL, false, open)){
       query = true;
     }
     ImGui::EndMainMenuBar();
   }
   if(open){
-	 ImGui::Begin("SQL Database", nullptr);
+	 ImGui::Begin("SQL Database", NULL);
+    if(ImGui::Button("Create")){
+      CreateTable(sc, name);
+      memset(name, '\0', kStringSize);
+    }
+    ImGui::SameLine();
+    ImGui::InputTextMultiline("", name, (kStringSize >> 1), ImVec2(ImGui::GetWindowWidth(), 20.0f));
+    ImGui::Separator(); 
     for(int i = 0; i < sc->tables_.cols_; ++i){
+      sprintf(buffer, "Delete##%d", i);
+      if(ImGui::Button(buffer)){
+        DeleteTable(sc, sc->tables_.value_[i]);
+        break;
+      }
+      ImGui::SameLine();
       if(ImGui::CollapsingHeader(sc->tables_.value_[i])){
         SQLTableLayout(&sc->table_info_[i], sc->tables_.value_[i]);
       }
     }
-	 ImGui::End();
+    ImGui::End();
   }
 
   if(query) QueryPrompt(sc, query);
@@ -107,4 +124,20 @@ void HelpMarker(const char* name, const char* desc){
     ImGui::PopTextWrapPos();
     ImGui::EndTooltip();
   }
+}
+
+void DeleteTable(SQLController* sc, const char* table){
+  char buffer[kStringSize] = {'\0'};
+  sprintf(buffer, "DROP TABLE %s", table);
+  sc->execute_write(buffer);
+  sc->close();
+  sc->init(sc->path());
+}
+
+void CreateTable(SQLController* sc, const char* name){
+  char buffer[kStringSize] = {'\0'};
+  sprintf(buffer, "CREATE TABLE %s (id)",name);
+  sc->execute_write(buffer);
+  sc->close();
+  sc->init(sc->path());
 }

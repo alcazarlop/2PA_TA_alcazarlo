@@ -4,7 +4,6 @@
 SQLController::SQLController(){
 	database_ = NULL;
 	rc_ = 0;
-	sql_query_ = (char*)calloc(kStringSize, sizeof(char));
 	err_msg_ = (char*)calloc(kStringSize, sizeof(char));
 	path_ = (char*)calloc(kStringSize, sizeof(char));
 }
@@ -12,20 +11,18 @@ SQLController::SQLController(){
 SQLController::SQLController(const SQLController& other){
 	database_ = other.database_;
 	rc_ = other.rc_;
-	memcpy(sql_query_, other.sql_query_, kStringSize);
 	memcpy(err_msg_, other.err_msg_, kStringSize);
 	memcpy(path_, other.path_, kStringSize);
 }
 
 SQLController::~SQLController(){
-	free(sql_query_);
 	free(err_msg_);
 	free(path_);
 	close();
 }
 
 void SQLController::init(const char* path){
-	char buffer[64] = {'\0'};
+	char buffer[kStringSize] = {'\0'};
 
 	rc_ = sqlite3_open(path, &database_);
 	if(rc_ != SQLITE_OK) {
@@ -86,8 +83,8 @@ void SQLController::execute_read(const char* query, void* data_t, int (*sqlite3_
 }
 
 void SQLController::execute_write(const char* query){
-	sql_query_ = sqlite3_mprintf("%s", query);
-	rc_ = sqlite3_exec(database_, sql_query_, NULL, NULL, &err_msg_);
+	query = sqlite3_mprintf("%s", query);
+	rc_ = sqlite3_exec(database_, query, NULL, NULL, &err_msg_);
 	if (rc_ != SQLITE_OK ) {
 		fprintf(stderr, "Failed to select data\n");
 		fprintf(stderr, "SQL error: %s\n", err_msg_);
@@ -95,8 +92,8 @@ void SQLController::execute_write(const char* query){
 	}
 }
 
-void SQLController::set_query(const char* query){
-	memcpy(path_, query, kStringSize);
+void SQLController::set_path(const char* path){
+	memcpy(path_, path, kStringSize);
 }
 
 const char* SQLController::path() const {

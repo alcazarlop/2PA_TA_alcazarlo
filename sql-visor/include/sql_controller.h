@@ -23,7 +23,7 @@ class SQLController {
  	void execute_read(const char* query, void* data_t, int (*sqlite3_callback)(void*,int,char**, char**));
  	void execute_write(const char* query);
 
- 	void set_query(const char* query);
+ 	void set_path(const char* path);
  	const char* path() const;
 
  	Table tables_;
@@ -33,7 +33,6 @@ private:
 	sqlite3* database_;
 	int rc_;
 	char* err_msg_;
-	char* sql_query_;
 	char* path_;
 
 };
