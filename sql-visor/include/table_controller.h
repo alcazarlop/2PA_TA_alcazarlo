@@ -9,6 +9,7 @@
 struct Table {
 	char** value_;
 	char** colname_;
+	bool* is_selected_;
 	int rows_, cols_, index_;
 };
 

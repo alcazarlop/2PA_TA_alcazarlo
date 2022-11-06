@@ -4,6 +4,7 @@
 void InitTable(Table* table){
   table->value_ = NULL;
   table->colname_ = NULL;
+  table->is_selected_ = NULL;
   table->rows_ = 0;
   table->cols_ = 0;
   table->index_ = 0;
@@ -38,6 +39,7 @@ int read_tables_callback(void* notused, int argc, char** argv, char** azcolname)
       out->value_[out->index_] = (char*)calloc(4, sizeof(char));
       memcpy(out->value_[out->index_], "NULL\0", 4);
     }
+    out->is_selected_[out->index_] = false;
     out->index_++;
   }
   return 0;

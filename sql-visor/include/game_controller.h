@@ -28,9 +28,9 @@ public:
 
 private:
 	int isRunning_;
-	WindowController window_;
-	SQLController db_;
 	bool openImgui_;
+	SQLController db_;
+	WindowController window_;
 
 };
 

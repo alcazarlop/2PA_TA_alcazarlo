@@ -60,7 +60,7 @@ void GameController::render(){
   SDL_SetRenderDrawColor(window_.renderer(), 0x0, 0x0, 0x0, 0xFF);
   SDL_RenderClear(window_.renderer());
 
-	ImGuiSQLVisor(&db_);
+	ImGuiSQLVisor(db_);
 	if(openImgui_) ImGui::ShowDemoWindow();
 
   ImGui::Render();

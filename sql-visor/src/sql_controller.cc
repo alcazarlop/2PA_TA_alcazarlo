@@ -6,6 +6,8 @@ SQLController::SQLController(){
 	rc_ = 0;
 	err_msg_ = (char*)calloc(kStringSize, sizeof(char));
 	path_ = (char*)calloc(kStringSize, sizeof(char));
+	memset(err_msg_, '\0', kStringSize);
+	memset(path_, '\0', kStringSize);
 }
 
 SQLController::SQLController(const SQLController& other){
@@ -35,6 +37,7 @@ void SQLController::init(const char* path){
 	execute_read("SELECT COUNT (*) FROM sqlite_master WHERE type ='table'", &tables_, get_columns_callback);
 	tables_.colname_ = (char**)calloc(tables_.cols_, sizeof(char*));
 	tables_.value_ = (char**)calloc(tables_.cols_, sizeof(char*));
+	tables_.is_selected_ = (bool*)calloc(tables_.cols_, sizeof(bool));
 	execute_read("SELECT name FROM sqlite_master WHERE type ='table'", &tables_, read_tables_callback);
 
 	//Read Tables Info
@@ -48,6 +51,7 @@ void SQLController::init(const char* path){
 
 		table_info_[i].value_ = (char**)calloc((table_info_[i].cols_ * table_info_[i].rows_), sizeof(char*));
 		table_info_[i].colname_ = (char**)calloc(table_info_[i].cols_, sizeof(char*));
+		table_info_[i].is_selected_ = (bool*)calloc(table_info_[i].cols_ * table_info_[i].rows_, sizeof(bool));
 
 		sprintf(buffer, "SELECT * FROM %s", tables_.value_[i]);
 		execute_read(buffer, &table_info_[i], read_tables_callback);
