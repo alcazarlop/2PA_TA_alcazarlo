@@ -29,7 +29,7 @@ class SQLController {
  	Table tables_;
  	Table* table_info_;
 
-private:
+ private:
 	sqlite3* database_;
 	int rc_;
 	char* err_msg_;

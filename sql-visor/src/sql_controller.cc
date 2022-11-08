@@ -6,6 +6,8 @@ SQLController::SQLController(){
 	rc_ = 0;
 	err_msg_ = (char*)calloc(kStringSize, sizeof(char));
 	path_ = (char*)calloc(kStringSize, sizeof(char));
+	memset(err_msg_, '\0', kStringSize);
+	memset(path_, '\0', kStringSize);
 }
 
 SQLController::SQLController(const SQLController& other){
@@ -51,8 +53,17 @@ void SQLController::init(const char* path){
 
 		sprintf(buffer, "SELECT * FROM %s", tables_.value_[i]);
 		execute_read(buffer, &table_info_[i], read_tables_callback);
-	}
 
+		table_info_[i].datatype_ = (char**)calloc(table_info_[i].cols_, sizeof(char*));
+		for(int k = 0; k < table_info_[i].cols_; ++k){
+			sprintf(buffer, "SELECT typeof(%s) FROM %s", table_info_[i].colname_[k] ,tables_.value_[i]);
+			execute_read(buffer, &table_info_[i], get_datatype_callback);
+			// printf("%s %s\n", table_info_[i].colname_[k], table_info_[i].datatype_[k]);
+		}
+
+		table_info_[i].name_ = (char*)calloc((strlen(tables_.value_[i]) + 1), sizeof(char));
+		memcpy(table_info_[i].name_, tables_.value_[i], (strlen(tables_.value_[i]) + 1));
+	}
 }
 
 void SQLController::open(const char* path){
@@ -83,13 +94,12 @@ void SQLController::execute_read(const char* query, void* data_t, int (*sqlite3_
 }
 
 void SQLController::execute_write(const char* query){
-	query = sqlite3_mprintf("%s", query);
 	rc_ = sqlite3_exec(database_, query, NULL, NULL, &err_msg_);
 	if (rc_ != SQLITE_OK ) {
 		fprintf(stderr, "Failed to select data\n");
 		fprintf(stderr, "SQL error: %s\n", err_msg_);
 		sqlite3_free(err_msg_);
-	}
+	} 
 }
 
 void SQLController::set_path(const char* path){

@@ -1,13 +1,12 @@
 
 #include "imgui_controller.h"
 
-void ImGuiSQLVisor(SQLController* sc){
+void ImGuiSQLVisor(SQLController& sc){
   static bool open = false;
-  static bool query = false;
   static bool close = true;
 
-  char buffer[kStringSize] = {'\0'};
-  static char name[kStringSize] = {'\0'};
+  char delete_id[kStringSize] = {'\0'};
+  static char table_name[kStringSize] = {'\0'};
 
   if(ImGui::BeginMainMenuBar()){
     if(ImGui::BeginMenu("File")){
@@ -16,10 +15,10 @@ void ImGuiSQLVisor(SQLController* sc){
         nfdresult_t result = NFD_OpenDialog("db", NULL, &outPath);
         if ( result == NFD_OKAY ) {
           if(open){
-            sc->close();
+            sc.close();
           }
-          sc->init(outPath);
-          sc->set_path(outPath);
+          sc.init(outPath);
+          sc.set_path(outPath);
           free(outPath);
           open = true;
         }
@@ -27,45 +26,45 @@ void ImGuiSQLVisor(SQLController* sc){
           printf("Error: %s\n", NFD_GetError());
         }
       }
-      if(ImGui::MenuItem("Close database", NULL, false, open)){
-        sc->close();
+      if(ImGui::MenuItem("Close database", nullptr, false, open)){
+        sc.close();
         open = false;
       }
       ImGui::EndMenu();
     }
-    if(ImGui::MenuItem("Query", NULL, false, open)){
-      query = true;
+    if(ImGui::MenuItem("Query", nullptr, false, open)){
+      ImGui::OpenPopup("Command Promt"); 
     }
+    QueryPrompt(sc);  
     ImGui::EndMainMenuBar();
   }
   if(open){
-	 ImGui::Begin("SQL Database", NULL);
+	 ImGui::Begin("SQL Database", nullptr);
     if(ImGui::Button("Create")){
-      CreateTable(sc, name);
-      memset(name, '\0', kStringSize);
+      CreateTable(sc, table_name);
+      memset(table_name, '\0', kStringSize);
     }
     ImGui::SameLine();
-    ImGui::InputTextMultiline("", name, (kStringSize >> 1), ImVec2(ImGui::GetWindowWidth(), 20.0f));
+    ImGui::InputTextMultiline("##001", table_name, (kStringSize >> 3), ImVec2(ImGui::GetWindowWidth(), 20.0f));
     ImGui::Separator(); 
-    for(int i = 0; i < sc->tables_.cols_; ++i){
-      sprintf(buffer, "Delete##%d", i);
-      if(ImGui::Button(buffer)){
-        DeleteTable(sc, sc->tables_.value_[i]);
+    for(int i = 0; i < sc.tables_.cols_; ++i){
+      sprintf(delete_id, "Delete##%d", i);
+      if(ImGui::Button(delete_id)){
+        DeleteTable(sc, sc.tables_.value_[i]);
         break;
       }
       ImGui::SameLine();
-      if(ImGui::CollapsingHeader(sc->tables_.value_[i])){
-        SQLTableLayout(&sc->table_info_[i], sc->tables_.value_[i]);
+      if(ImGui::CollapsingHeader(sc.table_info_[i].name_)){
+        SQLTableLayout(sc, &sc.table_info_[i]);
       }
     }
     ImGui::End();
   }
-
-  if(query) QueryPrompt(sc, query);
 }
 
-void SQLTableLayout(Table* table, const char* id){
+void SQLTableLayout(SQLController& sc, Table* table){
   int padding = 0;
+  static int column = 0;
   static ImGuiTableFlags flags = ImGuiTableFlags_ScrollY 
                                  | ImGuiTableFlags_RowBg 
                                  | ImGuiTableFlags_BordersOuter 
@@ -74,14 +73,21 @@ void SQLTableLayout(Table* table, const char* id){
                                  | ImGuiTableFlags_Reorderable 
                                  | ImGuiTableFlags_Hideable;
   if(table->cols_ > 0){
-    if(ImGui::BeginTable(id, table->cols_, flags)){
+    if(ImGui::Button("Add New Column")){
+      ImGui::OpenPopup("Add Column"); 
+    }
+    if(ImGui::BeginTable(table->name_, table->cols_, flags)){
       for(int col = 0; col < table->cols_; ++col){
         ImGui::TableSetupColumn(table->colname_[col]);
       }
       ImGui::TableHeadersRow();
       for(int rows = 0; rows < table->index_; ++rows){
         ImGui::TableNextColumn();
-        ImGui::Text(table->value_[rows]);
+        if(ImGui::MenuItem(table->value_[rows])){
+          ImGui::OpenPopup(table->value_[rows]);
+          column = padding % table->cols_;
+        }
+        ChangeValueModal(sc, table->value_[rows]);
         padding++;
         if((padding % table->cols_) == 0 && padding != 0){
           ImGui::TableNextRow();
@@ -91,26 +97,25 @@ void SQLTableLayout(Table* table, const char* id){
     }
   }
 
+  AddColumnModal(sc, table->name_);
 }
 
-void QueryPrompt(SQLController* sc, bool& q){
-  static char buffer[kStringSize];
-  ImGui::OpenPopup("Command Promt");
-  if(ImGui::BeginPopupModal("Command Promt", NULL, ImGuiWindowFlags_AlwaysAutoResize)){
-    ImGui::InputText("Query", buffer, kStringSize);
-    ImGui::SameLine();
-    if(ImGui::Button("Submit")){
-      sc->execute_write(buffer);
+void QueryPrompt(SQLController& sc){
+  static char buffer[kStringSize] = {'\0'};
+  ImVec2 button_size = ImVec2(100.0f, 20.0f);
+  if(ImGui::BeginPopupModal("Command Promt", nullptr, ImGuiWindowFlags_AlwaysAutoResize)){
+    ImGui::InputText("Query##001", buffer, (kStringSize - 1));
+    if(ImGui::Button("Submit", button_size)){
+      sc.execute_write(buffer);
       memset(buffer, '\0', kStringSize);
-      sc->close();
-      sc->init(sc->path());
-    }
-    if(ImGui::Button("Close")){
-      q = false;
-      ImGui::CloseCurrentPopup();
+      sc.close();
+      sc.init(sc.path());
     }
     ImGui::SameLine();
-    HelpMarker("Help", "SELECT <expression> FROM <tables> [WHERE <condition>]\nCREATE TABLE contacts (<name> <type>)\nDROP TABLE <table>\nINSERT INTO <table> (<colum>) VALUES (<value>)\nUPDATE <table> SET <colum> = <value> [WHERE <condition>]\nMax query size: 255");
+    if(ImGui::Button("Cancel", button_size))
+      ImGui::CloseCurrentPopup();
+    ImGui::SameLine();
+    HelpMarker("(?)", "SELECT <expression> FROM <tables> [WHERE <condition>]\nCREATE TABLE contacts (<name> <type>)\nDROP TABLE <table>\nINSERT INTO <table> (<colum>) VALUES (<value>)\nUPDATE <table> SET <colum> = <value> [WHERE <condition>]\nALTER TABLE <table> ADD <new colum> <dataype> <definition>\nMax query size: 255");
     ImGui::EndPopup();
   }
 } 
@@ -126,18 +131,95 @@ void HelpMarker(const char* name, const char* desc){
   }
 }
 
-void DeleteTable(SQLController* sc, const char* table){
-  char buffer[kStringSize] = {'\0'};
-  sprintf(buffer, "DROP TABLE %s", table);
-  sc->execute_write(buffer);
-  sc->close();
-  sc->init(sc->path());
+void AddColumnModal(SQLController& sc, const char* table_name){
+  static char column_buffer[(kStringSize >> 3)] = {'\0'};
+  ImVec2 button_size = ImVec2(100.0f, 20.0f);
+
+  static int index = 0;
+  char* datatypes[] = {"NULL", "INTEGER", "REAL", "TEXT"};
+  char* current = datatypes[index];
+
+  static char value_buffer[(kStringSize >> 3)] = {'\0'};
+  static int int_value = 0;
+  static float float_value = 0.0f;
+
+  if(ImGui::BeginPopupModal("Add Column", nullptr, ImGuiWindowFlags_AlwaysAutoResize)){
+    ImGui::InputText("Column", column_buffer,((kStringSize >> 3) - 1));
+    switch(index){
+      case 0: ImGui::InputText("Value", value_buffer, ((kStringSize >> 3) - 1)); break;
+      case 1: ImGui::InputInt("Value", &int_value); sprintf(value_buffer, "%d", int_value); break;
+      case 2: ImGui::InputFloat("Value", &float_value); sprintf(value_buffer, "%f", float_value); break;
+      case 3: ImGui::InputText("Value", value_buffer, ((kStringSize >> 3) - 1)); break;
+    }
+    if(ImGui::BeginCombo("Datatype", current)){
+      for(int i = 0; i < IM_ARRAYSIZE(datatypes); ++i){
+        if(ImGui::Selectable(datatypes[i]))
+          index = i;        
+      }
+      ImGui::EndCombo();
+    }
+    if(ImGui::Button("Ok", button_size)){
+      InsertColumn(sc, table_name, column_buffer, current, value_buffer);
+      memset(column_buffer, '\0', (kStringSize >> 3));
+      memset(value_buffer, '\0', (kStringSize >> 3));
+      int_value = 0;
+      float_value = 0.0f;
+      ImGui::CloseCurrentPopup();
+    }
+    ImGui::SameLine();
+    if(ImGui::Button("Cancel", button_size)){
+      memset(column_buffer, '\0', (kStringSize >> 3));
+      memset(value_buffer, '\0', (kStringSize >> 3));
+      ImGui::CloseCurrentPopup();
+    }
+    ImGui::EndPopup();
+  }
 }
 
-void CreateTable(SQLController* sc, const char* name){
-  char buffer[kStringSize] = {'\0'};
-  sprintf(buffer, "CREATE TABLE %s (id)",name);
-  sc->execute_write(buffer);
-  sc->close();
-  sc->init(sc->path());
+void ChangeValueModal(SQLController& sc, char* id){
+  if(ImGui::BeginPopupModal(id)){
+    ImGui::Button("Submit");
+    if(ImGui::Button("Delete")){
+      // DeleteRow();
+      ImGui::CloseCurrentPopup();
+    }
+    if(ImGui::Button("Close")){
+      ImGui::CloseCurrentPopup();
+    }
+    ImGui::EndPopup();
+  }
+}
+
+void CreateTable(SQLController& sc, const char* name){
+  char create_buffer[kStringSize] = {'\0'};
+  sprintf(create_buffer, "CREATE TABLE %s (id INTEGER)",name);
+  sc.execute_write(create_buffer);
+  sprintf(create_buffer, "INSERT INTO %s (id) VALUES (1)", name);
+  sc.execute_write(create_buffer);
+  sc.close();
+  sc.init(sc.path());
+}
+
+void DeleteTable(SQLController& sc, const char* table){
+  char delete_buffer[kStringSize] = {'\0'};
+  sprintf(delete_buffer, "DROP TABLE %s", table);
+  sc.execute_write(delete_buffer);
+  sc.close();
+  sc.init(sc.path());
+}
+
+void InsertColumn(SQLController& sc, const char* table_name, const char* colum, const char* datatype, const char* value){
+  char insert_buffer[kStringSize] = {'\0'};
+  sprintf(insert_buffer, "ALTER TABLE %s ADD %s %s DEFAULT %s", table_name, colum, datatype, value);
+  sc.execute_write(insert_buffer);
+  sc.close();
+  sc.init(sc.path());
+}
+
+void DeleteRow(SQLController& sc, const char* table_name, const char* column, const char* row){
+  char delete_row_buffer[kStringSize] = {'\0'};
+  sprintf(delete_row_buffer, "DELETE FROM %s WHERE %s = %s", table_name, column, row);
+  sc.execute_write(delete_row_buffer);
+  sc.close();
+  sc.init(sc.path());
 }
