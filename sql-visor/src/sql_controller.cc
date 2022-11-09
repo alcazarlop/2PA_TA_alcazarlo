@@ -54,16 +54,21 @@ void SQLController::init(const char* path){
 		sprintf(buffer, "SELECT * FROM %s", tables_.value_[i]);
 		execute_read(buffer, &table_info_[i], read_tables_callback);
 
-		table_info_[i].datatype_ = (char**)calloc(table_info_[i].cols_, sizeof(char*));
-		for(int k = 0; k < table_info_[i].cols_; ++k){
-			sprintf(buffer, "SELECT typeof(%s) FROM %s", table_info_[i].colname_[k] ,tables_.value_[i]);
-			execute_read(buffer, &table_info_[i], get_datatype_callback);
-			// printf("%s %s\n", table_info_[i].colname_[k], table_info_[i].datatype_[k]);
-		}
-
 		table_info_[i].name_ = (char*)calloc((strlen(tables_.value_[i]) + 1), sizeof(char));
 		memcpy(table_info_[i].name_, tables_.value_[i], (strlen(tables_.value_[i]) + 1));
 	}
+
+	//Read Datatype Column
+	for(int i = 0; i < tables_.cols_; ++i){
+		table_info_[i].datatype_ = (char**)calloc(table_info_[i].cols_, sizeof(char*));
+		for(int k = 0; k < table_info_[i].cols_; ++k){
+			sprintf(buffer, "SELECT typeof(%s) FROM %s LIMIT 1", table_info_[i].colname_[k] ,tables_.value_[i]);
+			execute_read(buffer, &table_info_[i], get_datatype_callback);
+			// printf("%d table %s type %s\n",e++, table_info_[i].colname_[k], table_info_[i].datatype_[k]);
+		}
+		printf("\n");
+	}
+
 }
 
 void SQLController::open(const char* path){

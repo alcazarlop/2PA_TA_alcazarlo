@@ -11,7 +11,7 @@ struct Table {
 	char** value_;
 	char** colname_;
 	char** datatype_;
-	int rows_, cols_, index_;
+	int rows_, cols_, index_, type_;
 };
 
 void InitTable(Table* table);

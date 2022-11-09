@@ -10,6 +10,7 @@ void InitTable(Table* table){
   table->rows_ = 0;
   table->cols_ = 0;
   table->index_ = 0;
+  table->type_ = 0;
 }
 
 void ReleaseTable(Table* table){
@@ -48,6 +49,7 @@ void ReleaseTable(Table* table){
   table->index_ = 0;
   table->rows_ = 0;
   table->cols_ = 0;
+  table->type_ = 0;
 }
 
 int read_tables_callback(void* notused, int argc, char** argv, char** azcolname){
@@ -89,9 +91,9 @@ int get_rows_callback(void* notused, int argc, char** argv, char** azcolname){
 int get_datatype_callback(void* notused, int argc, char** argv, char** azcolname){
   Table* out = (Table*)notused;
   azcolname = NULL;
-  for(int i = 0; i < argc; ++i){
-    out->datatype_[i] = (char*)calloc((strlen(argv[i]) + 1), sizeof(char));
-    memcpy(out->datatype_[i], argv[i], (strlen(argv[i]) + 1));
-  }
+  argc = 0;
+  out->datatype_[out->type_] = (char*)calloc((strlen(*argv) + 1), sizeof(char));
+  memcpy(out->datatype_[out->type_], *argv, (strlen(*argv) + 1));
+  out->type_++;
   return 0;
 }

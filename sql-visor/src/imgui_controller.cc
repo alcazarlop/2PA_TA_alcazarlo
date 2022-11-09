@@ -65,6 +65,7 @@ void ImGuiSQLVisor(SQLController& sc){
 void SQLTableLayout(SQLController& sc, Table* table){
   int padding = 0;
   static int column = 0;
+  static int row = 0;
   static ImGuiTableFlags flags = ImGuiTableFlags_ScrollY 
                                  | ImGuiTableFlags_RowBg 
                                  | ImGuiTableFlags_BordersOuter 
@@ -76,6 +77,14 @@ void SQLTableLayout(SQLController& sc, Table* table){
     if(ImGui::Button("Add New Column")){
       ImGui::OpenPopup("Add Column"); 
     }
+    ImGui::SameLine();
+    if(ImGui::Button("Add New Row")){
+      ImGui::OpenPopup("Add Row");
+    }
+    ImGui::SameLine();
+    if(ImGui::Button("Delete Column")){
+      ImGui::OpenPopup("Delete Column");
+    }
     if(ImGui::BeginTable(table->name_, table->cols_, flags)){
       for(int col = 0; col < table->cols_; ++col){
         ImGui::TableSetupColumn(table->colname_[col]);
@@ -83,11 +92,14 @@ void SQLTableLayout(SQLController& sc, Table* table){
       ImGui::TableHeadersRow();
       for(int rows = 0; rows < table->index_; ++rows){
         ImGui::TableNextColumn();
-        if(ImGui::MenuItem(table->value_[rows])){
-          ImGui::OpenPopup(table->value_[rows]);
-          column = padding % table->cols_;
+        ImGui::MenuItem(table->value_[rows]);
+        if(ImGui::BeginPopupContextItem()){
+          if(ImGui::MenuItem("Change"));
+          if(ImGui::MenuItem("Delete")){
+            // DeleteRow(sc, table->name_, table->colname_[padding % rows], table->value_[rows]);
+          }
+          ImGui::EndPopup();
         }
-        ChangeValueModal(sc, table->value_[rows]);
         padding++;
         if((padding % table->cols_) == 0 && padding != 0){
           ImGui::TableNextRow();
@@ -98,6 +110,8 @@ void SQLTableLayout(SQLController& sc, Table* table){
   }
 
   AddColumnModal(sc, table->name_);
+  AddRowModal(sc, table);
+  DeleteColumnModal(sc, table);
 }
 
 void QueryPrompt(SQLController& sc){
@@ -136,7 +150,7 @@ void AddColumnModal(SQLController& sc, const char* table_name){
   ImVec2 button_size = ImVec2(100.0f, 20.0f);
 
   static int index = 0;
-  char* datatypes[] = {"NULL", "INTEGER", "REAL", "TEXT"};
+  char* datatypes[] = {"INTEGER", "REAL", "TEXT"};
   char* current = datatypes[index];
 
   static char value_buffer[(kStringSize >> 3)] = {'\0'};
@@ -145,12 +159,6 @@ void AddColumnModal(SQLController& sc, const char* table_name){
 
   if(ImGui::BeginPopupModal("Add Column", nullptr, ImGuiWindowFlags_AlwaysAutoResize)){
     ImGui::InputText("Column", column_buffer,((kStringSize >> 3) - 1));
-    switch(index){
-      case 0: ImGui::InputText("Value", value_buffer, ((kStringSize >> 3) - 1)); break;
-      case 1: ImGui::InputInt("Value", &int_value); sprintf(value_buffer, "%d", int_value); break;
-      case 2: ImGui::InputFloat("Value", &float_value); sprintf(value_buffer, "%f", float_value); break;
-      case 3: ImGui::InputText("Value", value_buffer, ((kStringSize >> 3) - 1)); break;
-    }
     if(ImGui::BeginCombo("Datatype", current)){
       for(int i = 0; i < IM_ARRAYSIZE(datatypes); ++i){
         if(ImGui::Selectable(datatypes[i]))
@@ -158,8 +166,13 @@ void AddColumnModal(SQLController& sc, const char* table_name){
       }
       ImGui::EndCombo();
     }
+    switch(index){
+      case 0: ImGui::InputInt("Value", &int_value); sprintf(value_buffer, "%d", int_value); break;
+      case 1: ImGui::InputFloat("Value", &float_value); sprintf(value_buffer, "%f", float_value); break;
+      case 2: ImGui::InputText("Value", value_buffer, ((kStringSize >> 3) - 1)); break;
+    }
     if(ImGui::Button("Ok", button_size)){
-      InsertColumn(sc, table_name, column_buffer, current, value_buffer);
+      AddColumn(sc, table_name, column_buffer, current, value_buffer);
       memset(column_buffer, '\0', (kStringSize >> 3));
       memset(value_buffer, '\0', (kStringSize >> 3));
       int_value = 0;
@@ -176,11 +189,75 @@ void AddColumnModal(SQLController& sc, const char* table_name){
   }
 }
 
-void ChangeValueModal(SQLController& sc, char* id){
-  if(ImGui::BeginPopupModal(id)){
+void AddRowModal(SQLController& sc, Table* table){
+  ImVec2 button_size = ImVec2(100.0f, 20.0f);
+  static int index = 0;
+
+  static char value_buffer[(kStringSize >> 3)];
+  static int int_value = 0;
+  static float float_value = 0.0f;
+
+  if(ImGui::BeginPopupModal("Add Row", nullptr, ImGuiWindowFlags_AlwaysAutoResize)){
+    if(ImGui::BeginCombo("Select column", table->colname_[index])){
+      for(int i = 0; i < table->cols_; ++i){
+        if(ImGui::Selectable(table->colname_[i])){
+          index = i;
+        }
+      }
+      ImGui::EndCombo();
+    }
+    switch(*table->datatype_[index]){
+      case 'n': ImGui::InputText("Value", value_buffer, ((kStringSize >> 3) - 1)); break;
+      case 'i': ImGui::InputInt("Value", &int_value); sprintf(value_buffer, "%d", int_value); break;
+      case 'r': ImGui::InputFloat("Value", &float_value); sprintf(value_buffer, "%f", float_value); break;
+      case 't': ImGui::InputText("Value", value_buffer, ((kStringSize >> 3) - 1)); break;
+    }
+    if(ImGui::Button("Ok", button_size)){
+      AddRow(sc, table->name_, table->colname_[index], value_buffer);
+      int_value = 0;
+      float_value = 0.0f;
+      memset(value_buffer, '\0', (kStringSize >> 3));
+      ImGui::CloseCurrentPopup();
+    }
+    ImGui::SameLine();
+    if(ImGui::Button("Cancel", button_size)){
+      int_value = 0;
+      float_value = 0.0f;
+      memset(value_buffer, '\0', (kStringSize >> 3));
+      ImGui::CloseCurrentPopup();
+    }
+    ImGui::EndPopup();
+  }
+}
+
+void DeleteColumnModal(SQLController& sc, Table* table){
+  static int index = 0;
+  if(ImGui::BeginPopupModal("Delete Column", nullptr, ImGuiWindowFlags_AlwaysAutoResize)){
+    if(ImGui::BeginCombo("Select Column", table->colname_[index])){
+      for(int i = 0; i < table->cols_; ++i){
+        if(ImGui::Selectable(table->colname_[i])){
+          index = i;
+        }
+      }      
+      ImGui::EndCombo();
+    }
+    if(ImGui::Button("Delete")){
+      DeleteColumn(sc, table->name_, table->colname_[index]);      
+      ImGui::CloseCurrentPopup();
+    }
+    ImGui::SameLine();
+    if(ImGui::Button("Cancel")){
+      ImGui::CloseCurrentPopup();
+    }
+    ImGui::EndPopup();
+  }
+}
+
+void ChangeValueModal(SQLController& sc, Table* table, int column, int row){
+  if(ImGui::BeginPopupModal(table->value_[row])){
     ImGui::Button("Submit");
     if(ImGui::Button("Delete")){
-      // DeleteRow();
+      DeleteRow(sc, table->name_, table->colname_[column], table->value_[row]);
       ImGui::CloseCurrentPopup();
     }
     if(ImGui::Button("Close")){
@@ -208,17 +285,33 @@ void DeleteTable(SQLController& sc, const char* table){
   sc.init(sc.path());
 }
 
-void InsertColumn(SQLController& sc, const char* table_name, const char* colum, const char* datatype, const char* value){
+void AddColumn(SQLController& sc, const char* table_name, const char* colum, const char* datatype, const char* value){
   char insert_buffer[kStringSize] = {'\0'};
-  sprintf(insert_buffer, "ALTER TABLE %s ADD %s %s DEFAULT %s", table_name, colum, datatype, value);
+  sprintf(insert_buffer, "ALTER TABLE %s ADD %s %s DEFAULT '%s'", table_name, colum, datatype, value);
   sc.execute_write(insert_buffer);
+  sc.close();
+  sc.init(sc.path());
+}
+
+void AddRow(SQLController& sc, const char* table_name, const char* column, const char* value){
+  char add_row_buffer[kStringSize] = {'\0'};
+  sprintf(add_row_buffer, "INSERT INTO %s (%s) VALUES ('%s')", table_name, column, value);
+  sc.execute_write(add_row_buffer);
+  sc.close();
+  sc.init(sc.path());
+}
+
+void DeleteColumn(SQLController& sc, const char* table_name, const char* column){
+  char delete_column_buffer[kStringSize] = {'\0'};
+  sprintf(delete_column_buffer, "ALTER TABLE %s DROP COLUMN %s", table_name, column);
+  sc.execute_write(delete_column_buffer);
   sc.close();
   sc.init(sc.path());
 }
 
 void DeleteRow(SQLController& sc, const char* table_name, const char* column, const char* row){
   char delete_row_buffer[kStringSize] = {'\0'};
-  sprintf(delete_row_buffer, "DELETE FROM %s WHERE %s = %s", table_name, column, row);
+  sprintf(delete_row_buffer, "DELETE FROM %s WHERE %s = '%s'", table_name, column, row);
   sc.execute_write(delete_row_buffer);
   sc.close();
   sc.init(sc.path());
