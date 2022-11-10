@@ -64,8 +64,9 @@ void ImGuiSQLVisor(SQLController& sc){
 
 void SQLTableLayout(SQLController& sc, Table* table){
   int padding = 0;
-  static int column = 0;
-  static int row = 0;
+  static char value_buffer[(kStringSize >> 3)] = {'\0'};
+  static int int_value = 0;
+  static float float_value = 0;
   static ImGuiTableFlags flags = ImGuiTableFlags_ScrollY 
                                  | ImGuiTableFlags_RowBg 
                                  | ImGuiTableFlags_BordersOuter 
@@ -94,9 +95,21 @@ void SQLTableLayout(SQLController& sc, Table* table){
         ImGui::TableNextColumn();
         ImGui::MenuItem(table->value_[rows]);
         if(ImGui::BeginPopupContextItem()){
-          if(ImGui::MenuItem("Change"));
+          if(ImGui::BeginMenu("Change")){
+            switch(*_strupr(table->datatype_[padding % table->cols_])){
+              case 'N': ImGui::InputText("##600", value_buffer, (kStringSize >> 3) - 1); break;
+              case 'I': ImGui::InputInt("##600", &int_value); sprintf(value_buffer, "%d", int_value); break;
+              case 'R': ImGui::InputFloat("##600", &float_value); sprintf(value_buffer, "%f", float_value); break;
+              case 'T': ImGui::InputText("##600", value_buffer, (kStringSize >> 3) - 1); break;
+            }
+            ImGui::SameLine();
+            if(ImGui::Button("Change")){
+              UpdateRowValue(sc, table->name_, table->colname_[padding % table->cols_], value_buffer, table->value_[rows]);
+            }
+            ImGui::EndMenu();
+          }
           if(ImGui::MenuItem("Delete")){
-            // DeleteRow(sc, table->name_, table->colname_[padding % rows], table->value_[rows]);
+            DeleteRow(sc, table->name_, table->colname_[padding % table->cols_], table->value_[rows]);
           }
           ImGui::EndPopup();
         }
@@ -206,11 +219,11 @@ void AddRowModal(SQLController& sc, Table* table){
       }
       ImGui::EndCombo();
     }
-    switch(*table->datatype_[index]){
-      case 'n': ImGui::InputText("Value", value_buffer, ((kStringSize >> 3) - 1)); break;
-      case 'i': ImGui::InputInt("Value", &int_value); sprintf(value_buffer, "%d", int_value); break;
-      case 'r': ImGui::InputFloat("Value", &float_value); sprintf(value_buffer, "%f", float_value); break;
-      case 't': ImGui::InputText("Value", value_buffer, ((kStringSize >> 3) - 1)); break;
+    switch(*_strupr(table->datatype_[index])){
+      case 'N': ImGui::InputText("Value", value_buffer, ((kStringSize >> 3) - 1)); break;
+      case 'I': ImGui::InputInt("Value", &int_value); sprintf(value_buffer, "%d", int_value); break;
+      case 'R': ImGui::InputFloat("Value", &float_value); sprintf(value_buffer, "%f", float_value); break;
+      case 'T': ImGui::InputText("Value", value_buffer, ((kStringSize >> 3) - 1)); break;
     }
     if(ImGui::Button("Ok", button_size)){
       AddRow(sc, table->name_, table->colname_[index], value_buffer);
@@ -253,25 +266,11 @@ void DeleteColumnModal(SQLController& sc, Table* table){
   }
 }
 
-void ChangeValueModal(SQLController& sc, Table* table, int column, int row){
-  if(ImGui::BeginPopupModal(table->value_[row])){
-    ImGui::Button("Submit");
-    if(ImGui::Button("Delete")){
-      DeleteRow(sc, table->name_, table->colname_[column], table->value_[row]);
-      ImGui::CloseCurrentPopup();
-    }
-    if(ImGui::Button("Close")){
-      ImGui::CloseCurrentPopup();
-    }
-    ImGui::EndPopup();
-  }
-}
-
 void CreateTable(SQLController& sc, const char* name){
   char create_buffer[kStringSize] = {'\0'};
   sprintf(create_buffer, "CREATE TABLE %s (id INTEGER)",name);
   sc.execute_write(create_buffer);
-  sprintf(create_buffer, "INSERT INTO %s (id) VALUES (1)", name);
+  sprintf(create_buffer, "INSERT INTO %s (id) VALUES ('0')", name);
   sc.execute_write(create_buffer);
   sc.close();
   sc.init(sc.path());
@@ -313,6 +312,14 @@ void DeleteRow(SQLController& sc, const char* table_name, const char* column, co
   char delete_row_buffer[kStringSize] = {'\0'};
   sprintf(delete_row_buffer, "DELETE FROM %s WHERE %s = '%s'", table_name, column, row);
   sc.execute_write(delete_row_buffer);
+  sc.close();
+  sc.init(sc.path());
+}
+
+void UpdateRowValue(SQLController& sc, const char* table_name, const char* column, const char* value, const char* prev){
+  char update_buffer[kStringSize] = {'\0'};
+  sprintf(update_buffer, "UPDATE %s SET %s = '%s' WHERE %s = '%s'", table_name, column, value, column, prev);
+  sc.execute_write(update_buffer);
   sc.close();
   sc.init(sc.path());
 }

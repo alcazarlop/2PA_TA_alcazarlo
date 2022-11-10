@@ -1,6 +1,5 @@
 
 #include "table_controller.h"
-#include <stdio.h>
 
 void InitTable(Table* table){
   table->name_ = NULL;
@@ -11,6 +10,7 @@ void InitTable(Table* table){
   table->cols_ = 0;
   table->index_ = 0;
   table->type_ = 0;
+  table->col_index_ = 0;
 }
 
 void ReleaseTable(Table* table){
@@ -50,25 +50,34 @@ void ReleaseTable(Table* table){
   table->rows_ = 0;
   table->cols_ = 0;
   table->type_ = 0;
+  table->col_index_ = 0;
 }
 
-int read_tables_callback(void* notused, int argc, char** argv, char** azcolname){
+int get_row_info(void* notused, int argc, char** argv, char** azcolname){
   Table* out = (Table*)notused;
+  azcolname = NULL;
   for(int i = 0; i < argc; ++i){
-    if(out->index_ < argc){
-      out->colname_[i] = (char*)calloc((strlen(azcolname[i]) + 1), sizeof(char));
-      memcpy(out->colname_[i], azcolname[i], (strlen(azcolname[i]) + 1));
-    }
     if(argv[i] != '\0'){
       out->value_[out->index_] = (char*)calloc((strlen(argv[i]) + 1), sizeof(char));
       memcpy(out->value_[out->index_], argv[i], (strlen(argv[i]) + 1));
     }
     else{
-      out->value_[out->index_] = (char*)calloc(4, sizeof(char));
-      memcpy(out->value_[out->index_], "NULL\0", 4);
+      out->value_[out->index_] = (char*)calloc(5, sizeof(char));
+      memcpy(out->value_[out->index_], "NULL\0", 5);
     }
     out->index_++;
   }
+  return 0;
+}
+
+int get_column_names(void* notused, int argc, char** argv, char** azcolname){
+  Table* out = (Table*)notused;
+  azcolname = NULL;
+  for(int i = 0; i < argc; ++i){
+    out->colname_[out->col_index_] = (char*)calloc(strlen(argv[i]) + 1, sizeof(char));
+    memcpy(out->colname_[out->col_index_], argv[i], strlen(argv[i]) + 1);
+  }
+  out->col_index_++;
   return 0;
 }
 

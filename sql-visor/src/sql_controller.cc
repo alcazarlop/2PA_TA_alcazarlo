@@ -37,7 +37,7 @@ void SQLController::init(const char* path){
 	execute_read("SELECT COUNT (*) FROM sqlite_master WHERE type ='table'", &tables_, get_columns_callback);
 	tables_.colname_ = (char**)calloc(tables_.cols_, sizeof(char*));
 	tables_.value_ = (char**)calloc(tables_.cols_, sizeof(char*));
-	execute_read("SELECT name FROM sqlite_master WHERE type ='table'", &tables_, read_tables_callback);
+	execute_read("SELECT name FROM sqlite_master WHERE type ='table'", &tables_, get_row_info);
 
 	//Read Tables Info
 	table_info_ = (Table*)calloc(tables_.cols_, sizeof(Table));
@@ -48,25 +48,24 @@ void SQLController::init(const char* path){
 		sprintf(buffer, "SELECT COUNT (*) FROM pragma_table_info('%s')", tables_.value_[i]);
 		execute_read(buffer, &table_info_[i], get_columns_callback);
 
-		table_info_[i].value_ = (char**)calloc((table_info_[i].cols_ * table_info_[i].rows_), sizeof(char*));
+		table_info_[i].value_ = (char**)calloc((table_info_[i].cols_ * table_info_[i].rows_ ), sizeof(char*));
 		table_info_[i].colname_ = (char**)calloc(table_info_[i].cols_, sizeof(char*));
 
+		sprintf(buffer, "SELECT name FROM pragma_table_info('%s') ", tables_.value_[i]);
+		execute_read(buffer, &table_info_[i], get_column_names);
+
 		sprintf(buffer, "SELECT * FROM %s", tables_.value_[i]);
-		execute_read(buffer, &table_info_[i], read_tables_callback);
+		execute_read(buffer, &table_info_[i], get_row_info);
 
 		table_info_[i].name_ = (char*)calloc((strlen(tables_.value_[i]) + 1), sizeof(char));
 		memcpy(table_info_[i].name_, tables_.value_[i], (strlen(tables_.value_[i]) + 1));
 	}
 
-	//Read Datatype Column
+	//Read Datatype Column 
 	for(int i = 0; i < tables_.cols_; ++i){
 		table_info_[i].datatype_ = (char**)calloc(table_info_[i].cols_, sizeof(char*));
-		for(int k = 0; k < table_info_[i].cols_; ++k){
-			sprintf(buffer, "SELECT typeof(%s) FROM %s LIMIT 1", table_info_[i].colname_[k] ,tables_.value_[i]);
-			execute_read(buffer, &table_info_[i], get_datatype_callback);
-			// printf("%d table %s type %s\n",e++, table_info_[i].colname_[k], table_info_[i].datatype_[k]);
-		}
-		printf("\n");
+		sprintf(buffer, "SELECT type FROM pragma_table_info('%s')", tables_.value_[i]);
+		execute_read(buffer, &table_info_[i], get_datatype_callback);
 	}
 
 }

@@ -11,14 +11,15 @@ struct Table {
 	char** value_;
 	char** colname_;
 	char** datatype_;
-	int rows_, cols_, index_, type_;
+	int rows_, cols_, index_, type_, col_index_;
 };
 
 void InitTable(Table* table);
 void ReleaseTable(Table* table);
 
 //Callbacks
-int read_tables_callback(void* notused, int argc, char** argv, char** azcolname);
+int get_row_info(void* notused, int argc, char** argv, char** azcolname);
+int get_column_names(void* notused, int argc, char** argv, char** azcolname);
 int get_columns_callback(void* notused, int argc, char** argv, char** azcolname);
 int get_rows_callback(void* notused, int argc, char** argv, char** azcolname);
 int get_datatype_callback(void* notused, int argc, char** argv, char** azcolname);
