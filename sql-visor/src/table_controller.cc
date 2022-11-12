@@ -5,11 +5,7 @@ void InitTable(Table* table){
   table->name_ = NULL;
   table->value_ = NULL;
   table->colname_ = NULL;
-<<<<<<< HEAD
-  table->is_selected_ = NULL;
-=======
   table->datatype_ = NULL;
->>>>>>> 33792b3f856cdae46e4879647c326654c09d9084
   table->rows_ = 0;
   table->cols_ = 0;
   table->index_ = 0;
@@ -69,7 +65,6 @@ int get_row_info(void* notused, int argc, char** argv, char** azcolname){
       out->value_[out->index_] = (char*)calloc(5, sizeof(char));
       memcpy(out->value_[out->index_], "NULL\0", 5);
     }
-    out->is_selected_[out->index_] = false;
     out->index_++;
   }
   return 0;

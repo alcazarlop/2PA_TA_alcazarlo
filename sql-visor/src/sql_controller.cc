@@ -34,15 +34,10 @@ void SQLController::init(const char* path){
 
 	//Read Tables Structure
 	InitTable(&tables_);
-	execute_read("SELECT COUNT (*) FROM sqlite_master WHERE type ='table'", &tables_, get_columns_callback);
+	execute_read("SELECT COUNT (*) FROM sqlite_schema WHERE type ='table'", &tables_, get_columns_callback);
 	tables_.colname_ = (char**)calloc(tables_.cols_, sizeof(char*));
 	tables_.value_ = (char**)calloc(tables_.cols_, sizeof(char*));
-<<<<<<< HEAD
-	tables_.is_selected_ = (bool*)calloc(tables_.cols_, sizeof(bool));
-	execute_read("SELECT name FROM sqlite_master WHERE type ='table'", &tables_, read_tables_callback);
-=======
-	execute_read("SELECT name FROM sqlite_master WHERE type ='table'", &tables_, get_row_info);
->>>>>>> 33792b3f856cdae46e4879647c326654c09d9084
+	execute_read("SELECT name FROM sqlite_schema WHERE type ='table'", &tables_, get_row_info);
 
 	//Read Tables Info
 	table_info_ = (Table*)calloc(tables_.cols_, sizeof(Table));
@@ -55,7 +50,6 @@ void SQLController::init(const char* path){
 
 		table_info_[i].value_ = (char**)calloc((table_info_[i].cols_ * table_info_[i].rows_ ), sizeof(char*));
 		table_info_[i].colname_ = (char**)calloc(table_info_[i].cols_, sizeof(char*));
-		table_info_[i].is_selected_ = (bool*)calloc(table_info_[i].cols_ * table_info_[i].rows_, sizeof(bool));
 
 		sprintf(buffer, "SELECT name FROM pragma_table_info('%s') ", tables_.value_[i]);
 		execute_read(buffer, &table_info_[i], get_column_names);
