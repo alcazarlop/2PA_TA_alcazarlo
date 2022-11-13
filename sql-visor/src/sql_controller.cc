@@ -70,20 +70,10 @@ void SQLController::init(const char* path){
 
 }
 
-void SQLController::open(const char* path){
-	rc_ = sqlite3_open(path, &database_);
-	if (rc_ != SQLITE_OK) {
-		fprintf(stderr, "Cannot open database: %s\n", sqlite3_errmsg(database_));
-		sqlite3_close(database_);
-	}
-}
-
 void SQLController::close(){
 	for(int i = 0; i < tables_.cols_; ++i)
 		ReleaseTable(&table_info_[i]);
-
 	free(table_info_);
-	
 	ReleaseTable(&tables_);
 	sqlite3_close(database_);
 }

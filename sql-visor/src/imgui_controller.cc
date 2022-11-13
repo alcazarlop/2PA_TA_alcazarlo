@@ -134,7 +134,7 @@ void SQLTableLayout(SQLController& sc, Table* table){
             ImGui::EndMenu();
           }
           if(ImGui::MenuItem("Delete")){
-            DeleteRow(sc, table->name_, table->colname_[padding % table->cols_], table->value_[rows]);
+            DeleteRow(sc, table->name_);
           }
           ImGui::EndPopup();
         }
@@ -165,8 +165,10 @@ void QueryPrompt(SQLController& sc){
       sc.init(sc.path());
     }
     ImGui::SameLine();
-    if(ImGui::Button("Cancel", button_size))
+    if(ImGui::Button("Cancel", button_size)){
+      memset(buffer, '\0', kStringSize);
       ImGui::CloseCurrentPopup();
+    }
     ImGui::SameLine();
     HelpMarker("(?)", "SELECT <expression> FROM <tables> [WHERE <condition>]\nCREATE TABLE contacts (<name> <type>)\nDROP TABLE <table>\nINSERT INTO <table> (<colum>) VALUES (<value>)\nUPDATE <table> SET <colum> = <value> [WHERE <condition>]\nALTER TABLE <table> ADD <new colum> <dataype> <definition>\nMax query size: 255");
     ImGui::EndPopup();
@@ -404,9 +406,9 @@ void DeleteColumn(SQLController& sc, const char* table_name, const char* column)
   sc.init(sc.path());
 }
 
-void DeleteRow(SQLController& sc, const char* table_name, const char* column, const char* row){
+void DeleteRow(SQLController& sc, const char* table_name){
   char delete_row_buffer[kStringSize] = {'\0'};
-  sprintf(delete_row_buffer, "DELETE FROM %s WHERE %s = '%s'", table_name, column, row);
+  sprintf(delete_row_buffer, "DELETE FROM %s WHERE rowid IN (SELECT rowid FROM %s LIMIT 1)", table_name, table_name);
   sc.execute_write(delete_row_buffer);
   sc.close();
   sc.init(sc.path());

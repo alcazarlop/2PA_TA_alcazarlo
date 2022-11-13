@@ -12,7 +12,7 @@ WindowController::WindowController(const WindowController& other){
 }
 
 WindowController::~WindowController(){
-
+  quit();
 }
 
 int WindowController::init(){
