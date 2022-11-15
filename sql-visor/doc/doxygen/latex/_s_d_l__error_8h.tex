@@ -1,0 +1,145 @@
+\doxysection{C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sdl2/include/\+S\+D\+L\+\_\+error.h File Reference}
+\label{_s_d_l__error_8h}\index{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_error.h@{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_error.h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Set\+Error} (S\+D\+L\+\_\+\+P\+R\+I\+N\+T\+F\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+S\+T\+R\+I\+NG const char $\ast$fmt,...) S\+D\+L\+\_\+\+P\+R\+I\+N\+T\+F\+\_\+\+V\+A\+R\+A\+R\+G\+\_\+\+F\+U\+NC(1)
+\item 
+const D\+E\+C\+L\+S\+P\+EC char $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Error} (void)
+\item 
+D\+E\+C\+L\+S\+P\+EC char $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Error\+Msg} (char $\ast$errstr, int maxlen)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Clear\+Error} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Internal error functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{_s_d_l__error_8h_a440edcb93dba4e39c88ecf8dc676b6c1}} 
+\#define {\bfseries S\+D\+L\+\_\+\+Out\+Of\+Memory}()~S\+D\+L\+\_\+\+Error(S\+D\+L\+\_\+\+E\+N\+O\+M\+EM)
+\item 
+\mbox{\label{_s_d_l__error_8h_a45dc695e3a906dd40f00e204ace3bcf5}} 
+\#define {\bfseries S\+D\+L\+\_\+\+Unsupported}()~S\+D\+L\+\_\+\+Error(S\+D\+L\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+ED)
+\item 
+\mbox{\label{_s_d_l__error_8h_a5875c9c083a88408e11abeaa8391dfa5}} 
+\#define {\bfseries S\+D\+L\+\_\+\+Invalid\+Param\+Error}(param)~\textbf{ S\+D\+L\+\_\+\+Set\+Error}(\char`\"{}Parameter \textquotesingle{}\%s\textquotesingle{} is invalid\char`\"{}, (param))
+\item 
+\mbox{\label{_s_d_l__error_8h_a5c417ba725f086b33390a5e5d5dabfe1}} 
+enum {\bfseries S\+D\+L\+\_\+errorcode} \{ \newline
+{\bfseries S\+D\+L\+\_\+\+E\+N\+O\+M\+EM}, 
+{\bfseries S\+D\+L\+\_\+\+E\+F\+R\+E\+AD}, 
+{\bfseries S\+D\+L\+\_\+\+E\+F\+W\+R\+I\+TE}, 
+{\bfseries S\+D\+L\+\_\+\+E\+F\+S\+E\+EK}, 
+\newline
+{\bfseries S\+D\+L\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+ED}, 
+{\bfseries S\+D\+L\+\_\+\+L\+A\+S\+T\+E\+R\+R\+OR}
+ \}
+\item 
+\mbox{\label{_s_d_l__error_8h_a0ec05915c315049ed2ab74cfe1ff980f}} 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL {\bfseries S\+D\+L\+\_\+\+Error} (S\+D\+L\+\_\+errorcode code)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Simple error message routines for S\+DL. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{_s_d_l__error_8h_a007ed517953a99a46e46be567ef5609e}} 
+\index{SDL\_error.h@{SDL\_error.h}!SDL\_ClearError@{SDL\_ClearError}}
+\index{SDL\_ClearError@{SDL\_ClearError}!SDL\_error.h@{SDL\_error.h}}
+\doxysubsubsection{SDL\_ClearError()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Clear\+Error (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Clear any previous error message for this thread.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Error}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Error}{p.}{_s_d_l__error_8h_a26775853eaf43390bbceb27eb21a2240} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6}} 
+\index{SDL\_error.h@{SDL\_error.h}!SDL\_GetError@{SDL\_GetError}}
+\index{SDL\_GetError@{SDL\_GetError}!SDL\_error.h@{SDL\_error.h}}
+\doxysubsubsection{SDL\_GetError()}
+{\footnotesize\ttfamily const D\+E\+C\+L\+S\+P\+EC char$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Error (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Retrieve a message about the last error that occurred on the current thread.
+
+It is possible for multiple errors to occur before calling \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6}. Only the last error is returned.
+
+The message is only applicable when an S\+DL function has signaled an error. You must check the return values of S\+DL function calls to determine when to appropriately call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6}. You should {\itshape not} use the results of \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} to decide if an error has occurred! Sometimes S\+DL will set an error string even when reporting success.
+
+S\+DL will {\itshape not} clear the error string for successful A\+PI calls. You {\itshape must} check return values for failure cases before you can assume the error string applies.
+
+Error strings are set per-\/thread, so an error set in a different thread will not interfere with the current thread\textquotesingle{}s operation.
+
+The returned string is internally allocated and must not be freed by the application.
+
+\begin{DoxyReturn}{Returns}
+a message with information about the specific error that occurred, or an empty string if there hasn\textquotesingle{}t been an error message set since the last call to \doxyref{S\+D\+L\+\_\+\+Clear\+Error()}{p.}{_s_d_l__error_8h_a007ed517953a99a46e46be567ef5609e}. The message is only applicable when an S\+DL function has signaled an error. You must check the return values of S\+DL function calls to determine when to appropriately call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6}.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Clear\+Error}{p.}{_s_d_l__error_8h_a007ed517953a99a46e46be567ef5609e} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Error}{p.}{_s_d_l__error_8h_a26775853eaf43390bbceb27eb21a2240} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__error_8h_a41e9f4f81899e7a2755e8a3f6f2bf166}} 
+\index{SDL\_error.h@{SDL\_error.h}!SDL\_GetErrorMsg@{SDL\_GetErrorMsg}}
+\index{SDL\_GetErrorMsg@{SDL\_GetErrorMsg}!SDL\_error.h@{SDL\_error.h}}
+\doxysubsubsection{SDL\_GetErrorMsg()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC char$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Error\+Msg (\begin{DoxyParamCaption}\item[{char $\ast$}]{errstr,  }\item[{int}]{maxlen }\end{DoxyParamCaption})}
+
+Get the last error message that was set for the current thread.
+
+This allows the caller to copy the error string into a provided buffer, but otherwise operates exactly the same as \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em errstr} & A buffer to fill with the last error message that was set for the current thread \\
+\hline
+{\em maxlen} & The size of the buffer pointed to by the errstr parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the pointer passed in as the {\ttfamily errstr} parameter.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Error}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__error_8h_a26775853eaf43390bbceb27eb21a2240}} 
+\index{SDL\_error.h@{SDL\_error.h}!SDL\_SetError@{SDL\_SetError}}
+\index{SDL\_SetError@{SDL\_SetError}!SDL\_error.h@{SDL\_error.h}}
+\doxysubsubsection{SDL\_SetError()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Set\+Error (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+P\+R\+I\+N\+T\+F\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+S\+T\+R\+I\+NG const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Set the S\+DL error message for the current thread.
+
+Calling this function will replace any previous error message that was set.
+
+This function always returns -\/1, since S\+DL frequently uses -\/1 to signify an failing result, leading to this idiom\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (error\_code) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} SDL\_SetError(\textcolor{stringliteral}{"This operation has failed: \%d"}, error\_code);}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em fmt} & a printf()-\/style message format string \\
+\hline
+{\em ...} & additional parameters matching \% tokens in the {\ttfamily fmt} string, if any \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+always -\/1.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Clear\+Error}{p.}{_s_d_l__error_8h_a007ed517953a99a46e46be567ef5609e} 
+
+\doxyref{S\+D\+L\+\_\+\+Get\+Error}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} 
+\end{DoxySeeAlso}

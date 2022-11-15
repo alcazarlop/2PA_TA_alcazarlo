@@ -1,0 +1,156 @@
+\doxysection{C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sdl2/include/\+S\+D\+L\+\_\+touch.h File Reference}
+\label{_s_d_l__touch_8h}\index{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_touch.h@{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_touch.h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ S\+D\+L\+\_\+\+Finger}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{_s_d_l__touch_8h_ac24e2ec23c2ac1675fec8f327ef45efe}} 
+\#define {\bfseries S\+D\+L\+\_\+\+T\+O\+U\+C\+H\+\_\+\+M\+O\+U\+S\+E\+ID}~((Uint32)-\/1)
+\item 
+\mbox{\label{_s_d_l__touch_8h_a014b4d4442ccb50ec471a7a6081b75d0}} 
+\#define {\bfseries S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+\_\+\+T\+O\+U\+C\+H\+ID}~((Sint64)-\/1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{_s_d_l__touch_8h_a10f5f86abe4ea8308a8706bd5d3b337a}} 
+typedef Sint64 {\bfseries S\+D\+L\+\_\+\+Touch\+ID}
+\item 
+\mbox{\label{_s_d_l__touch_8h_a5fa58141f78415ca09645af359ad2250}} 
+typedef Sint64 {\bfseries S\+D\+L\+\_\+\+Finger\+ID}
+\item 
+\mbox{\label{_s_d_l__touch_8h_aebfbaf6a1c2acd4e2595fcdeb911d4ac}} 
+typedef struct \textbf{ S\+D\+L\+\_\+\+Finger} {\bfseries S\+D\+L\+\_\+\+Finger}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{_s_d_l__touch_8h_a63f6b605841f681e036a96d9b2790cff}} 
+enum {\bfseries S\+D\+L\+\_\+\+Touch\+Device\+Type} \{ {\bfseries S\+D\+L\+\_\+\+T\+O\+U\+C\+H\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+V\+A\+L\+ID} = -\/1, 
+{\bfseries S\+D\+L\+\_\+\+T\+O\+U\+C\+H\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+D\+I\+R\+E\+CT}, 
+{\bfseries S\+D\+L\+\_\+\+T\+O\+U\+C\+H\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+D\+I\+R\+E\+C\+T\+\_\+\+A\+B\+S\+O\+L\+U\+TE}, 
+{\bfseries S\+D\+L\+\_\+\+T\+O\+U\+C\+H\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+D\+I\+R\+E\+C\+T\+\_\+\+R\+E\+L\+A\+T\+I\+VE}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Num\+Touch\+Devices} (void)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Touch\+ID S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Touch\+Device} (int index)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Touch\+Device\+Type S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Touch\+Device\+Type} (S\+D\+L\+\_\+\+Touch\+ID touch\+ID)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Num\+Touch\+Fingers} (S\+D\+L\+\_\+\+Touch\+ID touch\+ID)
+\item 
+D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Finger} $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Touch\+Finger} (S\+D\+L\+\_\+\+Touch\+ID touch\+ID, int index)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Include file for S\+DL touch event handling. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{_s_d_l__touch_8h_a14a41a2964ddf868a180e42ccfd441d1}} 
+\index{SDL\_touch.h@{SDL\_touch.h}!SDL\_GetNumTouchDevices@{SDL\_GetNumTouchDevices}}
+\index{SDL\_GetNumTouchDevices@{SDL\_GetNumTouchDevices}!SDL\_touch.h@{SDL\_touch.h}}
+\doxysubsubsection{SDL\_GetNumTouchDevices()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Num\+Touch\+Devices (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the number of registered touch devices.
+
+On some platforms S\+DL first sees the touch device if it was actually used. Therefore \doxyref{S\+D\+L\+\_\+\+Get\+Num\+Touch\+Devices()}{p.}{_s_d_l__touch_8h_a14a41a2964ddf868a180e42ccfd441d1} may return 0 although devices are available. After using all devices at least once the number will be correct.
+
+This was fixed for Android in S\+DL 2.\+0.\+1.
+
+\begin{DoxyReturn}{Returns}
+the number of registered touch devices.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Touch\+Device}{p.}{_s_d_l__touch_8h_af23f09dc79eace93cdc8dd770eed0d0a} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__touch_8h_a7dcd1494c8dd433b7ef7b24c2926e721}} 
+\index{SDL\_touch.h@{SDL\_touch.h}!SDL\_GetNumTouchFingers@{SDL\_GetNumTouchFingers}}
+\index{SDL\_GetNumTouchFingers@{SDL\_GetNumTouchFingers}!SDL\_touch.h@{SDL\_touch.h}}
+\doxysubsubsection{SDL\_GetNumTouchFingers()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Num\+Touch\+Fingers (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Touch\+ID}]{touch\+ID }\end{DoxyParamCaption})}
+
+Get the number of active fingers for a given touch device.
+
+
+\begin{DoxyParams}{Parameters}
+{\em touch\+ID} & the ID of a touch device \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of active fingers for a given touch device on success or 0 on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Touch\+Finger}{p.}{_s_d_l__touch_8h_a50902a3c1e4dba0b82cb73cb786dae41} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__touch_8h_af23f09dc79eace93cdc8dd770eed0d0a}} 
+\index{SDL\_touch.h@{SDL\_touch.h}!SDL\_GetTouchDevice@{SDL\_GetTouchDevice}}
+\index{SDL\_GetTouchDevice@{SDL\_GetTouchDevice}!SDL\_touch.h@{SDL\_touch.h}}
+\doxysubsubsection{SDL\_GetTouchDevice()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Touch\+ID S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Touch\+Device (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the touch ID with the given index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the touch device index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the touch ID with the given index on success or 0 if the index is invalid; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Num\+Touch\+Devices}{p.}{_s_d_l__touch_8h_a14a41a2964ddf868a180e42ccfd441d1} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__touch_8h_acb47d9bf9103c6c039127cea040d89a7}} 
+\index{SDL\_touch.h@{SDL\_touch.h}!SDL\_GetTouchDeviceType@{SDL\_GetTouchDeviceType}}
+\index{SDL\_GetTouchDeviceType@{SDL\_GetTouchDeviceType}!SDL\_touch.h@{SDL\_touch.h}}
+\doxysubsubsection{SDL\_GetTouchDeviceType()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Touch\+Device\+Type S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Touch\+Device\+Type (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Touch\+ID}]{touch\+ID }\end{DoxyParamCaption})}
+
+Get the type of the given touch device. \mbox{\label{_s_d_l__touch_8h_a50902a3c1e4dba0b82cb73cb786dae41}} 
+\index{SDL\_touch.h@{SDL\_touch.h}!SDL\_GetTouchFinger@{SDL\_GetTouchFinger}}
+\index{SDL\_GetTouchFinger@{SDL\_GetTouchFinger}!SDL\_touch.h@{SDL\_touch.h}}
+\doxysubsubsection{SDL\_GetTouchFinger()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Finger}$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Touch\+Finger (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Touch\+ID}]{touch\+ID,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the finger object for specified touch device ID and finger index.
+
+The returned resource is owned by S\+DL and should not be deallocated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em touch\+ID} & the ID of the requested touch device \\
+\hline
+{\em index} & the index of the requested finger \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the \doxyref{S\+D\+L\+\_\+\+Finger}{p.}{struct_s_d_l___finger} object or N\+U\+LL if no object at the given ID and index could be found.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Record\+Gesture}{p.}{_s_d_l__gesture_8h_ad06776e2e199d5d48e466a0ecbbb06c3} 
+\end{DoxySeeAlso}

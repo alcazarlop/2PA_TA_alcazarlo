@@ -1,0 +1,115 @@
+\doxysection{S\+D\+L\+\_\+\+Audio\+C\+VT Struct Reference}
+\label{struct_s_d_l___audio_c_v_t}\index{SDL\_AudioCVT@{SDL\_AudioCVT}}
+
+
+A structure to hold a set of audio conversion filters and buffers.  
+
+
+
+
+{\ttfamily \#include $<$S\+D\+L\+\_\+audio.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ needed}
+\item 
+\textbf{ S\+D\+L\+\_\+\+Audio\+Format} \textbf{ src\+\_\+format}
+\item 
+\textbf{ S\+D\+L\+\_\+\+Audio\+Format} \textbf{ dst\+\_\+format}
+\item 
+double \textbf{ rate\+\_\+incr}
+\item 
+Uint8 $\ast$ \textbf{ buf}
+\item 
+int \textbf{ len}
+\item 
+int \textbf{ len\+\_\+cvt}
+\item 
+int \textbf{ len\+\_\+mult}
+\item 
+double \textbf{ len\+\_\+ratio}
+\item 
+S\+D\+L\+\_\+\+Audio\+Filter \textbf{ filters} [\textbf{ S\+D\+L\+\_\+\+A\+U\+D\+I\+O\+C\+V\+T\+\_\+\+M\+A\+X\+\_\+\+F\+I\+L\+T\+E\+RS}+1]
+\item 
+int \textbf{ filter\+\_\+index}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A structure to hold a set of audio conversion filters and buffers. 
+
+Note that various parts of the conversion pipeline can take advantage of S\+I\+MD operations (like S\+S\+E2, for example). \doxyref{S\+D\+L\+\_\+\+Audio\+C\+VT}{p.}{struct_s_d_l___audio_c_v_t} doesn\textquotesingle{}t require you to pass it aligned data, but can possibly run much faster if you set both its (buf) field to a pointer that is aligned to 16 bytes, and its (len) field to something that\textquotesingle{}s a multiple of 16, if possible. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{struct_s_d_l___audio_c_v_t_a080db27b929efa983c5161360ffce310}} 
+\index{SDL\_AudioCVT@{SDL\_AudioCVT}!buf@{buf}}
+\index{buf@{buf}!SDL\_AudioCVT@{SDL\_AudioCVT}}
+\doxysubsubsection{buf}
+{\footnotesize\ttfamily Uint8$\ast$ S\+D\+L\+\_\+\+Audio\+C\+V\+T\+::buf}
+
+Buffer to hold entire audio data \mbox{\label{struct_s_d_l___audio_c_v_t_a8f890d017be857a3b048bf00525736c6}} 
+\index{SDL\_AudioCVT@{SDL\_AudioCVT}!dst\_format@{dst\_format}}
+\index{dst\_format@{dst\_format}!SDL\_AudioCVT@{SDL\_AudioCVT}}
+\doxysubsubsection{dst\_format}
+{\footnotesize\ttfamily \textbf{ S\+D\+L\+\_\+\+Audio\+Format} S\+D\+L\+\_\+\+Audio\+C\+V\+T\+::dst\+\_\+format}
+
+Target audio format \mbox{\label{struct_s_d_l___audio_c_v_t_a35093b3ad3331c17416c593a76012b63}} 
+\index{SDL\_AudioCVT@{SDL\_AudioCVT}!filter\_index@{filter\_index}}
+\index{filter\_index@{filter\_index}!SDL\_AudioCVT@{SDL\_AudioCVT}}
+\doxysubsubsection{filter\_index}
+{\footnotesize\ttfamily int S\+D\+L\+\_\+\+Audio\+C\+V\+T\+::filter\+\_\+index}
+
+Current audio conversion function \mbox{\label{struct_s_d_l___audio_c_v_t_afeb8dc60716644de3b681653442de1db}} 
+\index{SDL\_AudioCVT@{SDL\_AudioCVT}!filters@{filters}}
+\index{filters@{filters}!SDL\_AudioCVT@{SDL\_AudioCVT}}
+\doxysubsubsection{filters}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Audio\+Filter S\+D\+L\+\_\+\+Audio\+C\+V\+T\+::filters[\textbf{ S\+D\+L\+\_\+\+A\+U\+D\+I\+O\+C\+V\+T\+\_\+\+M\+A\+X\+\_\+\+F\+I\+L\+T\+E\+RS}+1]}
+
+N\+U\+L\+L-\/terminated list of filter functions \mbox{\label{struct_s_d_l___audio_c_v_t_aeaeb8c5a63c3ab96471fbfdf412c78ff}} 
+\index{SDL\_AudioCVT@{SDL\_AudioCVT}!len@{len}}
+\index{len@{len}!SDL\_AudioCVT@{SDL\_AudioCVT}}
+\doxysubsubsection{len}
+{\footnotesize\ttfamily int S\+D\+L\+\_\+\+Audio\+C\+V\+T\+::len}
+
+Length of original audio buffer \mbox{\label{struct_s_d_l___audio_c_v_t_a5c60163f34d1947e5b166c23aba9879d}} 
+\index{SDL\_AudioCVT@{SDL\_AudioCVT}!len\_cvt@{len\_cvt}}
+\index{len\_cvt@{len\_cvt}!SDL\_AudioCVT@{SDL\_AudioCVT}}
+\doxysubsubsection{len\_cvt}
+{\footnotesize\ttfamily int S\+D\+L\+\_\+\+Audio\+C\+V\+T\+::len\+\_\+cvt}
+
+Length of converted audio buffer \mbox{\label{struct_s_d_l___audio_c_v_t_ac9662d47cf2348b82b27b151150116b0}} 
+\index{SDL\_AudioCVT@{SDL\_AudioCVT}!len\_mult@{len\_mult}}
+\index{len\_mult@{len\_mult}!SDL\_AudioCVT@{SDL\_AudioCVT}}
+\doxysubsubsection{len\_mult}
+{\footnotesize\ttfamily int S\+D\+L\+\_\+\+Audio\+C\+V\+T\+::len\+\_\+mult}
+
+buffer must be len$\ast$len\+\_\+mult big \mbox{\label{struct_s_d_l___audio_c_v_t_a5628ff5ccf711de9d77c0a4a9f57d2f0}} 
+\index{SDL\_AudioCVT@{SDL\_AudioCVT}!len\_ratio@{len\_ratio}}
+\index{len\_ratio@{len\_ratio}!SDL\_AudioCVT@{SDL\_AudioCVT}}
+\doxysubsubsection{len\_ratio}
+{\footnotesize\ttfamily double S\+D\+L\+\_\+\+Audio\+C\+V\+T\+::len\+\_\+ratio}
+
+Given len, final size is len$\ast$len\+\_\+ratio \mbox{\label{struct_s_d_l___audio_c_v_t_ac600a035a48df05e14d3712fd6953ad4}} 
+\index{SDL\_AudioCVT@{SDL\_AudioCVT}!needed@{needed}}
+\index{needed@{needed}!SDL\_AudioCVT@{SDL\_AudioCVT}}
+\doxysubsubsection{needed}
+{\footnotesize\ttfamily int S\+D\+L\+\_\+\+Audio\+C\+V\+T\+::needed}
+
+Set to 1 if conversion possible \mbox{\label{struct_s_d_l___audio_c_v_t_ad886122c23a6673073baace31bff3b6c}} 
+\index{SDL\_AudioCVT@{SDL\_AudioCVT}!rate\_incr@{rate\_incr}}
+\index{rate\_incr@{rate\_incr}!SDL\_AudioCVT@{SDL\_AudioCVT}}
+\doxysubsubsection{rate\_incr}
+{\footnotesize\ttfamily double S\+D\+L\+\_\+\+Audio\+C\+V\+T\+::rate\+\_\+incr}
+
+Rate conversion increment \mbox{\label{struct_s_d_l___audio_c_v_t_a6ae81231e017105e6d5e745a51732e16}} 
+\index{SDL\_AudioCVT@{SDL\_AudioCVT}!src\_format@{src\_format}}
+\index{src\_format@{src\_format}!SDL\_AudioCVT@{SDL\_AudioCVT}}
+\doxysubsubsection{src\_format}
+{\footnotesize\ttfamily \textbf{ S\+D\+L\+\_\+\+Audio\+Format} S\+D\+L\+\_\+\+Audio\+C\+V\+T\+::src\+\_\+format}
+
+Source audio format 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sdl2/include/\textbf{ S\+D\+L\+\_\+audio.\+h}\end{DoxyCompactItemize}

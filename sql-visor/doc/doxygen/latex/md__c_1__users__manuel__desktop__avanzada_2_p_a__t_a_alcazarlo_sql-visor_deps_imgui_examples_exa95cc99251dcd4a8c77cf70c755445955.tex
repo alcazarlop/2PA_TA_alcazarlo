@@ -1,0 +1,22 @@
+
+\begin{DoxyItemize}
+\item You need to install Emscripten from {\texttt{ https\+://emscripten.\+org/docs/getting\+\_\+started/downloads.\+html,}} and have the environment variables set, as described in {\texttt{ https\+://emscripten.\+org/docs/getting\+\_\+started/downloads.\+html\#installation-\/instructions}}
+\item Depending on your configuration, in Windows you may need to run {\ttfamily emsdk/emsdk\+\_\+env.\+bat} in your console to access the Emscripten command-\/line tools.
+\item You may also refer to our {\texttt{ Continuous Integration setup}} for Emscripten setup.
+\item Then build using {\ttfamily make} while in the {\ttfamily example\+\_\+emscripten\+\_\+wgpu/} directory.
+\item Requires recent Emscripten as W\+G\+PU is still a work-\/in-\/progress A\+PI.
+\end{DoxyItemize}\doxysection{How to Run}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_examples_exa95cc99251dcd4a8c77cf70c755445955_autotoc_md146}
+To run on a local machine\+:
+\begin{DoxyItemize}
+\item Make sure your browse supports W\+G\+PU and it is enabled. W\+G\+PU is still W\+IP not enabled by default in most browser.
+\item {\ttfamily make serve} will use Python3 to spawn a local webserver, you can then browse {\texttt{ http\+://localhost\+:8000}} to access your build.
+\item Otherwise, generally you will need a local webserver\+:
+\begin{DoxyItemize}
+\item Quoting {\texttt{ https\+://emscripten.\+org/docs/getting\+\_\+started}}\+:~\newline
+ \+\_\+\char`\"{}\+Unfortunately several browsers (including Chrome, Safari, and Internet Explorer) do not support file\+:// [\+X\+H\+R](https\+://emscripten.\+org/docs/site/glossary.\+html\#term-\/xhr) requests, and can’t load extra files needed by the H\+T\+M\+L (like a .\+wasm file, or packaged file data as mentioned lower down). For these browsers you’ll need to serve the files using a [local webserver](https\+://emscripten.\+org/docs/getting\+\_\+started/\+F\+A\+Q.\+html\#faq-\/local-\/webserver) and then open http\+://localhost\+:8000/hello.\+html.\char`\"{}\+\_\+
+\item Emscripten S\+DK has a handy {\ttfamily emrun} command\+: {\ttfamily emrun web/example\+\_\+emscripten\+\_\+opengl3.\+html -\/-\/browser firefox} which will spawn a temporary local webserver (in Firefox). See {\texttt{ https\+://emscripten.\+org/docs/compiling/\+Running-\/html-\/files-\/with-\/emrun.\+html}} for details.
+\item You may use Python 3 builtin webserver\+: {\ttfamily python -\/m http.\+server -\/d web} (this is what {\ttfamily make serve} uses).
+\item You may use Python 2 builtin webserver\+: {\ttfamily cd web \&\& python -\/m Simple\+H\+T\+T\+P\+Server}.
+\item If you are accessing the files over a network, certain browsers, such as Firefox, will restrict Gamepad A\+PI access to secure contexts only (e.\+g. https only). 
+\end{DoxyItemize}
+\end{DoxyItemize}

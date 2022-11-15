@@ -1,0 +1,104 @@
+\doxysection{Vdbe\+Cursor Struct Reference}
+\label{struct_vdbe_cursor}\index{VdbeCursor@{VdbeCursor}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct_vdbe_cursor_a6128af438b1faa2d175eeb754af1a9c2}} 
+u8 {\bfseries e\+Cur\+Type}
+\item 
+\mbox{\label{struct_vdbe_cursor_ace3e5ef31acdc9bca7b080da2af493a1}} 
+i8 {\bfseries i\+Db}
+\item 
+\mbox{\label{struct_vdbe_cursor_a564d1df8b7bf6df90b1c07c97d7b23ff}} 
+u8 {\bfseries null\+Row}
+\item 
+\mbox{\label{struct_vdbe_cursor_ad6c9d21da881287364a1a3f90285a7e9}} 
+u8 {\bfseries deferred\+Moveto}
+\item 
+\mbox{\label{struct_vdbe_cursor_ab6c2642afb560159a06cffbe7aa98619}} 
+u8 {\bfseries is\+Table}
+\item 
+\mbox{\label{struct_vdbe_cursor_ac13d003d1cf017f3e44897de29a7c2cb}} 
+Bool {\bfseries is\+Ephemeral}\+:1
+\item 
+\mbox{\label{struct_vdbe_cursor_a067fff911d6d37190785a0cf5ba4fc8e}} 
+Bool {\bfseries use\+Random\+Rowid}\+:1
+\item 
+\mbox{\label{struct_vdbe_cursor_a8d9e802372b801c4eb5aef6340cfa21a}} 
+Bool {\bfseries is\+Ordered}\+:1
+\item 
+\mbox{\label{struct_vdbe_cursor_a380a957a9dbbacd3773d3032b0165d9b}} 
+Bool {\bfseries no\+Reuse}\+:1
+\item 
+\mbox{\label{struct_vdbe_cursor_a1cbff51d4db6387481076b26175bd150}} 
+u16 {\bfseries seek\+Hit}
+\item 
+\mbox{\label{struct_vdbe_cursor_a7cf6dd4d1aa4be2646b37a562b0d365d}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\textbf{ Btree} $\ast$ {\bfseries pBtx}\\
+\>u32 $\ast$ {\bfseries aAltMap}\\
+\} {\bfseries ub}\\
+
+\end{tabbing}\item 
+\mbox{\label{struct_vdbe_cursor_a4f11f0befb0dcf16273cc832ca6d92a5}} 
+i64 {\bfseries seq\+Count}
+\item 
+\mbox{\label{struct_vdbe_cursor_acf243b5a94a6e5a11341d6fece473c00}} 
+u32 {\bfseries cache\+Status}
+\item 
+\mbox{\label{struct_vdbe_cursor_a5eff86e2a9c87dc15956ad362aa03f05}} 
+int {\bfseries seek\+Result}
+\item 
+\mbox{\label{struct_vdbe_cursor_acc57fe0cffe660d0d08ac422dfa20af5}} 
+\textbf{ Vdbe\+Cursor} $\ast$ {\bfseries p\+Alt\+Cursor}
+\item 
+\mbox{\label{struct_vdbe_cursor_a5221f432243d4193fe6d9823c72e43d8}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\textbf{ BtCursor} $\ast$ {\bfseries pCursor}\\
+\>\textbf{ sqlite3\_vtab\_cursor} $\ast$ {\bfseries pVCur}\\
+\>\textbf{ VdbeSorter} $\ast$ {\bfseries pSorter}\\
+\} {\bfseries uc}\\
+
+\end{tabbing}\item 
+\mbox{\label{struct_vdbe_cursor_a72a6c26ab2ab2ad699dfb45703ea4765}} 
+\textbf{ Key\+Info} $\ast$ {\bfseries p\+Key\+Info}
+\item 
+\mbox{\label{struct_vdbe_cursor_a838b93338c0a8539e28697e291c83a91}} 
+u32 {\bfseries i\+Hdr\+Offset}
+\item 
+\mbox{\label{struct_vdbe_cursor_aaff39caaa6bada9b2cd27dbc1fd2a5fc}} 
+Pgno {\bfseries pgno\+Root}
+\item 
+\mbox{\label{struct_vdbe_cursor_a2c903d08588ce7ade6ca4f678bd83bbb}} 
+i16 {\bfseries n\+Field}
+\item 
+\mbox{\label{struct_vdbe_cursor_a3e0ed59c6fd714032e665a6249087924}} 
+u16 {\bfseries n\+Hdr\+Parsed}
+\item 
+\mbox{\label{struct_vdbe_cursor_af3c157d480c0597ba50aca227eb8e3b8}} 
+i64 {\bfseries moveto\+Target}
+\item 
+\mbox{\label{struct_vdbe_cursor_a17431e67b341282aeb6c026cd01ec1e9}} 
+u32 $\ast$ {\bfseries a\+Offset}
+\item 
+\mbox{\label{struct_vdbe_cursor_a6b6f7444963e83e48cd3d63edf539c94}} 
+const u8 $\ast$ {\bfseries a\+Row}
+\item 
+\mbox{\label{struct_vdbe_cursor_a92f39b19e82152386e20ede96d177058}} 
+u32 {\bfseries payload\+Size}
+\item 
+\mbox{\label{struct_vdbe_cursor_ac0fa6de4df7f418dfd5307cb892ba455}} 
+u32 {\bfseries sz\+Row}
+\item 
+\mbox{\label{struct_vdbe_cursor_aa4a4b02d8b0276a413f1191382469141}} 
+u32 {\bfseries a\+Type} [1]
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sqlite/src/sqlite3.\+c\end{DoxyCompactItemize}

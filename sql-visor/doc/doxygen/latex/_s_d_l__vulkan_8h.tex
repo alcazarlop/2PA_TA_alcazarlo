@@ -1,0 +1,199 @@
+\doxysection{C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sdl2/include/\+S\+D\+L\+\_\+vulkan.h File Reference}
+\label{_s_d_l__vulkan_8h}\index{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_vulkan.h@{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_vulkan.h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{_s_d_l__vulkan_8h_a2c83a74883be356d314441ccc41e7768}} 
+\#define {\bfseries V\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+H\+A\+N\+D\+LE}(object)~typedef struct object\#\#\+\_\+T$\ast$ object;
+\item 
+\mbox{\label{_s_d_l__vulkan_8h_a04d8504e79be7e7ff48e313ed88a54ad}} 
+\#define {\bfseries V\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+N\+O\+N\+\_\+\+D\+I\+S\+P\+A\+T\+C\+H\+A\+B\+L\+E\+\_\+\+H\+A\+N\+D\+LE}(object)~typedef uint64\+\_\+t object;
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{_s_d_l__vulkan_8h_a8e23cebc65f7965cf8e90ae275bc8808}} 
+typedef Vk\+Instance {\bfseries S\+D\+L\+\_\+vulkan\+Instance}
+\item 
+\mbox{\label{_s_d_l__vulkan_8h_a974edccc428069558c705abf6d302dee}} 
+typedef Vk\+Surface\+K\+HR {\bfseries S\+D\+L\+\_\+vulkan\+Surface}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{Indent}\textbf{ Vulkan support functions}\par
+{\em \begin{DoxyNote}{Note}
+S\+D\+L\+\_\+\+Vulkan\+\_\+\+Get\+Instance\+Extensions \& S\+D\+L\+\_\+\+Vulkan\+\_\+\+Create\+Surface A\+PI is compatable with Tizen\textquotesingle{}s implementation of Vulkan in S\+DL. 
+\end{DoxyNote}
+}\begin{DoxyCompactItemize}
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Vulkan\+\_\+\+Load\+Library} (const char $\ast$path)
+\item 
+D\+E\+C\+L\+S\+P\+EC void $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Vulkan\+\_\+\+Get\+Vk\+Get\+Instance\+Proc\+Addr} (void)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Vulkan\+\_\+\+Unload\+Library} (void)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Vulkan\+\_\+\+Get\+Instance\+Extensions} (\textbf{ S\+D\+L\+\_\+\+Window} $\ast$window, unsigned int $\ast$p\+Count, const char $\ast$$\ast$p\+Names)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Vulkan\+\_\+\+Create\+Surface} (\textbf{ S\+D\+L\+\_\+\+Window} $\ast$window, Vk\+Instance instance, Vk\+Surface\+K\+HR $\ast$surface)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Vulkan\+\_\+\+Get\+Drawable\+Size} (\textbf{ S\+D\+L\+\_\+\+Window} $\ast$window, int $\ast$w, int $\ast$h)
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Header file for functions to creating Vulkan surfaces on S\+DL windows. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{_s_d_l__vulkan_8h_a1613884948ea2b2671cea8f43462642b}} 
+\index{SDL\_vulkan.h@{SDL\_vulkan.h}!SDL\_Vulkan\_CreateSurface@{SDL\_Vulkan\_CreateSurface}}
+\index{SDL\_Vulkan\_CreateSurface@{SDL\_Vulkan\_CreateSurface}!SDL\_vulkan.h@{SDL\_vulkan.h}}
+\doxysubsubsection{SDL\_Vulkan\_CreateSurface()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Vulkan\+\_\+\+Create\+Surface (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Window} $\ast$}]{window,  }\item[{Vk\+Instance}]{instance,  }\item[{Vk\+Surface\+K\+HR $\ast$}]{surface }\end{DoxyParamCaption})}
+
+Create a Vulkan rendering surface for a window.
+
+The {\ttfamily window} must have been created with the {\ttfamily S\+D\+L\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+V\+U\+L\+K\+AN} flag and {\ttfamily instance} must have been created with extensions returned by \doxyref{S\+D\+L\+\_\+\+Vulkan\+\_\+\+Get\+Instance\+Extensions()}{p.}{_s_d_l__vulkan_8h_a46d6b686f9154e972d6254fc3757bd0d} enabled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window to which to attach the Vulkan surface \\
+\hline
+{\em instance} & The Vulkan instance handle \\
+\hline
+{\em surface} & A pointer to a Vk\+Surface\+K\+HR handle to output the newly created surface \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+T\+R\+UE on success, S\+D\+L\+\_\+\+F\+A\+L\+SE on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available in S\+DL 2.\+0.\+8
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Vulkan\+\_\+\+Get\+Instance\+Extensions}{p.}{_s_d_l__vulkan_8h_a46d6b686f9154e972d6254fc3757bd0d} 
+
+\doxyref{S\+D\+L\+\_\+\+Vulkan\+\_\+\+Get\+Drawable\+Size}{p.}{_s_d_l__vulkan_8h_a170ea51b623cbda9f945b37c037d7974} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__vulkan_8h_a170ea51b623cbda9f945b37c037d7974}} 
+\index{SDL\_vulkan.h@{SDL\_vulkan.h}!SDL\_Vulkan\_GetDrawableSize@{SDL\_Vulkan\_GetDrawableSize}}
+\index{SDL\_Vulkan\_GetDrawableSize@{SDL\_Vulkan\_GetDrawableSize}!SDL\_vulkan.h@{SDL\_vulkan.h}}
+\doxysubsubsection{SDL\_Vulkan\_GetDrawableSize()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Vulkan\+\_\+\+Get\+Drawable\+Size (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Window} $\ast$}]{window,  }\item[{int $\ast$}]{w,  }\item[{int $\ast$}]{h }\end{DoxyParamCaption})}
+
+Get the size of the window\textquotesingle{}s underlying drawable dimensions in pixels.
+
+This may differ from \doxyref{S\+D\+L\+\_\+\+Get\+Window\+Size()}{p.}{_s_d_l__video_8h_a5cbfffcfec91c22a7ca95fd1d5163db5} if we\textquotesingle{}re rendering to a high-\/\+D\+PI drawable, i.\+e. the window was created with {\ttfamily S\+D\+L\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+A\+L\+L\+O\+W\+\_\+\+H\+I\+G\+H\+D\+PI} on a platform with high-\/\+D\+PI support (Apple calls this \char`\"{}\+Retina\char`\"{}), and not disabled by the {\ttfamily S\+D\+L\+\_\+\+H\+I\+N\+T\+\_\+\+V\+I\+D\+E\+O\+\_\+\+H\+I\+G\+H\+D\+P\+I\+\_\+\+D\+I\+S\+A\+B\+L\+ED} hint.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & an S\+D\+L\+\_\+\+Window for which the size is to be queried \\
+\hline
+{\em w} & Pointer to the variable to write the width to or N\+U\+LL \\
+\hline
+{\em h} & Pointer to the variable to write the height to or N\+U\+LL\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+This function is available in S\+DL 2.\+0.\+8
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Window\+Size}{p.}{_s_d_l__video_8h_a5cbfffcfec91c22a7ca95fd1d5163db5} 
+
+\doxyref{S\+D\+L\+\_\+\+Create\+Window}{p.}{_s_d_l__video_8h_a42565088bdb739a5353fd67abbe235d2} 
+
+\doxyref{S\+D\+L\+\_\+\+Vulkan\+\_\+\+Create\+Surface}{p.}{_s_d_l__vulkan_8h_a1613884948ea2b2671cea8f43462642b} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__vulkan_8h_a46d6b686f9154e972d6254fc3757bd0d}} 
+\index{SDL\_vulkan.h@{SDL\_vulkan.h}!SDL\_Vulkan\_GetInstanceExtensions@{SDL\_Vulkan\_GetInstanceExtensions}}
+\index{SDL\_Vulkan\_GetInstanceExtensions@{SDL\_Vulkan\_GetInstanceExtensions}!SDL\_vulkan.h@{SDL\_vulkan.h}}
+\doxysubsubsection{SDL\_Vulkan\_GetInstanceExtensions()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Vulkan\+\_\+\+Get\+Instance\+Extensions (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Window} $\ast$}]{window,  }\item[{unsigned int $\ast$}]{p\+Count,  }\item[{const char $\ast$$\ast$}]{p\+Names }\end{DoxyParamCaption})}
+
+Get the names of the Vulkan instance extensions needed to create a surface with S\+D\+L\+\_\+\+Vulkan\+\_\+\+Create\+Surface.
+
+If {\ttfamily p\+Names} is N\+U\+LL, then the number of required Vulkan instance extensions is returned in {\ttfamily p\+Count}. Otherwise, {\ttfamily p\+Count} must point to a variable set to the number of elements in the {\ttfamily p\+Names} array, and on return the variable is overwritten with the number of names actually written to {\ttfamily p\+Names}. If {\ttfamily p\+Count} is less than the number of required extensions, at most {\ttfamily p\+Count} structures will be written. If {\ttfamily p\+Count} is smaller than the number of required extensions, S\+D\+L\+\_\+\+F\+A\+L\+SE will be returned instead of S\+D\+L\+\_\+\+T\+R\+UE, to indicate that not all the required extensions were returned.
+
+The {\ttfamily window} parameter is currently needed to be valid as of S\+DL 2.\+0.\+8, however, this parameter will likely be removed in future releases
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & A window for which the required Vulkan instance extensions should be retrieved (will be deprecated in a future release) \\
+\hline
+{\em p\+Count} & A pointer to an unsigned int corresponding to the number of extensions to be returned \\
+\hline
+{\em p\+Names} & N\+U\+LL or a pointer to an array to be filled with required Vulkan instance extensions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+T\+R\+UE on success, S\+D\+L\+\_\+\+F\+A\+L\+SE on error.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available in S\+DL 2.\+0.\+8
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Vulkan\+\_\+\+Create\+Surface}{p.}{_s_d_l__vulkan_8h_a1613884948ea2b2671cea8f43462642b} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__vulkan_8h_aee3a196487ad045f8c2b5a0708f5bf55}} 
+\index{SDL\_vulkan.h@{SDL\_vulkan.h}!SDL\_Vulkan\_GetVkGetInstanceProcAddr@{SDL\_Vulkan\_GetVkGetInstanceProcAddr}}
+\index{SDL\_Vulkan\_GetVkGetInstanceProcAddr@{SDL\_Vulkan\_GetVkGetInstanceProcAddr}!SDL\_vulkan.h@{SDL\_vulkan.h}}
+\doxysubsubsection{SDL\_Vulkan\_GetVkGetInstanceProcAddr()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Vulkan\+\_\+\+Get\+Vk\+Get\+Instance\+Proc\+Addr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the address of the {\ttfamily vk\+Get\+Instance\+Proc\+Addr} function.
+
+This should be called after either calling \doxyref{S\+D\+L\+\_\+\+Vulkan\+\_\+\+Load\+Library()}{p.}{_s_d_l__vulkan_8h_a9fcc0942c8eaa67c3eff2e3526304b5b} or creating an S\+D\+L\+\_\+\+Window with the {\ttfamily S\+D\+L\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+V\+U\+L\+K\+AN} flag.
+
+\begin{DoxyReturn}{Returns}
+the function pointer for {\ttfamily vk\+Get\+Instance\+Proc\+Addr} or N\+U\+LL on error. 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__vulkan_8h_a9fcc0942c8eaa67c3eff2e3526304b5b}} 
+\index{SDL\_vulkan.h@{SDL\_vulkan.h}!SDL\_Vulkan\_LoadLibrary@{SDL\_Vulkan\_LoadLibrary}}
+\index{SDL\_Vulkan\_LoadLibrary@{SDL\_Vulkan\_LoadLibrary}!SDL\_vulkan.h@{SDL\_vulkan.h}}
+\doxysubsubsection{SDL\_Vulkan\_LoadLibrary()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Vulkan\+\_\+\+Load\+Library (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+
+Dynamically load the Vulkan loader library.
+
+This should be called after initializing the video driver, but before creating any Vulkan windows. If no Vulkan loader library is loaded, the default library will be loaded upon creation of the first Vulkan window.
+
+It is fairly common for Vulkan applications to link with libvulkan instead of explicitly loading it at run time. This will work with S\+DL provided the application links to a dynamic library and both it and S\+DL use the same search path.
+
+If you specify a non-\/\+N\+U\+LL {\ttfamily path}, an application should retrieve all of the Vulkan functions it uses from the dynamic library using S\+D\+L\+\_\+\+Vulkan\+\_\+\+Get\+Vk\+Get\+Instance\+Proc\+Addr unless you can guarantee {\ttfamily path} points to the same vulkan loader library the application linked to.
+
+On Apple devices, if {\ttfamily path} is N\+U\+LL, S\+DL will attempt to find the {\ttfamily vk\+Get\+Instance\+Proc\+Addr} address within all the Mach-\/O images of the current process. This is because it is fairly common for Vulkan applications to link with libvulkan (and historically Molten\+VK was provided as a static library). If it is not found, on mac\+OS, S\+DL will attempt to load {\ttfamily vulkan.\+framework/vulkan}, {\ttfamily libvulkan.\+1.\+dylib}, {\ttfamily Molten\+V\+K.\+framework/\+Molten\+VK}, and {\ttfamily lib\+Molten\+V\+K.\+dylib}, in that order. On i\+OS, S\+DL will attempt to load {\ttfamily lib\+Molten\+V\+K.\+dylib}. Applications using a dynamic framework or .dylib must ensure it is included in its application bundle.
+
+On non-\/\+Apple devices, application linking with a static libvulkan is not supported. Either do not link to the Vulkan loader or link to a dynamic library version.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The platform dependent Vulkan loader library name or N\+U\+LL \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or -\/1 if the library couldn\textquotesingle{}t be loaded; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available in S\+DL 2.\+0.\+8
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+S\+D\+L\+\_\+\+Vulkan\+\_\+\+Get\+Vk\+Instance\+Proc\+Addr 
+
+\doxyref{S\+D\+L\+\_\+\+Vulkan\+\_\+\+Unload\+Library}{p.}{_s_d_l__vulkan_8h_a92970fb6bc833a8cc65217638d599ff2} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__vulkan_8h_a92970fb6bc833a8cc65217638d599ff2}} 
+\index{SDL\_vulkan.h@{SDL\_vulkan.h}!SDL\_Vulkan\_UnloadLibrary@{SDL\_Vulkan\_UnloadLibrary}}
+\index{SDL\_Vulkan\_UnloadLibrary@{SDL\_Vulkan\_UnloadLibrary}!SDL\_vulkan.h@{SDL\_vulkan.h}}
+\doxysubsubsection{SDL\_Vulkan\_UnloadLibrary()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Vulkan\+\_\+\+Unload\+Library (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Unload the Vulkan library previously loaded by \doxyref{S\+D\+L\+\_\+\+Vulkan\+\_\+\+Load\+Library()}{p.}{_s_d_l__vulkan_8h_a9fcc0942c8eaa67c3eff2e3526304b5b}
+
+\begin{DoxySince}{Since}
+This function is available in S\+DL 2.\+0.\+8
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Vulkan\+\_\+\+Load\+Library}{p.}{_s_d_l__vulkan_8h_a9fcc0942c8eaa67c3eff2e3526304b5b} 
+\end{DoxySeeAlso}

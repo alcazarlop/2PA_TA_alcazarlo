@@ -1,0 +1,95 @@
+\doxysection{Game\+Controller Class Reference}
+\label{class_game_controller}\index{GameController@{GameController}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{class_game_controller_a2586f212cbd3245e02d01459f173d32e}} 
+{\bfseries Game\+Controller} (const \textbf{ Game\+Controller} \&other)
+\item 
+int \textbf{ init} ()
+\begin{DoxyCompactList}\small\item\em Initialize the program. \end{DoxyCompactList}\item 
+int \textbf{ loop} ()
+\begin{DoxyCompactList}\small\item\em Implements the structure of a basic game loop. \end{DoxyCompactList}\item 
+void \textbf{ quit} ()
+\begin{DoxyCompactList}\small\item\em Close and free the memory used by the program. \end{DoxyCompactList}\item 
+void \textbf{ input} (S\+D\+L\+\_\+\+Event $\ast$e)
+\begin{DoxyCompactList}\small\item\em Manages the input. \end{DoxyCompactList}\item 
+void \textbf{ update} ()
+\begin{DoxyCompactList}\small\item\em Updates the program. \end{DoxyCompactList}\item 
+void \textbf{ render} ()
+\begin{DoxyCompactList}\small\item\em Updates the renderer of the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_game_controller_a9ae81b91929ae990527362bb34de771c}} 
+\index{GameController@{GameController}!init@{init}}
+\index{init@{init}!GameController@{GameController}}
+\doxysubsubsection{init()}
+{\footnotesize\ttfamily int Game\+Controller\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the program. 
+
+The function calls all the initializers that are needed to start the program. All the initializers should be called here if need it \mbox{\label{class_game_controller_a014f4dd0155d822742998dbcc62f9226}} 
+\index{GameController@{GameController}!input@{input}}
+\index{input@{input}!GameController@{GameController}}
+\doxysubsubsection{input()}
+{\footnotesize\ttfamily void Game\+Controller\+::input (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Event $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Manages the input. 
+
+All inputs implemented are, and must be, call in this function
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & A reference to S\+DL pool event \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_game_controller_ae2c91c047143ce4221d422a91d53b57f}} 
+\index{GameController@{GameController}!loop@{loop}}
+\index{loop@{loop}!GameController@{GameController}}
+\doxysubsubsection{loop()}
+{\footnotesize\ttfamily int Game\+Controller\+::loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implements the structure of a basic game loop. 
+
+The function is a wrapper that englobes, input, update and draw function, it also calls quit function, once the loop has finished, and init function before this is started \mbox{\label{class_game_controller_a82b414be11558c84b65e89e893bc143d}} 
+\index{GameController@{GameController}!quit@{quit}}
+\index{quit@{quit}!GameController@{GameController}}
+\doxysubsubsection{quit()}
+{\footnotesize\ttfamily void Game\+Controller\+::quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Close and free the memory used by the program. 
+
+All destructors and deallocation functions are, and must be, call in this function \mbox{\label{class_game_controller_a63ab8da0aa07700e653e4e149feeda22}} 
+\index{GameController@{GameController}!render@{render}}
+\index{render@{render}!GameController@{GameController}}
+\doxysubsubsection{render()}
+{\footnotesize\ttfamily void Game\+Controller\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the renderer of the program. 
+
+All the render and draw calls are, and must be, call in this function \mbox{\label{class_game_controller_a0cfefdd78ee1b2b61ad1050b3bedf49b}} 
+\index{GameController@{GameController}!update@{update}}
+\index{update@{update}!GameController@{GameController}}
+\doxysubsubsection{update()}
+{\footnotesize\ttfamily void Game\+Controller\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the program. 
+
+All updates are, and must be, call in this function 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/include/game\+\_\+controller.\+h\end{DoxyCompactItemize}

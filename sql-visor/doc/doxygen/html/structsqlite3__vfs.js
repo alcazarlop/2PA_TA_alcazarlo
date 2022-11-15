@@ -1,0 +1,25 @@
+var structsqlite3__vfs =
+[
+    [ "iVersion", "structsqlite3__vfs.html#a694dd264949bd163545fe174510ed019", null ],
+    [ "mxPathname", "structsqlite3__vfs.html#adb2d82c74891b00b5529fb94e7710135", null ],
+    [ "pAppData", "structsqlite3__vfs.html#a8de686c5e679ba421479ac96d6654527", null ],
+    [ "pNext", "structsqlite3__vfs.html#a4b12c503e4083854a9c4d91697a12de3", null ],
+    [ "szOsFile", "structsqlite3__vfs.html#a549399081342d61134b6398562a0a997", null ],
+    [ "xAccess", "structsqlite3__vfs.html#a221c5661922d9aeb8151cf5255afa4a3", null ],
+    [ "xCurrentTime", "structsqlite3__vfs.html#ab7d2cbf96c5f5f9c69f980312d67e2ed", null ],
+    [ "xCurrentTimeInt64", "structsqlite3__vfs.html#a7e5c24d0e7b3599988b664ab6b997245", null ],
+    [ "xDelete", "structsqlite3__vfs.html#a4644d87f7c8b21fd984199aa6c557e00", null ],
+    [ "xDlClose", "structsqlite3__vfs.html#a9892135ebafe97dd89a5b6fc7fd4a4df", null ],
+    [ "xDlError", "structsqlite3__vfs.html#af72944fc3876e9a25cd7bba46941337a", null ],
+    [ "xDlOpen", "structsqlite3__vfs.html#a364ec04e265a31e4c1b477867288b790", null ],
+    [ "xDlSym", "structsqlite3__vfs.html#a731d96eda882e8c0757e997494f81967", null ],
+    [ "xFullPathname", "structsqlite3__vfs.html#afec79715acb170d5b55ab26ed1e0228c", null ],
+    [ "xGetLastError", "structsqlite3__vfs.html#a44a5b89ae6b3addd97843701ccf2d5b4", null ],
+    [ "xGetSystemCall", "structsqlite3__vfs.html#a42fef4b733fde0af4027ac9cda0d7f5f", null ],
+    [ "xNextSystemCall", "structsqlite3__vfs.html#a427e4f346d1ec40c37879aed52221353", null ],
+    [ "xOpen", "structsqlite3__vfs.html#a495bdbc791ffaf1e6fb6d9028adb4836", null ],
+    [ "xRandomness", "structsqlite3__vfs.html#af5a58b50fa6a40ae510b4d91f81d48cd", null ],
+    [ "xSetSystemCall", "structsqlite3__vfs.html#a9774ab8c96da55ed2a22752f1bc9ae10", null ],
+    [ "xSleep", "structsqlite3__vfs.html#a976dc9771d03edc730cbef9e86e1b0e3", null ],
+    [ "zName", "structsqlite3__vfs.html#a01a82d3e1a7efc00a762a00751ed592b", null ]
+];

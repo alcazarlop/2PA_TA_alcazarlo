@@ -1,0 +1,131 @@
+\doxysection{C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sdl2/include/\+S\+D\+L\+\_\+gesture.h File Reference}
+\label{_s_d_l__gesture_8h}\index{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_gesture.h@{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_gesture.h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+touch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{_s_d_l__gesture_8h_a6c06ab0de82701c94809da9739ff8ac3}} 
+typedef Sint64 {\bfseries S\+D\+L\+\_\+\+Gesture\+ID}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Record\+Gesture} (S\+D\+L\+\_\+\+Touch\+ID touch\+Id)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Save\+All\+Dollar\+Templates} (\textbf{ S\+D\+L\+\_\+\+R\+Wops} $\ast$dst)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Save\+Dollar\+Template} (S\+D\+L\+\_\+\+Gesture\+ID gesture\+Id, \textbf{ S\+D\+L\+\_\+\+R\+Wops} $\ast$dst)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Load\+Dollar\+Templates} (S\+D\+L\+\_\+\+Touch\+ID touch\+Id, \textbf{ S\+D\+L\+\_\+\+R\+Wops} $\ast$src)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Include file for S\+DL gesture event handling. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{_s_d_l__gesture_8h_a83cbaebec0c418b2fc08bbfeeed7d526}} 
+\index{SDL\_gesture.h@{SDL\_gesture.h}!SDL\_LoadDollarTemplates@{SDL\_LoadDollarTemplates}}
+\index{SDL\_LoadDollarTemplates@{SDL\_LoadDollarTemplates}!SDL\_gesture.h@{SDL\_gesture.h}}
+\doxysubsubsection{SDL\_LoadDollarTemplates()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Load\+Dollar\+Templates (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Touch\+ID}]{touch\+Id,  }\item[{\textbf{ S\+D\+L\+\_\+\+R\+Wops} $\ast$}]{src }\end{DoxyParamCaption})}
+
+Load Dollar Gesture templates from a file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em touch\+Id} & a touch id \\
+\hline
+{\em src} & a \doxyref{S\+D\+L\+\_\+\+R\+Wops}{p.}{struct_s_d_l___r_wops} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of loaded templates on success or a negative error code (or 0) on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Save\+All\+Dollar\+Templates}{p.}{_s_d_l__gesture_8h_ad37b554c91a5fffe3fc1dc3094db1b89} 
+
+\doxyref{S\+D\+L\+\_\+\+Save\+Dollar\+Template}{p.}{_s_d_l__gesture_8h_acef0242f4c4b7401509bc533864629ad} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__gesture_8h_ad06776e2e199d5d48e466a0ecbbb06c3}} 
+\index{SDL\_gesture.h@{SDL\_gesture.h}!SDL\_RecordGesture@{SDL\_RecordGesture}}
+\index{SDL\_RecordGesture@{SDL\_RecordGesture}!SDL\_gesture.h@{SDL\_gesture.h}}
+\doxysubsubsection{SDL\_RecordGesture()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Record\+Gesture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Touch\+ID}]{touch\+Id }\end{DoxyParamCaption})}
+
+Begin recording a gesture on a specified touch device or all touch devices.
+
+If the parameter {\ttfamily touch\+Id} is -\/1 (i.\+e., all devices), this function will always return 1, regardless of whether there actually are any devices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em touch\+Id} & the touch device id, or -\/1 for all touch devices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success or 0 if the specified device could not be found.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Touch\+Device}{p.}{_s_d_l__touch_8h_af23f09dc79eace93cdc8dd770eed0d0a} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__gesture_8h_ad37b554c91a5fffe3fc1dc3094db1b89}} 
+\index{SDL\_gesture.h@{SDL\_gesture.h}!SDL\_SaveAllDollarTemplates@{SDL\_SaveAllDollarTemplates}}
+\index{SDL\_SaveAllDollarTemplates@{SDL\_SaveAllDollarTemplates}!SDL\_gesture.h@{SDL\_gesture.h}}
+\doxysubsubsection{SDL\_SaveAllDollarTemplates()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Save\+All\+Dollar\+Templates (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+R\+Wops} $\ast$}]{dst }\end{DoxyParamCaption})}
+
+Save all currently loaded Dollar Gesture templates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst} & a \doxyref{S\+D\+L\+\_\+\+R\+Wops}{p.}{struct_s_d_l___r_wops} to save to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of saved templates on success or 0 on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Load\+Dollar\+Templates}{p.}{_s_d_l__gesture_8h_a83cbaebec0c418b2fc08bbfeeed7d526} 
+
+\doxyref{S\+D\+L\+\_\+\+Save\+Dollar\+Template}{p.}{_s_d_l__gesture_8h_acef0242f4c4b7401509bc533864629ad} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__gesture_8h_acef0242f4c4b7401509bc533864629ad}} 
+\index{SDL\_gesture.h@{SDL\_gesture.h}!SDL\_SaveDollarTemplate@{SDL\_SaveDollarTemplate}}
+\index{SDL\_SaveDollarTemplate@{SDL\_SaveDollarTemplate}!SDL\_gesture.h@{SDL\_gesture.h}}
+\doxysubsubsection{SDL\_SaveDollarTemplate()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Save\+Dollar\+Template (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Gesture\+ID}]{gesture\+Id,  }\item[{\textbf{ S\+D\+L\+\_\+\+R\+Wops} $\ast$}]{dst }\end{DoxyParamCaption})}
+
+Save a currently loaded Dollar Gesture template.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gesture\+Id} & a gesture id \\
+\hline
+{\em dst} & a \doxyref{S\+D\+L\+\_\+\+R\+Wops}{p.}{struct_s_d_l___r_wops} to save to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success or 0 on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Load\+Dollar\+Templates}{p.}{_s_d_l__gesture_8h_a83cbaebec0c418b2fc08bbfeeed7d526} 
+
+\doxyref{S\+D\+L\+\_\+\+Save\+All\+Dollar\+Templates}{p.}{_s_d_l__gesture_8h_ad37b554c91a5fffe3fc1dc3094db1b89} 
+\end{DoxySeeAlso}

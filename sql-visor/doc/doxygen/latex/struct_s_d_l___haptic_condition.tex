@@ -1,0 +1,146 @@
+\doxysection{S\+D\+L\+\_\+\+Haptic\+Condition Struct Reference}
+\label{struct_s_d_l___haptic_condition}\index{SDL\_HapticCondition@{SDL\_HapticCondition}}
+
+
+A structure containing a template for a Condition effect.  
+
+
+
+
+{\ttfamily \#include $<$S\+D\+L\+\_\+haptic.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Uint16 \textbf{ type}
+\item 
+\textbf{ S\+D\+L\+\_\+\+Haptic\+Direction} \textbf{ direction}
+\item 
+Uint32 \textbf{ length}
+\item 
+Uint16 \textbf{ delay}
+\item 
+Uint16 \textbf{ button}
+\item 
+Uint16 \textbf{ interval}
+\item 
+Uint16 \textbf{ right\+\_\+sat} [3]
+\item 
+Uint16 \textbf{ left\+\_\+sat} [3]
+\item 
+Sint16 \textbf{ right\+\_\+coeff} [3]
+\item 
+Sint16 \textbf{ left\+\_\+coeff} [3]
+\item 
+Uint16 \textbf{ deadband} [3]
+\item 
+Sint16 \textbf{ center} [3]
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A structure containing a template for a Condition effect. 
+
+The struct handles the following effects\+:
+\begin{DoxyItemize}
+\item \doxyref{S\+D\+L\+\_\+\+H\+A\+P\+T\+I\+C\+\_\+\+S\+P\+R\+I\+NG}{p.}{_s_d_l__haptic_8h_a3b52d4700380085e2b5d87bb20320fb1}\+: Effect based on axes position.
+\item \doxyref{S\+D\+L\+\_\+\+H\+A\+P\+T\+I\+C\+\_\+\+D\+A\+M\+P\+ER}{p.}{_s_d_l__haptic_8h_a69522f261973e3ea4273486141320a87}\+: Effect based on axes velocity.
+\item \doxyref{S\+D\+L\+\_\+\+H\+A\+P\+T\+I\+C\+\_\+\+I\+N\+E\+R\+T\+IA}{p.}{_s_d_l__haptic_8h_a14b807471589120395aec28293cf6642}\+: Effect based on axes acceleration.
+\item \doxyref{S\+D\+L\+\_\+\+H\+A\+P\+T\+I\+C\+\_\+\+F\+R\+I\+C\+T\+I\+ON}{p.}{_s_d_l__haptic_8h_a98a5011311168d63921aaac21403a4d8}\+: Effect based on axes movement.
+\end{DoxyItemize}
+
+Direction is handled by condition internals instead of a direction member. The condition effect specific members have three parameters. The first refers to the X axis, the second refers to the Y axis and the third refers to the Z axis. The right terms refer to the positive side of the axis and the left terms refer to the negative side of the axis. Please refer to the \doxyref{S\+D\+L\+\_\+\+Haptic\+Direction}{p.}{struct_s_d_l___haptic_direction} diagram for which side is positive and which is negative.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Haptic\+Direction}{p.}{struct_s_d_l___haptic_direction} 
+
+\doxyref{S\+D\+L\+\_\+\+H\+A\+P\+T\+I\+C\+\_\+\+S\+P\+R\+I\+NG}{p.}{_s_d_l__haptic_8h_a3b52d4700380085e2b5d87bb20320fb1} 
+
+\doxyref{S\+D\+L\+\_\+\+H\+A\+P\+T\+I\+C\+\_\+\+D\+A\+M\+P\+ER}{p.}{_s_d_l__haptic_8h_a69522f261973e3ea4273486141320a87} 
+
+\doxyref{S\+D\+L\+\_\+\+H\+A\+P\+T\+I\+C\+\_\+\+I\+N\+E\+R\+T\+IA}{p.}{_s_d_l__haptic_8h_a14b807471589120395aec28293cf6642} 
+
+\doxyref{S\+D\+L\+\_\+\+H\+A\+P\+T\+I\+C\+\_\+\+F\+R\+I\+C\+T\+I\+ON}{p.}{_s_d_l__haptic_8h_a98a5011311168d63921aaac21403a4d8} 
+
+\doxyref{S\+D\+L\+\_\+\+Haptic\+Effect}{p.}{union_s_d_l___haptic_effect} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{struct_s_d_l___haptic_condition_acd35a9d432ad122bf7824b16974eac7a}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!button@{button}}
+\index{button@{button}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{button}
+{\footnotesize\ttfamily Uint16 S\+D\+L\+\_\+\+Haptic\+Condition\+::button}
+
+Button that triggers the effect. \mbox{\label{struct_s_d_l___haptic_condition_a8a71ec28ff5ab85246cbc59736aa2c53}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!center@{center}}
+\index{center@{center}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{center}
+{\footnotesize\ttfamily Sint16 S\+D\+L\+\_\+\+Haptic\+Condition\+::center[3]}
+
+Position of the dead zone. \mbox{\label{struct_s_d_l___haptic_condition_af684c8eeeb719739a32723c00c5a2bbd}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!deadband@{deadband}}
+\index{deadband@{deadband}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{deadband}
+{\footnotesize\ttfamily Uint16 S\+D\+L\+\_\+\+Haptic\+Condition\+::deadband[3]}
+
+Size of the dead zone; max 0x\+F\+F\+FF\+: whole axis-\/range when 0-\/centered. \mbox{\label{struct_s_d_l___haptic_condition_aad40417980530ca8d80c62ba864a090b}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!delay@{delay}}
+\index{delay@{delay}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{delay}
+{\footnotesize\ttfamily Uint16 S\+D\+L\+\_\+\+Haptic\+Condition\+::delay}
+
+Delay before starting the effect. \mbox{\label{struct_s_d_l___haptic_condition_a728507d30d18998949313de3a25e5581}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!direction@{direction}}
+\index{direction@{direction}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{direction}
+{\footnotesize\ttfamily \textbf{ S\+D\+L\+\_\+\+Haptic\+Direction} S\+D\+L\+\_\+\+Haptic\+Condition\+::direction}
+
+Direction of the effect -\/ Not used A\+TM. \mbox{\label{struct_s_d_l___haptic_condition_aafc182abea1078bed7e9cf5d0e713ea2}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!interval@{interval}}
+\index{interval@{interval}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{interval}
+{\footnotesize\ttfamily Uint16 S\+D\+L\+\_\+\+Haptic\+Condition\+::interval}
+
+How soon it can be triggered again after button. \mbox{\label{struct_s_d_l___haptic_condition_a2adf52c32f60f0b6826b1e3add2eae7a}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!left\_coeff@{left\_coeff}}
+\index{left\_coeff@{left\_coeff}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{left\_coeff}
+{\footnotesize\ttfamily Sint16 S\+D\+L\+\_\+\+Haptic\+Condition\+::left\+\_\+coeff[3]}
+
+How fast to increase the force towards the negative side. \mbox{\label{struct_s_d_l___haptic_condition_a953448774c40818a4f47c6efea21124d}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!left\_sat@{left\_sat}}
+\index{left\_sat@{left\_sat}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{left\_sat}
+{\footnotesize\ttfamily Uint16 S\+D\+L\+\_\+\+Haptic\+Condition\+::left\+\_\+sat[3]}
+
+Level when joystick is to the negative side; max 0x\+F\+F\+FF. \mbox{\label{struct_s_d_l___haptic_condition_ad0efb0a6ddc20f058e87199eaaa95978}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!length@{length}}
+\index{length@{length}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{length}
+{\footnotesize\ttfamily Uint32 S\+D\+L\+\_\+\+Haptic\+Condition\+::length}
+
+Duration of the effect. \mbox{\label{struct_s_d_l___haptic_condition_a3de7f164ef88841255535387d0f100b6}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!right\_coeff@{right\_coeff}}
+\index{right\_coeff@{right\_coeff}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{right\_coeff}
+{\footnotesize\ttfamily Sint16 S\+D\+L\+\_\+\+Haptic\+Condition\+::right\+\_\+coeff[3]}
+
+How fast to increase the force towards the positive side. \mbox{\label{struct_s_d_l___haptic_condition_a90427a1e0d464b4b53abc1d419c97b2e}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!right\_sat@{right\_sat}}
+\index{right\_sat@{right\_sat}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{right\_sat}
+{\footnotesize\ttfamily Uint16 S\+D\+L\+\_\+\+Haptic\+Condition\+::right\+\_\+sat[3]}
+
+Level when joystick is to the positive side; max 0x\+F\+F\+FF. \mbox{\label{struct_s_d_l___haptic_condition_a7be55a9a86c05dd1a54a3006781cfa6f}} 
+\index{SDL\_HapticCondition@{SDL\_HapticCondition}!type@{type}}
+\index{type@{type}!SDL\_HapticCondition@{SDL\_HapticCondition}}
+\doxysubsubsection{type}
+{\footnotesize\ttfamily Uint16 S\+D\+L\+\_\+\+Haptic\+Condition\+::type}
+
+\doxyref{S\+D\+L\+\_\+\+H\+A\+P\+T\+I\+C\+\_\+\+S\+P\+R\+I\+NG}{p.}{_s_d_l__haptic_8h_a3b52d4700380085e2b5d87bb20320fb1}, \doxyref{S\+D\+L\+\_\+\+H\+A\+P\+T\+I\+C\+\_\+\+D\+A\+M\+P\+ER}{p.}{_s_d_l__haptic_8h_a69522f261973e3ea4273486141320a87}, \doxyref{S\+D\+L\+\_\+\+H\+A\+P\+T\+I\+C\+\_\+\+I\+N\+E\+R\+T\+IA}{p.}{_s_d_l__haptic_8h_a14b807471589120395aec28293cf6642} or \doxyref{S\+D\+L\+\_\+\+H\+A\+P\+T\+I\+C\+\_\+\+F\+R\+I\+C\+T\+I\+ON}{p.}{_s_d_l__haptic_8h_a98a5011311168d63921aaac21403a4d8} 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sdl2/include/\textbf{ S\+D\+L\+\_\+haptic.\+h}\end{DoxyCompactItemize}

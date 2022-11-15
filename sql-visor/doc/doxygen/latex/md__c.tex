@@ -1,0 +1,710 @@
+\+\_\+(You may browse this at {\texttt{ https\+://github.\+com/ocornut/imgui/blob/master/docs/\+B\+A\+C\+K\+E\+N\+D\+S.\+md}} or view this file with any Markdown viewer)\doxysubsection{Dear Im\+Gui\+: Backends}\label{md__c_autotoc_md0}
+{\bfseries{The backends/ folder contains backends for popular platforms/graphics A\+PI, which you can use in your application or engine to easily integrate Dear Im\+Gui.}} Each backend is typically self-\/contained in a pair of files\+: imgui\+\_\+impl\+\_\+\+X\+X\+X\+X.\+cpp + imgui\+\_\+impl\+\_\+\+X\+X\+X\+X.\+h.
+
+
+\begin{DoxyItemize}
+\item The \textquotesingle{}Platform\textquotesingle{} backends are in charge of\+: mouse/keyboard/gamepad inputs, cursor shape, timing, windowing.~\newline
+ e.\+g. Windows ({\texttt{ imgui\+\_\+impl\+\_\+win32.\+cpp}}), G\+L\+FW ({\texttt{ imgui\+\_\+impl\+\_\+glfw.\+cpp}}), S\+D\+L2 ({\texttt{ imgui\+\_\+impl\+\_\+sdl.\+cpp}}), etc.
+\item The \textquotesingle{}Renderer\textquotesingle{} backends are in charge of\+: creating atlas texture, rendering imgui draw data.~\newline
+ e.\+g. Direct\+X11 ({\texttt{ imgui\+\_\+impl\+\_\+dx11.\+cpp}}), Open\+G\+L/\+Web\+GL ({\texttt{ imgui\+\_\+impl\+\_\+opengl3.\+cpp}}, Vulkan ({\texttt{ imgui\+\_\+impl\+\_\+vulkan.\+cpp}}, etc.
+\item For some high-\/level frameworks, a single backend usually handle both \textquotesingle{}Platform\textquotesingle{} and \textquotesingle{}Renderer\textquotesingle{} parts.~\newline
+ e.\+g. Allegro 5 ({\texttt{ imgui\+\_\+impl\+\_\+allegro5.\+cpp}}), Marmalade ({\texttt{ imgui\+\_\+impl\+\_\+marmalade.\+cpp}}). If you end up creating a custom backend for your engine, you may want to do the same.
+\end{DoxyItemize}
+
+An application usually combines 1 Platform backend + 1 Renderer backend + main Dear Im\+Gui sources. For example, the {\texttt{ example\+\_\+win32\+\_\+directx11}} application combines imgui\+\_\+impl\+\_\+win32.\+cpp + imgui\+\_\+impl\+\_\+dx11.\+cpp. There are 20+ examples in the {\texttt{ examples/}} folder. See {\texttt{ E\+X\+A\+M\+P\+L\+E\+S.\+MD}} for details.
+
+{\bfseries{Once Dear Im\+Gui is setup and running, run and refer to {\ttfamily Im\+Gui\+::\+Show\+Demo\+Window()} in imgui\+\_\+demo.\+cpp for usage of the end-\/user A\+PI.}}\doxysubsubsection{What are backends}\label{md__c_autotoc_md1}
+Dear Im\+Gui is highly portable and only requires a few things to run and render, typically\+:
+
+
+\begin{DoxyItemize}
+\item Required\+: providing mouse/keyboard inputs (fed into the {\ttfamily \doxyref{Im\+Gui\+IO}{p.}{struct_im_gui_i_o}} structure).
+\item Required\+: uploading the font atlas texture into graphics memory.
+\item Required\+: rendering indexed textured triangles with a clipping rectangle.
+\end{DoxyItemize}
+
+Extra features are opt-\/in, our backends try to support as many as possible\+:
+
+
+\begin{DoxyItemize}
+\item Optional\+: custom texture binding support.
+\item Optional\+: clipboard support.
+\item Optional\+: gamepad support.
+\item Optional\+: mouse cursor shape support.
+\item Optional\+: I\+ME support.
+\item Optional\+: multi-\/viewports support. etc.
+\end{DoxyItemize}
+
+This is essentially what each backends are doing + obligatory portability cruft. Using default backends ensure you can get all those features including the ones that would be harder to implement on your side (e.\+g. multi-\/viewports support).
+
+It is important to understand the difference between the core Dear Im\+Gui library (files in the root folder) and backends which we are describing here (backends/ folder).
+
+
+\begin{DoxyItemize}
+\item Some issues may only be backend or platform specific.
+\item You should be able to write backends for pretty much any platform and any 3D graphics A\+PI. e.\+g. you can get creative and use software rendering or render remotely on a different machine.
+\end{DoxyItemize}\doxysubsubsection{Integrating a backend}\label{md__c_autotoc_md2}
+See \char`\"{}\+Getting Started\char`\"{} section of {\texttt{ E\+X\+A\+M\+P\+L\+E\+S.\+MD}} for more details.\doxysubsubsection{List of backends}\label{md__c_autotoc_md3}
+In the {\texttt{ backends/}} folder\+:
+
+List of Platforms Backends\+: \begin{DoxyVerb}imgui_impl_android.cpp    ; Android native app API
+imgui_impl_glfw.cpp       ; GLFW (Windows, macOS, Linux, etc.) http://www.glfw.org/
+imgui_impl_osx.mm         ; macOS native API (not as feature complete as glfw/sdl backends)
+imgui_impl_sdl.cpp        ; SDL2 (Windows, macOS, Linux, iOS, Android) https://www.libsdl.org
+imgui_impl_win32.cpp      ; Win32 native API (Windows)
+imgui_impl_glut.cpp       ; GLUT/FreeGLUT (this is prehistoric software and absolutely not recommended today!)
+\end{DoxyVerb}
+
+
+List of Renderer Backends\+: \begin{DoxyVerb}imgui_impl_dx9.cpp        ; DirectX9
+imgui_impl_dx10.cpp       ; DirectX10
+imgui_impl_dx11.cpp       ; DirectX11
+imgui_impl_dx12.cpp       ; DirectX12
+imgui_impl_metal.mm       ; Metal (with ObjC)
+imgui_impl_opengl2.cpp    ; OpenGL 2 (legacy, fixed pipeline <- don't use with modern OpenGL context)
+imgui_impl_opengl3.cpp    ; OpenGL 3/4, OpenGL ES 2, OpenGL ES 3 (modern programmable pipeline)
+imgui_impl_sdlrenderer.cpp; SDL_Renderer (optional component of SDL2 available from SDL 2.0.18+)
+imgui_impl_vulkan.cpp     ; Vulkan
+imgui_impl_wgpu.cpp       ; WebGPU
+\end{DoxyVerb}
+
+
+List of high-\/level Frameworks Backends (combining Platform + Renderer)\+: \begin{DoxyVerb}imgui_impl_allegro5.cpp
+imgui_impl_marmalade.cpp
+\end{DoxyVerb}
+
+
+Emscripten is also supported. The {\texttt{ example\+\_\+emscripten\+\_\+opengl3}} app uses imgui\+\_\+impl\+\_\+sdl.\+cpp + imgui\+\_\+impl\+\_\+opengl3.\+cpp, but other combos are possible.\doxysubsubsection{Backends for third-\/party frameworks, graphics A\+P\+I or other languages}\label{md__c_autotoc_md4}
+See {\texttt{ https\+://github.\+com/ocornut/imgui/wiki/\+Bindings}} for the full list.\doxysubsubsection{Recommended Backends}\label{md__c_autotoc_md5}
+If you are not sure which backend to use, the recommended platform/frameworks for portable applications\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Library  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Website  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Backend  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Note   }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Library  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Website  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Backend  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Note   }\\\cline{1-4}
+\endhead
+G\+L\+FW  &{\texttt{ https\+://github.\+com/glfw/glfw}}  &imgui\+\_\+impl\+\_\+glfw.\+cpp  &\\\cline{1-4}
+S\+D\+L2  &{\texttt{ https\+://www.\+libsdl.\+org}}  &imgui\+\_\+impl\+\_\+sdl.\+cpp  &\\\cline{1-4}
+Sokol  &{\texttt{ https\+://github.\+com/floooh/sokol}}  &{\texttt{ util/sokol\+\_\+imgui.\+h}}  &Lower-\/level than G\+L\+F\+W/\+S\+DL   \\\cline{1-4}
+\end{longtabu}
+\doxysubsubsection{Using a custom engine?}\label{md__c_autotoc_md6}
+You will likely be tempted to start by rewrite your own backend using your own custom/high-\/level facilities...~\newline
+ Think twice!
+
+If you are new to Dear Im\+Gui, first try using the existing backends as-\/is. You will save lots of time integrating the library. You can L\+A\+T\+ER decide to rewrite yourself a custom backend if you really need to. In most situations, custom backends have less features and more bugs than the standard backends we provide. If you want portability, you can use multiple backends and choose between them either at compile time or at runtime.
+
+{\bfseries{Example A}}\+: your engine is built over Windows + Direct\+X11 but you have your own high-\/level rendering system layered over Direct\+X11.~\newline
+ Suggestion\+: try using imgui\+\_\+impl\+\_\+win32.\+cpp + imgui\+\_\+impl\+\_\+dx11.\+cpp first. Once it works, if you really need it you can replace the imgui\+\_\+impl\+\_\+dx11.\+cpp code with a custom renderer using your own rendering functions, and keep using the standard Win32 code etc.
+
+{\bfseries{Example B}}\+: your engine runs on Windows, Mac, Linux and uses Direct\+X11, Metal, Vulkan respectively.~\newline
+ Suggestion\+: use multiple generic backends! Once it works, if you really need it you can replace parts of backends with your own abstractions.
+
+{\bfseries{Example C}}\+: your engine runs on platforms we can\textquotesingle{}t provide public backends for (e.\+g. P\+S4/\+P\+S5, Switch), and you have high-\/level systems everywhere.~\newline
+ Suggestion\+: try using a non-\/portable backend first (e.\+g. win32 + underlying graphics A\+PI) to get your desktop builds working first. This will get you running faster and get your acquainted with how Dear Im\+Gui works and is setup. You can then rewrite a custom backend using your own engine A\+PI.
+
+Also\+: The {\texttt{ multi-\/viewports feature}} of the \textquotesingle{}docking\textquotesingle{} branch allows Dear Im\+Gui windows to be seamlessly detached from the main application window. This is achieved using an extra layer to the Platform and Renderer backends, which allows Dear Im\+Gui to communicate platform-\/specific requests such as\+: \char`\"{}create an additional O\+S window\char`\"{}, \char`\"{}create a render context\char`\"{}, \char`\"{}get the O\+S position of this
+window\char`\"{} etc. See \textquotesingle{}Im\+Gui\+Platform\+IO\textquotesingle{} for details. Supporting the multi-\/viewports feature correctly using 100\% of your own abstractions is more difficult than supporting single-\/viewport. If you decide to use unmodified imgui\+\_\+impl\+\_\+\+X\+X\+X\+X.\+cpp files, you can automatically benefit from improvements and fixes related to viewports and platform windows without extra work on your side.
+
+\+\_\+(You may browse this at {\texttt{ https\+://github.\+com/ocornut/imgui/blob/master/docs/\+E\+X\+A\+M\+P\+L\+E\+S.\+md}} or view this file with any Markdown viewer)\doxysubsection{Dear Im\+Gui\+: Examples}\label{md__c_autotoc_md7}
+{\bfseries{The {\texttt{ examples/}} folder example applications (standalone, ready-\/to-\/build) for variety of platforms and graphics A\+P\+Is.}} They all use standard backends from the {\texttt{ backends/}} folder (see {\texttt{ B\+A\+C\+K\+E\+N\+D\+S.\+md}}).
+
+The purpose of Examples is to showcase integration with backends, let you try Dear Im\+Gui, and guide you toward integrating Dear Im\+Gui in your own application/game/engine. {\bfseries{Once Dear Im\+Gui is setup and running, run and refer to {\ttfamily Im\+Gui\+::\+Show\+Demo\+Window()} in imgui\+\_\+demo.\+cpp for usage of the end-\/user A\+PI.}}
+
+You can find Windows binaries for some of those example applications at\+: {\texttt{ http\+://www.\+dearimgui.\+org/binaries}}\doxysubsubsection{Getting Started}\label{md__c_autotoc_md8}
+Integration in a typical existing application, should take $<$20 lines when using standard backends. \begin{DoxyVerb}At initialization:
+  call ImGui::CreateContext()
+  call ImGui_ImplXXXX_Init() for each backend.
+
+At the beginning of your frame:
+  call ImGui_ImplXXXX_NewFrame() for each backend.
+  call ImGui::NewFrame()
+
+At the end of your frame:
+  call ImGui::Render()
+  call ImGui_ImplXXXX_RenderDrawData() for your Renderer backend.
+
+At shutdown:
+  call ImGui_ImplXXXX_Shutdown() for each backend.
+  call ImGui::DestroyContext()
+\end{DoxyVerb}
+
+
+Example (using [backends/imgui\+\_\+impl\+\_\+win32.\+cpp]({\texttt{ https\+://github.\+com/ocornut/imgui/blob/master/backends/imgui\+\_\+impl\+\_\+win32.\+cpp}}) + [backends/imgui\+\_\+impl\+\_\+dx11.\+cpp]({\texttt{ https\+://github.\+com/ocornut/imgui/blob/master/backends/imgui\+\_\+impl\+\_\+dx11.\+cpp}}))\+: \begin{DoxyVerb}// Create a Dear ImGui context, setup some options
+ImGui::CreateContext();
+ImGuiIO& io = ImGui::GetIO();
+io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable some options
+
+// Initialize Platform + Renderer backends (here: using imgui_impl_win32.cpp + imgui_impl_dx11.cpp)
+ImGui_ImplWin32_Init(my_hwnd);
+ImGui_ImplDX11_Init(my_d3d_device, my_d3d_device_context);
+
+// Application main loop
+while (true)
+{
+    // Beginning of frame: update Renderer + Platform backend, start Dear ImGui frame
+    ImGui_ImplDX11_NewFrame();
+    ImGui_ImplWin32_NewFrame();
+    ImGui::NewFrame();
+
+    // Any application code here
+    ImGui::Text("Hello, world!");
+
+    // End of frame: render Dear ImGui
+    ImGui::Render();
+    ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+
+    // Swap
+    g_pSwapChain->Present(1, 0);
+}
+
+// Shutdown
+ImGui_ImplDX11_Shutdown();
+ImGui_ImplWin32_Shutdown();
+ImGui::DestroyContext();
+\end{DoxyVerb}
+
+
+Please read \textquotesingle{}P\+R\+O\+G\+R\+A\+M\+M\+ER G\+U\+I\+DE\textquotesingle{} in imgui.\+cpp for notes on how to setup Dear Im\+Gui in your codebase. Please read the comments and instruction at the top of each file. Please read F\+AQ at {\texttt{ http\+://www.\+dearimgui.\+org/faq}}
+
+If you are using of the backend provided here, you can add the backends/imgui\+\_\+impl\+\_\+xxxx(.cpp,.h) files to your project and use as-\/in. Each imgui\+\_\+impl\+\_\+xxxx.\+cpp file comes with its own individual Changelog, so if you want to update them later it will be easier to catch up with what changed.\doxysubsubsection{Examples Applications}\label{md__c_autotoc_md9}
+{\texttt{ example\+\_\+allegro5/}} ~\newline
+ Allegro 5 example. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+allegro5.\+cpp
+
+{\texttt{ example\+\_\+android\+\_\+opengl3/}} ~\newline
+ Android + Open\+G\+L3 (ES) example. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+android.\+cpp + imgui\+\_\+impl\+\_\+opengl3.\+cpp
+
+{\texttt{ example\+\_\+apple\+\_\+metal/}} ~\newline
+ O\+SX \& i\+OS + Metal example. ~\newline
+ = main.\+m + imgui\+\_\+impl\+\_\+osx.\+mm + imgui\+\_\+impl\+\_\+metal.\+mm ~\newline
+ It is based on the \char`\"{}cross-\/platform\char`\"{} game template provided with Xcode as of Xcode 9. (NB\+: imgui\+\_\+impl\+\_\+osx.\+mm is currently not as feature complete as other platforms backends. You may prefer to use the G\+L\+FW Or S\+DL backends, which will also support Windows and Linux.)
+
+{\texttt{ example\+\_\+apple\+\_\+opengl2/}} ~\newline
+ O\+SX + Open\+G\+L2 example. ~\newline
+ = main.\+mm + imgui\+\_\+impl\+\_\+osx.\+mm + imgui\+\_\+impl\+\_\+opengl2.\+cpp ~\newline
+ (NB\+: imgui\+\_\+impl\+\_\+osx.\+mm is currently not as feature complete as other platforms backends. You may prefer to use the G\+L\+FW Or S\+DL backends, which will also support Windows and Linux.)
+
+{\texttt{ example\+\_\+emscripten\+\_\+opengl3/}} ~\newline
+ Emcripten + S\+D\+L2 + Open\+G\+L3+/\+E\+S2/\+E\+S3 example. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+sdl.\+cpp + imgui\+\_\+impl\+\_\+opengl3.\+cpp ~\newline
+ Note that other examples based on S\+DL or G\+L\+FW + Open\+GL could easily be modified to work with Emscripten. We provide this to make the Emscripten differences obvious, and have them not pollute all other examples.
+
+{\texttt{ example\+\_\+emscripten\+\_\+wgpu/}} ~\newline
+ Emcripten + G\+L\+FW + Web\+G\+PU example. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+glfw.\+cpp + imgui\+\_\+impl\+\_\+wgpu.\+cpp
+
+{\texttt{ example\+\_\+glfw\+\_\+metal/}} ~\newline
+ G\+L\+FW (Mac) + Metal example. ~\newline
+ = main.\+mm + imgui\+\_\+impl\+\_\+glfw.\+cpp + imgui\+\_\+impl\+\_\+metal.\+mm
+
+{\texttt{ example\+\_\+glfw\+\_\+opengl2/}} ~\newline
+ G\+L\+FW + Open\+G\+L2 example (legacy, fixed pipeline). ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+glfw.\+cpp + imgui\+\_\+impl\+\_\+opengl2.\+cpp ~\newline
+ {\bfseries{DO N\+OT U\+SE T\+H\+IS IF Y\+O\+UR C\+O\+D\+E/\+E\+N\+G\+I\+NE IS U\+S\+I\+NG M\+O\+D\+E\+RN O\+P\+E\+N\+GL (S\+H\+A\+D\+E\+RS, V\+BO, V\+AO, etc.)}} ~\newline
+ This code is mostly provided as a reference to learn about Dear Im\+Gui integration, because it is shorter. If your code is using G\+L3+ context or any semi modern Open\+GL calls, using this renderer is likely to make things more complicated, will require your code to reset many Open\+GL attributes to their initial state, and might confuse your G\+PU driver. One star, not recommended.
+
+{\texttt{ example\+\_\+glfw\+\_\+opengl3/}} ~\newline
+ G\+L\+FW (Win32, Mac, Linux) + Open\+G\+L3+/\+E\+S2/\+E\+S3 example (modern, programmable pipeline). ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+glfw.\+cpp + imgui\+\_\+impl\+\_\+opengl3.\+cpp ~\newline
+ This uses more modern Open\+GL calls and custom shaders. ~\newline
+ This may actually also work with Open\+GL 2.\+x contexts! ~\newline
+ Prefer using that if you are using modern Open\+GL in your application (anything with shaders).
+
+{\texttt{ example\+\_\+glfw\+\_\+vulkan/}} ~\newline
+ G\+L\+FW (Win32, Mac, Linux) + Vulkan example. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+glfw.\+cpp + imgui\+\_\+impl\+\_\+vulkan.\+cpp ~\newline
+ This is quite long and tedious, because\+: Vulkan. For this example, the main.\+cpp file exceptionally use helpers function from \doxyref{imgui\+\_\+impl\+\_\+vulkan.\+h}{p.}{imgui__impl__vulkan_8h_source}/cpp.
+
+{\texttt{ example\+\_\+glut\+\_\+opengl2/}} ~\newline
+ G\+L\+UT (e.\+g., Free\+G\+L\+UT on Linux/\+Windows, G\+L\+UT framework on O\+SX) + Open\+G\+L2 example. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+glut.\+cpp + imgui\+\_\+impl\+\_\+opengl2.\+cpp ~\newline
+ Note that G\+L\+U\+T/\+Free\+G\+L\+UT is largely obsolete software, prefer using G\+L\+FW or S\+DL.
+
+{\texttt{ example\+\_\+marmalade/}} ~\newline
+ Marmalade example using Iw\+Gx. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+marmalade.\+cpp
+
+{\texttt{ example\+\_\+null/}} ~\newline
+ Null example, compile and link imgui, create context, run headless with no inputs and no graphics output. ~\newline
+ = main.\+cpp ~\newline
+ This is used to quickly test compilation of core imgui files in as many setups as possible. Because this application doesn\textquotesingle{}t create a window nor a graphic context, there\textquotesingle{}s no graphics output.
+
+{\texttt{ example\+\_\+sdl\+\_\+directx11/}} ~\newline
+ S\+D\+L2 + Direct\+X11 example, Windows only. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+sdl.\+cpp + imgui\+\_\+impl\+\_\+dx11.\+cpp ~\newline
+ This to demonstrate usage of DirectX with S\+DL.
+
+{\texttt{ example\+\_\+sdl\+\_\+metal/}} ~\newline
+ S\+D\+L2 (Mac) + Metal example. ~\newline
+ = main.\+mm + imgui\+\_\+impl\+\_\+sdl.\+cpp + imgui\+\_\+impl\+\_\+metal.\+mm
+
+{\texttt{ example\+\_\+sdl\+\_\+opengl2/}} ~\newline
+ S\+D\+L2 (Win32, Mac, Linux etc.) + Open\+GL example (legacy, fixed pipeline). ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+sdl.\+cpp + imgui\+\_\+impl\+\_\+opengl2.\+cpp ~\newline
+ {\bfseries{DO N\+OT U\+SE O\+P\+E\+N\+G\+L2 C\+O\+DE IF Y\+O\+UR C\+O\+D\+E/\+E\+N\+G\+I\+NE IS U\+S\+I\+NG M\+O\+D\+E\+RN O\+P\+E\+N\+GL (S\+H\+A\+D\+E\+RS, V\+BO, V\+AO, etc.)}} ~\newline
+ This code is mostly provided as a reference to learn about Dear Im\+Gui integration, because it is shorter. If your code is using G\+L3+ context or any semi modern Open\+GL calls, using this renderer is likely to make things more complicated, will require your code to reset many Open\+GL attributes to their initial state, and might confuse your G\+PU driver. One star, not recommended.
+
+{\texttt{ example\+\_\+sdl\+\_\+opengl3/}} ~\newline
+ S\+D\+L2 (Win32, Mac, Linux, etc.) + Open\+G\+L3+/\+E\+S2/\+E\+S3 example. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+sdl.\+cpp + imgui\+\_\+impl\+\_\+opengl3.\+cpp ~\newline
+ This uses more modern Open\+GL calls and custom shaders. ~\newline
+ This may actually also work with Open\+GL 2.\+x contexts! ~\newline
+
+
+{\texttt{ example\+\_\+sdl\+\_\+sdlrenderer/}} ~\newline
+ S\+D\+L2 (Win32, Mac, Linux, etc.) + S\+D\+L\+\_\+\+Renderer (most graphics backends are supported underneath) ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+sdl.\+cpp + imgui\+\_\+impl\+\_\+sdlrenderer.\+cpp ~\newline
+ This requires S\+DL 2.\+0.\+17+ (expected to release November 2021) ~\newline
+ We do not really recommend using S\+D\+L\+\_\+\+Renderer as it is a rather primitive A\+PI.
+
+{\texttt{ example\+\_\+sdl\+\_\+vulkan/}} ~\newline
+ S\+D\+L2 (Win32, Mac, Linux, etc.) + Vulkan example. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+sdl.\+cpp + imgui\+\_\+impl\+\_\+vulkan.\+cpp ~\newline
+ This is quite long and tedious, because\+: Vulkan. ~\newline
+ For this example, the main.\+cpp file exceptionally use helpers function from \doxyref{imgui\+\_\+impl\+\_\+vulkan.\+h}{p.}{imgui__impl__vulkan_8h_source}/cpp.
+
+{\texttt{ example\+\_\+win32\+\_\+directx9/}} ~\newline
+ Direct\+X9 example, Windows only. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+win32.\+cpp + imgui\+\_\+impl\+\_\+dx9.\+cpp
+
+{\texttt{ example\+\_\+win32\+\_\+directx10/}} ~\newline
+ Direct\+X10 example, Windows only. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+win32.\+cpp + imgui\+\_\+impl\+\_\+dx10.\+cpp
+
+{\texttt{ example\+\_\+win32\+\_\+directx11/}} ~\newline
+ Direct\+X11 example, Windows only. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+win32.\+cpp + imgui\+\_\+impl\+\_\+dx11.\+cpp
+
+{\texttt{ example\+\_\+win32\+\_\+directx12/}} ~\newline
+ Direct\+X12 example, Windows only. ~\newline
+ = main.\+cpp + imgui\+\_\+impl\+\_\+win32.\+cpp + imgui\+\_\+impl\+\_\+dx12.\+cpp ~\newline
+ This is quite long and tedious, because\+: Direct\+X12.\doxysubsubsection{Miscallaneous}\label{md__c_autotoc_md10}
+{\bfseries{Building}}
+
+Unfortunately nowadays it is still tedious to create and maintain portable build files using external libraries (the kind we\textquotesingle{}re using here to create a window and render 3D triangles) without relying on third party software and build systems. For most examples here we choose to provide\+:
+\begin{DoxyItemize}
+\item Makefiles for Linux/\+O\+SX
+\item Batch files for Visual Studio 2008+
+\item A .sln project file for Visual Studio 2012+
+\item Xcode project files for the Apple examples Please let us know if they don\textquotesingle{}t work with your setup! You can probably just import the imgui\+\_\+impl\+\_\+xxx.\+cpp/.h files into your own codebase or compile those directly with a command-\/line compiler.
+\end{DoxyItemize}
+
+If you are interested in using Cmake to build and links examples, see\+: {\texttt{ https\+://github.\+com/ocornut/imgui/pull/1713}} and {\texttt{ https\+://github.\+com/ocornut/imgui/pull/3027}}
+
+{\bfseries{About mouse cursor latency}}
+
+Dear Im\+Gui has no particular extra lag for most behaviors, e.\+g. the value of \textquotesingle{}io.\+Mouse\+Pos\textquotesingle{} provided at the time of New\+Frame() will result in windows being moved to the right spot at the time of End\+Frame()/\+Render(). At 60 F\+PS your experience should be pleasant.
+
+However, consider that OS mouse cursors are typically drawn through a very specific hardware accelerated path and will feel smoother than the majority of contents rendered via regular graphics A\+PI (including, but not limited to Dear Im\+Gui windows). Because UI rendering and interaction happens on the same plane as the mouse, that disconnect may be jarring to particularly sensitive users. You may experiment with enabling the io.\+Mouse\+Draw\+Cursor flag to request Dear Im\+Gui to draw a mouse cursor using the regular graphics A\+PI, to help you visualize the difference between a \char`\"{}hardware\char`\"{} cursor and a regularly rendered software cursor. However, rendering a mouse cursor at 60 F\+PS will feel sluggish so you likely won\textquotesingle{}t want to enable that at all times. It might be beneficial for the user experience to switch to a software rendered cursor {\itshape only} when an interactive drag is in progress.
+
+Note that some setup or G\+PU drivers are likely to be causing extra display lag depending on their settings. If you feel that dragging windows feels laggy and you are not sure what the cause is\+: try to build a simple drawing a flat 2D shape directly under the mouse cursor!
+
+\+\_\+(You may browse this at {\texttt{ https\+://github.\+com/ocornut/imgui/blob/master/docs/\+F\+O\+N\+T\+S.\+md}} or view this file with any Markdown viewer)\doxysubsection{Dear Im\+Gui\+: Using Fonts}\label{md__c_autotoc_md92}
+The code in imgui.\+cpp embeds a copy of \textquotesingle{}Proggy\+Clean.\+ttf\textquotesingle{} (by Tristan Grimmer), a 13 pixels high, pixel-\/perfect font used by default. We embed it in the source code so you can use Dear Im\+Gui without any file system access. Proggy\+Clean does not scale smoothly, therefore it is recommended that you load your own file when using Dear Im\+Gui in an application aiming to look nice and wanting to support multiple resolutions.
+
+You may also load external .T\+T\+F/.O\+TF files. In the {\texttt{ misc/fonts/}} folder you can find a few suggested fonts, provided as a convenience.
+
+{\bfseries{Also read the F\+AQ\+:}} {\texttt{ https\+://www.\+dearimgui.\+org/faq}} (there is a Fonts section!)\doxysubsection{Index}\label{md__c_autotoc_md93}
+
+\begin{DoxyItemize}
+\item {\texttt{ Readme First}}
+\item {\texttt{ How should I handle D\+PI in my application?}}
+\item {\texttt{ Fonts Loading Instructions}}
+\item {\texttt{ Using Icon Fonts}}
+\item {\texttt{ Using Free\+Type Rasterizer (imgui\+\_\+freetype)}}
+\item {\texttt{ Using Colorful Glyphs/\+Emojis}}
+\item {\texttt{ Using Custom Glyph Ranges}}
+\item {\texttt{ Using Custom Colorful Icons}}
+\item {\texttt{ Using Font Data Embedded In Source Code}}
+\item {\texttt{ About filenames}}
+\item {\texttt{ Credits/\+Licenses For Fonts Included In Repository}}
+\item {\texttt{ Font Links}}
+\end{DoxyItemize}
+
+\DoxyHorRuler
+ \doxysubsection{Readme First}\label{md__c_autotoc_md95}
+
+\begin{DoxyItemize}
+\item You can use the {\ttfamily Metrics/\+Debugger} window (available in {\ttfamily Demo$>$Tools}) to browse your fonts and understand what\textquotesingle{}s going on if you have an issue. You can also reach it in {\ttfamily Demo-\/$>$Tools-\/$>$Style Editor-\/$>$Fonts}. The same information are also available in the Style Editor under Fonts.
+\end{DoxyItemize}
+
+
+
+
+\begin{DoxyItemize}
+\item All loaded fonts glyphs are rendered into a single texture atlas ahead of time. Calling either of {\ttfamily io.\+Fonts-\/$>$Get\+Tex\+Data\+As\+Alpha8()}, {\ttfamily io.\+Fonts-\/$>$Get\+Tex\+Data\+As\+R\+G\+B\+A32()} or {\ttfamily io.\+Fonts-\/$>$Build()} will build the atlas.
+\item Make sure your font ranges data are persistent (available during the calls to {\ttfamily Get\+Tex\+Data\+As\+Alpha8()}/{\ttfamily Get\+Tex\+Data\+As\+R\+G\+B\+A32()/}Build()\`{}.
+\item Use C++11 u8\char`\"{}my text\char`\"{} syntax to encode literal strings as U\+T\+F-\/8. e.\+g.\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{u8\textcolor{stringliteral}{"hello"}}
+\DoxyCodeLine{u8\textcolor{stringliteral}{"こんにちは"}   \textcolor{comment}{// this will be encoded as UTF-\/8}}
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+\label{md__c_autotoc_md96}%
+\doxysubparagraph*{{\texttt{ Return to Index}}}\doxysubsection{How should I handle D\+P\+I in my application?}\label{md__c_autotoc_md97}
+See {\texttt{ F\+AQ entry}}.
+
+\label{md__c_autotoc_md98}%
+\doxysubparagraph*{{\texttt{ Return to Index}}}\doxysubsection{Font Loading Instructions}\label{md__c_autotoc_md99}
+{\bfseries{Load default font\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ImGuiIO\& io = ImGui::GetIO();}
+\DoxyCodeLine{io.Fonts-\/>AddFontDefault();}
+\end{DoxyCode}
+
+
+{\bfseries{Load .T\+T\+F/.O\+TF file with\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ImGuiIO\& io = ImGui::GetIO();}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"font.ttf"}, size\_pixels);}
+\end{DoxyCode}
+ If you get an assert stating \char`\"{}\+Could not load font file!\char`\"{}, your font filename is likely incorrect. Read \char`\"{}[\+About filenames](\#about-\/filenames)\char`\"{} carefully.
+
+{\bfseries{Load multiple fonts\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Init}}
+\DoxyCodeLine{ImGuiIO\& io = ImGui::GetIO();}
+\DoxyCodeLine{ImFont* font1 = io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"font.ttf"}, size\_pixels);}
+\DoxyCodeLine{ImFont* font2 = io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"anotherfont.otf"}, size\_pixels);}
+\end{DoxyCode}
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// In application loop: select font at runtime}}
+\DoxyCodeLine{ImGui::Text(\textcolor{stringliteral}{"Hello"}); \textcolor{comment}{// use the default font (which is the first loaded font)}}
+\DoxyCodeLine{ImGui::PushFont(font2);}
+\DoxyCodeLine{ImGui::Text(\textcolor{stringliteral}{"Hello with another font"});}
+\DoxyCodeLine{ImGui::PopFont();}
+\end{DoxyCode}
+
+
+{\bfseries{For advanced options create a \doxyref{Im\+Font\+Config}{p.}{struct_im_font_config} structure and pass it to the Add\+Font() function (it will be copied internally)\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ImFontConfig config;}
+\DoxyCodeLine{config.OversampleH = 2;}
+\DoxyCodeLine{config.OversampleV = 1;}
+\DoxyCodeLine{config.GlyphExtraSpacing.x = 1.0f;}
+\DoxyCodeLine{ImFont* font = io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"font.ttf"}, size\_pixels, \&config);}
+\end{DoxyCode}
+
+
+{\bfseries{Combine multiple fonts into one\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Load a first font}}
+\DoxyCodeLine{ImFont* font = io.Fonts-\/>AddFontDefault();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Add character ranges and merge into the previous font}}
+\DoxyCodeLine{\textcolor{comment}{// The ranges array is not copied by the AddFont* functions and is used lazily}}
+\DoxyCodeLine{\textcolor{comment}{// so ensure it is available at the time of building or calling GetTexDataAsRGBA32().}}
+\DoxyCodeLine{\textcolor{keyword}{static} \textcolor{keyword}{const} ImWchar icons\_ranges[] = \{ 0xf000, 0xf3ff, 0 \}; \textcolor{comment}{// Will not be copied by AddFont* so keep in scope.}}
+\DoxyCodeLine{ImFontConfig config;}
+\DoxyCodeLine{config.MergeMode = \textcolor{keyword}{true};}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"DroidSans.ttf"}, 18.0f, \&config, io.Fonts-\/>GetGlyphRangesJapanese()); \textcolor{comment}{// Merge into first font}}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"fontawesome-\/webfont.ttf"}, 18.0f, \&config, icons\_ranges);             \textcolor{comment}{// Merge into first font}}
+\DoxyCodeLine{io.Fonts-\/>Build();}
+\end{DoxyCode}
+
+
+{\bfseries{Add a fourth parameter to bake specific font ranges only\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Basic Latin, Extended Latin}}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"font.ttf"}, size\_pixels, NULL, io.Fonts-\/>GetGlyphRangesDefault());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Default + Selection of 2500 Ideographs used by Simplified Chinese}}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"font.ttf"}, size\_pixels, NULL, io.Fonts-\/>GetGlyphRangesChineseSimplifiedCommon());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Default + Hiragana, Katakana, Half-\/Width, Selection of 1946 Ideographs}}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"font.ttf"}, size\_pixels, NULL, io.Fonts-\/>GetGlyphRangesJapanese());}
+\end{DoxyCode}
+ See {\texttt{ Using Custom Glyph Ranges}} section to create your own ranges.
+
+{\bfseries{Example loading and using a Japanese font\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ImGuiIO\& io = ImGui::GetIO();}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"NotoSansCJKjp-\/Medium.otf"}, 20.0f, NULL, io.Fonts-\/>GetGlyphRangesJapanese());}
+\end{DoxyCode}
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ImGui::Text(u8\textcolor{stringliteral}{"こんにちは！テスト \%d"}, 123);}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (ImGui::Button(u8\textcolor{stringliteral}{"ロード"}))}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{comment}{// do stuff}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{ImGui::InputText(\textcolor{stringliteral}{"string"}, buf, IM\_ARRAYSIZE(buf));}
+\DoxyCodeLine{ImGui::SliderFloat(\textcolor{stringliteral}{"float"}, \&f, 0.0f, 1.0f);}
+\end{DoxyCode}
+
+
+ ~\newline
+\+\_\+(settings\+: Dark style (left), Light style (right) / Font\+: Noto\+Sans\+C\+J\+Kjp-\/\+Medium, 20px / Rounding\+: 5)\+\_\+
+
+{\bfseries{Font Atlas too large?}}
+
+
+\begin{DoxyItemize}
+\item If you have very large number of glyphs or multiple fonts, the texture may become too big for your graphics A\+PI. The typical result of failing to upload a texture is if every glyphs appears as white rectangles.
+\item Mind the fact that some graphics drivers have texture size limitation. If you are building a PC application, mind the fact that your users may use hardware with lower limitations than yours.
+\end{DoxyItemize}
+
+Some solutions\+:
+
+
+\begin{DoxyEnumerate}
+\item Reduce glyphs ranges by calculating them from source localization data. You can use the {\ttfamily \doxyref{Im\+Font\+Glyph\+Ranges\+Builder}{p.}{struct_im_font_glyph_ranges_builder}} for this purpose and rebuilding your atlas between frames when new characters are needed. This will be the biggest win!
+\item You may reduce oversampling, e.\+g. {\ttfamily font\+\_\+config.\+OversampleH = 2}, this will largely reduce your texture size. Note that while OversampleH = 2 looks visibly very close to 3 in most situations, with OversampleH = 1 the quality drop will be noticeable.
+\item Set {\ttfamily io.\+Fonts.\+Tex\+Desired\+Width} to specify a texture width to minimize texture height (see comment in {\ttfamily Im\+Font\+Atlas\+::\+Build()} function).
+\item Set {\ttfamily io.\+Fonts.\+Flags $\vert$= Im\+Font\+Atlas\+Flags\+\_\+\+No\+Power\+Of\+Two\+Height;} to disable rounding the texture height to the next power of two.
+\item Read about oversampling {\texttt{ here}}.
+\item To support the extended range of unicode beyond 0x\+F\+F\+FF (e.\+g. emoticons, dingbats, symbols, shapes, ancient languages, etc...) add {\ttfamily \#define I\+M\+G\+U\+I\+\_\+\+U\+S\+E\+\_\+\+W\+C\+H\+A\+R32}in your {\ttfamily \doxyref{imconfig.\+h}{p.}{imconfig_8h_source}}.
+\end{DoxyEnumerate}
+
+\label{md__c_autotoc_md100}%
+\doxysubparagraph*{{\texttt{ Return to Index}}}\doxysubsection{Using Icon Fonts}\label{md__c_autotoc_md101}
+Using an icon font (such as {\texttt{ Font\+Awesome}} or {\texttt{ Open\+Font\+Icons}}) is an easy and practical way to use icons in your Dear Im\+Gui application. A common pattern is to merge the icon font within your main font, so you can embed icons directly from your strings without having to change fonts back and forth.
+
+To refer to the icon U\+T\+F-\/8 codepoints from your C++ code, you may use those headers files created by Juliette Foucaut\+: {\texttt{ https\+://github.\+com/juliettef/\+Icon\+Font\+Cpp\+Headers}}.
+
+So you can use {\ttfamily I\+C\+O\+N\+\_\+\+F\+A\+\_\+\+S\+E\+A\+R\+CH} as a string that will render as a \char`\"{}\+Search\char`\"{} icon.
+
+Example Setup\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Merge icons into default tool font}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "IconsFontAwesome.h"}}
+\DoxyCodeLine{ImGuiIO\& io = ImGui::GetIO();}
+\DoxyCodeLine{io.Fonts-\/>AddFontDefault();}
+\DoxyCodeLine{}
+\DoxyCodeLine{ImFontConfig config;}
+\DoxyCodeLine{config.MergeMode = \textcolor{keyword}{true};}
+\DoxyCodeLine{config.GlyphMinAdvanceX = 13.0f; \textcolor{comment}{// Use if you want to make the icon monospaced}}
+\DoxyCodeLine{\textcolor{keyword}{static} \textcolor{keyword}{const} ImWchar icon\_ranges[] = \{ ICON\_MIN\_FA, ICON\_MAX\_FA, 0 \};}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"fonts/fontawesome-\/webfont.ttf"}, 13.0f, \&config, icon\_ranges);}
+\end{DoxyCode}
+ Example Usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Usage, e.g.}}
+\DoxyCodeLine{ImGui::Text(\textcolor{stringliteral}{"\%s among \%d items"}, ICON\_FA\_SEARCH, count);}
+\DoxyCodeLine{ImGui::Button(ICON\_FA\_SEARCH \textcolor{stringliteral}{" Search"});}
+\DoxyCodeLine{\textcolor{comment}{// C string \_literals\_ can be concatenated at compilation time, e.g. "hello" " world"}}
+\DoxyCodeLine{\textcolor{comment}{// ICON\_FA\_SEARCH is defined as a string literal so this is the same as "A" "B" becoming "AB"}}
+\end{DoxyCode}
+ See Links below for other icons fonts and related tools.
+
+Here\textquotesingle{}s an application using icons (\char`\"{}\+Avoyd\char`\"{}, {\texttt{ https\+://www.\+avoyd.\+com}})\+: 
+
+\label{md__c_autotoc_md102}%
+\doxysubparagraph*{{\texttt{ Return to Index}}}\doxysubsection{Using Free\+Type Rasterizer (imgui\+\_\+freetype)}\label{md__c_autotoc_md103}
+
+\begin{DoxyItemize}
+\item Dear Im\+Gui uses \doxyref{imstb\+\_\+truetype.\+h}{p.}{imstb__truetype_8h_source} to rasterize fonts (with optional oversampling). This technique and its implementation are not ideal for fonts rendered at small sizes, which may appear a little blurry or hard to read.
+\item There is an implementation of the \doxyref{Im\+Font\+Atlas}{p.}{struct_im_font_atlas} builder using Free\+Type that you can use in the {\texttt{ misc/freetype/}} folder.
+\item Free\+Type supports auto-\/hinting which tends to improve the readability of small fonts.
+\item Read documentation in the {\texttt{ misc/freetype/}} folder.
+\item Correct s\+R\+GB space blending will have an important effect on your font rendering quality.
+\end{DoxyItemize}
+
+\label{md__c_autotoc_md104}%
+\doxysubparagraph*{{\texttt{ Return to Index}}}\doxysubsection{Using Colorful Glyphs/\+Emojis}\label{md__c_autotoc_md105}
+
+\begin{DoxyItemize}
+\item Rendering of colored emojis is only supported by imgui\+\_\+freetype with Free\+Type 2.\+10+.
+\item You will need to load fonts with the {\ttfamily Im\+Gui\+Free\+Type\+Builder\+Flags\+\_\+\+Load\+Color} flag.
+\item Emojis are frequently encoded in upper Unicode layers (character codes $>$0x10000) and will need dear imgui compiled with {\ttfamily I\+M\+G\+U\+I\+\_\+\+U\+S\+E\+\_\+\+W\+C\+H\+A\+R32}.
+\item Not all types of color fonts are supported by Free\+Type at the moment.
+\item Stateful Unicode features such as skin tone modifiers are not supported by the text renderer.
+\end{DoxyItemize}
+
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"../../../imgui\_dev/data/fonts/NotoSans-\/Regular.ttf"}, 16.0f);}
+\DoxyCodeLine{\textcolor{keyword}{static} ImWchar ranges[] = \{ 0x1, 0x1FFFF, 0 \};}
+\DoxyCodeLine{\textcolor{keyword}{static} ImFontConfig cfg;}
+\DoxyCodeLine{cfg.OversampleH = cfg.OversampleV = 1;}
+\DoxyCodeLine{cfg.MergeMode = \textcolor{keyword}{true};}
+\DoxyCodeLine{cfg.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags\_LoadColor;}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"C:\(\backslash\)\(\backslash\)Windows\(\backslash\)\(\backslash\)Fonts\(\backslash\)\(\backslash\)seguiemj.ttf"}, 16.0f, \&cfg, ranges);}
+\end{DoxyCode}
+
+
+\label{md__c_autotoc_md106}%
+\doxysubparagraph*{{\texttt{ Return to Index}}}\doxysubsection{Using Custom Glyph Ranges}\label{md__c_autotoc_md107}
+You can use the {\ttfamily \doxyref{Im\+Font\+Glyph\+Ranges\+Builder}{p.}{struct_im_font_glyph_ranges_builder}} helper to create glyph ranges based on text input. For example\+: for a game where your script is known, if you can feed your entire script to it and only build the characters the game needs. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ImVector<ImWchar> ranges;}
+\DoxyCodeLine{ImFontGlyphRangesBuilder builder;}
+\DoxyCodeLine{builder.AddText(\textcolor{stringliteral}{"Hello world"});                        \textcolor{comment}{// Add a string (here "Hello world" contains 7 unique characters)}}
+\DoxyCodeLine{builder.AddChar(0x7262);                               \textcolor{comment}{// Add a specific character}}
+\DoxyCodeLine{builder.AddRanges(io.Fonts-\/>GetGlyphRangesJapanese()); \textcolor{comment}{// Add one of the default ranges}}
+\DoxyCodeLine{builder.BuildRanges(\&ranges);                          \textcolor{comment}{// Build the final result (ordered ranges with all the unique characters submitted)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"myfontfile.ttf"}, size\_in\_pixels, NULL, ranges.Data);}
+\DoxyCodeLine{io.Fonts-\/>Build();                                     \textcolor{comment}{// Build the atlas while 'ranges' is still in scope and not deleted.}}
+\end{DoxyCode}
+
+
+\label{md__c_autotoc_md108}%
+\doxysubparagraph*{{\texttt{ Return to Index}}}\doxysubsection{Using Custom Colorful Icons}\label{md__c_autotoc_md109}
+As an alternative to rendering colorful glyphs using imgui\+\_\+freetype with {\ttfamily Im\+Gui\+Free\+Type\+Builder\+Flags\+\_\+\+Load\+Color}, you may allocate your own space in the texture atlas and write yourself into it. $\ast$$\ast$(This is a B\+E\+TA api, use if you are familiar with dear imgui and with your rendering backend)$\ast$$\ast$
+
+
+\begin{DoxyItemize}
+\item You can use the {\ttfamily Im\+Font\+Atlas\+::\+Add\+Custom\+Rect()} and {\ttfamily Im\+Font\+Atlas\+::\+Add\+Custom\+Rect\+Font\+Glyph()} api to register rectangles that will be packed into the font atlas texture. Register them before building the atlas, then call Build(){\ttfamily .}
+\item {\ttfamily You can then use}Im\+Font\+Atlas\+::\+Get\+Custom\+Rect\+By\+Index(int)\`{} to query the position/size of your rectangle within the texture, and blit/copy any graphics data of your choice into those rectangles.
+\item This A\+PI is beta because it is likely to change in order to support multi-\/dpi (multiple viewports on multiple monitors with varying D\+PI scale).
+\end{DoxyItemize}\doxyparagraph{Pseudo-\/code\+:}\label{md__c_autotoc_md110}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Add font, then register two custom 13x13 rectangles mapped to glyph 'a' and 'b' of this font}}
+\DoxyCodeLine{ImFont* font = io.Fonts-\/>AddFontDefault();}
+\DoxyCodeLine{\textcolor{keywordtype}{int} rect\_ids[2];}
+\DoxyCodeLine{rect\_ids[0] = io.Fonts-\/>AddCustomRectFontGlyph(font, \textcolor{charliteral}{'a'}, 13, 13, 13+1);}
+\DoxyCodeLine{rect\_ids[1] = io.Fonts-\/>AddCustomRectFontGlyph(font, \textcolor{charliteral}{'b'}, 13, 13, 13+1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Build atlas}}
+\DoxyCodeLine{io.Fonts-\/>Build();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Retrieve texture in RGBA format}}
+\DoxyCodeLine{\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* tex\_pixels = NULL;}
+\DoxyCodeLine{\textcolor{keywordtype}{int} tex\_width, tex\_height;}
+\DoxyCodeLine{io.Fonts-\/>GetTexDataAsRGBA32(\&tex\_pixels, \&tex\_width, \&tex\_height);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} rect\_n = 0; rect\_n < IM\_ARRAYSIZE(rect\_ids); rect\_n++)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} rect\_id = rects\_ids[rect\_n];}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (\textcolor{keyword}{const} ImFontAtlas::CustomRect* rect = io.Fonts-\/>GetCustomRectByIndex(rect\_id))}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{comment}{// Fill the custom rectangle with red pixels (in reality you would draw/copy your bitmap data here!)}}
+\DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < rect-\/>Height; y++)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            ImU32* p = (ImU32*)tex\_pixels + (rect-\/>Y + y) * tex\_width + (rect-\/>X);}
+\DoxyCodeLine{            \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = rect-\/>Width; x > 0; x-\/-\/)}
+\DoxyCodeLine{                *p++ = IM\_COL32(255, 0, 0, 255);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+\label{md__c_autotoc_md111}%
+\doxysubparagraph*{{\texttt{ Return to Index}}}\doxysubsection{Using Font Data Embedded In Source Code}\label{md__c_autotoc_md112}
+
+\begin{DoxyItemize}
+\item Compile and use {\texttt{ binary\+\_\+to\+\_\+compressed\+\_\+c.\+cpp}} to create a compressed C style array that you can embed in source code.
+\item See the documentation in {\texttt{ binary\+\_\+to\+\_\+compressed\+\_\+c.\+cpp}} for instruction on how to use the tool.
+\item You may find a precompiled version binary\+\_\+to\+\_\+compressed\+\_\+c.\+exe for Windows instead of demo binaries package (see {\texttt{ R\+E\+A\+D\+ME}}).
+\item The tool can optionally output Base85 encoding to reduce the size of {\itshape source code} but the read-\/only arrays in the actual binary will be about 20\% bigger.
+\end{DoxyItemize}
+
+Then load the font with\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ImFont* font = io.Fonts-\/>AddFontFromMemoryCompressedTTF(compressed\_data, compressed\_data\_size, size\_pixels, ...);}
+\end{DoxyCode}
+ or 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ImFont* font = io.Fonts-\/>AddFontFromMemoryCompressedBase85TTF(compressed\_data\_base85, size\_pixels, ...);}
+\end{DoxyCode}
+
+
+\label{md__c_autotoc_md113}%
+\doxysubparagraph*{{\texttt{ Return to Index}}}\doxysubsection{About filenames}\label{md__c_autotoc_md114}
+{\bfseries{Please note that many new C/\+C++ users have issues their files {\itshape because the filename they provide is wrong}.}}
+
+Two things to watch for\+:
+\begin{DoxyItemize}
+\item Make sure your I\+D\+E/debugger settings starts your executable from the right working directory. In Visual Studio you can change your working directory in project {\ttfamily Properties $>$ General $>$ Debugging $>$ Working Directory}. People assume that their execution will start from the root folder of the project, where by default it oftens start from the folder where object or executable files are stored. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Relative filename depends on your Working Directory when running your program!}}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"MyImage01.jpg"}, ...);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Load from the parent folder of your Working Directory}}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"../MyImage01.jpg"}, ...);}
+\end{DoxyCode}
+
+\item In C/\+C++ and most programming languages if you want to use a backslash {\ttfamily \textbackslash{}} within a string literal, you need to write it double backslash {\ttfamily \textbackslash{}\textbackslash{}}. At it happens, Windows uses backslashes as a path separator, so be mindful. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"MyFiles\(\backslash\)MyImage01.jpg"}, ...);   \textcolor{comment}{// This is INCORRECT!!}}
+\DoxyCodeLine{io.Fonts-\/>AddFontFromFileTTF(\textcolor{stringliteral}{"MyFiles\(\backslash\)\(\backslash\)MyImage01.jpg"}, ...);  \textcolor{comment}{// This is CORRECT}}
+\end{DoxyCode}
+ In some situations, you may also use {\ttfamily /} path separator under Windows.
+\end{DoxyItemize}
+
+\label{md__c_autotoc_md115}%
+\doxysubparagraph*{{\texttt{ Return to Index}}}\doxysubsection{Credits/\+Licenses For Fonts Included In Repository}\label{md__c_autotoc_md116}
+Some fonts files are available in the {\ttfamily misc/fonts/} folder\+:
+
+{\bfseries{Roboto-\/\+Medium.\+ttf}}, by Christian Robetson ~\newline
+Apache License 2.\+0 ~\newline
+{\texttt{ https\+://fonts.\+google.\+com/specimen/\+Roboto}}
+
+{\bfseries{Cousine-\/\+Regular.\+ttf}}, by Steve Matteson ~\newline
+Digitized data copyright (c) 2010 Google Corporation. ~\newline
+Licensed under the S\+IL Open Font License, Version 1.\+1 ~\newline
+{\texttt{ https\+://fonts.\+google.\+com/specimen/\+Cousine}}
+
+{\bfseries{Droid\+Sans.\+ttf}}, by Steve Matteson ~\newline
+Apache License 2.\+0 ~\newline
+{\texttt{ https\+://www.\+fontsquirrel.\+com/fonts/droid-\/sans}}
+
+{\bfseries{Proggy\+Clean.\+ttf}}, by Tristan Grimmer ~\newline
+M\+IT License ~\newline
+(recommended loading setting\+: Size = 13.\+0, Glyph\+Offset.\+y = +1) ~\newline
+{\texttt{ http\+://www.\+proggyfonts.\+net/}}
+
+{\bfseries{Proggy\+Tiny.\+ttf}}, by Tristan Grimmer ~\newline
+M\+IT License ~\newline
+(recommended loading setting\+: Size = 10.\+0, Glyph\+Offset.\+y = +1) ~\newline
+{\texttt{ http\+://www.\+proggyfonts.\+net/}}
+
+{\bfseries{Karla-\/\+Regular.\+ttf}}, by Jonathan Pinhorn ~\newline
+S\+IL O\+P\+EN F\+O\+NT L\+I\+C\+E\+N\+SE Version 1.\+1
+
+\label{md__c_autotoc_md117}%
+\doxysubparagraph*{{\texttt{ Return to Index}}}\doxysubsection{Font Links}\label{md__c_autotoc_md118}
+\doxyparagraph{I\+C\+O\+N F\+O\+N\+TS}\label{md__c_autotoc_md119}
+
+\begin{DoxyItemize}
+\item C/\+C++ header for icon fonts (\#define with code points to use in source code string literals) {\texttt{ https\+://github.\+com/juliettef/\+Icon\+Font\+Cpp\+Headers}}
+\item Font\+Awesome {\texttt{ https\+://fortawesome.\+github.\+io/\+Font-\/\+Awesome}}
+\item Open\+Font\+Icons {\texttt{ https\+://github.\+com/traverseda/\+Open\+Font\+Icons}}
+\item Google Icon Fonts {\texttt{ https\+://design.\+google.\+com/icons/}}
+\item Kenney Icon Font (Game Controller Icons) {\texttt{ https\+://github.\+com/nicodinh/kenney-\/icon-\/font}}
+\item Ico\+Moon -\/ Custom Icon font builder {\texttt{ https\+://icomoon.\+io/app}}
+\end{DoxyItemize}\doxyparagraph{R\+E\+G\+U\+L\+A\+R F\+O\+N\+TS}\label{md__c_autotoc_md120}
+
+\begin{DoxyItemize}
+\item Google Noto Fonts (worldwide languages) {\texttt{ https\+://www.\+google.\+com/get/noto/}}
+\item Open Sans Fonts {\texttt{ https\+://fonts.\+google.\+com/specimen/\+Open+\+Sans}}
+\item (Japanese) M+ fonts by Coji Morishita {\texttt{ http\+://mplus-\/fonts.\+sourceforge.\+jp/mplus-\/outline-\/fonts/index-\/en.\+html}}
+\end{DoxyItemize}\doxyparagraph{M\+O\+N\+O\+S\+P\+A\+C\+E F\+O\+N\+TS}\label{md__c_autotoc_md121}
+Pixel Perfect\+:
+\begin{DoxyItemize}
+\item Proggy Fonts, by Tristan Grimmer {\texttt{ http\+://www.\+proggyfonts.\+net}} or {\texttt{ http\+://upperbounds.\+net}}
+\item Sweet16, Sweet16 Mono, by Martin Sedlak (Latin + Supplemental + Extended A) {\texttt{ https\+://github.\+com/kmar/\+Sweet16\+Font}} (also include an .inl file to use directly in dear imgui.)
+\end{DoxyItemize}
+
+Regular\+:
+\begin{DoxyItemize}
+\item Google Noto Mono Fonts {\texttt{ https\+://www.\+google.\+com/get/noto/}}
+\item Typefaces for source code beautification {\texttt{ https\+://github.\+com/chrissimpkins/codeface}}
+\item Programmation fonts {\texttt{ http\+://s9w.\+github.\+io/font\+\_\+compare/}}
+\item Inconsolata {\texttt{ http\+://www.\+levien.\+com/type/myfonts/inconsolata.\+html}}
+\item Adobe Source Code Pro\+: Monospaced font family for ui \& coding environments {\texttt{ https\+://github.\+com/adobe-\/fonts/source-\/code-\/pro}}
+\item Monospace/\+Fixed Width Programmer\textquotesingle{}s Fonts {\texttt{ http\+://www.\+lowing.\+org/fonts/}}
+\end{DoxyItemize}
+
+Or use Arial Unicode or other Unicode fonts provided with Windows for full characters coverage (not sure of their licensing).
+
+\label{md__c_autotoc_md122}%
+\doxysubparagraph*{{\texttt{ Return to Index}}}

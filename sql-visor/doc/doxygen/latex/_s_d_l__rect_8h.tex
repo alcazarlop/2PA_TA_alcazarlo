@@ -1,0 +1,250 @@
+\doxysection{C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sdl2/include/\+S\+D\+L\+\_\+rect.h File Reference}
+\label{_s_d_l__rect_8h}\index{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_rect.h@{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_rect.h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+pixels.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+rwops.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ S\+D\+L\+\_\+\+Point}
+\item 
+struct \textbf{ S\+D\+L\+\_\+\+F\+Point}
+\item 
+struct \textbf{ S\+D\+L\+\_\+\+Rect}
+\item 
+struct \textbf{ S\+D\+L\+\_\+\+F\+Rect}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ S\+D\+L\+\_\+\+Point} \textbf{ S\+D\+L\+\_\+\+Point}
+\item 
+typedef struct \textbf{ S\+D\+L\+\_\+\+F\+Point} \textbf{ S\+D\+L\+\_\+\+F\+Point}
+\item 
+typedef struct \textbf{ S\+D\+L\+\_\+\+Rect} \textbf{ S\+D\+L\+\_\+\+Rect}
+\item 
+typedef struct \textbf{ S\+D\+L\+\_\+\+F\+Rect} \textbf{ S\+D\+L\+\_\+\+F\+Rect}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+F\+O\+R\+C\+E\+\_\+\+I\+N\+L\+I\+NE S\+D\+L\+\_\+bool \textbf{ S\+D\+L\+\_\+\+Point\+In\+Rect} (const \textbf{ S\+D\+L\+\_\+\+Point} $\ast$p, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$r)
+\item 
+S\+D\+L\+\_\+\+F\+O\+R\+C\+E\+\_\+\+I\+N\+L\+I\+NE S\+D\+L\+\_\+bool \textbf{ S\+D\+L\+\_\+\+Rect\+Empty} (const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$r)
+\item 
+S\+D\+L\+\_\+\+F\+O\+R\+C\+E\+\_\+\+I\+N\+L\+I\+NE S\+D\+L\+\_\+bool \textbf{ S\+D\+L\+\_\+\+Rect\+Equals} (const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$a, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$b)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Has\+Intersection} (const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$A, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$B)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Intersect\+Rect} (const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$A, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$B, \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$result)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Union\+Rect} (const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$A, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$B, \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$result)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Enclose\+Points} (const \textbf{ S\+D\+L\+\_\+\+Point} $\ast$points, int count, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$clip, \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$result)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Intersect\+Rect\+And\+Line} (const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect, int $\ast$X1, int $\ast$Y1, int $\ast$X2, int $\ast$Y2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for S\+D\+L\+\_\+rect definition and management functions. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{_s_d_l__rect_8h_a758ff5c0cedab26602d42bb8fbd83fef}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_FPoint@{SDL\_FPoint}}
+\index{SDL\_FPoint@{SDL\_FPoint}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{SDL\_FPoint}
+{\footnotesize\ttfamily typedef struct \textbf{ S\+D\+L\+\_\+\+F\+Point}  \textbf{ S\+D\+L\+\_\+\+F\+Point}}
+
+The structure that defines a point (floating point)
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Enclose\+Points}{p.}{_s_d_l__rect_8h_afcbb58dbba760b9e6fdb4b5d1ece015c} 
+
+\doxyref{S\+D\+L\+\_\+\+Point\+In\+Rect}{p.}{_s_d_l__rect_8h_a2f9708f2739ef234c34e6feda50b4d2c} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__rect_8h_a1b210e51ef78173674cdcb8651ea705e}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_FRect@{SDL\_FRect}}
+\index{SDL\_FRect@{SDL\_FRect}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{SDL\_FRect}
+{\footnotesize\ttfamily typedef struct \textbf{ S\+D\+L\+\_\+\+F\+Rect}  \textbf{ S\+D\+L\+\_\+\+F\+Rect}}
+
+A rectangle, with the origin at the upper left (floating point). \mbox{\label{_s_d_l__rect_8h_a61e81ca749549bf3b896e6d09f6c0dad}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_Point@{SDL\_Point}}
+\index{SDL\_Point@{SDL\_Point}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{SDL\_Point}
+{\footnotesize\ttfamily typedef struct \textbf{ S\+D\+L\+\_\+\+Point}  \textbf{ S\+D\+L\+\_\+\+Point}}
+
+The structure that defines a point (integer)
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Enclose\+Points}{p.}{_s_d_l__rect_8h_afcbb58dbba760b9e6fdb4b5d1ece015c} 
+
+\doxyref{S\+D\+L\+\_\+\+Point\+In\+Rect}{p.}{_s_d_l__rect_8h_a2f9708f2739ef234c34e6feda50b4d2c} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__rect_8h_ab9e65f8131b4e7faad18d498e7dbde8c}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_Rect@{SDL\_Rect}}
+\index{SDL\_Rect@{SDL\_Rect}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{SDL\_Rect}
+{\footnotesize\ttfamily typedef struct \textbf{ S\+D\+L\+\_\+\+Rect}  \textbf{ S\+D\+L\+\_\+\+Rect}}
+
+A rectangle, with the origin at the upper left (integer).
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Rect\+Empty}{p.}{_s_d_l__rect_8h_aac0e9b5d3f34baec6a2cde95bb01f49c} 
+
+\doxyref{S\+D\+L\+\_\+\+Rect\+Equals}{p.}{_s_d_l__rect_8h_a156979fd3561cf90b87741d11057262a} 
+
+\doxyref{S\+D\+L\+\_\+\+Has\+Intersection}{p.}{_s_d_l__rect_8h_a191ec0b069421d4a36304b475697e847} 
+
+\doxyref{S\+D\+L\+\_\+\+Intersect\+Rect}{p.}{_s_d_l__rect_8h_aff8e3dd3b1a25443cd7c8cf02a087290} 
+
+\doxyref{S\+D\+L\+\_\+\+Union\+Rect}{p.}{_s_d_l__rect_8h_a659f2c25335202888408c95195823f9c} 
+
+\doxyref{S\+D\+L\+\_\+\+Enclose\+Points}{p.}{_s_d_l__rect_8h_afcbb58dbba760b9e6fdb4b5d1ece015c} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{_s_d_l__rect_8h_afcbb58dbba760b9e6fdb4b5d1ece015c}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_EnclosePoints@{SDL\_EnclosePoints}}
+\index{SDL\_EnclosePoints@{SDL\_EnclosePoints}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{SDL\_EnclosePoints()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Enclose\+Points (\begin{DoxyParamCaption}\item[{const \textbf{ S\+D\+L\+\_\+\+Point} $\ast$}]{points,  }\item[{int}]{count,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{clip,  }\item[{\textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{result }\end{DoxyParamCaption})}
+
+Calculate a minimal rectangle enclosing a set of points.
+
+If {\ttfamily clip} is not N\+U\+LL then only points inside of the clipping rectangle are considered.
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & an array of \doxyref{S\+D\+L\+\_\+\+Point}{p.}{struct_s_d_l___point} structures representing points to be enclosed \\
+\hline
+{\em count} & the number of structures in the {\ttfamily points} array \\
+\hline
+{\em clip} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} used for clipping or N\+U\+LL to enclose all points \\
+\hline
+{\em result} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure filled in with the minimal enclosing rectangle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+T\+R\+UE if any points were enclosed or S\+D\+L\+\_\+\+F\+A\+L\+SE if all the points were outside of the clipping rectangle. 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__rect_8h_a191ec0b069421d4a36304b475697e847}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_HasIntersection@{SDL\_HasIntersection}}
+\index{SDL\_HasIntersection@{SDL\_HasIntersection}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{SDL\_HasIntersection()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Has\+Intersection (\begin{DoxyParamCaption}\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{A,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{B }\end{DoxyParamCaption})}
+
+Determine whether two rectangles intersect.
+
+If either pointer is N\+U\+LL the function will return S\+D\+L\+\_\+\+F\+A\+L\+SE.
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the first rectangle \\
+\hline
+{\em B} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the second rectangle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+T\+R\+UE if there is an intersection, S\+D\+L\+\_\+\+F\+A\+L\+SE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Intersect\+Rect}{p.}{_s_d_l__rect_8h_aff8e3dd3b1a25443cd7c8cf02a087290} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__rect_8h_aff8e3dd3b1a25443cd7c8cf02a087290}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_IntersectRect@{SDL\_IntersectRect}}
+\index{SDL\_IntersectRect@{SDL\_IntersectRect}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{SDL\_IntersectRect()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Intersect\+Rect (\begin{DoxyParamCaption}\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{A,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{B,  }\item[{\textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{result }\end{DoxyParamCaption})}
+
+Calculate the intersection of two rectangles.
+
+If {\ttfamily result} is N\+U\+LL then this function will return S\+D\+L\+\_\+\+F\+A\+L\+SE.
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the first rectangle \\
+\hline
+{\em B} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the second rectangle \\
+\hline
+{\em result} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure filled in with the intersection of rectangles {\ttfamily A} and {\ttfamily B} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+T\+R\+UE if there is an intersection, S\+D\+L\+\_\+\+F\+A\+L\+SE otherwise.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Has\+Intersection}{p.}{_s_d_l__rect_8h_a191ec0b069421d4a36304b475697e847} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__rect_8h_acdabdcbeb7b7083f94a092daa26ce069}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_IntersectRectAndLine@{SDL\_IntersectRectAndLine}}
+\index{SDL\_IntersectRectAndLine@{SDL\_IntersectRectAndLine}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{SDL\_IntersectRectAndLine()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Intersect\+Rect\+And\+Line (\begin{DoxyParamCaption}\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect,  }\item[{int $\ast$}]{X1,  }\item[{int $\ast$}]{Y1,  }\item[{int $\ast$}]{X2,  }\item[{int $\ast$}]{Y2 }\end{DoxyParamCaption})}
+
+Calculate the intersection of a rectangle and line segment.
+
+This function is used to clip a line segment to a rectangle. A line segment contained entirely within the rectangle or that does not intersect will remain unchanged. A line segment that crosses the rectangle at either or both ends will be clipped to the boundary of the rectangle and the new coordinates saved in {\ttfamily X1}, {\ttfamily Y1}, {\ttfamily X2}, and/or {\ttfamily Y2} as necessary.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rect} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the rectangle to intersect \\
+\hline
+{\em X1} & a pointer to the starting X-\/coordinate of the line \\
+\hline
+{\em Y1} & a pointer to the starting Y-\/coordinate of the line \\
+\hline
+{\em X2} & a pointer to the ending X-\/coordinate of the line \\
+\hline
+{\em Y2} & a pointer to the ending Y-\/coordinate of the line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+T\+R\+UE if there is an intersection, S\+D\+L\+\_\+\+F\+A\+L\+SE otherwise. 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__rect_8h_a2f9708f2739ef234c34e6feda50b4d2c}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_PointInRect@{SDL\_PointInRect}}
+\index{SDL\_PointInRect@{SDL\_PointInRect}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{SDL\_PointInRect()}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+F\+O\+R\+C\+E\+\_\+\+I\+N\+L\+I\+NE S\+D\+L\+\_\+bool S\+D\+L\+\_\+\+Point\+In\+Rect (\begin{DoxyParamCaption}\item[{const \textbf{ S\+D\+L\+\_\+\+Point} $\ast$}]{p,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{r }\end{DoxyParamCaption})}
+
+Returns true if point resides inside a rectangle. \mbox{\label{_s_d_l__rect_8h_aac0e9b5d3f34baec6a2cde95bb01f49c}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_RectEmpty@{SDL\_RectEmpty}}
+\index{SDL\_RectEmpty@{SDL\_RectEmpty}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{SDL\_RectEmpty()}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+F\+O\+R\+C\+E\+\_\+\+I\+N\+L\+I\+NE S\+D\+L\+\_\+bool S\+D\+L\+\_\+\+Rect\+Empty (\begin{DoxyParamCaption}\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{r }\end{DoxyParamCaption})}
+
+Returns true if the rectangle has no area. \mbox{\label{_s_d_l__rect_8h_a156979fd3561cf90b87741d11057262a}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_RectEquals@{SDL\_RectEquals}}
+\index{SDL\_RectEquals@{SDL\_RectEquals}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{SDL\_RectEquals()}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+F\+O\+R\+C\+E\+\_\+\+I\+N\+L\+I\+NE S\+D\+L\+\_\+bool S\+D\+L\+\_\+\+Rect\+Equals (\begin{DoxyParamCaption}\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{a,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{b }\end{DoxyParamCaption})}
+
+Returns true if the two rectangles are equal. \mbox{\label{_s_d_l__rect_8h_a659f2c25335202888408c95195823f9c}} 
+\index{SDL\_rect.h@{SDL\_rect.h}!SDL\_UnionRect@{SDL\_UnionRect}}
+\index{SDL\_UnionRect@{SDL\_UnionRect}!SDL\_rect.h@{SDL\_rect.h}}
+\doxysubsubsection{SDL\_UnionRect()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Union\+Rect (\begin{DoxyParamCaption}\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{A,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{B,  }\item[{\textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{result }\end{DoxyParamCaption})}
+
+Calculate the union of two rectangles.
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the first rectangle \\
+\hline
+{\em B} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the second rectangle \\
+\hline
+{\em result} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure filled in with the union of rectangles {\ttfamily A} and {\ttfamily B} \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,2519 @@
+\doxysection{C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sdl2/include/\+S\+D\+L\+\_\+render.h File Reference}
+\label{_s_d_l__render_8h}\index{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_render.h@{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_render.h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+rect.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ S\+D\+L\+\_\+\+Renderer\+Info}
+\item 
+struct \textbf{ S\+D\+L\+\_\+\+Vertex}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ S\+D\+L\+\_\+\+Renderer\+Info} \textbf{ S\+D\+L\+\_\+\+Renderer\+Info}
+\item 
+typedef struct \textbf{ S\+D\+L\+\_\+\+Vertex} \textbf{ S\+D\+L\+\_\+\+Vertex}
+\item 
+\mbox{\label{_s_d_l__render_8h_aaf0bf7d020754fc614fe06552ea4d5d4}} 
+typedef struct S\+D\+L\+\_\+\+Renderer {\bfseries S\+D\+L\+\_\+\+Renderer}
+\item 
+\mbox{\label{_s_d_l__render_8h_a17850d7f1f5de457727cb3cf66b3a7f5}} 
+typedef struct S\+D\+L\+\_\+\+Texture {\bfseries S\+D\+L\+\_\+\+Texture}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ S\+D\+L\+\_\+\+Renderer\+Flags} \{ \textbf{ S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+S\+O\+F\+T\+W\+A\+RE} = 0x00000001, 
+\textbf{ S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+ED} = 0x00000002, 
+\textbf{ S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+P\+R\+E\+S\+E\+N\+T\+V\+S\+Y\+NC} = 0x00000004, 
+\textbf{ S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+T\+A\+R\+G\+E\+T\+T\+E\+X\+T\+U\+RE} = 0x00000008
+ \}
+\item 
+enum \textbf{ S\+D\+L\+\_\+\+Scale\+Mode} \{ \textbf{ S\+D\+L\+\_\+\+Scale\+Mode\+Nearest}, 
+\textbf{ S\+D\+L\+\_\+\+Scale\+Mode\+Linear}, 
+\textbf{ S\+D\+L\+\_\+\+Scale\+Mode\+Best}
+ \}
+\item 
+enum \textbf{ S\+D\+L\+\_\+\+Texture\+Access} \{ \textbf{ S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+A\+C\+C\+E\+S\+S\+\_\+\+S\+T\+A\+T\+IC}, 
+\textbf{ S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+A\+C\+C\+E\+S\+S\+\_\+\+S\+T\+R\+E\+A\+M\+I\+NG}, 
+\textbf{ S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+A\+C\+C\+E\+S\+S\+\_\+\+T\+A\+R\+G\+ET}
+ \}
+\item 
+enum \textbf{ S\+D\+L\+\_\+\+Texture\+Modulate} \{ \textbf{ S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+M\+O\+D\+U\+L\+A\+T\+E\+\_\+\+N\+O\+NE} = 0x00000000, 
+\textbf{ S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+M\+O\+D\+U\+L\+A\+T\+E\+\_\+\+C\+O\+L\+OR} = 0x00000001, 
+\textbf{ S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+M\+O\+D\+U\+L\+A\+T\+E\+\_\+\+A\+L\+P\+HA} = 0x00000002
+ \}
+\item 
+enum \textbf{ S\+D\+L\+\_\+\+Renderer\+Flip} \{ \textbf{ S\+D\+L\+\_\+\+F\+L\+I\+P\+\_\+\+N\+O\+NE} = 0x00000000, 
+\textbf{ S\+D\+L\+\_\+\+F\+L\+I\+P\+\_\+\+H\+O\+R\+I\+Z\+O\+N\+T\+AL} = 0x00000001, 
+\textbf{ S\+D\+L\+\_\+\+F\+L\+I\+P\+\_\+\+V\+E\+R\+T\+I\+C\+AL} = 0x00000002
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Num\+Render\+Drivers} (void)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Render\+Driver\+Info} (int index, \textbf{ S\+D\+L\+\_\+\+Renderer\+Info} $\ast$info)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Create\+Window\+And\+Renderer} (int width, int height, Uint32 window\+\_\+flags, \textbf{ S\+D\+L\+\_\+\+Window} $\ast$$\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Renderer $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Create\+Renderer} (\textbf{ S\+D\+L\+\_\+\+Window} $\ast$window, int index, Uint32 flags)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Renderer $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Create\+Software\+Renderer} (\textbf{ S\+D\+L\+\_\+\+Surface} $\ast$surface)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Renderer $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Renderer} (\textbf{ S\+D\+L\+\_\+\+Window} $\ast$window)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Renderer\+Info} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \textbf{ S\+D\+L\+\_\+\+Renderer\+Info} $\ast$info)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Renderer\+Output\+Size} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, int $\ast$w, int $\ast$h)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Texture $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Create\+Texture} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, Uint32 format, int access, int w, int h)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Texture $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Create\+Texture\+From\+Surface} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \textbf{ S\+D\+L\+\_\+\+Surface} $\ast$surface)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Query\+Texture} (S\+D\+L\+\_\+\+Texture $\ast$texture, Uint32 $\ast$format, int $\ast$access, int $\ast$w, int $\ast$h)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Set\+Texture\+Color\+Mod} (S\+D\+L\+\_\+\+Texture $\ast$texture, Uint8 r, Uint8 g, Uint8 b)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Texture\+Color\+Mod} (S\+D\+L\+\_\+\+Texture $\ast$texture, Uint8 $\ast$r, Uint8 $\ast$g, Uint8 $\ast$b)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Set\+Texture\+Alpha\+Mod} (S\+D\+L\+\_\+\+Texture $\ast$texture, Uint8 alpha)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Texture\+Alpha\+Mod} (S\+D\+L\+\_\+\+Texture $\ast$texture, Uint8 $\ast$alpha)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Set\+Texture\+Blend\+Mode} (S\+D\+L\+\_\+\+Texture $\ast$texture, \textbf{ S\+D\+L\+\_\+\+Blend\+Mode} blend\+Mode)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Texture\+Blend\+Mode} (S\+D\+L\+\_\+\+Texture $\ast$texture, \textbf{ S\+D\+L\+\_\+\+Blend\+Mode} $\ast$blend\+Mode)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Set\+Texture\+Scale\+Mode} (S\+D\+L\+\_\+\+Texture $\ast$texture, \textbf{ S\+D\+L\+\_\+\+Scale\+Mode} scale\+Mode)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Texture\+Scale\+Mode} (S\+D\+L\+\_\+\+Texture $\ast$texture, \textbf{ S\+D\+L\+\_\+\+Scale\+Mode} $\ast$scale\+Mode)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Set\+Texture\+User\+Data} (S\+D\+L\+\_\+\+Texture $\ast$texture, void $\ast$userdata)
+\item 
+D\+E\+C\+L\+S\+P\+EC void $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Texture\+User\+Data} (S\+D\+L\+\_\+\+Texture $\ast$texture)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Update\+Texture} (S\+D\+L\+\_\+\+Texture $\ast$texture, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect, const void $\ast$pixels, int pitch)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Update\+Y\+U\+V\+Texture} (S\+D\+L\+\_\+\+Texture $\ast$texture, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect, const Uint8 $\ast$Yplane, int Ypitch, const Uint8 $\ast$Uplane, int Upitch, const Uint8 $\ast$Vplane, int Vpitch)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Update\+N\+V\+Texture} (S\+D\+L\+\_\+\+Texture $\ast$texture, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect, const Uint8 $\ast$Yplane, int Ypitch, const Uint8 $\ast$U\+Vplane, int U\+Vpitch)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Lock\+Texture} (S\+D\+L\+\_\+\+Texture $\ast$texture, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect, void $\ast$$\ast$pixels, int $\ast$pitch)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Lock\+Texture\+To\+Surface} (S\+D\+L\+\_\+\+Texture $\ast$texture, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect, \textbf{ S\+D\+L\+\_\+\+Surface} $\ast$$\ast$surface)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Unlock\+Texture} (S\+D\+L\+\_\+\+Texture $\ast$texture)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Target\+Supported} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Set\+Render\+Target} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$texture)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Texture $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Render\+Target} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Set\+Logical\+Size} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, int w, int h)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Get\+Logical\+Size} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, int $\ast$w, int $\ast$h)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Set\+Integer\+Scale} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+bool enable)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Get\+Integer\+Scale} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Set\+Viewport} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Get\+Viewport} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Set\+Clip\+Rect} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Get\+Clip\+Rect} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Is\+Clip\+Enabled} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Set\+Scale} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, float scaleX, float scaleY)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Get\+Scale} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, float $\ast$scaleX, float $\ast$scaleY)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Render\+Draw\+Color} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, Uint8 $\ast$r, Uint8 $\ast$g, Uint8 $\ast$b, Uint8 $\ast$a)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \textbf{ S\+D\+L\+\_\+\+Blend\+Mode} blend\+Mode)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Render\+Draw\+Blend\+Mode} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \textbf{ S\+D\+L\+\_\+\+Blend\+Mode} $\ast$blend\+Mode)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Clear} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Draw\+Point} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, int x, int y)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Draw\+Points} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+Point} $\ast$points, int count)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Draw\+Line} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, int x1, int y1, int x2, int y2)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Draw\+Lines} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+Point} $\ast$points, int count)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Draw\+Rect} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Draw\+Rects} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rects, int count)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Fill\+Rect} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Fill\+Rects} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rects, int count)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Copy} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$texture, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$srcrect, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$dstrect)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Copy\+Ex} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$texture, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$srcrect, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$dstrect, const double angle, const \textbf{ S\+D\+L\+\_\+\+Point} $\ast$center, const \textbf{ S\+D\+L\+\_\+\+Renderer\+Flip} flip)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Draw\+PointF} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, float x, float y)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Draw\+PointsF} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+F\+Point} $\ast$points, int count)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Draw\+LineF} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, float x1, float y1, float x2, float y2)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Draw\+LinesF} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+F\+Point} $\ast$points, int count)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Draw\+RectF} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+F\+Rect} $\ast$rect)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Draw\+RectsF} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+F\+Rect} $\ast$rects, int count)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Fill\+RectF} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+F\+Rect} $\ast$rect)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Fill\+RectsF} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+F\+Rect} $\ast$rects, int count)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+CopyF} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$texture, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$srcrect, const \textbf{ S\+D\+L\+\_\+\+F\+Rect} $\ast$dstrect)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Copy\+ExF} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$texture, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$srcrect, const \textbf{ S\+D\+L\+\_\+\+F\+Rect} $\ast$dstrect, const double angle, const \textbf{ S\+D\+L\+\_\+\+F\+Point} $\ast$center, const \textbf{ S\+D\+L\+\_\+\+Renderer\+Flip} flip)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Geometry} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$texture, const \textbf{ S\+D\+L\+\_\+\+Vertex} $\ast$vertices, int num\+\_\+vertices, const int $\ast$indices, int num\+\_\+indices)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Geometry\+Raw} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$texture, const float $\ast$xy, int xy\+\_\+stride, const int $\ast$color, int color\+\_\+stride, const float $\ast$uv, int uv\+\_\+stride, int num\+\_\+vertices, const void $\ast$indices, int num\+\_\+indices, int size\+\_\+indices)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Read\+Pixels} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$rect, Uint32 format, void $\ast$pixels, int pitch)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Present} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Destroy\+Texture} (S\+D\+L\+\_\+\+Texture $\ast$texture)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Destroy\+Renderer} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Flush} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+G\+L\+\_\+\+Bind\+Texture} (S\+D\+L\+\_\+\+Texture $\ast$texture, float $\ast$texw, float $\ast$texh)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+G\+L\+\_\+\+Unbind\+Texture} (S\+D\+L\+\_\+\+Texture $\ast$texture)
+\item 
+D\+E\+C\+L\+S\+P\+EC void $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Get\+Metal\+Layer} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+D\+E\+C\+L\+S\+P\+EC void $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Get\+Metal\+Command\+Encoder} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Render\+Set\+V\+Sync} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, int vsync)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for S\+DL 2D rendering functions.
+
+This A\+PI supports the following features\+:
+\begin{DoxyItemize}
+\item single pixel points
+\item single pixel lines
+\item filled rectangles
+\item texture images
+\end{DoxyItemize}
+
+The primitives may be drawn in opaque, blended, or additive modes.
+
+The texture images may be drawn in opaque, blended, or additive modes. They can have an additional color tint or alpha modulation applied to them, and may also be stretched with linear interpolation.
+
+This A\+PI is designed to accelerate simple 2D operations. You may want more functionality such as polygons and particle effects and in that case you should use S\+DL\textquotesingle{}s Open\+G\+L/\+Direct3D support or one of the many good 3D engines.
+
+These functions must be called from the main thread. See this bug for details\+: {\texttt{ http\+://bugzilla.\+libsdl.\+org/show\+\_\+bug.\+cgi?id=1995}} 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{_s_d_l__render_8h_a6d745185e6d2287d8a9a622d8b65dfce}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RendererInfo@{SDL\_RendererInfo}}
+\index{SDL\_RendererInfo@{SDL\_RendererInfo}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RendererInfo}
+{\footnotesize\ttfamily typedef struct \textbf{ S\+D\+L\+\_\+\+Renderer\+Info}  \textbf{ S\+D\+L\+\_\+\+Renderer\+Info}}
+
+Information on the capabilities of a render driver or context. \mbox{\label{_s_d_l__render_8h_a0a7e88a8a9bfa4ae32c6920dcd896072}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_Vertex@{SDL\_Vertex}}
+\index{SDL\_Vertex@{SDL\_Vertex}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_Vertex}
+{\footnotesize\ttfamily typedef struct \textbf{ S\+D\+L\+\_\+\+Vertex}  \textbf{ S\+D\+L\+\_\+\+Vertex}}
+
+Vertex structure 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\label{_s_d_l__render_8h_a3a6e51bbee5fd3f8ee0c9f7504ae4130}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RendererFlags@{SDL\_RendererFlags}}
+\index{SDL\_RendererFlags@{SDL\_RendererFlags}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RendererFlags}
+{\footnotesize\ttfamily enum \textbf{ S\+D\+L\+\_\+\+Renderer\+Flags}}
+
+Flags used when creating a rendering context \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_RENDERER\_SOFTWARE@{SDL\_RENDERER\_SOFTWARE}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_RENDERER\_SOFTWARE@{SDL\_RENDERER\_SOFTWARE}}}\mbox{\label{_s_d_l__render_8h_a3a6e51bbee5fd3f8ee0c9f7504ae4130a02efc6cb7656c03d7a7d0164aced7e84}} 
+S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+S\+O\+F\+T\+W\+A\+RE&The renderer is a software fallback \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_RENDERER\_ACCELERATED@{SDL\_RENDERER\_ACCELERATED}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_RENDERER\_ACCELERATED@{SDL\_RENDERER\_ACCELERATED}}}\mbox{\label{_s_d_l__render_8h_a3a6e51bbee5fd3f8ee0c9f7504ae4130a1268ba2faaf6d9c7c7b71fc550f4248a}} 
+S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+ED&The renderer uses hardware acceleration \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_RENDERER\_PRESENTVSYNC@{SDL\_RENDERER\_PRESENTVSYNC}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_RENDERER\_PRESENTVSYNC@{SDL\_RENDERER\_PRESENTVSYNC}}}\mbox{\label{_s_d_l__render_8h_a3a6e51bbee5fd3f8ee0c9f7504ae4130a12abcfe685ff444f0fc727db981a0c83}} 
+S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+P\+R\+E\+S\+E\+N\+T\+V\+S\+Y\+NC&Present is synchronized with the refresh rate \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_RENDERER\_TARGETTEXTURE@{SDL\_RENDERER\_TARGETTEXTURE}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_RENDERER\_TARGETTEXTURE@{SDL\_RENDERER\_TARGETTEXTURE}}}\mbox{\label{_s_d_l__render_8h_a3a6e51bbee5fd3f8ee0c9f7504ae4130a77aa48df9c4f56f0b1c66c406da3ab81}} 
+S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+T\+A\+R\+G\+E\+T\+T\+E\+X\+T\+U\+RE&The renderer supports rendering to texture \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\label{_s_d_l__render_8h_a6280e56838e0e684caa0869c7c973c12}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RendererFlip@{SDL\_RendererFlip}}
+\index{SDL\_RendererFlip@{SDL\_RendererFlip}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RendererFlip}
+{\footnotesize\ttfamily enum \textbf{ S\+D\+L\+\_\+\+Renderer\+Flip}}
+
+Flip constants for S\+D\+L\+\_\+\+Render\+Copy\+Ex \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_FLIP\_NONE@{SDL\_FLIP\_NONE}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_FLIP\_NONE@{SDL\_FLIP\_NONE}}}\mbox{\label{_s_d_l__render_8h_a6280e56838e0e684caa0869c7c973c12a580b026a6ad4e3493677ad47f3bd939a}} 
+S\+D\+L\+\_\+\+F\+L\+I\+P\+\_\+\+N\+O\+NE&Do not flip \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_FLIP\_HORIZONTAL@{SDL\_FLIP\_HORIZONTAL}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_FLIP\_HORIZONTAL@{SDL\_FLIP\_HORIZONTAL}}}\mbox{\label{_s_d_l__render_8h_a6280e56838e0e684caa0869c7c973c12acfc2af6936e75fa246c98d316425c0ce}} 
+S\+D\+L\+\_\+\+F\+L\+I\+P\+\_\+\+H\+O\+R\+I\+Z\+O\+N\+T\+AL&flip horizontally \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_FLIP\_VERTICAL@{SDL\_FLIP\_VERTICAL}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_FLIP\_VERTICAL@{SDL\_FLIP\_VERTICAL}}}\mbox{\label{_s_d_l__render_8h_a6280e56838e0e684caa0869c7c973c12a27ec807eec1d9adffced6a70cd85ef01}} 
+S\+D\+L\+\_\+\+F\+L\+I\+P\+\_\+\+V\+E\+R\+T\+I\+C\+AL&flip vertically \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\label{_s_d_l__render_8h_a7cee9cc7b0b54027860fde346ea26c71}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_ScaleMode@{SDL\_ScaleMode}}
+\index{SDL\_ScaleMode@{SDL\_ScaleMode}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_ScaleMode}
+{\footnotesize\ttfamily enum \textbf{ S\+D\+L\+\_\+\+Scale\+Mode}}
+
+The scaling mode for a texture. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_ScaleModeNearest@{SDL\_ScaleModeNearest}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_ScaleModeNearest@{SDL\_ScaleModeNearest}}}\mbox{\label{_s_d_l__render_8h_a7cee9cc7b0b54027860fde346ea26c71af7de2943791eb2a873139506d40a305d}} 
+S\+D\+L\+\_\+\+Scale\+Mode\+Nearest&nearest pixel sampling \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_ScaleModeLinear@{SDL\_ScaleModeLinear}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_ScaleModeLinear@{SDL\_ScaleModeLinear}}}\mbox{\label{_s_d_l__render_8h_a7cee9cc7b0b54027860fde346ea26c71a9558b9559ab5d26ac398bb18cc731365}} 
+S\+D\+L\+\_\+\+Scale\+Mode\+Linear&linear filtering \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_ScaleModeBest@{SDL\_ScaleModeBest}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_ScaleModeBest@{SDL\_ScaleModeBest}}}\mbox{\label{_s_d_l__render_8h_a7cee9cc7b0b54027860fde346ea26c71adaae98d92cef330646363f08cdef6f9e}} 
+S\+D\+L\+\_\+\+Scale\+Mode\+Best&anisotropic filtering \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\label{_s_d_l__render_8h_a6b8417d7af279e8a0d4a51233da99bc9}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_TextureAccess@{SDL\_TextureAccess}}
+\index{SDL\_TextureAccess@{SDL\_TextureAccess}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_TextureAccess}
+{\footnotesize\ttfamily enum \textbf{ S\+D\+L\+\_\+\+Texture\+Access}}
+
+The access pattern allowed for a texture. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_TEXTUREACCESS\_STATIC@{SDL\_TEXTUREACCESS\_STATIC}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_TEXTUREACCESS\_STATIC@{SDL\_TEXTUREACCESS\_STATIC}}}\mbox{\label{_s_d_l__render_8h_a6b8417d7af279e8a0d4a51233da99bc9a07c9015fe5cf4e0737d2836acdf00a34}} 
+S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+A\+C\+C\+E\+S\+S\+\_\+\+S\+T\+A\+T\+IC&Changes rarely, not lockable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_TEXTUREACCESS\_STREAMING@{SDL\_TEXTUREACCESS\_STREAMING}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_TEXTUREACCESS\_STREAMING@{SDL\_TEXTUREACCESS\_STREAMING}}}\mbox{\label{_s_d_l__render_8h_a6b8417d7af279e8a0d4a51233da99bc9a19a4751f16e6b411aeb9c835d6c061b4}} 
+S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+A\+C\+C\+E\+S\+S\+\_\+\+S\+T\+R\+E\+A\+M\+I\+NG&Changes frequently, lockable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_TEXTUREACCESS\_TARGET@{SDL\_TEXTUREACCESS\_TARGET}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_TEXTUREACCESS\_TARGET@{SDL\_TEXTUREACCESS\_TARGET}}}\mbox{\label{_s_d_l__render_8h_a6b8417d7af279e8a0d4a51233da99bc9a52249f41ca2ec4971ec96ee395868a9a}} 
+S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+A\+C\+C\+E\+S\+S\+\_\+\+T\+A\+R\+G\+ET&Texture can be used as a render target \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\label{_s_d_l__render_8h_a8d8aacd15cb2cb24e61ae1905e7a5ab5}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_TextureModulate@{SDL\_TextureModulate}}
+\index{SDL\_TextureModulate@{SDL\_TextureModulate}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_TextureModulate}
+{\footnotesize\ttfamily enum \textbf{ S\+D\+L\+\_\+\+Texture\+Modulate}}
+
+The texture channel modulation used in \doxyref{S\+D\+L\+\_\+\+Render\+Copy()}{p.}{_s_d_l__render_8h_a4b6c2353384c7b7128fd5960b24f2ae6}. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_TEXTUREMODULATE\_NONE@{SDL\_TEXTUREMODULATE\_NONE}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_TEXTUREMODULATE\_NONE@{SDL\_TEXTUREMODULATE\_NONE}}}\mbox{\label{_s_d_l__render_8h_a8d8aacd15cb2cb24e61ae1905e7a5ab5a3c1a49753bd4e0a8cfa7c64ed5a4b0df}} 
+S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+M\+O\+D\+U\+L\+A\+T\+E\+\_\+\+N\+O\+NE&No modulation \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_TEXTUREMODULATE\_COLOR@{SDL\_TEXTUREMODULATE\_COLOR}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_TEXTUREMODULATE\_COLOR@{SDL\_TEXTUREMODULATE\_COLOR}}}\mbox{\label{_s_d_l__render_8h_a8d8aacd15cb2cb24e61ae1905e7a5ab5a5a9d122094526405306483d856caa21e}} 
+S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+M\+O\+D\+U\+L\+A\+T\+E\+\_\+\+C\+O\+L\+OR&srcC = srcC $\ast$ color \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_TEXTUREMODULATE\_ALPHA@{SDL\_TEXTUREMODULATE\_ALPHA}!SDL\_render.h@{SDL\_render.h}}\index{SDL\_render.h@{SDL\_render.h}!SDL\_TEXTUREMODULATE\_ALPHA@{SDL\_TEXTUREMODULATE\_ALPHA}}}\mbox{\label{_s_d_l__render_8h_a8d8aacd15cb2cb24e61ae1905e7a5ab5a431abaf1e024cd43df94a967ba1e836f}} 
+S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+M\+O\+D\+U\+L\+A\+T\+E\+\_\+\+A\+L\+P\+HA&srcA = srcA $\ast$ alpha \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{_s_d_l__render_8h_a8db1ba55c15a3477d71f6a793cee54f1}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_CreateRenderer@{SDL\_CreateRenderer}}
+\index{SDL\_CreateRenderer@{SDL\_CreateRenderer}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_CreateRenderer()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Renderer$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Create\+Renderer (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Window} $\ast$}]{window,  }\item[{int}]{index,  }\item[{Uint32}]{flags }\end{DoxyParamCaption})}
+
+Create a 2D rendering context for a window.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & the window where rendering is displayed \\
+\hline
+{\em index} & the index of the rendering driver to initialize, or -\/1 to initialize the first one supporting the requested flags \\
+\hline
+{\em flags} & 0, or one or more S\+D\+L\+\_\+\+Renderer\+Flags OR\textquotesingle{}d together \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a valid rendering context or N\+U\+LL if there was an error; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Software\+Renderer}{p.}{_s_d_l__render_8h_a1a26a4aa0d2baa4c150ee1e080d1eeee} 
+
+\doxyref{S\+D\+L\+\_\+\+Destroy\+Renderer}{p.}{_s_d_l__render_8h_ab1f096742fa9c882c3f1555ee62c4ac2} 
+
+\doxyref{S\+D\+L\+\_\+\+Get\+Num\+Render\+Drivers}{p.}{_s_d_l__render_8h_a4dd8a7e6e6f0948541a1ff6b2ecff192} 
+
+\doxyref{S\+D\+L\+\_\+\+Get\+Renderer\+Info}{p.}{_s_d_l__render_8h_afdc8a35ce033f5111843ac9518dc47a4} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a1a26a4aa0d2baa4c150ee1e080d1eeee}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_CreateSoftwareRenderer@{SDL\_CreateSoftwareRenderer}}
+\index{SDL\_CreateSoftwareRenderer@{SDL\_CreateSoftwareRenderer}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_CreateSoftwareRenderer()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Renderer$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Create\+Software\+Renderer (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Surface} $\ast$}]{surface }\end{DoxyParamCaption})}
+
+Create a 2D software rendering context for a surface.
+
+Two other A\+PI which can be used to create S\+D\+L\+\_\+\+Renderer\+: \doxyref{S\+D\+L\+\_\+\+Create\+Renderer()}{p.}{_s_d_l__render_8h_a8db1ba55c15a3477d71f6a793cee54f1} and \doxyref{S\+D\+L\+\_\+\+Create\+Window\+And\+Renderer()}{p.}{_s_d_l__render_8h_ac3aa070e5cda5bab246621f7efc9f143}. These can {\itshape also} create a software renderer, but they are intended to be used with an S\+D\+L\+\_\+\+Window as the final destination and not an \doxyref{S\+D\+L\+\_\+\+Surface}{p.}{struct_s_d_l___surface}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em surface} & the \doxyref{S\+D\+L\+\_\+\+Surface}{p.}{struct_s_d_l___surface} structure representing the surface where rendering is done \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a valid rendering context or N\+U\+LL if there was an error; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Renderer}{p.}{_s_d_l__render_8h_a8db1ba55c15a3477d71f6a793cee54f1} 
+
+S\+D\+L\+\_\+\+Create\+Window\+Renderer 
+
+\doxyref{S\+D\+L\+\_\+\+Destroy\+Renderer}{p.}{_s_d_l__render_8h_ab1f096742fa9c882c3f1555ee62c4ac2} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ab5ff70c980ec23b05a95e0435bd55b4a}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_CreateTexture@{SDL\_CreateTexture}}
+\index{SDL\_CreateTexture@{SDL\_CreateTexture}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_CreateTexture()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Texture$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Create\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{Uint32}]{format,  }\item[{int}]{access,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+Create a texture for a rendering context.
+
+You can set the texture scaling method by setting {\ttfamily S\+D\+L\+\_\+\+H\+I\+N\+T\+\_\+\+R\+E\+N\+D\+E\+R\+\_\+\+S\+C\+A\+L\+E\+\_\+\+Q\+U\+A\+L\+I\+TY} before creating the texture.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em format} & one of the enumerated values in S\+D\+L\+\_\+\+Pixel\+Format\+Enum \\
+\hline
+{\em access} & one of the enumerated values in S\+D\+L\+\_\+\+Texture\+Access \\
+\hline
+{\em w} & the width of the texture in pixels \\
+\hline
+{\em h} & the height of the texture in pixels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the created texture or N\+U\+LL if no rendering context was active, the format was unsupported, or the width or height were out of range; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Texture\+From\+Surface}{p.}{_s_d_l__render_8h_a0c75234b90965e9db70947fbe91a5840} 
+
+\doxyref{S\+D\+L\+\_\+\+Destroy\+Texture}{p.}{_s_d_l__render_8h_a078c0a925e24542d356a02183a306be6} 
+
+\doxyref{S\+D\+L\+\_\+\+Query\+Texture}{p.}{_s_d_l__render_8h_aade777757bfc3b98bf3ef742b1d8a052} 
+
+\doxyref{S\+D\+L\+\_\+\+Update\+Texture}{p.}{_s_d_l__render_8h_a7aab41a7058997590095e5568d065c11} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a0c75234b90965e9db70947fbe91a5840}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_CreateTextureFromSurface@{SDL\_CreateTextureFromSurface}}
+\index{SDL\_CreateTextureFromSurface@{SDL\_CreateTextureFromSurface}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_CreateTextureFromSurface()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Texture$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Create\+Texture\+From\+Surface (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\textbf{ S\+D\+L\+\_\+\+Surface} $\ast$}]{surface }\end{DoxyParamCaption})}
+
+Create a texture from an existing surface.
+
+The surface is not modified or freed by this function.
+
+The S\+D\+L\+\_\+\+Texture\+Access hint for the created texture is {\ttfamily S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+A\+C\+C\+E\+S\+S\+\_\+\+S\+T\+A\+T\+IC}.
+
+The pixel format of the created texture may be different from the pixel format of the surface. Use \doxyref{S\+D\+L\+\_\+\+Query\+Texture()}{p.}{_s_d_l__render_8h_aade777757bfc3b98bf3ef742b1d8a052} to query the pixel format of the texture.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em surface} & the \doxyref{S\+D\+L\+\_\+\+Surface}{p.}{struct_s_d_l___surface} structure containing pixel data used to fill the texture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the created texture or N\+U\+LL on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Texture}{p.}{_s_d_l__render_8h_ab5ff70c980ec23b05a95e0435bd55b4a} 
+
+\doxyref{S\+D\+L\+\_\+\+Destroy\+Texture}{p.}{_s_d_l__render_8h_a078c0a925e24542d356a02183a306be6} 
+
+\doxyref{S\+D\+L\+\_\+\+Query\+Texture}{p.}{_s_d_l__render_8h_aade777757bfc3b98bf3ef742b1d8a052} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ac3aa070e5cda5bab246621f7efc9f143}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_CreateWindowAndRenderer@{SDL\_CreateWindowAndRenderer}}
+\index{SDL\_CreateWindowAndRenderer@{SDL\_CreateWindowAndRenderer}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_CreateWindowAndRenderer()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Create\+Window\+And\+Renderer (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{Uint32}]{window\+\_\+flags,  }\item[{\textbf{ S\+D\+L\+\_\+\+Window} $\ast$$\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer }\end{DoxyParamCaption})}
+
+Create a window and default renderer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & the width of the window \\
+\hline
+{\em height} & the height of the window \\
+\hline
+{\em window\+\_\+flags} & the flags used to create the window (see \doxyref{S\+D\+L\+\_\+\+Create\+Window()}{p.}{_s_d_l__video_8h_a42565088bdb739a5353fd67abbe235d2}) \\
+\hline
+{\em window} & a pointer filled with the window, or N\+U\+LL on error \\
+\hline
+{\em renderer} & a pointer filled with the renderer, or N\+U\+LL on error \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 on error; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Renderer}{p.}{_s_d_l__render_8h_a8db1ba55c15a3477d71f6a793cee54f1} 
+
+\doxyref{S\+D\+L\+\_\+\+Create\+Window}{p.}{_s_d_l__video_8h_a42565088bdb739a5353fd67abbe235d2} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ab1f096742fa9c882c3f1555ee62c4ac2}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_DestroyRenderer@{SDL\_DestroyRenderer}}
+\index{SDL\_DestroyRenderer@{SDL\_DestroyRenderer}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_DestroyRenderer()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Destroy\+Renderer (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+Destroy the rendering context for a window and free associated textures.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Renderer}{p.}{_s_d_l__render_8h_a8db1ba55c15a3477d71f6a793cee54f1} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a078c0a925e24542d356a02183a306be6}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_DestroyTexture@{SDL\_DestroyTexture}}
+\index{SDL\_DestroyTexture@{SDL\_DestroyTexture}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_DestroyTexture()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Destroy\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+Destroy the specified texture.
+
+Passing N\+U\+LL or an otherwise invalid texture will set the S\+DL error message to \char`\"{}\+Invalid texture\char`\"{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to destroy\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Texture}{p.}{_s_d_l__render_8h_ab5ff70c980ec23b05a95e0435bd55b4a} 
+
+\doxyref{S\+D\+L\+\_\+\+Create\+Texture\+From\+Surface}{p.}{_s_d_l__render_8h_a0c75234b90965e9db70947fbe91a5840} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a4dd8a7e6e6f0948541a1ff6b2ecff192}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetNumRenderDrivers@{SDL\_GetNumRenderDrivers}}
+\index{SDL\_GetNumRenderDrivers@{SDL\_GetNumRenderDrivers}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetNumRenderDrivers()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Num\+Render\+Drivers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the number of 2D rendering drivers available for the current display.
+
+A render driver is a set of code that handles rendering and texture management on a particular display. Normally there is only one, but some drivers may have several available with different capabilities.
+
+There may be none if S\+DL was compiled without render support.
+
+\begin{DoxyReturn}{Returns}
+a number $>$= 0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Renderer}{p.}{_s_d_l__render_8h_a8db1ba55c15a3477d71f6a793cee54f1} 
+
+\doxyref{S\+D\+L\+\_\+\+Get\+Render\+Driver\+Info}{p.}{_s_d_l__render_8h_aa9a7e1ca629863212c2c1b17112f65bd} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a384109767532e9703652233571a0d3cf}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetRenderDrawBlendMode@{SDL\_GetRenderDrawBlendMode}}
+\index{SDL\_GetRenderDrawBlendMode@{SDL\_GetRenderDrawBlendMode}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetRenderDrawBlendMode()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Render\+Draw\+Blend\+Mode (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\textbf{ S\+D\+L\+\_\+\+Blend\+Mode} $\ast$}]{blend\+Mode }\end{DoxyParamCaption})}
+
+Get the blend mode used for drawing operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em blend\+Mode} & a pointer filled in with the current S\+D\+L\+\_\+\+Blend\+Mode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode}{p.}{_s_d_l__render_8h_a37e6e440b995756c9cc8a20fe3ca2385} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a1b8e6544c3fc23ddd9b0f0bfb14cef39}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetRenderDrawColor@{SDL\_GetRenderDrawColor}}
+\index{SDL\_GetRenderDrawColor@{SDL\_GetRenderDrawColor}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetRenderDrawColor()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Render\+Draw\+Color (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{Uint8 $\ast$}]{r,  }\item[{Uint8 $\ast$}]{g,  }\item[{Uint8 $\ast$}]{b,  }\item[{Uint8 $\ast$}]{a }\end{DoxyParamCaption})}
+
+Get the color used for drawing operations (Rect, Line and Clear).
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em r} & a pointer filled in with the red value used to draw on the rendering target \\
+\hline
+{\em g} & a pointer filled in with the green value used to draw on the rendering target \\
+\hline
+{\em b} & a pointer filled in with the blue value used to draw on the rendering target \\
+\hline
+{\em a} & a pointer filled in with the alpha value used to draw on the rendering target; usually {\ttfamily S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+O\+P\+A\+Q\+UE} (255) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color}{p.}{_s_d_l__render_8h_aa26234da40f87f4b16d715564242a341} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_aa9a7e1ca629863212c2c1b17112f65bd}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetRenderDriverInfo@{SDL\_GetRenderDriverInfo}}
+\index{SDL\_GetRenderDriverInfo@{SDL\_GetRenderDriverInfo}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetRenderDriverInfo()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Render\+Driver\+Info (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{\textbf{ S\+D\+L\+\_\+\+Renderer\+Info} $\ast$}]{info }\end{DoxyParamCaption})}
+
+Get info about a specific 2D rendering driver for the current display.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the driver to query information about \\
+\hline
+{\em info} & an \doxyref{S\+D\+L\+\_\+\+Renderer\+Info}{p.}{struct_s_d_l___renderer_info} structure to be filled with information on the rendering driver \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Renderer}{p.}{_s_d_l__render_8h_a8db1ba55c15a3477d71f6a793cee54f1} 
+
+\doxyref{S\+D\+L\+\_\+\+Get\+Num\+Render\+Drivers}{p.}{_s_d_l__render_8h_a4dd8a7e6e6f0948541a1ff6b2ecff192} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ab8e17e5235991e1da5a53a90f1d53d11}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetRenderer@{SDL\_GetRenderer}}
+\index{SDL\_GetRenderer@{SDL\_GetRenderer}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetRenderer()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Renderer$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Renderer (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Window} $\ast$}]{window }\end{DoxyParamCaption})}
+
+Get the renderer associated with a window.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & the window to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the rendering context on success or N\+U\+LL on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Renderer}{p.}{_s_d_l__render_8h_a8db1ba55c15a3477d71f6a793cee54f1} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_afdc8a35ce033f5111843ac9518dc47a4}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetRendererInfo@{SDL\_GetRendererInfo}}
+\index{SDL\_GetRendererInfo@{SDL\_GetRendererInfo}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetRendererInfo()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Renderer\+Info (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\textbf{ S\+D\+L\+\_\+\+Renderer\+Info} $\ast$}]{info }\end{DoxyParamCaption})}
+
+Get information about a rendering context.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em info} & an \doxyref{S\+D\+L\+\_\+\+Renderer\+Info}{p.}{struct_s_d_l___renderer_info} structure filled with information about the current renderer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Renderer}{p.}{_s_d_l__render_8h_a8db1ba55c15a3477d71f6a793cee54f1} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_abfc0c9a50d9d1870ab7d271b7a73d8ab}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetRendererOutputSize@{SDL\_GetRendererOutputSize}}
+\index{SDL\_GetRendererOutputSize@{SDL\_GetRendererOutputSize}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetRendererOutputSize()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Renderer\+Output\+Size (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int $\ast$}]{w,  }\item[{int $\ast$}]{h }\end{DoxyParamCaption})}
+
+Get the output size in pixels of a rendering context.
+
+Due to high-\/dpi displays, you might end up with a rendering context that has more pixels than the window that contains it, so use this instead of \doxyref{S\+D\+L\+\_\+\+Get\+Window\+Size()}{p.}{_s_d_l__video_8h_a5cbfffcfec91c22a7ca95fd1d5163db5} to decide how much drawing area you have.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em w} & an int filled with the width \\
+\hline
+{\em h} & an int filled with the height \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Renderer}{p.}{_s_d_l__render_8h_ab8e17e5235991e1da5a53a90f1d53d11} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a042f1c998d4a29ea236fffcaa0782bf1}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetRenderTarget@{SDL\_GetRenderTarget}}
+\index{SDL\_GetRenderTarget@{SDL\_GetRenderTarget}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetRenderTarget()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+\+Texture$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Render\+Target (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+Get the current render target.
+
+The default render target is the window for which the renderer was created, and is reported a N\+U\+LL here.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the current render target or N\+U\+LL for the default render target.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Target}{p.}{_s_d_l__render_8h_a2479163b0f2909cc50cef7af3c279000} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a4d9a9e945ec95f30e5c48ce305de33ad}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetTextureAlphaMod@{SDL\_GetTextureAlphaMod}}
+\index{SDL\_GetTextureAlphaMod@{SDL\_GetTextureAlphaMod}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetTextureAlphaMod()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Texture\+Alpha\+Mod (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{Uint8 $\ast$}]{alpha }\end{DoxyParamCaption})}
+
+Get the additional alpha value multiplied into render copy operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to query \\
+\hline
+{\em alpha} & a pointer filled in with the current alpha value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Texture\+Color\+Mod}{p.}{_s_d_l__render_8h_aa70e4ce3a875399d4291dca23e687b11} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Alpha\+Mod}{p.}{_s_d_l__render_8h_a1cc3302a4c7fb3b37e8fd5263a80758b} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a2595ee57e6f3a4882f3ae4062ca420c4}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetTextureBlendMode@{SDL\_GetTextureBlendMode}}
+\index{SDL\_GetTextureBlendMode@{SDL\_GetTextureBlendMode}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetTextureBlendMode()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Texture\+Blend\+Mode (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{\textbf{ S\+D\+L\+\_\+\+Blend\+Mode} $\ast$}]{blend\+Mode }\end{DoxyParamCaption})}
+
+Get the blend mode used for texture copy operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to query \\
+\hline
+{\em blend\+Mode} & a pointer filled in with the current S\+D\+L\+\_\+\+Blend\+Mode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Blend\+Mode}{p.}{_s_d_l__render_8h_af8b9cb77ca18f76c18f39d29ed960de8} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_aa70e4ce3a875399d4291dca23e687b11}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetTextureColorMod@{SDL\_GetTextureColorMod}}
+\index{SDL\_GetTextureColorMod@{SDL\_GetTextureColorMod}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetTextureColorMod()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Texture\+Color\+Mod (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{Uint8 $\ast$}]{r,  }\item[{Uint8 $\ast$}]{g,  }\item[{Uint8 $\ast$}]{b }\end{DoxyParamCaption})}
+
+Get the additional color value multiplied into render copy operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to query \\
+\hline
+{\em r} & a pointer filled in with the current red color value \\
+\hline
+{\em g} & a pointer filled in with the current green color value \\
+\hline
+{\em b} & a pointer filled in with the current blue color value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Texture\+Alpha\+Mod}{p.}{_s_d_l__render_8h_a4d9a9e945ec95f30e5c48ce305de33ad} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Color\+Mod}{p.}{_s_d_l__render_8h_a348399db33c03a7882cef0c6e6c1756f} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a51603afa1350164679baad97b77fb3b5}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetTextureScaleMode@{SDL\_GetTextureScaleMode}}
+\index{SDL\_GetTextureScaleMode@{SDL\_GetTextureScaleMode}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetTextureScaleMode()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Texture\+Scale\+Mode (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{\textbf{ S\+D\+L\+\_\+\+Scale\+Mode} $\ast$}]{scale\+Mode }\end{DoxyParamCaption})}
+
+Get the scale mode used for texture scale operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to query. \\
+\hline
+{\em scale\+Mode} & a pointer filled in with the current scale mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 if the texture is not valid.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Scale\+Mode}{p.}{_s_d_l__render_8h_aac58837d42510e6e0472538dbcbc2ffe} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a254dc04adde96288f64543afbe558003}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GetTextureUserData@{SDL\_GetTextureUserData}}
+\index{SDL\_GetTextureUserData@{SDL\_GetTextureUserData}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GetTextureUserData()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Texture\+User\+Data (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+Get the user-\/specified pointer associated with a texture
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the pointer associated with the texture, or N\+U\+LL if the texture is not valid.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+User\+Data}{p.}{_s_d_l__render_8h_a969ee973fd8f686777f151aa2d9275bc} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a00a25a5b53d11a363aa8dac1120cd274}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GL\_BindTexture@{SDL\_GL\_BindTexture}}
+\index{SDL\_GL\_BindTexture@{SDL\_GL\_BindTexture}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GL\_BindTexture()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+G\+L\+\_\+\+Bind\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{float $\ast$}]{texw,  }\item[{float $\ast$}]{texh }\end{DoxyParamCaption})}
+
+Bind an Open\+G\+L/\+E\+S/\+E\+S2 texture to the current context.
+
+This is for use with Open\+GL instructions when rendering Open\+GL primitives directly.
+
+If not N\+U\+LL, {\ttfamily texw} and {\ttfamily texh} will be filled with the width and height values suitable for the provided texture. In most cases, both will be 1.\+0, however, on systems that support the G\+L\+\_\+\+A\+R\+B\+\_\+texture\+\_\+rectangle extension, these values will actually be the pixel width and height used to create the texture, so this factor needs to be taken into account when providing texture coordinates to Open\+GL.
+
+You need a renderer to create an S\+D\+L\+\_\+\+Texture, therefore you can only use this function with an implicit Open\+GL context from \doxyref{S\+D\+L\+\_\+\+Create\+Renderer()}{p.}{_s_d_l__render_8h_a8db1ba55c15a3477d71f6a793cee54f1}, not with your own Open\+GL context. If you need control over your Open\+GL context, you need to write your own texture-\/loading methods.
+
+Also note that S\+DL may upload R\+GB textures as B\+GR (or vice-\/versa), and re-\/order the color channels in the shaders phase, so the uploaded texture may have swapped color channels.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to bind to the current Open\+G\+L/\+E\+S/\+E\+S2 context \\
+\hline
+{\em texw} & a pointer to a float value which will be filled with the texture width or N\+U\+LL if you don\textquotesingle{}t need that value \\
+\hline
+{\em texh} & a pointer to a float value which will be filled with the texture height or N\+U\+LL if you don\textquotesingle{}t need that value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 if the operation is not supported; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+G\+L\+\_\+\+Make\+Current}{p.}{_s_d_l__video_8h_a5a2ad98e8920f8069bf89eb3f9bbc377} 
+
+\doxyref{S\+D\+L\+\_\+\+G\+L\+\_\+\+Unbind\+Texture}{p.}{_s_d_l__render_8h_aaf7df600fe205822dea3a9e56f6c78ad} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_aaf7df600fe205822dea3a9e56f6c78ad}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_GL\_UnbindTexture@{SDL\_GL\_UnbindTexture}}
+\index{SDL\_GL\_UnbindTexture@{SDL\_GL\_UnbindTexture}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_GL\_UnbindTexture()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+G\+L\+\_\+\+Unbind\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+Unbind an Open\+G\+L/\+E\+S/\+E\+S2 texture from the current context.
+
+See \doxyref{S\+D\+L\+\_\+\+G\+L\+\_\+\+Bind\+Texture()}{p.}{_s_d_l__render_8h_a00a25a5b53d11a363aa8dac1120cd274} for examples on how to use these functions
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to unbind from the current Open\+G\+L/\+E\+S/\+E\+S2 context \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 if the operation is not supported
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+G\+L\+\_\+\+Bind\+Texture}{p.}{_s_d_l__render_8h_a00a25a5b53d11a363aa8dac1120cd274} 
+
+\doxyref{S\+D\+L\+\_\+\+G\+L\+\_\+\+Make\+Current}{p.}{_s_d_l__video_8h_a5a2ad98e8920f8069bf89eb3f9bbc377} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_af64adcd12e4e9d41d48031fd3da7b913}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_LockTexture@{SDL\_LockTexture}}
+\index{SDL\_LockTexture@{SDL\_LockTexture}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_LockTexture()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Lock\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect,  }\item[{void $\ast$$\ast$}]{pixels,  }\item[{int $\ast$}]{pitch }\end{DoxyParamCaption})}
+
+Lock a portion of the texture for {\bfseries{write-\/only}} pixel access.
+
+As an optimization, the pixels made available for editing don\textquotesingle{}t necessarily contain the old texture data. This is a write-\/only operation, and if you need to keep a copy of the texture data you should do that at the application level.
+
+You must use \doxyref{S\+D\+L\+\_\+\+Unlock\+Texture()}{p.}{_s_d_l__render_8h_a7fc9db6cde77fc9c95a4f65bc7d30073} to unlock the pixels and apply any changes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to lock for access, which was created with {\ttfamily S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+A\+C\+C\+E\+S\+S\+\_\+\+S\+T\+R\+E\+A\+M\+I\+NG} \\
+\hline
+{\em rect} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the area to lock for access; N\+U\+LL to lock the entire texture \\
+\hline
+{\em pixels} & this is filled in with a pointer to the locked pixels, appropriately offset by the locked area \\
+\hline
+{\em pitch} & this is filled in with the pitch of the locked pixels; the pitch is the length of one row in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code if the texture is not valid or was not created with {\ttfamily S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+A\+C\+C\+E\+S\+S\+\_\+\+S\+T\+R\+E\+A\+M\+I\+NG}; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Unlock\+Texture}{p.}{_s_d_l__render_8h_a7fc9db6cde77fc9c95a4f65bc7d30073} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_af1f12f5baf50ec8c86235dd4528a4e0c}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_LockTextureToSurface@{SDL\_LockTextureToSurface}}
+\index{SDL\_LockTextureToSurface@{SDL\_LockTextureToSurface}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_LockTextureToSurface()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Lock\+Texture\+To\+Surface (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect,  }\item[{\textbf{ S\+D\+L\+\_\+\+Surface} $\ast$$\ast$}]{surface }\end{DoxyParamCaption})}
+
+Lock a portion of the texture for {\bfseries{write-\/only}} pixel access, and expose it as a S\+DL surface.
+
+Besides providing an \doxyref{S\+D\+L\+\_\+\+Surface}{p.}{struct_s_d_l___surface} instead of raw pixel data, this function operates like S\+D\+L\+\_\+\+Lock\+Texture.
+
+As an optimization, the pixels made available for editing don\textquotesingle{}t necessarily contain the old texture data. This is a write-\/only operation, and if you need to keep a copy of the texture data you should do that at the application level.
+
+You must use \doxyref{S\+D\+L\+\_\+\+Unlock\+Texture()}{p.}{_s_d_l__render_8h_a7fc9db6cde77fc9c95a4f65bc7d30073} to unlock the pixels and apply any changes.
+
+The returned surface is freed internally after calling \doxyref{S\+D\+L\+\_\+\+Unlock\+Texture()}{p.}{_s_d_l__render_8h_a7fc9db6cde77fc9c95a4f65bc7d30073} or \doxyref{S\+D\+L\+\_\+\+Destroy\+Texture()}{p.}{_s_d_l__render_8h_a078c0a925e24542d356a02183a306be6}. The caller should not free it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to lock for access, which was created with {\ttfamily S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+A\+C\+C\+E\+S\+S\+\_\+\+S\+T\+R\+E\+A\+M\+I\+NG} \\
+\hline
+{\em rect} & a pointer to the rectangle to lock for access. If the rect is N\+U\+LL, the entire texture will be locked \\
+\hline
+{\em surface} & this is filled in with an S\+DL surface representing the locked area \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 if the texture is not valid or was not created with {\ttfamily S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+A\+C\+C\+E\+S\+S\+\_\+\+S\+T\+R\+E\+A\+M\+I\+NG}
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Lock\+Texture}{p.}{_s_d_l__render_8h_af64adcd12e4e9d41d48031fd3da7b913} 
+
+\doxyref{S\+D\+L\+\_\+\+Unlock\+Texture}{p.}{_s_d_l__render_8h_a7fc9db6cde77fc9c95a4f65bc7d30073} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_aade777757bfc3b98bf3ef742b1d8a052}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_QueryTexture@{SDL\_QueryTexture}}
+\index{SDL\_QueryTexture@{SDL\_QueryTexture}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_QueryTexture()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Query\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{Uint32 $\ast$}]{format,  }\item[{int $\ast$}]{access,  }\item[{int $\ast$}]{w,  }\item[{int $\ast$}]{h }\end{DoxyParamCaption})}
+
+Query the attributes of a texture.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to query \\
+\hline
+{\em format} & a pointer filled in with the raw format of the texture; the actual format may differ, but pixel transfers will use this format (one of the S\+D\+L\+\_\+\+Pixel\+Format\+Enum values) \\
+\hline
+{\em access} & a pointer filled in with the actual access to the texture (one of the S\+D\+L\+\_\+\+Texture\+Access values) \\
+\hline
+{\em w} & a pointer filled in with the width of the texture in pixels \\
+\hline
+{\em h} & a pointer filled in with the height of the texture in pixels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Texture}{p.}{_s_d_l__render_8h_ab5ff70c980ec23b05a95e0435bd55b4a} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a473b4abbb29c60e98876eb68ad850f79}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderClear@{SDL\_RenderClear}}
+\index{SDL\_RenderClear@{SDL\_RenderClear}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderClear()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Clear (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+Clear the current rendering target with the drawing color.
+
+This function clears the entire rendering target, ignoring the viewport and the clip rectangle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color}{p.}{_s_d_l__render_8h_aa26234da40f87f4b16d715564242a341} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a4b6c2353384c7b7128fd5960b24f2ae6}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderCopy@{SDL\_RenderCopy}}
+\index{SDL\_RenderCopy@{SDL\_RenderCopy}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderCopy()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Copy (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{srcrect,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{dstrect }\end{DoxyParamCaption})}
+
+Copy a portion of the texture to the current rendering target.
+
+The texture is blended with the destination based on its blend mode set with \doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Blend\+Mode()}{p.}{_s_d_l__render_8h_af8b9cb77ca18f76c18f39d29ed960de8}.
+
+The texture color is affected based on its color modulation set by \doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Color\+Mod()}{p.}{_s_d_l__render_8h_a348399db33c03a7882cef0c6e6c1756f}.
+
+The texture alpha is affected based on its alpha modulation set by \doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Alpha\+Mod()}{p.}{_s_d_l__render_8h_a1cc3302a4c7fb3b37e8fd5263a80758b}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em texture} & the source texture \\
+\hline
+{\em srcrect} & the source \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure or N\+U\+LL for the entire texture \\
+\hline
+{\em dstrect} & the destination \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure or N\+U\+LL for the entire rendering target; the texture will be stretched to fill the given rectangle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Copy\+Ex}{p.}{_s_d_l__render_8h_ac2c665c1ce910413272a004cdb52e28e} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Alpha\+Mod}{p.}{_s_d_l__render_8h_a1cc3302a4c7fb3b37e8fd5263a80758b} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Blend\+Mode}{p.}{_s_d_l__render_8h_af8b9cb77ca18f76c18f39d29ed960de8} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Color\+Mod}{p.}{_s_d_l__render_8h_a348399db33c03a7882cef0c6e6c1756f} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ac2c665c1ce910413272a004cdb52e28e}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderCopyEx@{SDL\_RenderCopyEx}}
+\index{SDL\_RenderCopyEx@{SDL\_RenderCopyEx}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderCopyEx()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Copy\+Ex (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{srcrect,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{dstrect,  }\item[{const double}]{angle,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Point} $\ast$}]{center,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Renderer\+Flip}}]{flip }\end{DoxyParamCaption})}
+
+Copy a portion of the texture to the current rendering, with optional rotation and flipping.
+
+Copy a portion of the texture to the current rendering target, optionally rotating it by angle around the given center and also flipping it top-\/bottom and/or left-\/right.
+
+The texture is blended with the destination based on its blend mode set with \doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Blend\+Mode()}{p.}{_s_d_l__render_8h_af8b9cb77ca18f76c18f39d29ed960de8}.
+
+The texture color is affected based on its color modulation set by \doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Color\+Mod()}{p.}{_s_d_l__render_8h_a348399db33c03a7882cef0c6e6c1756f}.
+
+The texture alpha is affected based on its alpha modulation set by \doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Alpha\+Mod()}{p.}{_s_d_l__render_8h_a1cc3302a4c7fb3b37e8fd5263a80758b}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em texture} & the source texture \\
+\hline
+{\em srcrect} & the source \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure or N\+U\+LL for the entire texture \\
+\hline
+{\em dstrect} & the destination \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure or N\+U\+LL for the entire rendering target \\
+\hline
+{\em angle} & an angle in degrees that indicates the rotation that will be applied to dstrect, rotating it in a clockwise direction \\
+\hline
+{\em center} & a pointer to a point indicating the point around which dstrect will be rotated (if N\+U\+LL, rotation will be done around {\ttfamily dstrect.\+w / 2}, {\ttfamily dstrect.\+h / 2}) \\
+\hline
+{\em flip} & a S\+D\+L\+\_\+\+Renderer\+Flip value stating which flipping actions should be performed on the texture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Copy}{p.}{_s_d_l__render_8h_a4b6c2353384c7b7128fd5960b24f2ae6} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Alpha\+Mod}{p.}{_s_d_l__render_8h_a1cc3302a4c7fb3b37e8fd5263a80758b} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Blend\+Mode}{p.}{_s_d_l__render_8h_af8b9cb77ca18f76c18f39d29ed960de8} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Color\+Mod}{p.}{_s_d_l__render_8h_a348399db33c03a7882cef0c6e6c1756f} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ac7f9810c9b14afb97cd9b0bbc68ac73d}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderCopyExF@{SDL\_RenderCopyExF}}
+\index{SDL\_RenderCopyExF@{SDL\_RenderCopyExF}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderCopyExF()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Copy\+ExF (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{srcrect,  }\item[{const \textbf{ S\+D\+L\+\_\+\+F\+Rect} $\ast$}]{dstrect,  }\item[{const double}]{angle,  }\item[{const \textbf{ S\+D\+L\+\_\+\+F\+Point} $\ast$}]{center,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Renderer\+Flip}}]{flip }\end{DoxyParamCaption})}
+
+Copy a portion of the source texture to the current rendering target, with rotation and flipping, at subpixel precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer which should copy parts of a texture. \\
+\hline
+{\em texture} & The source texture. \\
+\hline
+{\em srcrect} & A pointer to the source rectangle, or N\+U\+LL for the entire texture. \\
+\hline
+{\em dstrect} & A pointer to the destination rectangle, or N\+U\+LL for the entire rendering target. \\
+\hline
+{\em angle} & An angle in degrees that indicates the rotation that will be applied to dstrect, rotating it in a clockwise direction \\
+\hline
+{\em center} & A pointer to a point indicating the point around which dstrect will be rotated (if N\+U\+LL, rotation will be done around dstrect.\+w/2, dstrect.\+h/2). \\
+\hline
+{\em flip} & An S\+D\+L\+\_\+\+Renderer\+Flip value stating which flipping actions should be performed on the texture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 on error 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_a4514e3254853776f9c5202d8808e5354}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderCopyF@{SDL\_RenderCopyF}}
+\index{SDL\_RenderCopyF@{SDL\_RenderCopyF}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderCopyF()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+CopyF (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{srcrect,  }\item[{const \textbf{ S\+D\+L\+\_\+\+F\+Rect} $\ast$}]{dstrect }\end{DoxyParamCaption})}
+
+Copy a portion of the texture to the current rendering target at subpixel precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer which should copy parts of a texture. \\
+\hline
+{\em texture} & The source texture. \\
+\hline
+{\em srcrect} & A pointer to the source rectangle, or N\+U\+LL for the entire texture. \\
+\hline
+{\em dstrect} & A pointer to the destination rectangle, or N\+U\+LL for the entire rendering target. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 on error 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderDrawLine@{SDL\_RenderDrawLine}}
+\index{SDL\_RenderDrawLine@{SDL\_RenderDrawLine}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderDrawLine()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Draw\+Line (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{int}]{x2,  }\item[{int}]{y2 }\end{DoxyParamCaption})}
+
+Draw a line on the current rendering target.
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Line()}{p.}{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd} draws the line to include both end points. If you want to draw multiple, connecting lines use \doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Lines()}{p.}{_s_d_l__render_8h_a556f150677bb965448b7b361bceb7a76} instead.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em x1} & the x coordinate of the start point \\
+\hline
+{\em y1} & the y coordinate of the start point \\
+\hline
+{\em x2} & the x coordinate of the end point \\
+\hline
+{\em y2} & the y coordinate of the end point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Lines}{p.}{_s_d_l__render_8h_a556f150677bb965448b7b361bceb7a76} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Point}{p.}{_s_d_l__render_8h_ab576a09c91675dbd8dba9d05dd2fc0bc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Points}{p.}{_s_d_l__render_8h_a8ff1a991e7a2599cfc9ea43dfa920d0b} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rect}{p.}{_s_d_l__render_8h_ab2a89b5a0c25adb6abdb9aeff28f177c} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rects}{p.}{_s_d_l__render_8h_ae56460fe1b478a55916650e695145cbf} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rect}{p.}{_s_d_l__render_8h_a3b5098c1944441034d2c5cff419f93cc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rects}{p.}{_s_d_l__render_8h_a987fe30e64168702f1dfa6407fbe8bec} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Present}{p.}{_s_d_l__render_8h_a48fa9d24395f3610746988ecca2aae86} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode}{p.}{_s_d_l__render_8h_a37e6e440b995756c9cc8a20fe3ca2385} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color}{p.}{_s_d_l__render_8h_aa26234da40f87f4b16d715564242a341} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a05ad434757513f4b98de29aaee8f70e3}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderDrawLineF@{SDL\_RenderDrawLineF}}
+\index{SDL\_RenderDrawLineF@{SDL\_RenderDrawLineF}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderDrawLineF()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Draw\+LineF (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{float}]{x1,  }\item[{float}]{y1,  }\item[{float}]{x2,  }\item[{float}]{y2 }\end{DoxyParamCaption})}
+
+Draw a line on the current rendering target at subpixel precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer which should draw a line. \\
+\hline
+{\em x1} & The x coordinate of the start point. \\
+\hline
+{\em y1} & The y coordinate of the start point. \\
+\hline
+{\em x2} & The x coordinate of the end point. \\
+\hline
+{\em y2} & The y coordinate of the end point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 on error 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_a556f150677bb965448b7b361bceb7a76}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderDrawLines@{SDL\_RenderDrawLines}}
+\index{SDL\_RenderDrawLines@{SDL\_RenderDrawLines}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderDrawLines()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Draw\+Lines (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Point} $\ast$}]{points,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+Draw a series of connected lines on the current rendering target.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em points} & an array of \doxyref{S\+D\+L\+\_\+\+Point}{p.}{struct_s_d_l___point} structures representing points along the lines \\
+\hline
+{\em count} & the number of points, drawing count-\/1 lines \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Line}{p.}{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Point}{p.}{_s_d_l__render_8h_ab576a09c91675dbd8dba9d05dd2fc0bc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Points}{p.}{_s_d_l__render_8h_a8ff1a991e7a2599cfc9ea43dfa920d0b} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rect}{p.}{_s_d_l__render_8h_ab2a89b5a0c25adb6abdb9aeff28f177c} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rects}{p.}{_s_d_l__render_8h_ae56460fe1b478a55916650e695145cbf} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rect}{p.}{_s_d_l__render_8h_a3b5098c1944441034d2c5cff419f93cc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rects}{p.}{_s_d_l__render_8h_a987fe30e64168702f1dfa6407fbe8bec} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Present}{p.}{_s_d_l__render_8h_a48fa9d24395f3610746988ecca2aae86} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode}{p.}{_s_d_l__render_8h_a37e6e440b995756c9cc8a20fe3ca2385} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color}{p.}{_s_d_l__render_8h_aa26234da40f87f4b16d715564242a341} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a60727a3df49c84428e486cc067107406}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderDrawLinesF@{SDL\_RenderDrawLinesF}}
+\index{SDL\_RenderDrawLinesF@{SDL\_RenderDrawLinesF}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderDrawLinesF()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Draw\+LinesF (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+F\+Point} $\ast$}]{points,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+Draw a series of connected lines on the current rendering target at subpixel precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer which should draw multiple lines. \\
+\hline
+{\em points} & The points along the lines \\
+\hline
+{\em count} & The number of points, drawing count-\/1 lines \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 on error 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_ab576a09c91675dbd8dba9d05dd2fc0bc}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderDrawPoint@{SDL\_RenderDrawPoint}}
+\index{SDL\_RenderDrawPoint@{SDL\_RenderDrawPoint}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderDrawPoint()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Draw\+Point (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Draw a point on the current rendering target.
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Point()}{p.}{_s_d_l__render_8h_ab576a09c91675dbd8dba9d05dd2fc0bc} draws a single point. If you want to draw multiple, use \doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Points()}{p.}{_s_d_l__render_8h_a8ff1a991e7a2599cfc9ea43dfa920d0b} instead.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em x} & the x coordinate of the point \\
+\hline
+{\em y} & the y coordinate of the point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Line}{p.}{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Lines}{p.}{_s_d_l__render_8h_a556f150677bb965448b7b361bceb7a76} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Points}{p.}{_s_d_l__render_8h_a8ff1a991e7a2599cfc9ea43dfa920d0b} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rect}{p.}{_s_d_l__render_8h_ab2a89b5a0c25adb6abdb9aeff28f177c} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rects}{p.}{_s_d_l__render_8h_ae56460fe1b478a55916650e695145cbf} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rect}{p.}{_s_d_l__render_8h_a3b5098c1944441034d2c5cff419f93cc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rects}{p.}{_s_d_l__render_8h_a987fe30e64168702f1dfa6407fbe8bec} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Present}{p.}{_s_d_l__render_8h_a48fa9d24395f3610746988ecca2aae86} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode}{p.}{_s_d_l__render_8h_a37e6e440b995756c9cc8a20fe3ca2385} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color}{p.}{_s_d_l__render_8h_aa26234da40f87f4b16d715564242a341} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_aa62bd2597d5a7650e7ad666c2a15e688}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderDrawPointF@{SDL\_RenderDrawPointF}}
+\index{SDL\_RenderDrawPointF@{SDL\_RenderDrawPointF}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderDrawPointF()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Draw\+PointF (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+Draw a point on the current rendering target at subpixel precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer which should draw a point. \\
+\hline
+{\em x} & The x coordinate of the point. \\
+\hline
+{\em y} & The y coordinate of the point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 on error 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_a8ff1a991e7a2599cfc9ea43dfa920d0b}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderDrawPoints@{SDL\_RenderDrawPoints}}
+\index{SDL\_RenderDrawPoints@{SDL\_RenderDrawPoints}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderDrawPoints()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Draw\+Points (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Point} $\ast$}]{points,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+Draw multiple points on the current rendering target.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em points} & an array of \doxyref{S\+D\+L\+\_\+\+Point}{p.}{struct_s_d_l___point} structures that represent the points to draw \\
+\hline
+{\em count} & the number of points to draw \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Line}{p.}{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Lines}{p.}{_s_d_l__render_8h_a556f150677bb965448b7b361bceb7a76} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Point}{p.}{_s_d_l__render_8h_ab576a09c91675dbd8dba9d05dd2fc0bc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rect}{p.}{_s_d_l__render_8h_ab2a89b5a0c25adb6abdb9aeff28f177c} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rects}{p.}{_s_d_l__render_8h_ae56460fe1b478a55916650e695145cbf} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rect}{p.}{_s_d_l__render_8h_a3b5098c1944441034d2c5cff419f93cc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rects}{p.}{_s_d_l__render_8h_a987fe30e64168702f1dfa6407fbe8bec} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Present}{p.}{_s_d_l__render_8h_a48fa9d24395f3610746988ecca2aae86} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode}{p.}{_s_d_l__render_8h_a37e6e440b995756c9cc8a20fe3ca2385} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color}{p.}{_s_d_l__render_8h_aa26234da40f87f4b16d715564242a341} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a94cef2f19a261a175e3a748dd95bec69}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderDrawPointsF@{SDL\_RenderDrawPointsF}}
+\index{SDL\_RenderDrawPointsF@{SDL\_RenderDrawPointsF}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderDrawPointsF()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Draw\+PointsF (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+F\+Point} $\ast$}]{points,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+Draw multiple points on the current rendering target at subpixel precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer which should draw multiple points. \\
+\hline
+{\em points} & The points to draw \\
+\hline
+{\em count} & The number of points to draw \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 on error 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_ab2a89b5a0c25adb6abdb9aeff28f177c}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderDrawRect@{SDL\_RenderDrawRect}}
+\index{SDL\_RenderDrawRect@{SDL\_RenderDrawRect}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderDrawRect()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Draw\+Rect (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect }\end{DoxyParamCaption})}
+
+Draw a rectangle on the current rendering target.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em rect} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the rectangle to draw, or N\+U\+LL to outline the entire rendering target \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Line}{p.}{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Lines}{p.}{_s_d_l__render_8h_a556f150677bb965448b7b361bceb7a76} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Point}{p.}{_s_d_l__render_8h_ab576a09c91675dbd8dba9d05dd2fc0bc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Points}{p.}{_s_d_l__render_8h_a8ff1a991e7a2599cfc9ea43dfa920d0b} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rects}{p.}{_s_d_l__render_8h_ae56460fe1b478a55916650e695145cbf} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rect}{p.}{_s_d_l__render_8h_a3b5098c1944441034d2c5cff419f93cc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rects}{p.}{_s_d_l__render_8h_a987fe30e64168702f1dfa6407fbe8bec} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Present}{p.}{_s_d_l__render_8h_a48fa9d24395f3610746988ecca2aae86} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode}{p.}{_s_d_l__render_8h_a37e6e440b995756c9cc8a20fe3ca2385} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color}{p.}{_s_d_l__render_8h_aa26234da40f87f4b16d715564242a341} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ae6ca4e63fe1189d44a42eb831c4f9dc2}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderDrawRectF@{SDL\_RenderDrawRectF}}
+\index{SDL\_RenderDrawRectF@{SDL\_RenderDrawRectF}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderDrawRectF()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Draw\+RectF (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+F\+Rect} $\ast$}]{rect }\end{DoxyParamCaption})}
+
+Draw a rectangle on the current rendering target at subpixel precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer which should draw a rectangle. \\
+\hline
+{\em rect} & A pointer to the destination rectangle, or N\+U\+LL to outline the entire rendering target. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 on error 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_ae56460fe1b478a55916650e695145cbf}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderDrawRects@{SDL\_RenderDrawRects}}
+\index{SDL\_RenderDrawRects@{SDL\_RenderDrawRects}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderDrawRects()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Draw\+Rects (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rects,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+Draw some number of rectangles on the current rendering target.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em rects} & an array of \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structures representing the rectangles to be drawn \\
+\hline
+{\em count} & the number of rectangles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Line}{p.}{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Lines}{p.}{_s_d_l__render_8h_a556f150677bb965448b7b361bceb7a76} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Point}{p.}{_s_d_l__render_8h_ab576a09c91675dbd8dba9d05dd2fc0bc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Points}{p.}{_s_d_l__render_8h_a8ff1a991e7a2599cfc9ea43dfa920d0b} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rect}{p.}{_s_d_l__render_8h_ab2a89b5a0c25adb6abdb9aeff28f177c} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rect}{p.}{_s_d_l__render_8h_a3b5098c1944441034d2c5cff419f93cc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rects}{p.}{_s_d_l__render_8h_a987fe30e64168702f1dfa6407fbe8bec} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Present}{p.}{_s_d_l__render_8h_a48fa9d24395f3610746988ecca2aae86} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode}{p.}{_s_d_l__render_8h_a37e6e440b995756c9cc8a20fe3ca2385} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color}{p.}{_s_d_l__render_8h_aa26234da40f87f4b16d715564242a341} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ac0be470fecfd02a348d017ef4dcac2e5}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderDrawRectsF@{SDL\_RenderDrawRectsF}}
+\index{SDL\_RenderDrawRectsF@{SDL\_RenderDrawRectsF}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderDrawRectsF()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Draw\+RectsF (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+F\+Rect} $\ast$}]{rects,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+Draw some number of rectangles on the current rendering target at subpixel precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer which should draw multiple rectangles. \\
+\hline
+{\em rects} & A pointer to an array of destination rectangles. \\
+\hline
+{\em count} & The number of rectangles. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 on error 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_a3b5098c1944441034d2c5cff419f93cc}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderFillRect@{SDL\_RenderFillRect}}
+\index{SDL\_RenderFillRect@{SDL\_RenderFillRect}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderFillRect()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Fill\+Rect (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect }\end{DoxyParamCaption})}
+
+Fill a rectangle on the current rendering target with the drawing color.
+
+The current drawing color is set by \doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color()}{p.}{_s_d_l__render_8h_aa26234da40f87f4b16d715564242a341}, and the color\textquotesingle{}s alpha value is ignored unless blending is enabled with the appropriate call to \doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode()}{p.}{_s_d_l__render_8h_a37e6e440b995756c9cc8a20fe3ca2385}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em rect} & the \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the rectangle to fill, or N\+U\+LL for the entire rendering target \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Line}{p.}{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Lines}{p.}{_s_d_l__render_8h_a556f150677bb965448b7b361bceb7a76} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Point}{p.}{_s_d_l__render_8h_ab576a09c91675dbd8dba9d05dd2fc0bc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Points}{p.}{_s_d_l__render_8h_a8ff1a991e7a2599cfc9ea43dfa920d0b} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rect}{p.}{_s_d_l__render_8h_ab2a89b5a0c25adb6abdb9aeff28f177c} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rects}{p.}{_s_d_l__render_8h_ae56460fe1b478a55916650e695145cbf} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rects}{p.}{_s_d_l__render_8h_a987fe30e64168702f1dfa6407fbe8bec} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Present}{p.}{_s_d_l__render_8h_a48fa9d24395f3610746988ecca2aae86} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode}{p.}{_s_d_l__render_8h_a37e6e440b995756c9cc8a20fe3ca2385} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color}{p.}{_s_d_l__render_8h_aa26234da40f87f4b16d715564242a341} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_afc08075c669fffd2ab7808ffedad3edc}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderFillRectF@{SDL\_RenderFillRectF}}
+\index{SDL\_RenderFillRectF@{SDL\_RenderFillRectF}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderFillRectF()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Fill\+RectF (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+F\+Rect} $\ast$}]{rect }\end{DoxyParamCaption})}
+
+Fill a rectangle on the current rendering target with the drawing color at subpixel precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer which should fill a rectangle. \\
+\hline
+{\em rect} & A pointer to the destination rectangle, or N\+U\+LL for the entire rendering target. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 on error 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_a987fe30e64168702f1dfa6407fbe8bec}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderFillRects@{SDL\_RenderFillRects}}
+\index{SDL\_RenderFillRects@{SDL\_RenderFillRects}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderFillRects()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Fill\+Rects (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rects,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+Fill some number of rectangles on the current rendering target with the drawing color.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em rects} & an array of \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structures representing the rectangles to be filled \\
+\hline
+{\em count} & the number of rectangles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Line}{p.}{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Lines}{p.}{_s_d_l__render_8h_a556f150677bb965448b7b361bceb7a76} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Point}{p.}{_s_d_l__render_8h_ab576a09c91675dbd8dba9d05dd2fc0bc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Points}{p.}{_s_d_l__render_8h_a8ff1a991e7a2599cfc9ea43dfa920d0b} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rect}{p.}{_s_d_l__render_8h_ab2a89b5a0c25adb6abdb9aeff28f177c} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rects}{p.}{_s_d_l__render_8h_ae56460fe1b478a55916650e695145cbf} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rect}{p.}{_s_d_l__render_8h_a3b5098c1944441034d2c5cff419f93cc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Present}{p.}{_s_d_l__render_8h_a48fa9d24395f3610746988ecca2aae86} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a599b48b93c5f6e55f7c12c766205f8a1}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderFillRectsF@{SDL\_RenderFillRectsF}}
+\index{SDL\_RenderFillRectsF@{SDL\_RenderFillRectsF}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderFillRectsF()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Fill\+RectsF (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+F\+Rect} $\ast$}]{rects,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+Fill some number of rectangles on the current rendering target with the drawing color at subpixel precision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer which should fill multiple rectangles. \\
+\hline
+{\em rects} & A pointer to an array of destination rectangles. \\
+\hline
+{\em count} & The number of rectangles. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 on error 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_a1b874552e4d5dcfa069256e49c6c2ae4}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderFlush@{SDL\_RenderFlush}}
+\index{SDL\_RenderFlush@{SDL\_RenderFlush}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderFlush()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Flush (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+Force the rendering context to flush any pending commands to the underlying rendering A\+PI.
+
+You do not need to (and in fact, shouldn\textquotesingle{}t) call this function unless you are planning to call into Open\+G\+L/\+Direct3\+D/\+Metal/whatever directly in addition to using an S\+D\+L\+\_\+\+Renderer.
+
+This is for a very-\/specific case\+: if you are using S\+DL\textquotesingle{}s render A\+PI, you asked for a specific renderer backend (Open\+GL, Direct3D, etc), you set S\+D\+L\+\_\+\+H\+I\+N\+T\+\_\+\+R\+E\+N\+D\+E\+R\+\_\+\+B\+A\+T\+C\+H\+I\+NG to \char`\"{}1\char`\"{}, and you plan to make Open\+G\+L/\+D3\+D/whatever calls in addition to S\+DL render A\+PI calls. If all of this applies, you should call \doxyref{S\+D\+L\+\_\+\+Render\+Flush()}{p.}{_s_d_l__render_8h_a1b874552e4d5dcfa069256e49c6c2ae4} between calls to S\+DL\textquotesingle{}s render A\+PI and the low-\/level A\+PI you\textquotesingle{}re using in cooperation.
+
+In all other cases, you can ignore this function. This is only here to get maximum performance out of a specific situation. In all other cases, S\+DL will do the right thing, perhaps at a performance loss.
+
+This function is first available in S\+DL 2.\+0.\+10, and is not needed in 2.\+0.\+9 and earlier, as earlier versions did not queue rendering commands at all, instead flushing them to the OS immediately.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+10. 
+\end{DoxySince}
+\mbox{\label{_s_d_l__render_8h_a7b2ac666852256d171a50e3af815a910}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderGeometry@{SDL\_RenderGeometry}}
+\index{SDL\_RenderGeometry@{SDL\_RenderGeometry}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderGeometry()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Geometry (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Vertex} $\ast$}]{vertices,  }\item[{int}]{num\+\_\+vertices,  }\item[{const int $\ast$}]{indices,  }\item[{int}]{num\+\_\+indices }\end{DoxyParamCaption})}
+
+Render a list of triangles, optionally using a texture and indices into the vertex array Color and alpha modulation is done per vertex (S\+D\+L\+\_\+\+Set\+Texture\+Color\+Mod and S\+D\+L\+\_\+\+Set\+Texture\+Alpha\+Mod are ignored).
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & (optional) The S\+DL texture to use. \\
+\hline
+{\em vertices} & Vertices. \\
+\hline
+{\em num\+\_\+vertices} & Number of vertices. \\
+\hline
+{\em indices} & (optional) An array of integer indices into the \textquotesingle{}vertices\textquotesingle{} array, if N\+U\+LL all vertices will be rendered in sequential order. \\
+\hline
+{\em num\+\_\+indices} & Number of indices. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 if the operation is not supported
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Vertex}{p.}{struct_s_d_l___vertex} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ae86d97ef7ee0af74d5aeaf16800f1508}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderGeometryRaw@{SDL\_RenderGeometryRaw}}
+\index{SDL\_RenderGeometryRaw@{SDL\_RenderGeometryRaw}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderGeometryRaw()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Geometry\+Raw (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{const float $\ast$}]{xy,  }\item[{int}]{xy\+\_\+stride,  }\item[{const int $\ast$}]{color,  }\item[{int}]{color\+\_\+stride,  }\item[{const float $\ast$}]{uv,  }\item[{int}]{uv\+\_\+stride,  }\item[{int}]{num\+\_\+vertices,  }\item[{const void $\ast$}]{indices,  }\item[{int}]{num\+\_\+indices,  }\item[{int}]{size\+\_\+indices }\end{DoxyParamCaption})}
+
+Render a list of triangles, optionally using a texture and indices into the vertex arrays Color and alpha modulation is done per vertex (S\+D\+L\+\_\+\+Set\+Texture\+Color\+Mod and S\+D\+L\+\_\+\+Set\+Texture\+Alpha\+Mod are ignored).
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & (optional) The S\+DL texture to use. \\
+\hline
+{\em xy} & Vertex positions \\
+\hline
+{\em xy\+\_\+stride} & Byte size to move from one element to the next element \\
+\hline
+{\em color} & Vertex colors (as \doxyref{S\+D\+L\+\_\+\+Color}{p.}{struct_s_d_l___color}) \\
+\hline
+{\em color\+\_\+stride} & Byte size to move from one element to the next element \\
+\hline
+{\em uv} & Vertex normalized texture coordinates \\
+\hline
+{\em uv\+\_\+stride} & Byte size to move from one element to the next element \\
+\hline
+{\em num\+\_\+vertices} & Number of vertices. \\
+\hline
+{\em indices} & (optional) An array of indices into the \textquotesingle{}vertices\textquotesingle{} arrays, if N\+U\+LL all vertices will be rendered in sequential order. \\
+\hline
+{\em num\+\_\+indices} & Number of indices. \\
+\hline
+{\em size\+\_\+indices} & \doxyref{Index}{p.}{struct_index} size\+: 1 (byte), 2 (short), 4 (int) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 if the operation is not supported 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_af91e64e2b473a5eb7e93caf253fb760c}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderGetClipRect@{SDL\_RenderGetClipRect}}
+\index{SDL\_RenderGetClipRect@{SDL\_RenderGetClipRect}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderGetClipRect()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Get\+Clip\+Rect (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect }\end{DoxyParamCaption})}
+
+Get the clip rectangle for the current target.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context from which clip rectangle should be queried \\
+\hline
+{\em rect} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure filled in with the current clipping area or an empty rectangle if clipping is disabled\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Is\+Clip\+Enabled}{p.}{_s_d_l__render_8h_ab8125c772a65956fbb259389b6563523} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Set\+Clip\+Rect}{p.}{_s_d_l__render_8h_a2788c24590fd26bcf0d5be2ffcb85c04} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a435c61d9f048550388198478e8fdeaa0}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderGetIntegerScale@{SDL\_RenderGetIntegerScale}}
+\index{SDL\_RenderGetIntegerScale@{SDL\_RenderGetIntegerScale}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderGetIntegerScale()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Get\+Integer\+Scale (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+Get whether integer scales are forced for resolution-\/independent rendering.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the renderer from which integer scaling should be queried \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+T\+R\+UE if integer scales are forced or S\+D\+L\+\_\+\+F\+A\+L\+SE if not and on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+5.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Set\+Integer\+Scale}{p.}{_s_d_l__render_8h_a62c3f8273280e5795075d2921d4ea30f} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_aa566ba52ac01bd13f6fdfcdfc3af217f}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderGetLogicalSize@{SDL\_RenderGetLogicalSize}}
+\index{SDL\_RenderGetLogicalSize@{SDL\_RenderGetLogicalSize}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderGetLogicalSize()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Get\+Logical\+Size (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int $\ast$}]{w,  }\item[{int $\ast$}]{h }\end{DoxyParamCaption})}
+
+Get device independent resolution for rendering.
+
+This may return 0 for {\ttfamily w} and {\ttfamily h} if the S\+D\+L\+\_\+\+Renderer has never had its logical size set by \doxyref{S\+D\+L\+\_\+\+Render\+Set\+Logical\+Size()}{p.}{_s_d_l__render_8h_ad0596fd507c9bf9f8f9594cd9064860c} and never had a render target set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & a rendering context \\
+\hline
+{\em w} & an int to be filled with the width \\
+\hline
+{\em h} & an int to be filled with the height\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Set\+Logical\+Size}{p.}{_s_d_l__render_8h_ad0596fd507c9bf9f8f9594cd9064860c} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ab928ea8c999e354d641b0bea3ff2d471}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderGetMetalCommandEncoder@{SDL\_RenderGetMetalCommandEncoder}}
+\index{SDL\_RenderGetMetalCommandEncoder@{SDL\_RenderGetMetalCommandEncoder}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderGetMetalCommandEncoder()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Get\+Metal\+Command\+Encoder (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+Get the Metal command encoder for the current frame
+
+This function returns {\ttfamily void $\ast$}, so S\+DL doesn\textquotesingle{}t have to include Metal\textquotesingle{}s headers, but it can be safely cast to an {\ttfamily id$<$M\+T\+L\+Render\+Command\+Encoder$>$}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an {\ttfamily id$<$M\+T\+L\+Render\+Command\+Encoder$>$} on success, or N\+U\+LL if the renderer isn\textquotesingle{}t a Metal renderer.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Get\+Metal\+Layer}{p.}{_s_d_l__render_8h_a70967f6f13b573c1b05ad10ac8367875} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a70967f6f13b573c1b05ad10ac8367875}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderGetMetalLayer@{SDL\_RenderGetMetalLayer}}
+\index{SDL\_RenderGetMetalLayer@{SDL\_RenderGetMetalLayer}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderGetMetalLayer()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Get\+Metal\+Layer (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+Get the C\+A\+Metal\+Layer associated with the given Metal renderer.
+
+This function returns {\ttfamily void $\ast$}, so S\+DL doesn\textquotesingle{}t have to include Metal\textquotesingle{}s headers, but it can be safely cast to a {\ttfamily C\+A\+Metal\+Layer $\ast$}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a {\ttfamily C\+A\+Metal\+Layer $\ast$} on success, or N\+U\+LL if the renderer isn\textquotesingle{}t a Metal renderer
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Get\+Metal\+Command\+Encoder}{p.}{_s_d_l__render_8h_ab928ea8c999e354d641b0bea3ff2d471} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a0271c4a8d32cacaff54de9aa7b5a797d}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderGetScale@{SDL\_RenderGetScale}}
+\index{SDL\_RenderGetScale@{SDL\_RenderGetScale}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderGetScale()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Get\+Scale (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{float $\ast$}]{scaleX,  }\item[{float $\ast$}]{scaleY }\end{DoxyParamCaption})}
+
+Get the drawing scale for the current target.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the renderer from which drawing scale should be queried \\
+\hline
+{\em scaleX} & a pointer filled in with the horizontal scaling factor \\
+\hline
+{\em scaleY} & a pointer filled in with the vertical scaling factor\\
+\hline
+\end{DoxyParams}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Set\+Scale}{p.}{_s_d_l__render_8h_aa52b062e271226c5ec8cdb8aa6dc69eb} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a60a7a6cb31b64f9f13c923fe44ba4d6f}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderGetViewport@{SDL\_RenderGetViewport}}
+\index{SDL\_RenderGetViewport@{SDL\_RenderGetViewport}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderGetViewport()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Get\+Viewport (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect }\end{DoxyParamCaption})}
+
+Get the drawing area for the current target.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em rect} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure filled in with the current drawing area\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Set\+Viewport}{p.}{_s_d_l__render_8h_a27bad6dceb9d5e08d41506260dfc1c71} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ab8125c772a65956fbb259389b6563523}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderIsClipEnabled@{SDL\_RenderIsClipEnabled}}
+\index{SDL\_RenderIsClipEnabled@{SDL\_RenderIsClipEnabled}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderIsClipEnabled()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Is\+Clip\+Enabled (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+Get whether clipping is enabled on the given renderer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the renderer from which clip state should be queried \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+T\+R\+UE if clipping is enabled or S\+D\+L\+\_\+\+F\+A\+L\+SE if not; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+4.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Get\+Clip\+Rect}{p.}{_s_d_l__render_8h_af91e64e2b473a5eb7e93caf253fb760c} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Set\+Clip\+Rect}{p.}{_s_d_l__render_8h_a2788c24590fd26bcf0d5be2ffcb85c04} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a48fa9d24395f3610746988ecca2aae86}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderPresent@{SDL\_RenderPresent}}
+\index{SDL\_RenderPresent@{SDL\_RenderPresent}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderPresent()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Present (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+Update the screen with any rendering performed since the previous call.
+
+S\+DL\textquotesingle{}s rendering functions operate on a backbuffer; that is, calling a rendering function such as \doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Line()}{p.}{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd} does not directly put a line on the screen, but rather updates the backbuffer. As such, you compose your entire scene and {\itshape present} the composed backbuffer to the screen as a complete picture.
+
+Therefore, when using S\+DL\textquotesingle{}s rendering A\+PI, one does all drawing intended for the frame, and then calls this function once per frame to present the final drawing to the user.
+
+The backbuffer should be considered invalidated after each present; do not assume that previous contents will exist between frames. You are strongly encouraged to call \doxyref{S\+D\+L\+\_\+\+Render\+Clear()}{p.}{_s_d_l__render_8h_a473b4abbb29c60e98876eb68ad850f79} to initialize the backbuffer before starting each new frame\textquotesingle{}s drawing, even if you plan to overwrite every pixel.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Clear}{p.}{_s_d_l__render_8h_a473b4abbb29c60e98876eb68ad850f79} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Line}{p.}{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Lines}{p.}{_s_d_l__render_8h_a556f150677bb965448b7b361bceb7a76} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Point}{p.}{_s_d_l__render_8h_ab576a09c91675dbd8dba9d05dd2fc0bc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Points}{p.}{_s_d_l__render_8h_a8ff1a991e7a2599cfc9ea43dfa920d0b} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rect}{p.}{_s_d_l__render_8h_ab2a89b5a0c25adb6abdb9aeff28f177c} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rects}{p.}{_s_d_l__render_8h_ae56460fe1b478a55916650e695145cbf} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rect}{p.}{_s_d_l__render_8h_a3b5098c1944441034d2c5cff419f93cc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rects}{p.}{_s_d_l__render_8h_a987fe30e64168702f1dfa6407fbe8bec} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode}{p.}{_s_d_l__render_8h_a37e6e440b995756c9cc8a20fe3ca2385} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color}{p.}{_s_d_l__render_8h_aa26234da40f87f4b16d715564242a341} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a6aa7797b165275f1bdd76c3188a784f9}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderReadPixels@{SDL\_RenderReadPixels}}
+\index{SDL\_RenderReadPixels@{SDL\_RenderReadPixels}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderReadPixels()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Read\+Pixels (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect,  }\item[{Uint32}]{format,  }\item[{void $\ast$}]{pixels,  }\item[{int}]{pitch }\end{DoxyParamCaption})}
+
+Read pixels from the current rendering target to an array of pixels.
+
+{\bfseries{W\+A\+R\+N\+I\+NG}}\+: This is a very slow operation, and should not be used frequently.
+
+{\ttfamily pitch} specifies the number of bytes between rows in the destination {\ttfamily pixels} data. This allows you to write to a subrectangle or have padded rows in the destination. Generally, {\ttfamily pitch} should equal the number of pixels per row in the {\ttfamily pixels} data times the number of bytes per pixel, but it might contain additional padding (for example, 24bit R\+GB Windows Bitmap data pads all rows to multiples of 4 bytes).
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em rect} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the area to read, or N\+U\+LL for the entire render target \\
+\hline
+{\em format} & an S\+D\+L\+\_\+\+Pixel\+Format\+Enum value of the desired format of the pixel data, or 0 to use the format of the rendering target \\
+\hline
+{\em pixels} & a pointer to the pixel data to copy into \\
+\hline
+{\em pitch} & the pitch of the {\ttfamily pixels} parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information. 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_a2788c24590fd26bcf0d5be2ffcb85c04}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderSetClipRect@{SDL\_RenderSetClipRect}}
+\index{SDL\_RenderSetClipRect@{SDL\_RenderSetClipRect}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderSetClipRect()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Set\+Clip\+Rect (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect }\end{DoxyParamCaption})}
+
+Set the clip rectangle for rendering on the specified target.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context for which clip rectangle should be set \\
+\hline
+{\em rect} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the clip area, relative to the viewport, or N\+U\+LL to disable clipping \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Get\+Clip\+Rect}{p.}{_s_d_l__render_8h_af91e64e2b473a5eb7e93caf253fb760c} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Is\+Clip\+Enabled}{p.}{_s_d_l__render_8h_ab8125c772a65956fbb259389b6563523} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a62c3f8273280e5795075d2921d4ea30f}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderSetIntegerScale@{SDL\_RenderSetIntegerScale}}
+\index{SDL\_RenderSetIntegerScale@{SDL\_RenderSetIntegerScale}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderSetIntegerScale()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Set\+Integer\+Scale (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+bool}]{enable }\end{DoxyParamCaption})}
+
+Set whether to force integer scales for resolution-\/independent rendering.
+
+This function restricts the logical viewport to integer values -\/ that is, when a resolution is between two multiples of a logical size, the viewport size is rounded down to the lower multiple.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the renderer for which integer scaling should be set \\
+\hline
+{\em enable} & enable or disable the integer scaling for rendering \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+5.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Get\+Integer\+Scale}{p.}{_s_d_l__render_8h_a435c61d9f048550388198478e8fdeaa0} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Set\+Logical\+Size}{p.}{_s_d_l__render_8h_ad0596fd507c9bf9f8f9594cd9064860c} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ad0596fd507c9bf9f8f9594cd9064860c}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderSetLogicalSize@{SDL\_RenderSetLogicalSize}}
+\index{SDL\_RenderSetLogicalSize@{SDL\_RenderSetLogicalSize}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderSetLogicalSize()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Set\+Logical\+Size (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+Set a device independent resolution for rendering.
+
+This function uses the viewport and scaling functionality to allow a fixed logical resolution for rendering, regardless of the actual output resolution. If the actual output resolution doesn\textquotesingle{}t have the same aspect ratio the output rendering will be centered within the output display.
+
+If the output display is a window, mouse and touch events in the window will be filtered and scaled so they seem to arrive within the logical resolution. The S\+D\+L\+\_\+\+H\+I\+N\+T\+\_\+\+M\+O\+U\+S\+E\+\_\+\+R\+E\+L\+A\+T\+I\+V\+E\+\_\+\+S\+C\+A\+L\+I\+NG hint controls whether relative motion events are also scaled.
+
+If this function results in scaling or subpixel drawing by the rendering backend, it will be handled using the appropriate quality hints.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the renderer for which resolution should be set \\
+\hline
+{\em w} & the width of the logical resolution \\
+\hline
+{\em h} & the height of the logical resolution \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Get\+Logical\+Size}{p.}{_s_d_l__render_8h_aa566ba52ac01bd13f6fdfcdfc3af217f} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_aa52b062e271226c5ec8cdb8aa6dc69eb}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderSetScale@{SDL\_RenderSetScale}}
+\index{SDL\_RenderSetScale@{SDL\_RenderSetScale}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderSetScale()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Set\+Scale (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{float}]{scaleX,  }\item[{float}]{scaleY }\end{DoxyParamCaption})}
+
+Set the drawing scale for rendering on the current target.
+
+The drawing coordinates are scaled by the x/y scaling factors before they are used by the renderer. This allows resolution independent drawing with a single coordinate system.
+
+If this results in scaling or subpixel drawing by the rendering backend, it will be handled using the appropriate quality hints. For best results use integer scaling factors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & a rendering context \\
+\hline
+{\em scaleX} & the horizontal scaling factor \\
+\hline
+{\em scaleY} & the vertical scaling factor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Get\+Scale}{p.}{_s_d_l__render_8h_a0271c4a8d32cacaff54de9aa7b5a797d} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Set\+Logical\+Size}{p.}{_s_d_l__render_8h_ad0596fd507c9bf9f8f9594cd9064860c} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a27bad6dceb9d5e08d41506260dfc1c71}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderSetViewport@{SDL\_RenderSetViewport}}
+\index{SDL\_RenderSetViewport@{SDL\_RenderSetViewport}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderSetViewport()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Set\+Viewport (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect }\end{DoxyParamCaption})}
+
+Set the drawing area for rendering on the current target.
+
+When the window is resized, the viewport is reset to fill the entire new window size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em rect} & the \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the drawing area, or N\+U\+LL to set the viewport to the entire target \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Render\+Get\+Viewport}{p.}{_s_d_l__render_8h_a60a7a6cb31b64f9f13c923fe44ba4d6f} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_afe68207df287bda5b85a4bb84e720522}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderSetVSync@{SDL\_RenderSetVSync}}
+\index{SDL\_RenderSetVSync@{SDL\_RenderSetVSync}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderSetVSync()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Set\+V\+Sync (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{vsync }\end{DoxyParamCaption})}
+
+Toggle V\+Sync of the given renderer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & The renderer to toggle \\
+\hline
+{\em vsync} & 1 for on, 0 for off. All other values are reserved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a 0 int on success, or non-\/zero on failure 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_a126c5e0fb7abb3aa1bbfe60ac0102857}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_RenderTargetSupported@{SDL\_RenderTargetSupported}}
+\index{SDL\_RenderTargetSupported@{SDL\_RenderTargetSupported}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_RenderTargetSupported()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Render\+Target\+Supported (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+Determine whether a renderer supports the use of render targets.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the renderer that will be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+T\+R\+UE if supported or S\+D\+L\+\_\+\+F\+A\+L\+SE if not.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Set\+Render\+Target}{p.}{_s_d_l__render_8h_a2479163b0f2909cc50cef7af3c279000} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a37e6e440b995756c9cc8a20fe3ca2385}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_SetRenderDrawBlendMode@{SDL\_SetRenderDrawBlendMode}}
+\index{SDL\_SetRenderDrawBlendMode@{SDL\_SetRenderDrawBlendMode}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_SetRenderDrawBlendMode()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\textbf{ S\+D\+L\+\_\+\+Blend\+Mode}}]{blend\+Mode }\end{DoxyParamCaption})}
+
+Set the blend mode used for drawing operations (Fill and Line).
+
+If the blend mode is not supported, the closest supported mode is chosen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em blend\+Mode} & the S\+D\+L\+\_\+\+Blend\+Mode to use for blending \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Render\+Draw\+Blend\+Mode}{p.}{_s_d_l__render_8h_a384109767532e9703652233571a0d3cf} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Line}{p.}{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Lines}{p.}{_s_d_l__render_8h_a556f150677bb965448b7b361bceb7a76} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Point}{p.}{_s_d_l__render_8h_ab576a09c91675dbd8dba9d05dd2fc0bc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Points}{p.}{_s_d_l__render_8h_a8ff1a991e7a2599cfc9ea43dfa920d0b} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rect}{p.}{_s_d_l__render_8h_ab2a89b5a0c25adb6abdb9aeff28f177c} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rects}{p.}{_s_d_l__render_8h_ae56460fe1b478a55916650e695145cbf} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rect}{p.}{_s_d_l__render_8h_a3b5098c1944441034d2c5cff419f93cc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rects}{p.}{_s_d_l__render_8h_a987fe30e64168702f1dfa6407fbe8bec} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_aa26234da40f87f4b16d715564242a341}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_SetRenderDrawColor@{SDL\_SetRenderDrawColor}}
+\index{SDL\_SetRenderDrawColor@{SDL\_SetRenderDrawColor}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_SetRenderDrawColor()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Set\+Render\+Draw\+Color (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{Uint8}]{r,  }\item[{Uint8}]{g,  }\item[{Uint8}]{b,  }\item[{Uint8}]{a }\end{DoxyParamCaption})}
+
+Set the color used for drawing operations (Rect, Line and Clear).
+
+Set the color for drawing or filling rectangles, lines, and points, and for \doxyref{S\+D\+L\+\_\+\+Render\+Clear()}{p.}{_s_d_l__render_8h_a473b4abbb29c60e98876eb68ad850f79}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em r} & the red value used to draw on the rendering target \\
+\hline
+{\em g} & the green value used to draw on the rendering target \\
+\hline
+{\em b} & the blue value used to draw on the rendering target \\
+\hline
+{\em a} & the alpha value used to draw on the rendering target; usually {\ttfamily S\+D\+L\+\_\+\+A\+L\+P\+H\+A\+\_\+\+O\+P\+A\+Q\+UE} (255). Use S\+D\+L\+\_\+\+Set\+Render\+Draw\+Blend\+Mode to specify how the alpha channel is used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Render\+Draw\+Color}{p.}{_s_d_l__render_8h_a1b8e6544c3fc23ddd9b0f0bfb14cef39} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Clear}{p.}{_s_d_l__render_8h_a473b4abbb29c60e98876eb68ad850f79} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Line}{p.}{_s_d_l__render_8h_a6d50e252f15e0c6c14639bdd343285fd} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Lines}{p.}{_s_d_l__render_8h_a556f150677bb965448b7b361bceb7a76} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Point}{p.}{_s_d_l__render_8h_ab576a09c91675dbd8dba9d05dd2fc0bc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Points}{p.}{_s_d_l__render_8h_a8ff1a991e7a2599cfc9ea43dfa920d0b} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rect}{p.}{_s_d_l__render_8h_ab2a89b5a0c25adb6abdb9aeff28f177c} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Draw\+Rects}{p.}{_s_d_l__render_8h_ae56460fe1b478a55916650e695145cbf} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rect}{p.}{_s_d_l__render_8h_a3b5098c1944441034d2c5cff419f93cc} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Fill\+Rects}{p.}{_s_d_l__render_8h_a987fe30e64168702f1dfa6407fbe8bec} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a2479163b0f2909cc50cef7af3c279000}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_SetRenderTarget@{SDL\_SetRenderTarget}}
+\index{SDL\_SetRenderTarget@{SDL\_SetRenderTarget}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_SetRenderTarget()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Set\+Render\+Target (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+Set a texture as the current rendering target.
+
+Before using this function, you should check the {\ttfamily S\+D\+L\+\_\+\+R\+E\+N\+D\+E\+R\+E\+R\+\_\+\+T\+A\+R\+G\+E\+T\+T\+E\+X\+T\+U\+RE} bit in the flags of \doxyref{S\+D\+L\+\_\+\+Renderer\+Info}{p.}{struct_s_d_l___renderer_info} to see if render targets are supported.
+
+The default render target is the window for which the renderer was created. To stop rendering to a texture and render to the window again, call this function with a N\+U\+LL {\ttfamily texture}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & the rendering context \\
+\hline
+{\em texture} & the targeted texture, which must be created with the {\ttfamily S\+D\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+A\+C\+C\+E\+S\+S\+\_\+\+T\+A\+R\+G\+ET} flag, or N\+U\+LL to render to the window instead of a texture. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Render\+Target}{p.}{_s_d_l__render_8h_a042f1c998d4a29ea236fffcaa0782bf1} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a1cc3302a4c7fb3b37e8fd5263a80758b}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_SetTextureAlphaMod@{SDL\_SetTextureAlphaMod}}
+\index{SDL\_SetTextureAlphaMod@{SDL\_SetTextureAlphaMod}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_SetTextureAlphaMod()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Set\+Texture\+Alpha\+Mod (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{Uint8}]{alpha }\end{DoxyParamCaption})}
+
+Set an additional alpha value multiplied into render copy operations.
+
+When this texture is rendered, during the copy operation the source alpha value is modulated by this alpha value according to the following formula\+:
+
+{\ttfamily srcA = srcA $\ast$ (alpha / 255)}
+
+Alpha modulation is not always supported by the renderer; it will return -\/1 if alpha modulation is not supported.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to update \\
+\hline
+{\em alpha} & the source alpha value multiplied into copy operations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Texture\+Alpha\+Mod}{p.}{_s_d_l__render_8h_a4d9a9e945ec95f30e5c48ce305de33ad} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Color\+Mod}{p.}{_s_d_l__render_8h_a348399db33c03a7882cef0c6e6c1756f} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_af8b9cb77ca18f76c18f39d29ed960de8}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_SetTextureBlendMode@{SDL\_SetTextureBlendMode}}
+\index{SDL\_SetTextureBlendMode@{SDL\_SetTextureBlendMode}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_SetTextureBlendMode()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Set\+Texture\+Blend\+Mode (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{\textbf{ S\+D\+L\+\_\+\+Blend\+Mode}}]{blend\+Mode }\end{DoxyParamCaption})}
+
+Set the blend mode for a texture, used by \doxyref{S\+D\+L\+\_\+\+Render\+Copy()}{p.}{_s_d_l__render_8h_a4b6c2353384c7b7128fd5960b24f2ae6}.
+
+If the blend mode is not supported, the closest supported mode is chosen and this function returns -\/1.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to update \\
+\hline
+{\em blend\+Mode} & the S\+D\+L\+\_\+\+Blend\+Mode to use for texture blending \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Texture\+Blend\+Mode}{p.}{_s_d_l__render_8h_a2595ee57e6f3a4882f3ae4062ca420c4} 
+
+\doxyref{S\+D\+L\+\_\+\+Render\+Copy}{p.}{_s_d_l__render_8h_a4b6c2353384c7b7128fd5960b24f2ae6} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a348399db33c03a7882cef0c6e6c1756f}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_SetTextureColorMod@{SDL\_SetTextureColorMod}}
+\index{SDL\_SetTextureColorMod@{SDL\_SetTextureColorMod}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_SetTextureColorMod()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Set\+Texture\+Color\+Mod (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{Uint8}]{r,  }\item[{Uint8}]{g,  }\item[{Uint8}]{b }\end{DoxyParamCaption})}
+
+Set an additional color value multiplied into render copy operations.
+
+When this texture is rendered, during the copy operation each source color channel is modulated by the appropriate color value according to the following formula\+:
+
+{\ttfamily srcC = srcC $\ast$ (color / 255)}
+
+Color modulation is not always supported by the renderer; it will return -\/1 if color modulation is not supported.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to update \\
+\hline
+{\em r} & the red color value multiplied into copy operations \\
+\hline
+{\em g} & the green color value multiplied into copy operations \\
+\hline
+{\em b} & the blue color value multiplied into copy operations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Texture\+Color\+Mod}{p.}{_s_d_l__render_8h_aa70e4ce3a875399d4291dca23e687b11} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Texture\+Alpha\+Mod}{p.}{_s_d_l__render_8h_a1cc3302a4c7fb3b37e8fd5263a80758b} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_aac58837d42510e6e0472538dbcbc2ffe}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_SetTextureScaleMode@{SDL\_SetTextureScaleMode}}
+\index{SDL\_SetTextureScaleMode@{SDL\_SetTextureScaleMode}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_SetTextureScaleMode()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Set\+Texture\+Scale\+Mode (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{\textbf{ S\+D\+L\+\_\+\+Scale\+Mode}}]{scale\+Mode }\end{DoxyParamCaption})}
+
+Set the scale mode used for texture scale operations.
+
+If the scale mode is not supported, the closest supported mode is chosen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & The texture to update. \\
+\hline
+{\em scale\+Mode} & the S\+D\+L\+\_\+\+Scale\+Mode to use for texture scaling. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 if the texture is not valid.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Texture\+Scale\+Mode}{p.}{_s_d_l__render_8h_a51603afa1350164679baad97b77fb3b5} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a969ee973fd8f686777f151aa2d9275bc}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_SetTextureUserData@{SDL\_SetTextureUserData}}
+\index{SDL\_SetTextureUserData@{SDL\_SetTextureUserData}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_SetTextureUserData()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Set\+Texture\+User\+Data (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{void $\ast$}]{userdata }\end{DoxyParamCaption})}
+
+Associate a user-\/specified pointer with a texture.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to update. \\
+\hline
+{\em userdata} & the pointer to associate with the texture. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 if the texture is not valid.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Texture\+User\+Data}{p.}{_s_d_l__render_8h_a254dc04adde96288f64543afbe558003} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_a7fc9db6cde77fc9c95a4f65bc7d30073}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_UnlockTexture@{SDL\_UnlockTexture}}
+\index{SDL\_UnlockTexture@{SDL\_UnlockTexture}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_UnlockTexture()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Unlock\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+Unlock a texture, uploading the changes to video memory, if needed.
+
+{\bfseries{Warning}}\+: Please note that \doxyref{S\+D\+L\+\_\+\+Lock\+Texture()}{p.}{_s_d_l__render_8h_af64adcd12e4e9d41d48031fd3da7b913} is intended to be write-\/only; it will notguarantee the previous contents of the texture will be provided. You must fully initialize any area of a texture that you lock before unlocking it, as the pixels might otherwise be uninitialized memory.
+
+Which is to say\+: locking and immediately unlocking a texture can result in corrupted textures, depending on the renderer in use.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & a texture locked by \doxyref{S\+D\+L\+\_\+\+Lock\+Texture()}{p.}{_s_d_l__render_8h_af64adcd12e4e9d41d48031fd3da7b913}\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Lock\+Texture}{p.}{_s_d_l__render_8h_af64adcd12e4e9d41d48031fd3da7b913} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_ab911a179c321d62e7659b8111f457723}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_UpdateNVTexture@{SDL\_UpdateNVTexture}}
+\index{SDL\_UpdateNVTexture@{SDL\_UpdateNVTexture}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_UpdateNVTexture()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Update\+N\+V\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect,  }\item[{const Uint8 $\ast$}]{Yplane,  }\item[{int}]{Ypitch,  }\item[{const Uint8 $\ast$}]{U\+Vplane,  }\item[{int}]{U\+Vpitch }\end{DoxyParamCaption})}
+
+Update a rectangle within a planar N\+V12 or N\+V21 texture with new pixels.
+
+You can use \doxyref{S\+D\+L\+\_\+\+Update\+Texture()}{p.}{_s_d_l__render_8h_a7aab41a7058997590095e5568d065c11} as long as your pixel data is a contiguous block of N\+V12/21 planes in the proper order, but this function is available if your pixel data is not contiguous.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to update \\
+\hline
+{\em rect} & a pointer to the rectangle of pixels to update, or N\+U\+LL to update the entire texture. \\
+\hline
+{\em Yplane} & the raw pixel data for the Y plane. \\
+\hline
+{\em Ypitch} & the number of bytes between rows of pixel data for the Y plane. \\
+\hline
+{\em U\+Vplane} & the raw pixel data for the UV plane. \\
+\hline
+{\em U\+Vpitch} & the number of bytes between rows of pixel data for the UV plane. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, or -\/1 if the texture is not valid. 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__render_8h_a7aab41a7058997590095e5568d065c11}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_UpdateTexture@{SDL\_UpdateTexture}}
+\index{SDL\_UpdateTexture@{SDL\_UpdateTexture}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_UpdateTexture()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Update\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect,  }\item[{const void $\ast$}]{pixels,  }\item[{int}]{pitch }\end{DoxyParamCaption})}
+
+Update the given texture rectangle with new pixel data.
+
+The pixel data must be in the pixel format of the texture. Use \doxyref{S\+D\+L\+\_\+\+Query\+Texture()}{p.}{_s_d_l__render_8h_aade777757bfc3b98bf3ef742b1d8a052} to query the pixel format of the texture.
+
+This is a fairly slow function, intended for use with static textures that do not change often.
+
+If the texture is intended to be updated often, it is preferred to create the texture as streaming and use the locking functions referenced below. While this function will work with streaming textures, for optimization reasons you may not get the pixels back if you lock the texture afterward.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to update \\
+\hline
+{\em rect} & an \doxyref{S\+D\+L\+\_\+\+Rect}{p.}{struct_s_d_l___rect} structure representing the area to update, or N\+U\+LL to update the entire texture \\
+\hline
+{\em pixels} & the raw pixel data in the format of the texture \\
+\hline
+{\em pitch} & the number of bytes in a row of pixel data, including padding between lines \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Texture}{p.}{_s_d_l__render_8h_ab5ff70c980ec23b05a95e0435bd55b4a} 
+
+\doxyref{S\+D\+L\+\_\+\+Lock\+Texture}{p.}{_s_d_l__render_8h_af64adcd12e4e9d41d48031fd3da7b913} 
+
+\doxyref{S\+D\+L\+\_\+\+Unlock\+Texture}{p.}{_s_d_l__render_8h_a7fc9db6cde77fc9c95a4f65bc7d30073} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__render_8h_aad2bf04e82a6fb8df44c0b6791321cb5}} 
+\index{SDL\_render.h@{SDL\_render.h}!SDL\_UpdateYUVTexture@{SDL\_UpdateYUVTexture}}
+\index{SDL\_UpdateYUVTexture@{SDL\_UpdateYUVTexture}!SDL\_render.h@{SDL\_render.h}}
+\doxysubsubsection{SDL\_UpdateYUVTexture()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Update\+Y\+U\+V\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{const \textbf{ S\+D\+L\+\_\+\+Rect} $\ast$}]{rect,  }\item[{const Uint8 $\ast$}]{Yplane,  }\item[{int}]{Ypitch,  }\item[{const Uint8 $\ast$}]{Uplane,  }\item[{int}]{Upitch,  }\item[{const Uint8 $\ast$}]{Vplane,  }\item[{int}]{Vpitch }\end{DoxyParamCaption})}
+
+Update a rectangle within a planar Y\+V12 or I\+Y\+UV texture with new pixel data.
+
+You can use \doxyref{S\+D\+L\+\_\+\+Update\+Texture()}{p.}{_s_d_l__render_8h_a7aab41a7058997590095e5568d065c11} as long as your pixel data is a contiguous block of Y and U/V planes in the proper order, but this function is available if your pixel data is not contiguous.
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & the texture to update \\
+\hline
+{\em rect} & a pointer to the rectangle of pixels to update, or N\+U\+LL to update the entire texture \\
+\hline
+{\em Yplane} & the raw pixel data for the Y plane \\
+\hline
+{\em Ypitch} & the number of bytes between rows of pixel data for the Y plane \\
+\hline
+{\em Uplane} & the raw pixel data for the U plane \\
+\hline
+{\em Upitch} & the number of bytes between rows of pixel data for the U plane \\
+\hline
+{\em Vplane} & the raw pixel data for the V plane \\
+\hline
+{\em Vpitch} & the number of bytes between rows of pixel data for the V plane \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or -\/1 if the texture is not valid; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+1.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Update\+Texture}{p.}{_s_d_l__render_8h_a7aab41a7058997590095e5568d065c11} 
+\end{DoxySeeAlso}

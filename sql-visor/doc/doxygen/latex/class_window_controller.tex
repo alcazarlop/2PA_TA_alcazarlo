@@ -1,0 +1,66 @@
+\doxysection{Window\+Controller Class Reference}
+\label{class_window_controller}\index{WindowController@{WindowController}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{class_window_controller_a0517dc0cad1a723c8c1a1779e7059123}} 
+{\bfseries Window\+Controller} (const \textbf{ Window\+Controller} \&other)
+\item 
+int \textbf{ init} ()
+\begin{DoxyCompactList}\small\item\em Initialize the window controller. \end{DoxyCompactList}\item 
+\mbox{\label{class_window_controller_ab051747be9f503206f7ac0cb8ed47e5b}} 
+void \textbf{ quit} ()
+\begin{DoxyCompactList}\small\item\em Destroy the S\+D\+L\+\_\+\+Renderer and S\+D\+L\+\_\+\+Window. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Renderer $\ast$ \textbf{ renderer} () const
+\begin{DoxyCompactList}\small\item\em Return a pointer to a S\+D\+L\+\_\+\+Renderer. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Window $\ast$ \textbf{ window} () const
+\begin{DoxyCompactList}\small\item\em Return a pointer to a S\+D\+L\+\_\+\+Window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_window_controller_ad54baf11a524d29d992062dc43f661b7}} 
+\index{WindowController@{WindowController}!init@{init}}
+\index{init@{init}!WindowController@{WindowController}}
+\doxysubsubsection{init()}
+{\footnotesize\ttfamily int Window\+Controller\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the window controller. 
+
+The function initialized the S\+D\+L\+\_\+\+Renderer and S\+D\+L\+\_\+\+Window, it return 0 if everything is created correctly, or -\/1 if S\+DL could not create a window or renderer
+
+\begin{DoxyReturn}{Returns}
+If the window controller have been initialize correctly 
+\end{DoxyReturn}
+\mbox{\label{class_window_controller_a1fbff8952289ae37fdd558ea1364b79b}} 
+\index{WindowController@{WindowController}!renderer@{renderer}}
+\index{renderer@{renderer}!WindowController@{WindowController}}
+\doxysubsubsection{renderer()}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Renderer$\ast$ Window\+Controller\+::renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return a pointer to a S\+D\+L\+\_\+\+Renderer. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to S\+D\+L\+\_\+\+Renderer 
+\end{DoxyReturn}
+\mbox{\label{class_window_controller_a1335aabec3b44db53ee104344deb0e38}} 
+\index{WindowController@{WindowController}!window@{window}}
+\index{window@{window}!WindowController@{WindowController}}
+\doxysubsubsection{window()}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Window$\ast$ Window\+Controller\+::window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return a pointer to a S\+D\+L\+\_\+\+Window. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to S\+D\+L\+\_\+\+Window 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/include/window\+\_\+controller.\+h\end{DoxyCompactItemize}

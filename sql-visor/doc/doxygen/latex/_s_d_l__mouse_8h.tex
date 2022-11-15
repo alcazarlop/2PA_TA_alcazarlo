@@ -1,0 +1,643 @@
+\doxysection{C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sdl2/include/\+S\+D\+L\+\_\+mouse.h File Reference}
+\label{_s_d_l__mouse_8h}\index{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_mouse.h@{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_mouse.h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ S\+D\+L\+\_\+\+B\+U\+T\+T\+ON}(X)~(1 $<$$<$ ((X)-\/1))
+\item 
+\mbox{\label{_s_d_l__mouse_8h_a9500bda83bcc0e9afee1438a79019c5f}} 
+\#define {\bfseries S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+L\+E\+FT}~1
+\item 
+\mbox{\label{_s_d_l__mouse_8h_a4d7543e668502bbb75d045d8097fb8f3}} 
+\#define {\bfseries S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+M\+I\+D\+D\+LE}~2
+\item 
+\mbox{\label{_s_d_l__mouse_8h_a63fcfb473ee5e5da3752e1cf75f12286}} 
+\#define {\bfseries S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+R\+I\+G\+HT}~3
+\item 
+\mbox{\label{_s_d_l__mouse_8h_a1422ab75c7388bb5047028103a6df550}} 
+\#define {\bfseries S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+X1}~4
+\item 
+\mbox{\label{_s_d_l__mouse_8h_a2ae4ae2fe944879dc9ef6b16155d52e2}} 
+\#define {\bfseries S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+X2}~5
+\item 
+\mbox{\label{_s_d_l__mouse_8h_ad9ccef8108b6a1704a49ab93a91d2c47}} 
+\#define {\bfseries S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+L\+M\+A\+SK}~\textbf{ S\+D\+L\+\_\+\+B\+U\+T\+T\+ON}(S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+L\+E\+FT)
+\item 
+\mbox{\label{_s_d_l__mouse_8h_ad90dffab11146e0eb9f2e28267e6fbbd}} 
+\#define {\bfseries S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+M\+M\+A\+SK}~\textbf{ S\+D\+L\+\_\+\+B\+U\+T\+T\+ON}(S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+M\+I\+D\+D\+LE)
+\item 
+\mbox{\label{_s_d_l__mouse_8h_aefa6805c2113f16e659edcde5172b5df}} 
+\#define {\bfseries S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+R\+M\+A\+SK}~\textbf{ S\+D\+L\+\_\+\+B\+U\+T\+T\+ON}(S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+R\+I\+G\+HT)
+\item 
+\mbox{\label{_s_d_l__mouse_8h_aee13129df2cc50d4a16c4fe7652737a0}} 
+\#define {\bfseries S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+X1\+M\+A\+SK}~\textbf{ S\+D\+L\+\_\+\+B\+U\+T\+T\+ON}(S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+X1)
+\item 
+\mbox{\label{_s_d_l__mouse_8h_afb0dfebdfec877410feb8800cfd7e443}} 
+\#define {\bfseries S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+X2\+M\+A\+SK}~\textbf{ S\+D\+L\+\_\+\+B\+U\+T\+T\+ON}(S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+X2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ S\+D\+L\+\_\+\+Cursor} \textbf{ S\+D\+L\+\_\+\+Cursor}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ S\+D\+L\+\_\+\+System\+Cursor} \{ \newline
+\textbf{ S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+A\+R\+R\+OW}, 
+\textbf{ S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+I\+B\+E\+AM}, 
+\textbf{ S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+W\+A\+IT}, 
+\textbf{ S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+C\+R\+O\+S\+S\+H\+A\+IR}, 
+\newline
+\textbf{ S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+W\+A\+I\+T\+A\+R\+R\+OW}, 
+\textbf{ S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+N\+W\+SE}, 
+\textbf{ S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+N\+E\+SW}, 
+\textbf{ S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+WE}, 
+\newline
+\textbf{ S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+NS}, 
+\textbf{ S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+A\+LL}, 
+\textbf{ S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+NO}, 
+\textbf{ S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+H\+A\+ND}, 
+\newline
+{\bfseries S\+D\+L\+\_\+\+N\+U\+M\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+RS}
+ \}
+\begin{DoxyCompactList}\small\item\em Cursor types for \doxyref{S\+D\+L\+\_\+\+Create\+System\+Cursor()}{p.}{_s_d_l__mouse_8h_a217c89743b3da84b9656304f8e4ca51e}. \end{DoxyCompactList}\item 
+enum \textbf{ S\+D\+L\+\_\+\+Mouse\+Wheel\+Direction} \{ \textbf{ S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+W\+H\+E\+E\+L\+\_\+\+N\+O\+R\+M\+AL}, 
+\textbf{ S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+W\+H\+E\+E\+L\+\_\+\+F\+L\+I\+P\+P\+ED}
+ \}
+\begin{DoxyCompactList}\small\item\em Scroll direction types for the Scroll event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Window} $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Mouse\+Focus} (void)
+\item 
+D\+E\+C\+L\+S\+P\+EC Uint32 S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Mouse\+State} (int $\ast$x, int $\ast$y)
+\item 
+D\+E\+C\+L\+S\+P\+EC Uint32 S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Global\+Mouse\+State} (int $\ast$x, int $\ast$y)
+\item 
+D\+E\+C\+L\+S\+P\+EC Uint32 S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Relative\+Mouse\+State} (int $\ast$x, int $\ast$y)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Warp\+Mouse\+In\+Window} (\textbf{ S\+D\+L\+\_\+\+Window} $\ast$window, int x, int y)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Warp\+Mouse\+Global} (int x, int y)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Set\+Relative\+Mouse\+Mode} (S\+D\+L\+\_\+bool enabled)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Capture\+Mouse} (S\+D\+L\+\_\+bool enabled)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Relative\+Mouse\+Mode} (void)
+\item 
+D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Cursor} $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Create\+Cursor} (const Uint8 $\ast$data, const Uint8 $\ast$mask, int w, int h, int hot\+\_\+x, int hot\+\_\+y)
+\item 
+D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Cursor} $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Create\+Color\+Cursor} (\textbf{ S\+D\+L\+\_\+\+Surface} $\ast$surface, int hot\+\_\+x, int hot\+\_\+y)
+\item 
+D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Cursor} $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Create\+System\+Cursor} (\textbf{ S\+D\+L\+\_\+\+System\+Cursor} id)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Set\+Cursor} (\textbf{ S\+D\+L\+\_\+\+Cursor} $\ast$cursor)
+\item 
+D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Cursor} $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Cursor} (void)
+\item 
+D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Cursor} $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Default\+Cursor} (void)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Free\+Cursor} (\textbf{ S\+D\+L\+\_\+\+Cursor} $\ast$cursor)
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Show\+Cursor} (int toggle)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Include file for S\+DL mouse event handling. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{_s_d_l__mouse_8h_af1bb0dead027146b766e4e319e22ea7b}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_BUTTON@{SDL\_BUTTON}}
+\index{SDL\_BUTTON@{SDL\_BUTTON}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_BUTTON}
+{\footnotesize\ttfamily \#define S\+D\+L\+\_\+\+B\+U\+T\+T\+ON(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~(1 $<$$<$ ((X)-\/1))}
+
+Used as a mask when testing buttons in buttonstate.
+
+
+\begin{DoxyItemize}
+\item Button 1\+: Left mouse button
+\item Button 2\+: Middle mouse button
+\item Button 3\+: Right mouse button 
+\end{DoxyItemize}
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{_s_d_l__mouse_8h_a63b6e9cd23bbe26b8fa00dc8fba7623d}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_Cursor@{SDL\_Cursor}}
+\index{SDL\_Cursor@{SDL\_Cursor}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_Cursor}
+{\footnotesize\ttfamily typedef struct \textbf{ S\+D\+L\+\_\+\+Cursor} \textbf{ S\+D\+L\+\_\+\+Cursor}}
+
+Implementation dependent 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\label{_s_d_l__mouse_8h_ac65151e54bea0e005902790c68e738f3}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_MouseWheelDirection@{SDL\_MouseWheelDirection}}
+\index{SDL\_MouseWheelDirection@{SDL\_MouseWheelDirection}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_MouseWheelDirection}
+{\footnotesize\ttfamily enum \textbf{ S\+D\+L\+\_\+\+Mouse\+Wheel\+Direction}}
+
+
+
+Scroll direction types for the Scroll event. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_MOUSEWHEEL\_NORMAL@{SDL\_MOUSEWHEEL\_NORMAL}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_MOUSEWHEEL\_NORMAL@{SDL\_MOUSEWHEEL\_NORMAL}}}\mbox{\label{_s_d_l__mouse_8h_ac65151e54bea0e005902790c68e738f3a8778fa74ec64be00b8b6c48d10f6e984}} 
+S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+W\+H\+E\+E\+L\+\_\+\+N\+O\+R\+M\+AL&The scroll direction is normal \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_MOUSEWHEEL\_FLIPPED@{SDL\_MOUSEWHEEL\_FLIPPED}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_MOUSEWHEEL\_FLIPPED@{SDL\_MOUSEWHEEL\_FLIPPED}}}\mbox{\label{_s_d_l__mouse_8h_ac65151e54bea0e005902790c68e738f3a8e744c7abe1563a5fb219d32f413af1a}} 
+S\+D\+L\+\_\+\+M\+O\+U\+S\+E\+W\+H\+E\+E\+L\+\_\+\+F\+L\+I\+P\+P\+ED&The scroll direction is flipped / natural \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SystemCursor@{SDL\_SystemCursor}}
+\index{SDL\_SystemCursor@{SDL\_SystemCursor}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_SystemCursor}
+{\footnotesize\ttfamily enum \textbf{ S\+D\+L\+\_\+\+System\+Cursor}}
+
+
+
+Cursor types for \doxyref{S\+D\+L\+\_\+\+Create\+System\+Cursor()}{p.}{_s_d_l__mouse_8h_a217c89743b3da84b9656304f8e4ca51e}. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SYSTEM\_CURSOR\_ARROW@{SDL\_SYSTEM\_CURSOR\_ARROW}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SYSTEM\_CURSOR\_ARROW@{SDL\_SYSTEM\_CURSOR\_ARROW}}}\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732a0ea5055b7ef96598a39570abf365b9f9}} 
+S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+A\+R\+R\+OW&Arrow \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SYSTEM\_CURSOR\_IBEAM@{SDL\_SYSTEM\_CURSOR\_IBEAM}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SYSTEM\_CURSOR\_IBEAM@{SDL\_SYSTEM\_CURSOR\_IBEAM}}}\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732a5f3b85170a85ffb62aa477f9c31987fb}} 
+S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+I\+B\+E\+AM&I-\/beam \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SYSTEM\_CURSOR\_WAIT@{SDL\_SYSTEM\_CURSOR\_WAIT}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SYSTEM\_CURSOR\_WAIT@{SDL\_SYSTEM\_CURSOR\_WAIT}}}\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732a8ce5ae38a754042575234c8da72417e6}} 
+S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+W\+A\+IT&Wait \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SYSTEM\_CURSOR\_CROSSHAIR@{SDL\_SYSTEM\_CURSOR\_CROSSHAIR}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SYSTEM\_CURSOR\_CROSSHAIR@{SDL\_SYSTEM\_CURSOR\_CROSSHAIR}}}\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732ae18ee52eb9724301950db552c953e48e}} 
+S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+C\+R\+O\+S\+S\+H\+A\+IR&Crosshair \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SYSTEM\_CURSOR\_WAITARROW@{SDL\_SYSTEM\_CURSOR\_WAITARROW}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SYSTEM\_CURSOR\_WAITARROW@{SDL\_SYSTEM\_CURSOR\_WAITARROW}}}\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732a71fe25cd68c411ca52370bacc40b2764}} 
+S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+W\+A\+I\+T\+A\+R\+R\+OW&Small wait cursor (or Wait if not available) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SYSTEM\_CURSOR\_SIZENWSE@{SDL\_SYSTEM\_CURSOR\_SIZENWSE}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SYSTEM\_CURSOR\_SIZENWSE@{SDL\_SYSTEM\_CURSOR\_SIZENWSE}}}\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732a0eb8a498162417265c0ec79c1eacb30e}} 
+S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+N\+W\+SE&Double arrow pointing northwest and southeast \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SYSTEM\_CURSOR\_SIZENESW@{SDL\_SYSTEM\_CURSOR\_SIZENESW}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SYSTEM\_CURSOR\_SIZENESW@{SDL\_SYSTEM\_CURSOR\_SIZENESW}}}\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732a5b70e5fee565ccf9a6a99f92c571b4ed}} 
+S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+N\+E\+SW&Double arrow pointing northeast and southwest \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SYSTEM\_CURSOR\_SIZEWE@{SDL\_SYSTEM\_CURSOR\_SIZEWE}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SYSTEM\_CURSOR\_SIZEWE@{SDL\_SYSTEM\_CURSOR\_SIZEWE}}}\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732aa2f663333ca851ce0f40f8f8d2c2a731}} 
+S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+WE&Double arrow pointing west and east \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SYSTEM\_CURSOR\_SIZENS@{SDL\_SYSTEM\_CURSOR\_SIZENS}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SYSTEM\_CURSOR\_SIZENS@{SDL\_SYSTEM\_CURSOR\_SIZENS}}}\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732a04d6abe3f01b1c4b8d77af1b2ef5e4e9}} 
+S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+NS&Double arrow pointing north and south \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SYSTEM\_CURSOR\_SIZEALL@{SDL\_SYSTEM\_CURSOR\_SIZEALL}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SYSTEM\_CURSOR\_SIZEALL@{SDL\_SYSTEM\_CURSOR\_SIZEALL}}}\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732a88849f7320ea2bf629e05a06c6ff8e20}} 
+S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+I\+Z\+E\+A\+LL&Four pointed arrow pointing north, south, east, and west \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SYSTEM\_CURSOR\_NO@{SDL\_SYSTEM\_CURSOR\_NO}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SYSTEM\_CURSOR\_NO@{SDL\_SYSTEM\_CURSOR\_NO}}}\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732a70a8b0dec44a0f63d7af72e649de3b62}} 
+S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+NO&Slashed circle or crossbones \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SDL\_SYSTEM\_CURSOR\_HAND@{SDL\_SYSTEM\_CURSOR\_HAND}!SDL\_mouse.h@{SDL\_mouse.h}}\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SYSTEM\_CURSOR\_HAND@{SDL\_SYSTEM\_CURSOR\_HAND}}}\mbox{\label{_s_d_l__mouse_8h_a3e8083d1d8ce4c5a1ba76bfc2be8e732a09cd11742bffaafbd1073afeea03f7bc}} 
+S\+D\+L\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+H\+A\+ND&Hand \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{_s_d_l__mouse_8h_a8829359c04d0d7835b4330dd21fdd051}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_CaptureMouse@{SDL\_CaptureMouse}}
+\index{SDL\_CaptureMouse@{SDL\_CaptureMouse}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_CaptureMouse()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Capture\+Mouse (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+bool}]{enabled }\end{DoxyParamCaption})}
+
+Capture the mouse and to track input outside an S\+DL window.
+
+Capturing enables your app to obtain mouse events globally, instead of just within your window. Not all video targets support this function. When capturing is enabled, the current window will get all mouse events, but unlike relative mode, no change is made to the cursor and it is not restrained to your window.
+
+This function may also deny mouse input to other windows--both those in your application and others on the system--so you should use this function sparingly, and in small bursts. For example, you might want to track the mouse while the user is dragging something, until the user releases a mouse button. It is not recommended that you capture the mouse for long periods of time, such as the entire time your app is running. For that, you should probably use \doxyref{S\+D\+L\+\_\+\+Set\+Relative\+Mouse\+Mode()}{p.}{_s_d_l__mouse_8h_ad7b3533784e0aa34cdf1c5f232817206} or \doxyref{S\+D\+L\+\_\+\+Set\+Window\+Grab()}{p.}{_s_d_l__video_8h_abe7fd559e9d6da046c5984dea679a89b}, depending on your goals.
+
+While captured, mouse events still report coordinates relative to the current (foreground) window, but those coordinates may be outside the bounds of the window (including negative values). Capturing is only allowed for the foreground window. If the window loses focus while capturing, the capture will be disabled automatically.
+
+While capturing is enabled, the current window will have the {\ttfamily S\+D\+L\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+M\+O\+U\+S\+E\+\_\+\+C\+A\+P\+T\+U\+RE} flag set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em enabled} & S\+D\+L\+\_\+\+T\+R\+UE to enable capturing, S\+D\+L\+\_\+\+F\+A\+L\+SE to disable. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or -\/1 if not supported; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+4.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Global\+Mouse\+State}{p.}{_s_d_l__mouse_8h_ab0f5adcf42e5074315b8a01f325d8f53} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_a964bab3503f74f92a5504b4cd166b400}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_CreateColorCursor@{SDL\_CreateColorCursor}}
+\index{SDL\_CreateColorCursor@{SDL\_CreateColorCursor}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_CreateColorCursor()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Cursor}$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Create\+Color\+Cursor (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Surface} $\ast$}]{surface,  }\item[{int}]{hot\+\_\+x,  }\item[{int}]{hot\+\_\+y }\end{DoxyParamCaption})}
+
+Create a color cursor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em surface} & an \doxyref{S\+D\+L\+\_\+\+Surface}{p.}{struct_s_d_l___surface} structure representing the cursor image \\
+\hline
+{\em hot\+\_\+x} & the x position of the cursor hot spot \\
+\hline
+{\em hot\+\_\+y} & the y position of the cursor hot spot \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new cursor on success or N\+U\+LL on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Cursor}{p.}{_s_d_l__mouse_8h_a4331ebf38e2f75f6cde88ce668e5650f} 
+
+\doxyref{S\+D\+L\+\_\+\+Free\+Cursor}{p.}{_s_d_l__mouse_8h_ac17a8282f93d9d31e8e087236f0ecdd8} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_a4331ebf38e2f75f6cde88ce668e5650f}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_CreateCursor@{SDL\_CreateCursor}}
+\index{SDL\_CreateCursor@{SDL\_CreateCursor}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_CreateCursor()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Cursor}$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Create\+Cursor (\begin{DoxyParamCaption}\item[{const Uint8 $\ast$}]{data,  }\item[{const Uint8 $\ast$}]{mask,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{int}]{hot\+\_\+x,  }\item[{int}]{hot\+\_\+y }\end{DoxyParamCaption})}
+
+Create a cursor using the specified bitmap data and mask (in M\+SB format).
+
+{\ttfamily mask} has to be in M\+SB (Most Significant Bit) format.
+
+The cursor width ({\ttfamily w}) must be a multiple of 8 bits.
+
+The cursor is created in black and white according to the following\+:
+
+
+\begin{DoxyItemize}
+\item data=0, mask=1\+: white
+\item data=1, mask=1\+: black
+\item data=0, mask=0\+: transparent
+\item data=1, mask=0\+: inverted color if possible, black if not.
+\end{DoxyItemize}
+
+Cursors created with this function must be freed with \doxyref{S\+D\+L\+\_\+\+Free\+Cursor()}{p.}{_s_d_l__mouse_8h_ac17a8282f93d9d31e8e087236f0ecdd8}.
+
+If you want to have a color cursor, or create your cursor from an \doxyref{S\+D\+L\+\_\+\+Surface}{p.}{struct_s_d_l___surface}, you should use \doxyref{S\+D\+L\+\_\+\+Create\+Color\+Cursor()}{p.}{_s_d_l__mouse_8h_a964bab3503f74f92a5504b4cd166b400}. Alternately, you can hide the cursor and draw your own as part of your game\textquotesingle{}s rendering, but it will be bound to the framerate.
+
+Also, since S\+DL 2.\+0.\+0, \doxyref{S\+D\+L\+\_\+\+Create\+System\+Cursor()}{p.}{_s_d_l__mouse_8h_a217c89743b3da84b9656304f8e4ca51e} is available, which provides twelve readily available system cursors to pick from.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & the color value for each pixel of the cursor \\
+\hline
+{\em mask} & the mask value for each pixel of the cursor \\
+\hline
+{\em w} & the width of the cursor \\
+\hline
+{\em h} & the height of the cursor \\
+\hline
+{\em hot\+\_\+x} & the X-\/axis location of the upper left corner of the cursor relative to the actual mouse position \\
+\hline
+{\em hot\+\_\+y} & the Y-\/axis location of the upper left corner of the cursor relative to the actual mouse position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new cursor with the specified parameters on success or N\+U\+LL on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Free\+Cursor}{p.}{_s_d_l__mouse_8h_ac17a8282f93d9d31e8e087236f0ecdd8} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Cursor}{p.}{_s_d_l__mouse_8h_a7c2971901f9a772be22152420aee275c} 
+
+\doxyref{S\+D\+L\+\_\+\+Show\+Cursor}{p.}{_s_d_l__mouse_8h_a00286ec15cd56dee1fd71ed4e6e7a585} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_a217c89743b3da84b9656304f8e4ca51e}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_CreateSystemCursor@{SDL\_CreateSystemCursor}}
+\index{SDL\_CreateSystemCursor@{SDL\_CreateSystemCursor}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_CreateSystemCursor()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Cursor}$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Create\+System\+Cursor (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+System\+Cursor}}]{id }\end{DoxyParamCaption})}
+
+Create a system cursor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & an S\+D\+L\+\_\+\+System\+Cursor enum value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a cursor on success or N\+U\+LL on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Free\+Cursor}{p.}{_s_d_l__mouse_8h_ac17a8282f93d9d31e8e087236f0ecdd8} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_ac17a8282f93d9d31e8e087236f0ecdd8}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_FreeCursor@{SDL\_FreeCursor}}
+\index{SDL\_FreeCursor@{SDL\_FreeCursor}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_FreeCursor()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Free\+Cursor (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Cursor} $\ast$}]{cursor }\end{DoxyParamCaption})}
+
+Free a previously-\/created cursor.
+
+Use this function to free cursor resources created with \doxyref{S\+D\+L\+\_\+\+Create\+Cursor()}{p.}{_s_d_l__mouse_8h_a4331ebf38e2f75f6cde88ce668e5650f}, \doxyref{S\+D\+L\+\_\+\+Create\+Color\+Cursor()}{p.}{_s_d_l__mouse_8h_a964bab3503f74f92a5504b4cd166b400} or \doxyref{S\+D\+L\+\_\+\+Create\+System\+Cursor()}{p.}{_s_d_l__mouse_8h_a217c89743b3da84b9656304f8e4ca51e}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & the cursor to free\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Color\+Cursor}{p.}{_s_d_l__mouse_8h_a964bab3503f74f92a5504b4cd166b400} 
+
+\doxyref{S\+D\+L\+\_\+\+Create\+Cursor}{p.}{_s_d_l__mouse_8h_a4331ebf38e2f75f6cde88ce668e5650f} 
+
+\doxyref{S\+D\+L\+\_\+\+Create\+System\+Cursor}{p.}{_s_d_l__mouse_8h_a217c89743b3da84b9656304f8e4ca51e} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_a427ee5473e9ce3f4ad7a58035d7a6ffd}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_GetCursor@{SDL\_GetCursor}}
+\index{SDL\_GetCursor@{SDL\_GetCursor}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_GetCursor()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Cursor}$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Cursor (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the active cursor.
+
+This function returns a pointer to the current cursor which is owned by the library. It is not necessary to free the cursor with \doxyref{S\+D\+L\+\_\+\+Free\+Cursor()}{p.}{_s_d_l__mouse_8h_ac17a8282f93d9d31e8e087236f0ecdd8}.
+
+\begin{DoxyReturn}{Returns}
+the active cursor or N\+U\+LL if there is no mouse.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Set\+Cursor}{p.}{_s_d_l__mouse_8h_a7c2971901f9a772be22152420aee275c} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_a9b4d0726a2fa9aba7cf4f4286cf61257}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_GetDefaultCursor@{SDL\_GetDefaultCursor}}
+\index{SDL\_GetDefaultCursor@{SDL\_GetDefaultCursor}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_GetDefaultCursor()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Cursor}$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Default\+Cursor (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the default cursor.
+
+\begin{DoxyReturn}{Returns}
+the default cursor on success or N\+U\+LL on failure.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+System\+Cursor}{p.}{_s_d_l__mouse_8h_a217c89743b3da84b9656304f8e4ca51e} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_ab0f5adcf42e5074315b8a01f325d8f53}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_GetGlobalMouseState@{SDL\_GetGlobalMouseState}}
+\index{SDL\_GetGlobalMouseState@{SDL\_GetGlobalMouseState}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_GetGlobalMouseState()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC Uint32 S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Global\+Mouse\+State (\begin{DoxyParamCaption}\item[{int $\ast$}]{x,  }\item[{int $\ast$}]{y }\end{DoxyParamCaption})}
+
+Get the current state of the mouse in relation to the desktop.
+
+This works similarly to \doxyref{S\+D\+L\+\_\+\+Get\+Mouse\+State()}{p.}{_s_d_l__mouse_8h_a1561f413546c0e4f5f44a8f094926575}, but the coordinates will be reported relative to the top-\/left of the desktop. This can be useful if you need to track the mouse outside of a specific window and \doxyref{S\+D\+L\+\_\+\+Capture\+Mouse()}{p.}{_s_d_l__mouse_8h_a8829359c04d0d7835b4330dd21fdd051} doesn\textquotesingle{}t fit your needs. For example, it could be useful if you need to track the mouse while dragging a window, where coordinates relative to a window might not be in sync at all times.
+
+Note\+: \doxyref{S\+D\+L\+\_\+\+Get\+Mouse\+State()}{p.}{_s_d_l__mouse_8h_a1561f413546c0e4f5f44a8f094926575} returns the mouse position as S\+DL understands it from the last pump of the event queue. This function, however, queries the OS for the current mouse position, and as such, might be a slightly less efficient function. Unless you know what you\textquotesingle{}re doing and have a good reason to use this function, you probably want \doxyref{S\+D\+L\+\_\+\+Get\+Mouse\+State()}{p.}{_s_d_l__mouse_8h_a1561f413546c0e4f5f44a8f094926575} instead.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & filled in with the current X coord relative to the desktop; can be N\+U\+LL \\
+\hline
+{\em y} & filled in with the current Y coord relative to the desktop; can be N\+U\+LL \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the current button state as a bitmask which can be tested using the \doxyref{S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N(\+X)}{p.}{_s_d_l__mouse_8h_af1bb0dead027146b766e4e319e22ea7b} macros.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+4.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Capture\+Mouse}{p.}{_s_d_l__mouse_8h_a8829359c04d0d7835b4330dd21fdd051} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_af30def76b002152366831b21e3d95066}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_GetMouseFocus@{SDL\_GetMouseFocus}}
+\index{SDL\_GetMouseFocus@{SDL\_GetMouseFocus}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_GetMouseFocus()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Window}$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Mouse\+Focus (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the window which currently has mouse focus.
+
+\begin{DoxyReturn}{Returns}
+the window with mouse focus. 
+\end{DoxyReturn}
+\mbox{\label{_s_d_l__mouse_8h_a1561f413546c0e4f5f44a8f094926575}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_GetMouseState@{SDL\_GetMouseState}}
+\index{SDL\_GetMouseState@{SDL\_GetMouseState}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_GetMouseState()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC Uint32 S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Mouse\+State (\begin{DoxyParamCaption}\item[{int $\ast$}]{x,  }\item[{int $\ast$}]{y }\end{DoxyParamCaption})}
+
+Retrieve the current state of the mouse.
+
+The current button state is returned as a button bitmask, which can be tested using the {\ttfamily \doxyref{S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N(\+X)}{p.}{_s_d_l__mouse_8h_af1bb0dead027146b766e4e319e22ea7b}} macros (where {\ttfamily X} is generally 1 for the left, 2 for middle, 3 for the right button), and {\ttfamily x} and {\ttfamily y} are set to the mouse cursor position relative to the focus window. You can pass N\+U\+LL for either {\ttfamily x} or {\ttfamily y}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the x coordinate of the mouse cursor position relative to the focus window \\
+\hline
+{\em y} & the y coordinate of the mouse cursor position relative to the focus window \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a 32-\/bit button bitmask of the current button state.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Global\+Mouse\+State}{p.}{_s_d_l__mouse_8h_ab0f5adcf42e5074315b8a01f325d8f53} 
+
+\doxyref{S\+D\+L\+\_\+\+Get\+Relative\+Mouse\+State}{p.}{_s_d_l__mouse_8h_a8cf9b519050e3e871f5e59f03b38b6e1} 
+
+\doxyref{S\+D\+L\+\_\+\+Pump\+Events}{p.}{_s_d_l__events_8h_aa15403d1c8fc341cd9cf750e27a66d19} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_ae97aaf1682b3a6b62214dda1dda9b212}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_GetRelativeMouseMode@{SDL\_GetRelativeMouseMode}}
+\index{SDL\_GetRelativeMouseMode@{SDL\_GetRelativeMouseMode}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_GetRelativeMouseMode()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Relative\+Mouse\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Query whether relative mouse mode is enabled.
+
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+T\+R\+UE if relative mode is enabled or S\+D\+L\+\_\+\+F\+A\+L\+SE otherwise.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Set\+Relative\+Mouse\+Mode}{p.}{_s_d_l__mouse_8h_ad7b3533784e0aa34cdf1c5f232817206} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_a8cf9b519050e3e871f5e59f03b38b6e1}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_GetRelativeMouseState@{SDL\_GetRelativeMouseState}}
+\index{SDL\_GetRelativeMouseState@{SDL\_GetRelativeMouseState}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_GetRelativeMouseState()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC Uint32 S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Relative\+Mouse\+State (\begin{DoxyParamCaption}\item[{int $\ast$}]{x,  }\item[{int $\ast$}]{y }\end{DoxyParamCaption})}
+
+Retrieve the relative state of the mouse.
+
+The current button state is returned as a button bitmask, which can be tested using the {\ttfamily \doxyref{S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N(\+X)}{p.}{_s_d_l__mouse_8h_af1bb0dead027146b766e4e319e22ea7b}} macros (where {\ttfamily X} is generally 1 for the left, 2 for middle, 3 for the right button), and {\ttfamily x} and {\ttfamily y} are set to the mouse deltas since the last call to \doxyref{S\+D\+L\+\_\+\+Get\+Relative\+Mouse\+State()}{p.}{_s_d_l__mouse_8h_a8cf9b519050e3e871f5e59f03b38b6e1} or since event initialization. You can pass N\+U\+LL for either {\ttfamily x} or {\ttfamily y}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & a pointer filled with the last recorded x coordinate of the mouse \\
+\hline
+{\em y} & a pointer filled with the last recorded y coordinate of the mouse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a 32-\/bit button bitmask of the relative button state.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Mouse\+State}{p.}{_s_d_l__mouse_8h_a1561f413546c0e4f5f44a8f094926575} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_a7c2971901f9a772be22152420aee275c}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SetCursor@{SDL\_SetCursor}}
+\index{SDL\_SetCursor@{SDL\_SetCursor}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_SetCursor()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Set\+Cursor (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Cursor} $\ast$}]{cursor }\end{DoxyParamCaption})}
+
+Set the active cursor.
+
+This function sets the currently active cursor to the specified one. If the cursor is currently visible, the change will be immediately represented on the display. S\+D\+L\+\_\+\+Set\+Cursor(\+N\+U\+L\+L) can be used to force cursor redraw, if this is desired for any reason.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cursor} & a cursor to make active\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Cursor}{p.}{_s_d_l__mouse_8h_a4331ebf38e2f75f6cde88ce668e5650f} 
+
+\doxyref{S\+D\+L\+\_\+\+Get\+Cursor}{p.}{_s_d_l__mouse_8h_a427ee5473e9ce3f4ad7a58035d7a6ffd} 
+
+\doxyref{S\+D\+L\+\_\+\+Show\+Cursor}{p.}{_s_d_l__mouse_8h_a00286ec15cd56dee1fd71ed4e6e7a585} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_ad7b3533784e0aa34cdf1c5f232817206}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_SetRelativeMouseMode@{SDL\_SetRelativeMouseMode}}
+\index{SDL\_SetRelativeMouseMode@{SDL\_SetRelativeMouseMode}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_SetRelativeMouseMode()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Set\+Relative\+Mouse\+Mode (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+bool}]{enabled }\end{DoxyParamCaption})}
+
+Set relative mouse mode.
+
+While the mouse is in relative mode, the cursor is hidden, and the driver will try to report continuous motion in the current window. Only relative motion events will be delivered, the mouse position will not change.
+
+Note that this function will not be able to provide continuous relative motion when used over Microsoft Remote Desktop, instead motion is limited to the bounds of the screen.
+
+This function will flush any pending mouse motion.
+
+
+\begin{DoxyParams}{Parameters}
+{\em enabled} & S\+D\+L\+\_\+\+T\+R\+UE to enable relative mode, S\+D\+L\+\_\+\+F\+A\+L\+SE to disable. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+If relative mode is not supported, this returns -\/1.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Relative\+Mouse\+Mode}{p.}{_s_d_l__mouse_8h_ae97aaf1682b3a6b62214dda1dda9b212} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_a00286ec15cd56dee1fd71ed4e6e7a585}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_ShowCursor@{SDL\_ShowCursor}}
+\index{SDL\_ShowCursor@{SDL\_ShowCursor}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_ShowCursor()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Show\+Cursor (\begin{DoxyParamCaption}\item[{int}]{toggle }\end{DoxyParamCaption})}
+
+Toggle whether or not the cursor is shown.
+
+The cursor starts off displayed but can be turned off. Passing {\ttfamily S\+D\+L\+\_\+\+E\+N\+A\+B\+LE} displays the cursor and passing {\ttfamily S\+D\+L\+\_\+\+D\+I\+S\+A\+B\+LE} hides it.
+
+The current state of the mouse cursor can be queried by passing {\ttfamily S\+D\+L\+\_\+\+Q\+U\+E\+RY}; either {\ttfamily S\+D\+L\+\_\+\+D\+I\+S\+A\+B\+LE} or {\ttfamily S\+D\+L\+\_\+\+E\+N\+A\+B\+LE} will be returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em toggle} & {\ttfamily S\+D\+L\+\_\+\+E\+N\+A\+B\+LE} to show the cursor, {\ttfamily S\+D\+L\+\_\+\+D\+I\+S\+A\+B\+LE} to hide it, {\ttfamily S\+D\+L\+\_\+\+Q\+U\+E\+RY} to query the current state without changing it. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+D\+L\+\_\+\+E\+N\+A\+B\+LE} if the cursor is shown, or {\ttfamily S\+D\+L\+\_\+\+D\+I\+S\+A\+B\+LE} if the cursor is hidden, or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Create\+Cursor}{p.}{_s_d_l__mouse_8h_a4331ebf38e2f75f6cde88ce668e5650f} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Cursor}{p.}{_s_d_l__mouse_8h_a7c2971901f9a772be22152420aee275c} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_a200c3d105a0a30fb465760ab870b3ce3}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_WarpMouseGlobal@{SDL\_WarpMouseGlobal}}
+\index{SDL\_WarpMouseGlobal@{SDL\_WarpMouseGlobal}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_WarpMouseGlobal()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Warp\+Mouse\+Global (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Move the mouse to the given position in global screen space.
+
+This function generates a mouse motion event.
+
+A failure of this function usually means that it is unsupported by a platform.
+
+Note that this function will appear to succeed, but not actually move the mouse when used over Microsoft Remote Desktop.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the x coordinate \\
+\hline
+{\em y} & the y coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+4.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Warp\+Mouse\+In\+Window}{p.}{_s_d_l__mouse_8h_a2f2259cdf30272b3c4cc1e3236cb8071} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__mouse_8h_a2f2259cdf30272b3c4cc1e3236cb8071}} 
+\index{SDL\_mouse.h@{SDL\_mouse.h}!SDL\_WarpMouseInWindow@{SDL\_WarpMouseInWindow}}
+\index{SDL\_WarpMouseInWindow@{SDL\_WarpMouseInWindow}!SDL\_mouse.h@{SDL\_mouse.h}}
+\doxysubsubsection{SDL\_WarpMouseInWindow()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Warp\+Mouse\+In\+Window (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Window} $\ast$}]{window,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Move the mouse cursor to the given position within the window.
+
+This function generates a mouse motion event.
+
+Note that this function will appear to succeed, but not actually move the mouse when used over Microsoft Remote Desktop.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & the window to move the mouse into, or N\+U\+LL for the current mouse focus \\
+\hline
+{\em x} & the x coordinate within the window \\
+\hline
+{\em y} & the y coordinate within the window\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Warp\+Mouse\+Global}{p.}{_s_d_l__mouse_8h_a200c3d105a0a30fb465760ab870b3ce3} 
+\end{DoxySeeAlso}

@@ -1,0 +1,68 @@
+\doxysection{sqlite3\+\_\+io\+\_\+methods Struct Reference}
+\label{structsqlite3__io__methods}\index{sqlite3\_io\_methods@{sqlite3\_io\_methods}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structsqlite3__io__methods_ad1c72bdfde750a09a797f314a096a965}} 
+int {\bfseries i\+Version}
+\item 
+\mbox{\label{structsqlite3__io__methods_acd2d354831db246fe8faf5658f8d2769}} 
+int($\ast$ {\bfseries x\+Close} )(\textbf{ sqlite3\+\_\+file} $\ast$)
+\item 
+\mbox{\label{structsqlite3__io__methods_ab8ea04874f95d6e205bc28e2baa85dbb}} 
+int($\ast$ {\bfseries x\+Read} )(\textbf{ sqlite3\+\_\+file} $\ast$, void $\ast$, int i\+Amt, sqlite3\+\_\+int64 i\+Ofst)
+\item 
+\mbox{\label{structsqlite3__io__methods_a9ba77ee66bdd99db7d130b36e0110e24}} 
+int($\ast$ {\bfseries x\+Write} )(\textbf{ sqlite3\+\_\+file} $\ast$, const void $\ast$, int i\+Amt, sqlite3\+\_\+int64 i\+Ofst)
+\item 
+\mbox{\label{structsqlite3__io__methods_ae83d942dc1f21d8d2680a9ebd1463208}} 
+int($\ast$ {\bfseries x\+Truncate} )(\textbf{ sqlite3\+\_\+file} $\ast$, sqlite3\+\_\+int64 size)
+\item 
+\mbox{\label{structsqlite3__io__methods_aa0ff2fb24a25c19d8499f1286b2331a0}} 
+int($\ast$ {\bfseries x\+Sync} )(\textbf{ sqlite3\+\_\+file} $\ast$, int flags)
+\item 
+\mbox{\label{structsqlite3__io__methods_a2f4363be50cc6f9a6580230f6f888d85}} 
+int($\ast$ {\bfseries x\+File\+Size} )(\textbf{ sqlite3\+\_\+file} $\ast$, sqlite3\+\_\+int64 $\ast$p\+Size)
+\item 
+\mbox{\label{structsqlite3__io__methods_aa2ad423f811c0550d009b168259c08da}} 
+int($\ast$ {\bfseries x\+Lock} )(\textbf{ sqlite3\+\_\+file} $\ast$, int)
+\item 
+\mbox{\label{structsqlite3__io__methods_aa84071b72b1799bd93a6dfe7c26e91a4}} 
+int($\ast$ {\bfseries x\+Unlock} )(\textbf{ sqlite3\+\_\+file} $\ast$, int)
+\item 
+\mbox{\label{structsqlite3__io__methods_ad90a168988c0fff65eb83deb2b6803c2}} 
+int($\ast$ {\bfseries x\+Check\+Reserved\+Lock} )(\textbf{ sqlite3\+\_\+file} $\ast$, int $\ast$p\+Res\+Out)
+\item 
+\mbox{\label{structsqlite3__io__methods_a7d378fc0d8eaced78fed248491844a22}} 
+int($\ast$ {\bfseries x\+File\+Control} )(\textbf{ sqlite3\+\_\+file} $\ast$, int op, void $\ast$p\+Arg)
+\item 
+\mbox{\label{structsqlite3__io__methods_aae7a654f949818dfbf4468f6bdaa3747}} 
+int($\ast$ {\bfseries x\+Sector\+Size} )(\textbf{ sqlite3\+\_\+file} $\ast$)
+\item 
+\mbox{\label{structsqlite3__io__methods_a17811a5140d07541330a78cbfcabea02}} 
+int($\ast$ {\bfseries x\+Device\+Characteristics} )(\textbf{ sqlite3\+\_\+file} $\ast$)
+\item 
+\mbox{\label{structsqlite3__io__methods_aa5dae435138c0a03e0339897a1ff7691}} 
+int($\ast$ {\bfseries x\+Shm\+Map} )(\textbf{ sqlite3\+\_\+file} $\ast$, int i\+Pg, int pgsz, int, void volatile $\ast$$\ast$)
+\item 
+\mbox{\label{structsqlite3__io__methods_a7507b61e74258f83ab8a5488a7f260ed}} 
+int($\ast$ {\bfseries x\+Shm\+Lock} )(\textbf{ sqlite3\+\_\+file} $\ast$, int offset, int n, int flags)
+\item 
+\mbox{\label{structsqlite3__io__methods_ab0ee8e5e54fb3e63f9291a9797054776}} 
+void($\ast$ {\bfseries x\+Shm\+Barrier} )(\textbf{ sqlite3\+\_\+file} $\ast$)
+\item 
+\mbox{\label{structsqlite3__io__methods_a312ffc98e4f8f28b9fb3586ab2589d34}} 
+int($\ast$ {\bfseries x\+Shm\+Unmap} )(\textbf{ sqlite3\+\_\+file} $\ast$, int delete\+Flag)
+\item 
+\mbox{\label{structsqlite3__io__methods_ad6e496c6971062bdffa95ebb47586123}} 
+int($\ast$ {\bfseries x\+Fetch} )(\textbf{ sqlite3\+\_\+file} $\ast$, sqlite3\+\_\+int64 i\+Ofst, int i\+Amt, void $\ast$$\ast$pp)
+\item 
+\mbox{\label{structsqlite3__io__methods_a6523c21673c1c5e05d32f3a4fb4c501d}} 
+int($\ast$ {\bfseries x\+Unfetch} )(\textbf{ sqlite3\+\_\+file} $\ast$, sqlite3\+\_\+int64 i\+Ofst, void $\ast$p)
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sqlite/include/sqlite3.\+h\item 
+C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sqlite/src/sqlite3.\+c\end{DoxyCompactItemize}

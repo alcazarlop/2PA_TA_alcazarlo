@@ -1,0 +1,109 @@
+\doxysection{S\+Q\+L\+Controller Class Reference}
+\label{class_s_q_l_controller}\index{SQLController@{SQLController}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{class_s_q_l_controller_a6f2d33c5ca2aca49ae4c61eb5eaad8ae}} 
+{\bfseries S\+Q\+L\+Controller} (const \textbf{ S\+Q\+L\+Controller} \&other)
+\item 
+void \textbf{ init} (const char $\ast$\textbf{ path})
+\begin{DoxyCompactList}\small\item\em Initialize and allocates the memory necesary to visualize the database. \end{DoxyCompactList}\item 
+\mbox{\label{class_s_q_l_controller_a08d0171a328c83f2f0e719c10986c70e}} 
+void \textbf{ close} ()
+\begin{DoxyCompactList}\small\item\em Close the database and deallocates the memory. \end{DoxyCompactList}\item 
+void \textbf{ execute\+\_\+read} (const char $\ast$query, void $\ast$data\+\_\+t, int($\ast$sqlite3\+\_\+callback)(void $\ast$, int, char $\ast$$\ast$, char $\ast$$\ast$))
+\begin{DoxyCompactList}\small\item\em A wrapper for sqlite3\+\_\+exec() function. \end{DoxyCompactList}\item 
+void \textbf{ execute\+\_\+write} (const char $\ast$query)
+\begin{DoxyCompactList}\small\item\em A wrapper for sqlite3\+\_\+exec() function. \end{DoxyCompactList}\item 
+\mbox{\label{class_s_q_l_controller_ac9a5f5135df1715f1be0f8d03a4d7950}} 
+void \textbf{ set\+\_\+path} (const char $\ast$\textbf{ path})
+\begin{DoxyCompactList}\small\item\em A setter to store the path of the current opened database. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ path} () const
+\begin{DoxyCompactList}\small\item\em Return a pointer to the store path of the current opened database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{class_s_q_l_controller_afdf8140f752629c8a57ab3caf7a2d9d5}} 
+\textbf{ Table} {\bfseries tables\+\_\+}
+\item 
+\mbox{\label{class_s_q_l_controller_abb0ec97d7f7671af08d2a31c24bdeeb4}} 
+\textbf{ Table} $\ast$ {\bfseries table\+\_\+info\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_s_q_l_controller_a3d606f8503073e1ca990bf61949615c7}} 
+\index{SQLController@{SQLController}!execute\_read@{execute\_read}}
+\index{execute\_read@{execute\_read}!SQLController@{SQLController}}
+\doxysubsubsection{execute\_read()}
+{\footnotesize\ttfamily void S\+Q\+L\+Controller\+::execute\+\_\+read (\begin{DoxyParamCaption}\item[{const char $\ast$}]{query,  }\item[{void $\ast$}]{data\+\_\+t,  }\item[{int($\ast$)(void $\ast$, int, char $\ast$$\ast$, char $\ast$$\ast$)}]{sqlite3\+\_\+callback }\end{DoxyParamCaption})}
+
+
+
+A wrapper for sqlite3\+\_\+exec() function. 
+
+The function calls the sqlite3\+\_\+exec() with the desired callback, it checks that the query and the callback are properly setted but not the data\+\_\+t. It does not return error when the query or the callback fails
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & The query that will be executed by the callback \\
+\hline
+{\em data\+\_\+t} & The data where the information retrieve for the callback will be stored \\
+\hline
+{\em sqlite3\+\_\+callback} & The sqlite3 callback that will be executed \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_s_q_l_controller_a42810e059b46fa5122e14dbaa58606d5}} 
+\index{SQLController@{SQLController}!execute\_write@{execute\_write}}
+\index{execute\_write@{execute\_write}!SQLController@{SQLController}}
+\doxysubsubsection{execute\_write()}
+{\footnotesize\ttfamily void S\+Q\+L\+Controller\+::execute\+\_\+write (\begin{DoxyParamCaption}\item[{const char $\ast$}]{query }\end{DoxyParamCaption})}
+
+
+
+A wrapper for sqlite3\+\_\+exec() function. 
+
+The function calls the sqlite3\+\_\+exec() func with no callback, and no data\+\_\+t to retrieve information. It just actualize the database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & The query to execute \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_s_q_l_controller_ad086304fbaba95ee8445d8667872eaff}} 
+\index{SQLController@{SQLController}!init@{init}}
+\index{init@{init}!SQLController@{SQLController}}
+\doxysubsubsection{init()}
+{\footnotesize\ttfamily void S\+Q\+L\+Controller\+::init (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Initialize and allocates the memory necesary to visualize the database. 
+
+The function allocates all the memory using the information extracted from the sqlite callbacks, and fill the tables to show the information
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path to the database that will be opened \\
+\hline
+{\em query} & This is just used for the S\+E\+L\+E\+CT statement when using query command promt, do not use for anything else! \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_s_q_l_controller_a0fe659119e5c69b605c16ffb58aa585a}} 
+\index{SQLController@{SQLController}!path@{path}}
+\index{path@{path}!SQLController@{SQLController}}
+\doxysubsubsection{path()}
+{\footnotesize\ttfamily const char$\ast$ S\+Q\+L\+Controller\+::path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return a pointer to the store path of the current opened database. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to path 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/include/sql\+\_\+controller.\+h\end{DoxyCompactItemize}

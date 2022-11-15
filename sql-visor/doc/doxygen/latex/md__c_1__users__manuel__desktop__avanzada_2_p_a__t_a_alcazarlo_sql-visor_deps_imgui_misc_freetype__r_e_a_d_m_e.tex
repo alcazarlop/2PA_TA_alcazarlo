@@ -1,0 +1,18 @@
+Build font atlases using Free\+Type instead of stb\+\_\+truetype (which is the default font rasterizer). ~\newline
+by @vuhdo, @mikesart, @ocornut.\doxysubsection{Usage}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_misc_freetype__r_e_a_d_m_e_autotoc_md151}
+
+\begin{DoxyEnumerate}
+\item Get latest Free\+Type binaries or build yourself (under Windows you may use vcpkg with {\ttfamily vcpkg install freetype -\/-\/triplet=x64-\/windows}, {\ttfamily vcpkg integrate install}).
+\item Add \doxyref{imgui\+\_\+freetype.\+h}{p.}{imgui__freetype_8h_source}/cpp alongside your project files.
+\item Add {\ttfamily \#define I\+M\+G\+U\+I\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+F\+R\+E\+E\+T\+Y\+PE} in your {\texttt{ imconfig.\+h}} file
+\end{DoxyEnumerate}\doxysubsection{About Gamma Correct Blending}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_misc_freetype__r_e_a_d_m_e_autotoc_md152}
+Free\+Type assumes blending in linear space rather than gamma space. See Free\+Type note for {\texttt{ F\+T\+\_\+\+Render\+\_\+\+Glyph}}. For correct results you need to be using s\+R\+GB and convert to linear space in the pixel shader output. The default Dear Im\+Gui styles will be impacted by this change (alpha values will need tweaking).\doxysubsection{Testbed for toying with settings (for developers)}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_misc_freetype__r_e_a_d_m_e_autotoc_md153}
+See {\texttt{ https\+://gist.\+github.\+com/ocornut/b3a9ecf13502fd818799a452969649ad}}\doxysubsection{Known issues}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_misc_freetype__r_e_a_d_m_e_autotoc_md154}
+
+\begin{DoxyItemize}
+\item Oversampling settins are ignored but also not so much necessary with the higher quality rendering.
+\end{DoxyItemize}\doxysubsection{Comparaison}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_misc_freetype__r_e_a_d_m_e_autotoc_md155}
+Small, thin anti-\/aliased fonts are typically benefiting a lots from Freetype\textquotesingle{}s hinting\+: \doxysubsection{Colorful glyphs/emojis}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_misc_freetype__r_e_a_d_m_e_autotoc_md156}
+You can use the {\ttfamily Im\+Gui\+Free\+Type\+Builder\+Flags\+\_\+\+Load\+Color} flag to load certain colorful glyphs. See {\texttt{ \char`\"{}\+Using Colorful Glyphs/\+Emojis\char`\"{}}} section of F\+O\+N\+T\+S.\+md.
+
+ 

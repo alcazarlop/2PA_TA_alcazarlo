@@ -1,0 +1,106 @@
+\doxysection{C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sdl2/include/\+S\+D\+L\+\_\+metal.h File Reference}
+\label{_s_d_l__metal_8h}\index{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_metal.h@{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_metal.h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+video.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void $\ast$ \textbf{ S\+D\+L\+\_\+\+Metal\+View}
+\begin{DoxyCompactList}\small\item\em A handle to a C\+A\+Metal\+Layer-\/backed N\+S\+View (mac\+OS) or U\+I\+View (i\+O\+S/tv\+OS). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{Indent}\textbf{ Metal support functions}\par
+\begin{DoxyCompactItemize}
+\item 
+D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Metal\+View} S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Metal\+\_\+\+Create\+View} (\textbf{ S\+D\+L\+\_\+\+Window} $\ast$window)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Metal\+\_\+\+Destroy\+View} (\textbf{ S\+D\+L\+\_\+\+Metal\+View} view)
+\item 
+D\+E\+C\+L\+S\+P\+EC void $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Metal\+\_\+\+Get\+Layer} (\textbf{ S\+D\+L\+\_\+\+Metal\+View} view)
+\item 
+D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Metal\+\_\+\+Get\+Drawable\+Size} (\textbf{ S\+D\+L\+\_\+\+Window} $\ast$window, int $\ast$w, int $\ast$h)
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Header file for functions to creating Metal layers and views on S\+DL windows. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{_s_d_l__metal_8h_a0d6413e2d369fbf22f0a2e4ec15bf412}} 
+\index{SDL\_metal.h@{SDL\_metal.h}!SDL\_MetalView@{SDL\_MetalView}}
+\index{SDL\_MetalView@{SDL\_MetalView}!SDL\_metal.h@{SDL\_metal.h}}
+\doxysubsubsection{SDL\_MetalView}
+{\footnotesize\ttfamily typedef void$\ast$ \textbf{ S\+D\+L\+\_\+\+Metal\+View}}
+
+
+
+A handle to a C\+A\+Metal\+Layer-\/backed N\+S\+View (mac\+OS) or U\+I\+View (i\+O\+S/tv\+OS). 
+
+\begin{DoxyNote}{Note}
+This can be cast directly to an N\+S\+View or U\+I\+View. 
+\end{DoxyNote}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{_s_d_l__metal_8h_a3dad1f90d67b2e72ec2f5bfc9e20f54c}} 
+\index{SDL\_metal.h@{SDL\_metal.h}!SDL\_Metal\_CreateView@{SDL\_Metal\_CreateView}}
+\index{SDL\_Metal\_CreateView@{SDL\_Metal\_CreateView}!SDL\_metal.h@{SDL\_metal.h}}
+\doxysubsubsection{SDL\_Metal\_CreateView()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC \textbf{ S\+D\+L\+\_\+\+Metal\+View} S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Metal\+\_\+\+Create\+View (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Window} $\ast$}]{window }\end{DoxyParamCaption})}
+
+Create a C\+A\+Metal\+Layer-\/backed N\+S\+View/\+U\+I\+View and attach it to the specified window.
+
+On mac\+OS, this does {\itshape not} associate a M\+T\+L\+Device with the C\+A\+Metal\+Layer on its own. It is up to user code to do that.
+
+The returned handle can be casted directly to a N\+S\+View or U\+I\+View. To access the backing C\+A\+Metal\+Layer, call \doxyref{S\+D\+L\+\_\+\+Metal\+\_\+\+Get\+Layer()}{p.}{_s_d_l__metal_8h_a34b999c8bf37f299f6a5d8a7763589ed}.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Metal\+\_\+\+Destroy\+View}{p.}{_s_d_l__metal_8h_a262167b535f38dd12f022df81fddb8f5} 
+
+\doxyref{S\+D\+L\+\_\+\+Metal\+\_\+\+Get\+Layer}{p.}{_s_d_l__metal_8h_a34b999c8bf37f299f6a5d8a7763589ed} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__metal_8h_a262167b535f38dd12f022df81fddb8f5}} 
+\index{SDL\_metal.h@{SDL\_metal.h}!SDL\_Metal\_DestroyView@{SDL\_Metal\_DestroyView}}
+\index{SDL\_Metal\_DestroyView@{SDL\_Metal\_DestroyView}!SDL\_metal.h@{SDL\_metal.h}}
+\doxysubsubsection{SDL\_Metal\_DestroyView()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Metal\+\_\+\+Destroy\+View (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Metal\+View}}]{view }\end{DoxyParamCaption})}
+
+Destroy an existing S\+D\+L\+\_\+\+Metal\+View object.
+
+This should be called before S\+D\+L\+\_\+\+Destroy\+Window, if S\+D\+L\+\_\+\+Metal\+\_\+\+Create\+View was called after S\+D\+L\+\_\+\+Create\+Window.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Metal\+\_\+\+Create\+View}{p.}{_s_d_l__metal_8h_a3dad1f90d67b2e72ec2f5bfc9e20f54c} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__metal_8h_a57af6bc34b5686963397add6e383eb17}} 
+\index{SDL\_metal.h@{SDL\_metal.h}!SDL\_Metal\_GetDrawableSize@{SDL\_Metal\_GetDrawableSize}}
+\index{SDL\_Metal\_GetDrawableSize@{SDL\_Metal\_GetDrawableSize}!SDL\_metal.h@{SDL\_metal.h}}
+\doxysubsubsection{SDL\_Metal\_GetDrawableSize()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Metal\+\_\+\+Get\+Drawable\+Size (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Window} $\ast$}]{window,  }\item[{int $\ast$}]{w,  }\item[{int $\ast$}]{h }\end{DoxyParamCaption})}
+
+Get the size of a window\textquotesingle{}s underlying drawable in pixels (for use with setting viewport, scissor \& etc).
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & S\+D\+L\+\_\+\+Window from which the drawable size should be queried \\
+\hline
+{\em w} & Pointer to variable for storing the width in pixels, may be N\+U\+LL\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Window\+Size}{p.}{_s_d_l__video_8h_a5cbfffcfec91c22a7ca95fd1d5163db5} 
+
+\doxyref{S\+D\+L\+\_\+\+Create\+Window}{p.}{_s_d_l__video_8h_a42565088bdb739a5353fd67abbe235d2} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__metal_8h_a34b999c8bf37f299f6a5d8a7763589ed}} 
+\index{SDL\_metal.h@{SDL\_metal.h}!SDL\_Metal\_GetLayer@{SDL\_Metal\_GetLayer}}
+\index{SDL\_Metal\_GetLayer@{SDL\_Metal\_GetLayer}!SDL\_metal.h@{SDL\_metal.h}}
+\doxysubsubsection{SDL\_Metal\_GetLayer()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC void$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Metal\+\_\+\+Get\+Layer (\begin{DoxyParamCaption}\item[{\textbf{ S\+D\+L\+\_\+\+Metal\+View}}]{view }\end{DoxyParamCaption})}
+
+Get a pointer to the backing C\+A\+Metal\+Layer for the given view.
+
+\begin{DoxySeeAlso}{See also}
+S\+D\+L\+\_\+\+Metal\+Create\+View 
+\end{DoxySeeAlso}

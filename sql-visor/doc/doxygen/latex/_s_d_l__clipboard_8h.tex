@@ -1,0 +1,78 @@
+\doxysection{C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sdl2/include/\+S\+D\+L\+\_\+clipboard.h File Reference}
+\label{_s_d_l__clipboard_8h}\index{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_clipboard.h@{C:/Users/Manuel/Desktop/Avanzada/2PA\_TA\_alcazarlo/sql-\/visor/deps/sdl2/include/SDL\_clipboard.h}}
+{\ttfamily \#include \char`\"{}S\+D\+L\+\_\+stdinc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}begin\+\_\+code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}close\+\_\+code.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Set\+Clipboard\+Text} (const char $\ast$text)
+\item 
+D\+E\+C\+L\+S\+P\+EC char $\ast$S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Get\+Clipboard\+Text} (void)
+\item 
+D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL \textbf{ S\+D\+L\+\_\+\+Has\+Clipboard\+Text} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Include file for S\+DL clipboard handling 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{_s_d_l__clipboard_8h_abbe260fcf16ab844d6626e0bd83587d1}} 
+\index{SDL\_clipboard.h@{SDL\_clipboard.h}!SDL\_GetClipboardText@{SDL\_GetClipboardText}}
+\index{SDL\_GetClipboardText@{SDL\_GetClipboardText}!SDL\_clipboard.h@{SDL\_clipboard.h}}
+\doxysubsubsection{SDL\_GetClipboardText()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC char$\ast$ S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Get\+Clipboard\+Text (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get U\+T\+F-\/8 text from the clipboard, which must be freed with S\+D\+L\+\_\+free().
+
+This functions returns empty string if there was not enough memory left for a copy of the clipboard\textquotesingle{}s content.
+
+\begin{DoxyReturn}{Returns}
+the clipboard text on success or an empty string on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information. Caller must call S\+D\+L\+\_\+free() on the returned pointer when done with it (even if there was an error).
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Has\+Clipboard\+Text}{p.}{_s_d_l__clipboard_8h_a415fa85de093cf6117626a9415394509} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Clipboard\+Text}{p.}{_s_d_l__clipboard_8h_a36d97ed867cc1a6a4f015aaa5972ed46} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__clipboard_8h_a415fa85de093cf6117626a9415394509}} 
+\index{SDL\_clipboard.h@{SDL\_clipboard.h}!SDL\_HasClipboardText@{SDL\_HasClipboardText}}
+\index{SDL\_HasClipboardText@{SDL\_HasClipboardText}!SDL\_clipboard.h@{SDL\_clipboard.h}}
+\doxysubsubsection{SDL\_HasClipboardText()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC S\+D\+L\+\_\+bool S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Has\+Clipboard\+Text (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Query whether the clipboard exists and contains a non-\/empty text string.
+
+\begin{DoxyReturn}{Returns}
+S\+D\+L\+\_\+\+T\+R\+UE if the clipboard has text, or S\+D\+L\+\_\+\+F\+A\+L\+SE if it does not.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+This function is available since S\+DL 2.\+0.\+0.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Clipboard\+Text}{p.}{_s_d_l__clipboard_8h_abbe260fcf16ab844d6626e0bd83587d1} 
+
+\doxyref{S\+D\+L\+\_\+\+Set\+Clipboard\+Text}{p.}{_s_d_l__clipboard_8h_a36d97ed867cc1a6a4f015aaa5972ed46} 
+\end{DoxySeeAlso}
+\mbox{\label{_s_d_l__clipboard_8h_a36d97ed867cc1a6a4f015aaa5972ed46}} 
+\index{SDL\_clipboard.h@{SDL\_clipboard.h}!SDL\_SetClipboardText@{SDL\_SetClipboardText}}
+\index{SDL\_SetClipboardText@{SDL\_SetClipboardText}!SDL\_clipboard.h@{SDL\_clipboard.h}}
+\doxysubsubsection{SDL\_SetClipboardText()}
+{\footnotesize\ttfamily D\+E\+C\+L\+S\+P\+EC int S\+D\+L\+C\+A\+LL S\+D\+L\+\_\+\+Set\+Clipboard\+Text (\begin{DoxyParamCaption}\item[{const char $\ast$}]{text }\end{DoxyParamCaption})}
+
+Put U\+T\+F-\/8 text into the clipboard.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & the text to store in the clipboard \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success or a negative error code on failure; call \doxyref{S\+D\+L\+\_\+\+Get\+Error()}{p.}{_s_d_l__error_8h_af3cc615dad0d5ed6b36cb84cab15ecb6} for more information.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{S\+D\+L\+\_\+\+Get\+Clipboard\+Text}{p.}{_s_d_l__clipboard_8h_abbe260fcf16ab844d6626e0bd83587d1} 
+
+\doxyref{S\+D\+L\+\_\+\+Has\+Clipboard\+Text}{p.}{_s_d_l__clipboard_8h_a415fa85de093cf6117626a9415394509} 
+\end{DoxySeeAlso}

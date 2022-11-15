@@ -1,0 +1,215 @@
+{\texttt{ }} {\texttt{ }}
+
+\textsubscript{(This library is available under a free and permissive license, but needs financial support to sustain its continued improvements. In addition to maintenance and stability there are many desirable features yet to be added. If your company is using Dear Im\+Gui, please consider reaching out.)}
+
+Businesses\+: support continued development and maintenance via invoiced technical support, maintenance, sponsoring contracts\+: ~\newline
+~~{\itshape E-\/mail\+: contact @ dearimgui dot com}
+
+Individuals\+: support continued development and maintenance {\texttt{ here}}.
+
+Also see {\texttt{ Sponsors}} page.
+
+\DoxyHorRuler
+
+
+Dear Im\+Gui is a {\bfseries{bloat-\/free graphical user interface library for C++}}. It outputs optimized vertex buffers that you can render anytime in your 3D-\/pipeline enabled application. It is fast, portable, renderer agnostic and self-\/contained (no external dependencies).
+
+Dear Im\+Gui is designed to {\bfseries{enable fast iterations}} and to {\bfseries{empower programmers}} to create {\bfseries{content creation tools and visualization / debug tools}} (as opposed to UI for the average end-\/user). It favors simplicity and productivity toward this goal, and lacks certain features normally found in more high-\/level libraries.
+
+Dear Im\+Gui is particularly suited to integration in games engine (for tooling), real-\/time 3D applications, fullscreen applications, embedded applications, or any applications on consoles platforms where operating system features are non-\/standard.
+
+$\vert$ {\texttt{ Usage}} -\/ {\texttt{ How it works}} -\/ {\texttt{ Releases \& Changelogs}} -\/ {\texttt{ Demo}} -\/ {\texttt{ Integration}} $\vert$ \+:-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---\+: $\vert$ $\vert$ {\texttt{ Upcoming changes}} -\/ {\texttt{ Gallery}} -\/ {\texttt{ Support, F\+AQ}} -\/ {\texttt{ How to help}} -\/ {\texttt{ Sponsors}} -\/ {\texttt{ Credits}} -\/ {\texttt{ License}} $\vert$ $\vert$ {\texttt{ Wiki}} -\/ {\texttt{ Languages \& frameworks backends/bindings}} -\/ {\texttt{ Software using Dear Im\+Gui}} -\/ {\texttt{ User quotes}} $\vert$\doxysubsection{Usage}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_docs__r_e_a_d_m_e_autotoc_md124}
+{\bfseries{The core of Dear Im\+Gui is self-\/contained within a few platform-\/agnostic files}} which you can easily compile in your application/engine. They are all the files in the root folder of the repository (imgui$\ast$.cpp, imgui$\ast$.h).
+
+{\bfseries{No specific build process is required}}. You can add the .cpp files to your existing project.
+
+You will need a backend to integrate Dear Im\+Gui in your app. The backend passes mouse/keyboard/gamepad inputs and variety of settings to Dear Im\+Gui, and is in charge of rendering the resulting vertices.
+
+{\bfseries{Backends for a variety of graphics api and rendering platforms}} are provided in the {\texttt{ backends/}} folder, along with example applications in the {\texttt{ examples/}} folder. See the {\texttt{ Integration}} section of this document for details. You may also create your own backend. Anywhere where you can render textured triangles, you can render Dear Im\+Gui.
+
+After Dear Im\+Gui is setup in your application, you can use it from \+\_\+anywhere\+\_\+ in your program loop\+:
+
+Code\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ImGui::Text(\textcolor{stringliteral}{"Hello, world \%d"}, 123);}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (ImGui::Button(\textcolor{stringliteral}{"Save"}))}
+\DoxyCodeLine{    MySaveFunction();}
+\DoxyCodeLine{ImGui::InputText(\textcolor{stringliteral}{"string"}, buf, IM\_ARRAYSIZE(buf));}
+\DoxyCodeLine{ImGui::SliderFloat(\textcolor{stringliteral}{"float"}, \&f, 0.0f, 1.0f);}
+\end{DoxyCode}
+ Result\+: ~\newline
+  ~\newline
+\+\_\+(settings\+: Dark style (left), Light style (right) / Font\+: Roboto-\/\+Medium, 16px)\+\_\+
+
+Code\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{// Create a window called "My First Tool", with a menu bar.}}
+\DoxyCodeLine{ImGui::Begin(\textcolor{stringliteral}{"My First Tool"}, \&my\_tool\_active, ImGuiWindowFlags\_MenuBar);}
+\DoxyCodeLine{\textcolor{keywordflow}{if} (ImGui::BeginMenuBar())}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (ImGui::BeginMenu(\textcolor{stringliteral}{"File"}))}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (ImGui::MenuItem(\textcolor{stringliteral}{"Open.."}, \textcolor{stringliteral}{"Ctrl+O"})) \{ \textcolor{comment}{/* Do stuff */} \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (ImGui::MenuItem(\textcolor{stringliteral}{"Save"}, \textcolor{stringliteral}{"Ctrl+S"}))   \{ \textcolor{comment}{/* Do stuff */} \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (ImGui::MenuItem(\textcolor{stringliteral}{"Close"}, \textcolor{stringliteral}{"Ctrl+W"}))  \{ my\_tool\_active = \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{        ImGui::EndMenu();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    ImGui::EndMenuBar();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Edit a color (stored as ~4 floats)}}
+\DoxyCodeLine{ImGui::ColorEdit4(\textcolor{stringliteral}{"Color"}, my\_color);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Plot some values}}
+\DoxyCodeLine{\textcolor{keyword}{const} \textcolor{keywordtype}{float} my\_values[] = \{ 0.2f, 0.1f, 1.0f, 0.5f, 0.9f, 2.2f \};}
+\DoxyCodeLine{ImGui::PlotLines(\textcolor{stringliteral}{"Frame Times"}, my\_values, IM\_ARRAYSIZE(my\_values));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{// Display contents in a scrolling region}}
+\DoxyCodeLine{ImGui::TextColored(ImVec4(1,1,0,1), \textcolor{stringliteral}{"Important Stuff"});}
+\DoxyCodeLine{ImGui::BeginChild(\textcolor{stringliteral}{"Scrolling"});}
+\DoxyCodeLine{\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} n = 0; n < 50; n++)}
+\DoxyCodeLine{    ImGui::Text(\textcolor{stringliteral}{"\%04d: Some text"}, n);}
+\DoxyCodeLine{ImGui::EndChild();}
+\DoxyCodeLine{ImGui::End();}
+\end{DoxyCode}
+ Result\+: ~\newline
+
+
+Dear Im\+Gui allows you to {\bfseries{create elaborate tools}} as well as very short-\/lived ones. On the extreme side of short-\/livedness\+: using the Edit\&Continue (hot code reload) feature of modern compilers you can add a few widgets to tweaks variables while your application is running, and remove the code a minute later! Dear Im\+Gui is not just for tweaking values. You can use it to trace a running algorithm by just emitting text commands. You can use it along with your own reflection data to browse your dataset live. You can use it to expose the internals of a subsystem in your engine, to create a logger, an inspection tool, a profiler, a debugger, an entire game making editor/framework, etc.\doxysubsection{How it works}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_docs__r_e_a_d_m_e_autotoc_md125}
+Check out the Wiki\textquotesingle{}s {\texttt{ About the I\+M\+G\+UI paradigm}} section if you want to understand the core principles behind the I\+M\+G\+UI paradigm. An I\+M\+G\+UI tries to minimize superfluous state duplication, state synchronization and state retention from the user\textquotesingle{}s point of view. It is less error prone (less code and less bugs) than traditional retained-\/mode interfaces, and lends itself to create dynamic user interfaces.
+
+Dear Im\+Gui outputs vertex buffers and command lists that you can easily render in your application. The number of draw calls and state changes required to render them is fairly small. Because Dear Im\+Gui doesn\textquotesingle{}t know or touch graphics state directly, you can call its functions anywhere in your code (e.\+g. in the middle of a running algorithm, or in the middle of your own rendering process). Refer to the sample applications in the examples/ folder for instructions on how to integrate Dear Im\+Gui with your existing codebase.
+
+{\itshape A common misunderstanding is to mistake immediate mode gui for immediate mode rendering, which usually implies hammering your driver/\+G\+PU with a bunch of inefficient draw calls and state changes as the gui functions are called. This is N\+OT what Dear Im\+Gui does. Dear Im\+Gui outputs vertex buffers and a small list of draw calls batches. It never touches your G\+PU directly. The draw call batches are decently optimal and you can render them later, in your app or even remotely.}\doxysubsection{Releases \& Changelogs}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_docs__r_e_a_d_m_e_autotoc_md126}
+See {\texttt{ Releases}} page. Reading the changelogs is a good way to keep up to date with the things Dear Im\+Gui has to offer, and maybe will give you ideas of some features that you\textquotesingle{}ve been ignoring until now!\doxysubsection{Demo}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_docs__r_e_a_d_m_e_autotoc_md127}
+Calling the {\ttfamily Im\+Gui\+::\+Show\+Demo\+Window()} function will create a demo window showcasing variety of features and examples. The code is always available for reference in {\ttfamily imgui\+\_\+demo.\+cpp}.
+
+
+
+You should be able to build the examples from sources (tested on Windows/\+Mac/\+Linux). If you don\textquotesingle{}t, let us know! If you want to have a quick look at some Dear Im\+Gui features, you can download Windows binaries of the demo app here\+:
+\begin{DoxyItemize}
+\item {\texttt{ imgui-\/demo-\/binaries-\/20210331.\+zip}} (Windows, 1.\+83 W\+IP, built 2021/03/31, master branch) or {\texttt{ older demo binaries}}.
+\end{DoxyItemize}
+
+The demo applications are not D\+PI aware so expect some blurriness on a 4K screen. For D\+PI awareness in your application, you can load/reload your font at different scale, and scale your style with {\ttfamily style.\+Scale\+All\+Sizes()} (see {\texttt{ F\+AQ}}).\doxysubsection{Integration}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_docs__r_e_a_d_m_e_autotoc_md128}
+On most platforms and when using C++, {\bfseries{you should be able to use a combination of the {\texttt{ imgui\+\_\+impl\+\_\+xxxx}} backends without modification}} (e.\+g. {\ttfamily imgui\+\_\+impl\+\_\+win32.\+cpp} + {\ttfamily imgui\+\_\+impl\+\_\+dx11.\+cpp}). If your engine supports multiple platforms, consider using more of the imgui\+\_\+impl\+\_\+xxxx files instead of rewriting them\+: this will be less work for you and you can get Dear Im\+Gui running immediately. You can {\itshape later} decide to rewrite a custom backend using your custom engine functions if you wish so.
+
+Integrating Dear Im\+Gui within your custom engine is a matter of 1) wiring mouse/keyboard/gamepad inputs 2) uploading one texture to your G\+P\+U/render engine 3) providing a render function that can bind textures and render textured triangles. The {\texttt{ examples/}} folder is populated with applications doing just that. If you are an experienced programmer at ease with those concepts, it should take you less than two hours to integrate Dear Im\+Gui in your custom engine. {\bfseries{Make sure to spend time reading the {\texttt{ F\+AQ}}, comments, and some of the examples/ application!}}
+
+Officially maintained backends/bindings (in repository)\+:
+\begin{DoxyItemize}
+\item Renderers\+: Direct\+X9, Direct\+X10, Direct\+X11, Direct\+X12, Metal, Open\+G\+L/\+E\+S/\+E\+S2, S\+D\+L\+\_\+\+Renderer, Vulkan, Web\+G\+PU.
+\item Platforms\+: G\+L\+FW, S\+D\+L2, Win32, Glut, O\+SX, Android.
+\item Frameworks\+: Emscripten, Allegro5, Marmalade.
+\end{DoxyItemize}
+
+{\texttt{ Third-\/party backends/bindings}} wiki page\+:
+\begin{DoxyItemize}
+\item Languages\+: C, C\# and\+: Beef, Chai\+Script, Crystal, D, Go, Haskell, Haxe/hxcpp, Java, Java\+Script, Julia, Kotlin, Lobster, Lua, Odin, Pascal, Pure\+Basic, Python, Ruby, Rust, Swift...
+\item Frameworks\+: A\+G\+S/\+Adventure Game Studio, Amethyst, Blender, bsf, Cinder, Cocos2d-\/x, Diligent Engine, Flexium, G\+M\+L/\+Game Maker Studio2, G\+L\+EQ, Godot, G\+T\+K3+\+Open\+G\+L3, Irrlicht Engine, LÖ\+V\+E+\+L\+UA, Magnum, Monogame, Nano\+RT, n\+Cine, Nim Game Lib, Nintendo 3DS \& Switch (homebrew), Ogre, open\+Frameworks, O\+S\+G/\+Open\+Scene\+Graph, Orx, Photoshop, px\+\_\+render, Qt/\+Qt\+Direct3D, S\+D\+L\+\_\+\+Renderer, S\+F\+ML, Sokol, Unity, Unreal Engine 4, vtk, Vulkan\+Hpp, Vulkan\+Scene\+Graph, Win32 G\+DI, Wx\+Widgets.
+\item Note that C bindings ({\texttt{ cimgui}}) are auto-\/generated, you can use its json/lua output to generate bindings for other languages.
+\end{DoxyItemize}
+
+{\texttt{ Useful Extensions/\+Widgets}} wiki page\+:
+\begin{DoxyItemize}
+\item Text editors, node editors, timeline editors, plotting, software renderers, remote network access, memory editors, gizmos etc.
+\end{DoxyItemize}
+
+Also see {\texttt{ Wiki}} for more links and ideas.\doxysubsection{Upcoming Changes}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_docs__r_e_a_d_m_e_autotoc_md129}
+Some of the goals for 2021 are\+:
+\begin{DoxyItemize}
+\item Work on Docking (see {\texttt{ \#2109}}, in public {\texttt{ docking}} branch)
+\item Work on Multi-\/\+Viewport / Multiple OS windows. (see {\texttt{ \#1542}}, in public {\texttt{ docking}} branch looking for feedback)
+\item Work on gamepad/keyboard controls. (see {\texttt{ \#787}})
+\item Work on automation and testing system, both to test the library and end-\/user apps. (see {\texttt{ \#435}})
+\item Make the examples look better, improve styles, improve font support, make the examples hi-\/\+D\+PI and multi-\/\+D\+PI aware.
+\end{DoxyItemize}\doxysubsection{Gallery}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_docs__r_e_a_d_m_e_autotoc_md130}
+For more user-\/submitted screenshots of projects using Dear Im\+Gui, check out the {\texttt{ Gallery Threads}}!
+
+For a list of third-\/party widgets and extensions, check out the {\texttt{ Useful Extensions/\+Widgets}} wiki page.
+
+Custom engine {\texttt{ }}
+
+Custom engine {\texttt{ }}
+
+{\texttt{ Tracy Profiler}} \doxysubsection{Support, Frequently Asked Questions (\+F\+A\+Q)}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_docs__r_e_a_d_m_e_autotoc_md131}
+See\+: {\texttt{ Frequently Asked Questions (F\+AQ)}} where common questions are answered.
+
+See\+: {\texttt{ Wiki}} for many links, references, articles.
+
+See\+: {\texttt{ Articles about the I\+M\+G\+UI paradigm}} to read/learn about the Immediate Mode G\+UI paradigm.
+
+Getting started? For first-\/time users having issues compiling/linking/running or issues loading fonts, please use {\texttt{ Git\+Hub Discussions}}.
+
+For other questions, bug reports, requests, feedback, you may post on {\texttt{ Git\+Hub Issues}}. Please read and fill the New Issue template carefully.
+
+Private support is available for paying business customers (E-\/mail\+: {\itshape contact @ dearimgui dot com}).
+
+{\bfseries{Which version should I get?}}
+
+We occasionally tag {\texttt{ Releases}} but it is generally safe and recommended to sync to master/latest. The library is fairly stable and regressions tend to be fixed fast when reported.
+
+Advanced users may want to use the {\ttfamily docking} branch with {\texttt{ Multi-\/\+Viewport}} and {\texttt{ Docking}} features. This branch is kept in sync with master regularly.
+
+{\bfseries{Who uses Dear Im\+Gui?}}
+
+See the {\texttt{ Quotes}}, {\texttt{ Sponsors}}, {\texttt{ Software using dear imgui}} Wiki pages for an idea of who is using Dear Im\+Gui. Please add your game/software if you can! Also see the {\texttt{ Gallery Threads}}!\doxysection{How to help}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_docs__r_e_a_d_m_e_autotoc_md132}
+{\bfseries{How can I help?}}
+
+
+\begin{DoxyItemize}
+\item See {\texttt{ Git\+Hub Forum/issues}} and {\texttt{ Github Discussions}}.
+\item You may help with development and submit pull requests! Please understand that by submitting a PR you are also submitting a request for the maintainer to review your code and then take over its maintenance forever. PR should be crafted both in the interest in the end-\/users and also to ease the maintainer into understanding and accepting it.
+\item See {\texttt{ Help wanted}} on the {\texttt{ Wiki}} for some more ideas.
+\item Have your company financially support this project (please reach by e-\/mail)
+\end{DoxyItemize}
+
+{\bfseries{How can I help financing further development of Dear Im\+Gui?}}
+
+See {\texttt{ Sponsors}} page.\doxysection{Sponsors}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_docs__r_e_a_d_m_e_autotoc_md133}
+Ongoing Dear Im\+Gui development is currently financially supported by users and private sponsors\+:
+
+{\itshape Platinum-\/chocolate sponsors}
+\begin{DoxyItemize}
+\item {\texttt{ Blizzard}}
+\end{DoxyItemize}
+
+{\itshape Double-\/chocolate sponsors}
+\begin{DoxyItemize}
+\item {\texttt{ Google}}, {\texttt{ Nvidia}}, {\texttt{ Ubisoft}}
+\end{DoxyItemize}
+
+{\itshape Chocolate sponsors}
+\begin{DoxyItemize}
+\item {\texttt{ Activision}}, {\texttt{ Adobe}}, {\texttt{ Aras Pranckevičius}}, {\texttt{ Arkane Studios}}, {\texttt{ Epic}}, {\texttt{ R\+AD Game Tools}}
+\end{DoxyItemize}
+
+{\itshape Salty-\/caramel sponsors}
+\begin{DoxyItemize}
+\item {\texttt{ Framefield}}, {\texttt{ Grinding Gear Games}}, {\texttt{ Kylotonn}}, {\texttt{ Next Level Games}}, {\texttt{ O-\/\+Net Communications (U\+SA)}}, {\texttt{ Supercell}}.
+\end{DoxyItemize}
+
+Please see {\texttt{ detailed list of Dear Im\+Gui supporters}} for past sponsors. From November 2014 to December 2019, ongoing development has also been financially supported by its users on Patreon and through individual donations.
+
+{\bfseries{T\+H\+A\+NK Y\+OU to all past and present supporters for helping to keep this project alive and thriving!}}
+
+Dear Im\+Gui is using software and services provided free of charge for open source projects\+:
+\begin{DoxyItemize}
+\item {\texttt{ P\+V\+S-\/\+Studio}} for static analysis.
+\item {\texttt{ Git\+Hub actions}} for continuous integration systems.
+\item {\texttt{ Open\+Cpp\+Coverage}} for code coverage analysis.
+\end{DoxyItemize}\doxysection{Credits}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_docs__r_e_a_d_m_e_autotoc_md134}
+Developed by {\texttt{ Omar Cornut}} and every direct or indirect {\texttt{ contributors}} to the Git\+Hub. The early version of this library was developed with the support of {\texttt{ Media Molecule}} and first used internally on the game {\texttt{ Tearaway}} (PS Vita).
+
+Recurring contributors (2020)\+: Omar Cornut {\texttt{ @ocornut}}, Rokas Kupstys {\texttt{ @rokups}}, Ben Carter {\texttt{ @\+Shironeko\+Ben}}. A large portion of work on automation systems, regression tests and other features are currently unpublished.
+
+Sponsoring, support contracts and other B2B transactions are hosted and handled by {\texttt{ Lizardcube}}.
+
+Omar\+: \char`\"{}\+I first discovered the I\+M\+G\+U\+I paradigm at [\+Q-\/\+Games](https\+://www.\+q-\/games.\+com) where Atman Binstock had dropped his own simple implementation in the codebase, which I spent quite some time improving and thinking about. It turned out that Atman was exposed to the concept directly by working with Casey. When I moved to Media Molecule I rewrote a new library trying to overcome the flaws and limitations of the first one I\textquotesingle{}ve worked with. It became this library and since then I have spent an unreasonable amount of time iterating and improving it.\char`\"{}
+
+Embeds {\texttt{ Proggy\+Clean.\+ttf}} font by Tristan Grimmer (M\+IT license).
+
+Embeds {\texttt{ stb\+\_\+textedit.\+h, stb\+\_\+truetype.\+h, stb\+\_\+rect\+\_\+pack.\+h}} by Sean Barrett (public domain).
+
+Inspiration, feedback, and testing for early versions\+: Casey Muratori, Atman Binstock, Mikko Mononen, Emmanuel Briney, Stefan Kamoda, Anton Mikhailov, Matt Willis. Also thank you to everyone posting feedback, questions and patches on Git\+Hub.\doxysection{License}\label{md__c_1__users__manuel__desktop__avanzada_2_p_a__t_a_alcazarlo_sql-visor_deps_imgui_docs__r_e_a_d_m_e_autotoc_md135}
+Dear Im\+Gui is licensed under the M\+IT License, see {\texttt{ L\+I\+C\+E\+N\+S\+E.\+txt}} for more information. 

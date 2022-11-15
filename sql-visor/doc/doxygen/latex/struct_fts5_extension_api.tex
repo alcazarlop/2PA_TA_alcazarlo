@@ -1,0 +1,71 @@
+\doxysection{Fts5\+Extension\+Api Struct Reference}
+\label{struct_fts5_extension_api}\index{Fts5ExtensionApi@{Fts5ExtensionApi}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct_fts5_extension_api_af9c8f09c2e6f1373e6bce57ec9861682}} 
+int {\bfseries i\+Version}
+\item 
+\mbox{\label{struct_fts5_extension_api_a9ed4cdc9ce2c4a0dd2c74571524e38c8}} 
+void $\ast$($\ast$ {\bfseries x\+User\+Data} )(Fts5\+Context $\ast$)
+\item 
+\mbox{\label{struct_fts5_extension_api_afcb191cf7846b9ee65f647be5570952b}} 
+int($\ast$ {\bfseries x\+Column\+Count} )(Fts5\+Context $\ast$)
+\item 
+\mbox{\label{struct_fts5_extension_api_acc02a14d4453cddbcdbada96b9c2a259}} 
+int($\ast$ {\bfseries x\+Row\+Count} )(Fts5\+Context $\ast$, sqlite3\+\_\+int64 $\ast$pn\+Row)
+\item 
+\mbox{\label{struct_fts5_extension_api_a0babf70ab468f77404848c12b7a13b35}} 
+int($\ast$ {\bfseries x\+Column\+Total\+Size} )(Fts5\+Context $\ast$, int i\+Col, sqlite3\+\_\+int64 $\ast$pn\+Token)
+\item 
+\mbox{\label{struct_fts5_extension_api_a134b3fab828163d5f30d96b3d25ef109}} 
+int($\ast$ {\bfseries x\+Tokenize} )(Fts5\+Context $\ast$, const char $\ast$p\+Text, int n\+Text, void $\ast$p\+Ctx, int($\ast$x\+Token)(void $\ast$, int, const char $\ast$, int, int, int))
+\item 
+\mbox{\label{struct_fts5_extension_api_a7ce0b8b06ec07e7356bfd4ca8d5e2fba}} 
+int($\ast$ {\bfseries x\+Phrase\+Count} )(Fts5\+Context $\ast$)
+\item 
+\mbox{\label{struct_fts5_extension_api_a5638717b97604cf260469fdd099f248c}} 
+int($\ast$ {\bfseries x\+Phrase\+Size} )(Fts5\+Context $\ast$, int i\+Phrase)
+\item 
+\mbox{\label{struct_fts5_extension_api_ac51159dc9107e8b5db96740796cc0bc9}} 
+int($\ast$ {\bfseries x\+Inst\+Count} )(Fts5\+Context $\ast$, int $\ast$pn\+Inst)
+\item 
+\mbox{\label{struct_fts5_extension_api_a1b555dcd822f1b9b1c3693b35813a4dd}} 
+int($\ast$ {\bfseries x\+Inst} )(Fts5\+Context $\ast$, int i\+Idx, int $\ast$pi\+Phrase, int $\ast$pi\+Col, int $\ast$pi\+Off)
+\item 
+\mbox{\label{struct_fts5_extension_api_a63558e2ca06150be11e2cd2dfb783d2c}} 
+sqlite3\+\_\+int64($\ast$ {\bfseries x\+Rowid} )(Fts5\+Context $\ast$)
+\item 
+\mbox{\label{struct_fts5_extension_api_ae32649e6426ecc2479f015cca155e214}} 
+int($\ast$ {\bfseries x\+Column\+Text} )(Fts5\+Context $\ast$, int i\+Col, const char $\ast$$\ast$pz, int $\ast$pn)
+\item 
+\mbox{\label{struct_fts5_extension_api_a4f373bddc9b66987ab3d49fdd3f5dde2}} 
+int($\ast$ {\bfseries x\+Column\+Size} )(Fts5\+Context $\ast$, int i\+Col, int $\ast$pn\+Token)
+\item 
+\mbox{\label{struct_fts5_extension_api_abaf6e6228daa8b1b73743b3a067051ad}} 
+int($\ast$ {\bfseries x\+Query\+Phrase} )(Fts5\+Context $\ast$, int i\+Phrase, void $\ast$p\+User\+Data, int($\ast$)(const \textbf{ Fts5\+Extension\+Api} $\ast$, Fts5\+Context $\ast$, void $\ast$))
+\item 
+\mbox{\label{struct_fts5_extension_api_a6e13a266100705f19085d0ca9a377f50}} 
+int($\ast$ {\bfseries x\+Set\+Auxdata} )(Fts5\+Context $\ast$, void $\ast$p\+Aux, void($\ast$x\+Delete)(void $\ast$))
+\item 
+\mbox{\label{struct_fts5_extension_api_ac9f1f5128f90737cb4fa4930c3711538}} 
+void $\ast$($\ast$ {\bfseries x\+Get\+Auxdata} )(Fts5\+Context $\ast$, int b\+Clear)
+\item 
+\mbox{\label{struct_fts5_extension_api_a7c813104c5f26c8bdc470774dbc4947a}} 
+int($\ast$ {\bfseries x\+Phrase\+First} )(Fts5\+Context $\ast$, int i\+Phrase, \textbf{ Fts5\+Phrase\+Iter} $\ast$, int $\ast$, int $\ast$)
+\item 
+\mbox{\label{struct_fts5_extension_api_ac46958c7e115940aae0eb1036a8361f6}} 
+void($\ast$ {\bfseries x\+Phrase\+Next} )(Fts5\+Context $\ast$, \textbf{ Fts5\+Phrase\+Iter} $\ast$, int $\ast$pi\+Col, int $\ast$pi\+Off)
+\item 
+\mbox{\label{struct_fts5_extension_api_aa67a243c09c6b9eb4b4518096f35a2b0}} 
+int($\ast$ {\bfseries x\+Phrase\+First\+Column} )(Fts5\+Context $\ast$, int i\+Phrase, \textbf{ Fts5\+Phrase\+Iter} $\ast$, int $\ast$)
+\item 
+\mbox{\label{struct_fts5_extension_api_aed092bdd7aaffc21683bad57d3a688db}} 
+void($\ast$ {\bfseries x\+Phrase\+Next\+Column} )(Fts5\+Context $\ast$, \textbf{ Fts5\+Phrase\+Iter} $\ast$, int $\ast$pi\+Col)
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sqlite/include/sqlite3.\+h\item 
+C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/sqlite/src/sqlite3.\+c\end{DoxyCompactItemize}

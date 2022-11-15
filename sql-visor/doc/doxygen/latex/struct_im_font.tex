@@ -1,0 +1,116 @@
+\doxysection{Im\+Font Struct Reference}
+\label{struct_im_font}\index{ImFont@{ImFont}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct_im_font_ac6a773b73c6406fd8f08c4c93213a501}} 
+const I\+M\+G\+U\+I\+\_\+\+A\+PI \textbf{ Im\+Font\+Glyph} $\ast$ {\bfseries Find\+Glyph} (Im\+Wchar c) const
+\item 
+\mbox{\label{struct_im_font_aa9ce4765070dfdee66bf5e5e81acaac3}} 
+const I\+M\+G\+U\+I\+\_\+\+A\+PI \textbf{ Im\+Font\+Glyph} $\ast$ {\bfseries Find\+Glyph\+No\+Fallback} (Im\+Wchar c) const
+\item 
+\mbox{\label{struct_im_font_adffcff4e4e2d17455410bd4ba76b42e4}} 
+float {\bfseries Get\+Char\+Advance} (Im\+Wchar c) const
+\item 
+\mbox{\label{struct_im_font_a97dafa61cc94e84be396d69b0d42b1ce}} 
+bool {\bfseries Is\+Loaded} () const
+\item 
+\mbox{\label{struct_im_font_a11843ed46aaa122264d0da87ffafd627}} 
+const char $\ast$ {\bfseries Get\+Debug\+Name} () const
+\item 
+\mbox{\label{struct_im_font_ad67f64fd206ad197f4b93b1a1ae27cfe}} 
+I\+M\+G\+U\+I\+\_\+\+A\+PI \textbf{ Im\+Vec2} {\bfseries Calc\+Text\+SizeA} (float size, float max\+\_\+width, float wrap\+\_\+width, const char $\ast$text\+\_\+begin, const char $\ast$text\+\_\+end=N\+U\+LL, const char $\ast$$\ast$remaining=N\+U\+LL) const
+\item 
+\mbox{\label{struct_im_font_a3781bb82a1ceba919cb6c98a398c7a67}} 
+const I\+M\+G\+U\+I\+\_\+\+A\+PI char $\ast$ {\bfseries Calc\+Word\+Wrap\+PositionA} (float scale, const char $\ast$text, const char $\ast$text\+\_\+end, float wrap\+\_\+width) const
+\item 
+\mbox{\label{struct_im_font_aa8370ddcf8d3e4e034d07de9e00fcdd1}} 
+I\+M\+G\+U\+I\+\_\+\+A\+PI void {\bfseries Render\+Char} (\textbf{ Im\+Draw\+List} $\ast$draw\+\_\+list, float size, \textbf{ Im\+Vec2} pos, Im\+U32 col, Im\+Wchar c) const
+\item 
+\mbox{\label{struct_im_font_a2877acf1cfcd964bc2e7fe600a08849e}} 
+I\+M\+G\+U\+I\+\_\+\+A\+PI void {\bfseries Render\+Text} (\textbf{ Im\+Draw\+List} $\ast$draw\+\_\+list, float size, \textbf{ Im\+Vec2} pos, Im\+U32 col, const \textbf{ Im\+Vec4} \&clip\+\_\+rect, const char $\ast$text\+\_\+begin, const char $\ast$text\+\_\+end, float wrap\+\_\+width=0.\+0f, bool cpu\+\_\+fine\+\_\+clip=false) const
+\item 
+\mbox{\label{struct_im_font_a04b3a1437bd0032722bbbd3613941162}} 
+I\+M\+G\+U\+I\+\_\+\+A\+PI void {\bfseries Build\+Lookup\+Table} ()
+\item 
+\mbox{\label{struct_im_font_aecf7773b1c40b433f91ee245f463de12}} 
+I\+M\+G\+U\+I\+\_\+\+A\+PI void {\bfseries Clear\+Output\+Data} ()
+\item 
+\mbox{\label{struct_im_font_ab7865a365d9653b4636b198d2f222fd6}} 
+I\+M\+G\+U\+I\+\_\+\+A\+PI void {\bfseries Grow\+Index} (int new\+\_\+size)
+\item 
+\mbox{\label{struct_im_font_a1badad96fa8d41b4754fc7bdb826e6b2}} 
+I\+M\+G\+U\+I\+\_\+\+A\+PI void {\bfseries Add\+Glyph} (const \textbf{ Im\+Font\+Config} $\ast$src\+\_\+cfg, Im\+Wchar c, float x0, float y0, float x1, float y1, float u0, float v0, float u1, float v1, float advance\+\_\+x)
+\item 
+\mbox{\label{struct_im_font_aba8cd20f14ba47175d45d3f2063aa329}} 
+I\+M\+G\+U\+I\+\_\+\+A\+PI void {\bfseries Add\+Remap\+Char} (Im\+Wchar dst, Im\+Wchar src, bool overwrite\+\_\+dst=true)
+\item 
+\mbox{\label{struct_im_font_a52fbd5caef22c68bb8e0e251c6bfcc53}} 
+I\+M\+G\+U\+I\+\_\+\+A\+PI void {\bfseries Set\+Glyph\+Visible} (Im\+Wchar c, bool visible)
+\item 
+\mbox{\label{struct_im_font_a4374ffca4f2d9a23599aac21c57e2a66}} 
+I\+M\+G\+U\+I\+\_\+\+A\+PI bool {\bfseries Is\+Glyph\+Range\+Unused} (unsigned int c\+\_\+begin, unsigned int c\+\_\+last)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct_im_font_af906476eda06d8a842d0a843a247f530}} 
+\textbf{ Im\+Vector}$<$ float $>$ {\bfseries Index\+AdvanceX}
+\item 
+\mbox{\label{struct_im_font_ad58a5ee4492a3a9fa56f73e5a40d728d}} 
+float {\bfseries Fallback\+AdvanceX}
+\item 
+\mbox{\label{struct_im_font_a423e36d1594281f1a5a537e5b0d0a3d4}} 
+float {\bfseries Font\+Size}
+\item 
+\mbox{\label{struct_im_font_a0c948f3741da03da9bc1731e236173c8}} 
+\textbf{ Im\+Vector}$<$ Im\+Wchar $>$ {\bfseries Index\+Lookup}
+\item 
+\mbox{\label{struct_im_font_a1a0901fc1a8cbd41d582d6cef4946bc9}} 
+\textbf{ Im\+Vector}$<$ \textbf{ Im\+Font\+Glyph} $>$ {\bfseries Glyphs}
+\item 
+\mbox{\label{struct_im_font_a0e666b0c49646bd294103f4d288df4b8}} 
+const \textbf{ Im\+Font\+Glyph} $\ast$ {\bfseries Fallback\+Glyph}
+\item 
+\mbox{\label{struct_im_font_a8a5e0df6be5e3cabe91ae830524db960}} 
+\textbf{ Im\+Font\+Atlas} $\ast$ {\bfseries Container\+Atlas}
+\item 
+\mbox{\label{struct_im_font_afff4a317b215a37599589941d6131fd0}} 
+const \textbf{ Im\+Font\+Config} $\ast$ {\bfseries Config\+Data}
+\item 
+\mbox{\label{struct_im_font_a4a30fc7711d628ad582ccb3188a51ddd}} 
+short {\bfseries Config\+Data\+Count}
+\item 
+\mbox{\label{struct_im_font_ae54c2c4184bfcbc7b8f6da9cbc4f93c0}} 
+Im\+Wchar {\bfseries Fallback\+Char}
+\item 
+\mbox{\label{struct_im_font_a51df9d341917235207db60e775b11621}} 
+Im\+Wchar {\bfseries Ellipsis\+Char}
+\item 
+\mbox{\label{struct_im_font_a5b3a02d55d614aad63487421e05ce1e2}} 
+Im\+Wchar {\bfseries Dot\+Char}
+\item 
+\mbox{\label{struct_im_font_a3858e851f69b3abbbefad76030a546ff}} 
+bool {\bfseries Dirty\+Lookup\+Tables}
+\item 
+\mbox{\label{struct_im_font_ae98fb07fd8862a7243d77b11f38bba19}} 
+float {\bfseries Scale}
+\item 
+\mbox{\label{struct_im_font_a5238ef18f8ad02b783fb8b3a195b708e}} 
+float {\bfseries Ascent}
+\item 
+\mbox{\label{struct_im_font_abcca12aa908bf7105433e7db6088a5e5}} 
+float {\bfseries Descent}
+\item 
+\mbox{\label{struct_im_font_a8087b2ee8b27dcf5c6e30a8318f87cc7}} 
+int {\bfseries Metrics\+Total\+Surface}
+\item 
+\mbox{\label{struct_im_font_a95184d1095ecc7da9c843579052e1009}} 
+Im\+U8 {\bfseries Used4k\+Pages\+Map} [(I\+M\+\_\+\+U\+N\+I\+C\+O\+D\+E\+\_\+\+C\+O\+D\+E\+P\+O\+I\+N\+T\+\_\+\+M\+AX+1)/4096/8]
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/imgui/imgui.\+h\item 
+C\+:/\+Users/\+Manuel/\+Desktop/\+Avanzada/2\+P\+A\+\_\+\+T\+A\+\_\+alcazarlo/sql-\/visor/deps/imgui/imgui\+\_\+draw.\+cpp\end{DoxyCompactItemize}
